@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="bae61495-288a-4f02-9ff0-b8654a35b66e" activeEnvironment="Default" name="shafafiya - Test Env - pte" resourceRoot="${projectDir}" soapui-version="5.1.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="1cf272ce-ee77-42c9-aef1-ffe6e6152995" wsaVersion="NONE" name="WebservicesSoap" type="wsdl" bindingName="{https://www.shafafiya.org/v2/}WebservicesSoap" soapVersion="1_1" anonymous="optional" definition="https://shafafiyapte.haad.ae/v2/webservices.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://shafafiyapte.haad.ae/v2/webservices.asmx?wsdl"><con:part><con:url>https://shafafiyapte.haad.ae/v2/webservices.asmx?wsdl</con:url><con:content><![CDATA[<WL5G3N0:definitions targetNamespace="https://www.shafafiya.org/v2/" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="https://www.shafafiya.org/v2/" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://www.shafafiya.org/v2/" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="https://www.shafafiya.org/v2/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <s:element name="UploadTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="login" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="pwd" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="fileContent" type="s:base64Binary"/>
+            <s:element maxOccurs="1" minOccurs="0" name="fileName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="UploadTransactionResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="errorMessage" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="errorReport" type="s:base64Binary"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="login" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="pwd" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="GetNewTransactionsResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="xmlTransactions" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadTransactionFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="login" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="pwd" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="fileId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadTransactionFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="DownloadTransactionFileResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="fileName" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="file" type="s:base64Binary"/>
+            <s:element maxOccurs="1" minOccurs="0" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="login" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="pwd" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="1" name="direction" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="callerLicense" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="ePartner" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="1" name="transactionID" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="1" name="transactionStatus" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="transactionFileName" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="transactionFromDate" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="transactionToDate" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="1" name="minRecordCount" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="1" name="maxRecordCount" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="SearchTransactionsResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="foundTransactions" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTransactionDownloaded">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="login" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="pwd" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="fileId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTransactionDownloadedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="SetTransactionDownloadedResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrescriptions">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="login" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="pwd" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="payerID" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="memberID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrescriptionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="GetPrescriptionsResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="prescription" type="s:base64Binary"/>
+            <s:element maxOccurs="1" minOccurs="0" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDRGToEClaim">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="login" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="pwd" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="originalFileContent" type="s:base64Binary"/>
+            <s:element maxOccurs="1" minOccurs="0" name="originalFileName" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="1" name="baseRate" type="s:decimal"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDRGToEClaimResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="AddDRGToEClaimResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="drgFileContent" type="s:base64Binary"/>
+            <s:element maxOccurs="1" minOccurs="0" name="drgFileName" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="auditFileContent" type="s:base64Binary"/>
+            <s:element maxOccurs="1" minOccurs="0" name="reportFileContent" type="s:base64Binary"/>
+            <s:element maxOccurs="1" minOccurs="0" name="errorMessage" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="errorReport" type="s:base64Binary"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckForNewPriorAuthorizationTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="login" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="pwd" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckForNewPriorAuthorizationTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="CheckForNewPriorAuthorizationTransactionsResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewPriorAuthorizationTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="login" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="pwd" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewPriorAuthorizationTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="GetNewPriorAuthorizationTransactionsResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="foundTransactions" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDRGDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="login" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="pwd" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="xmlClaimInput" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDRGDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="1" name="GetDRGDetailsResult" type="s:int"/>
+            <s:element maxOccurs="1" minOccurs="0" name="xmlDRGDetails" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="auditFileContent" type="s:base64Binary"/>
+            <s:element maxOccurs="1" minOccurs="0" name="reportFileContent" type="s:base64Binary"/>
+            <s:element maxOccurs="1" minOccurs="0" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="UploadTransactionSoapIn">
+    <WL5G3N0:part element="WL5G3N1:UploadTransaction" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="UploadTransactionSoapOut">
+    <WL5G3N0:part element="WL5G3N1:UploadTransactionResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetNewTransactionsSoapIn">
+    <WL5G3N0:part element="WL5G3N1:GetNewTransactions" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetNewTransactionsSoapOut">
+    <WL5G3N0:part element="WL5G3N1:GetNewTransactionsResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="DownloadTransactionFileSoapIn">
+    <WL5G3N0:part element="WL5G3N1:DownloadTransactionFile" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="DownloadTransactionFileSoapOut">
+    <WL5G3N0:part element="WL5G3N1:DownloadTransactionFileResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="SearchTransactionsSoapIn">
+    <WL5G3N0:part element="WL5G3N1:SearchTransactions" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="SearchTransactionsSoapOut">
+    <WL5G3N0:part element="WL5G3N1:SearchTransactionsResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="SetTransactionDownloadedSoapIn">
+    <WL5G3N0:part element="WL5G3N1:SetTransactionDownloaded" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="SetTransactionDownloadedSoapOut">
+    <WL5G3N0:part element="WL5G3N1:SetTransactionDownloadedResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetPrescriptionsSoapIn">
+    <WL5G3N0:part element="WL5G3N1:GetPrescriptions" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetPrescriptionsSoapOut">
+    <WL5G3N0:part element="WL5G3N1:GetPrescriptionsResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="AddDRGToEClaimSoapIn">
+    <WL5G3N0:part element="WL5G3N1:AddDRGToEClaim" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="AddDRGToEClaimSoapOut">
+    <WL5G3N0:part element="WL5G3N1:AddDRGToEClaimResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="CheckForNewPriorAuthorizationTransactionsSoapIn">
+    <WL5G3N0:part element="WL5G3N1:CheckForNewPriorAuthorizationTransactions" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="CheckForNewPriorAuthorizationTransactionsSoapOut">
+    <WL5G3N0:part element="WL5G3N1:CheckForNewPriorAuthorizationTransactionsResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetNewPriorAuthorizationTransactionsSoapIn">
+    <WL5G3N0:part element="WL5G3N1:GetNewPriorAuthorizationTransactions" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetNewPriorAuthorizationTransactionsSoapOut">
+    <WL5G3N0:part element="WL5G3N1:GetNewPriorAuthorizationTransactionsResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetDRGDetailsSoapIn">
+    <WL5G3N0:part element="WL5G3N1:GetDRGDetails" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetDRGDetailsSoapOut">
+    <WL5G3N0:part element="WL5G3N1:GetDRGDetailsResponse" name="parameters"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="WebservicesSoap">
+    <WL5G3N0:operation name="UploadTransaction">
+      <WL5G3N0:input message="WL5G3N1:UploadTransactionSoapIn"/>
+      <WL5G3N0:output message="WL5G3N1:UploadTransactionSoapOut"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetNewTransactions">
+      <WL5G3N0:input message="WL5G3N1:GetNewTransactionsSoapIn"/>
+      <WL5G3N0:output message="WL5G3N1:GetNewTransactionsSoapOut"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="DownloadTransactionFile">
+      <WL5G3N0:input message="WL5G3N1:DownloadTransactionFileSoapIn"/>
+      <WL5G3N0:output message="WL5G3N1:DownloadTransactionFileSoapOut"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="SearchTransactions">
+      <WL5G3N0:input message="WL5G3N1:SearchTransactionsSoapIn"/>
+      <WL5G3N0:output message="WL5G3N1:SearchTransactionsSoapOut"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="SetTransactionDownloaded">
+      <WL5G3N0:input message="WL5G3N1:SetTransactionDownloadedSoapIn"/>
+      <WL5G3N0:output message="WL5G3N1:SetTransactionDownloadedSoapOut"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetPrescriptions">
+      <WL5G3N0:input message="WL5G3N1:GetPrescriptionsSoapIn"/>
+      <WL5G3N0:output message="WL5G3N1:GetPrescriptionsSoapOut"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="AddDRGToEClaim">
+      <WL5G3N0:input message="WL5G3N1:AddDRGToEClaimSoapIn"/>
+      <WL5G3N0:output message="WL5G3N1:AddDRGToEClaimSoapOut"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="CheckForNewPriorAuthorizationTransactions">
+      <WL5G3N0:input message="WL5G3N1:CheckForNewPriorAuthorizationTransactionsSoapIn"/>
+      <WL5G3N0:output message="WL5G3N1:CheckForNewPriorAuthorizationTransactionsSoapOut"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetNewPriorAuthorizationTransactions">
+      <WL5G3N0:input message="WL5G3N1:GetNewPriorAuthorizationTransactionsSoapIn"/>
+      <WL5G3N0:output message="WL5G3N1:GetNewPriorAuthorizationTransactionsSoapOut"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetDRGDetails">
+      <WL5G3N0:input message="WL5G3N1:GetDRGDetailsSoapIn"/>
+      <WL5G3N0:output message="WL5G3N1:GetDRGDetailsSoapOut"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="WebservicesSoap" type="WL5G3N1:WebservicesSoap">
+    <WL5G3N2:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="UploadTransaction">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/UploadTransaction" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetNewTransactions">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/GetNewTransactions" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="DownloadTransactionFile">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/DownloadTransactionFile" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="SearchTransactions">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/SearchTransactions" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="SetTransactionDownloaded">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/SetTransactionDownloaded" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetPrescriptions">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/GetPrescriptions" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="AddDRGToEClaim">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/AddDRGToEClaim" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="CheckForNewPriorAuthorizationTransactions">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/CheckForNewPriorAuthorizationTransactions" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetNewPriorAuthorizationTransactions">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/GetNewPriorAuthorizationTransactions" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetDRGDetails">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/GetDRGDetails" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="Webservices">
+    <WL5G3N0:documentation>OSB Service</WL5G3N0:documentation>
+    <WL5G3N0:port binding="WL5G3N1:WebservicesSoap" name="WebservicesSoap">
+      <WL5G3N2:address location="https://shafafiyapte.haad.ae/v2/webservices.asmx"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint></con:endpoints><con:operation id="ff6b5f2e-04c0-4949-b580-7d530abe58cb" isOneWay="false" action="https://www.shafafiya.org/v2/AddDRGToEClaim" name="AddDRGToEClaim" bindingOperationName="AddDRGToEClaim" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f0d67511-7642-46ab-a5af-5e6c1c1e8fc1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:AddDRGToEClaim>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+         <!--Optional:-->\r
+         <v2:originalFileContent>cid:1465833414311</v2:originalFileContent>\r
+         <!--Optional:-->\r
+         <v2:originalFileName>?</v2:originalFileName>\r
+         <v2:baseRate>?</v2:baseRate>\r
+      </v2:AddDRGToEClaim>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://www.shafafiya.org/v2/AddDRGToEClaim"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="a0b55c59-c6ef-45e1-938f-12993f694ba7" isOneWay="false" action="https://www.shafafiya.org/v2/CheckForNewPriorAuthorizationTransactions" name="CheckForNewPriorAuthorizationTransactions" bindingOperationName="CheckForNewPriorAuthorizationTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="352d60bd-d1be-472d-9fbb-d126f115e13a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:CheckForNewPriorAuthorizationTransactions>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+      </v2:CheckForNewPriorAuthorizationTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://www.shafafiya.org/v2/CheckForNewPriorAuthorizationTransactions"/></con:call></con:operation><con:operation id="ea7aaa61-5169-420a-b6c1-df2538ef7e31" isOneWay="false" action="https://www.shafafiya.org/v2/DownloadTransactionFile" name="DownloadTransactionFile" bindingOperationName="DownloadTransactionFile" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="19526f90-0fd0-4891-99ba-92869dce707d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:DownloadTransactionFile>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+         <!--Optional:-->\r
+         <v2:fileId>?</v2:fileId>\r
+      </v2:DownloadTransactionFile>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://www.shafafiya.org/v2/DownloadTransactionFile"/></con:call></con:operation><con:operation id="854099dc-5ce4-4747-902f-895ee1626f4d" isOneWay="false" action="https://www.shafafiya.org/v2/GetDRGDetails" name="GetDRGDetails" bindingOperationName="GetDRGDetails" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ab4cef1f-892c-4d13-bd49-cb1151886f5e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:GetDRGDetails>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+         <!--Optional:-->\r
+         <v2:xmlClaimInput>?</v2:xmlClaimInput>\r
+      </v2:GetDRGDetails>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://www.shafafiya.org/v2/GetDRGDetails"/></con:call></con:operation><con:operation id="7d7eed67-e6ce-4aa4-94f8-00de186bcb67" isOneWay="false" action="https://www.shafafiya.org/v2/GetNewPriorAuthorizationTransactions" name="GetNewPriorAuthorizationTransactions" bindingOperationName="GetNewPriorAuthorizationTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="47a7cd7d-015b-4b0d-b824-43b2f64ec4ee" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:GetNewPriorAuthorizationTransactions>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+      </v2:GetNewPriorAuthorizationTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://www.shafafiya.org/v2/GetNewPriorAuthorizationTransactions"/></con:call></con:operation><con:operation id="ca197604-e20f-4c0d-ae49-57887d862d26" isOneWay="false" action="https://www.shafafiya.org/v2/GetNewTransactions" name="GetNewTransactions" bindingOperationName="GetNewTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="61b0ef5f-9d50-4d3f-b439-dd0c4408dde5" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v2:GetNewTransactions>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <v2:login>Iaintest</v2:login><v2:pwd>Kch@102017</v2:pwd>
+      </v2:GetNewTransactions>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://www.shafafiya.org/v2/GetNewTransactions"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="a7ff8d08-0468-4c27-b724-694a5c313146" isOneWay="false" action="https://www.shafafiya.org/v2/GetPrescriptions" name="GetPrescriptions" bindingOperationName="GetPrescriptions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b7cfe6b2-bc32-4a0b-a25b-3801e40057fc" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:GetPrescriptions>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+         <!--Optional:-->\r
+         <v2:payerID>?</v2:payerID>\r
+         <!--Optional:-->\r
+         <v2:memberID>?</v2:memberID>\r
+      </v2:GetPrescriptions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://www.shafafiya.org/v2/GetPrescriptions"/></con:call></con:operation><con:operation id="26418f61-f5cf-4e68-bf84-3f022f3a7641" isOneWay="false" action="https://www.shafafiya.org/v2/SearchTransactions" name="SearchTransactions" bindingOperationName="SearchTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e89f2103-31b2-4e84-82ad-e8b29477be5b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:SearchTransactions>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+         <v2:direction>?</v2:direction>\r
+         <!--Optional:-->\r
+         <v2:callerLicense>?</v2:callerLicense>\r
+         <!--Optional:-->\r
+         <v2:ePartner>?</v2:ePartner>\r
+         <v2:transactionID>?</v2:transactionID>\r
+         <v2:transactionStatus>?</v2:transactionStatus>\r
+         <!--Optional:-->\r
+         <v2:transactionFileName>?</v2:transactionFileName>\r
+         <!--Optional:-->\r
+         <v2:transactionFromDate>?</v2:transactionFromDate>\r
+         <!--Optional:-->\r
+         <v2:transactionToDate>?</v2:transactionToDate>\r
+         <v2:minRecordCount>?</v2:minRecordCount>\r
+         <v2:maxRecordCount>?</v2:maxRecordCount>\r
+      </v2:SearchTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://www.shafafiya.org/v2/SearchTransactions"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="f04987f0-cc76-4a20-856e-4f29966ff336" isOneWay="false" action="https://www.shafafiya.org/v2/SetTransactionDownloaded" name="SetTransactionDownloaded" bindingOperationName="SetTransactionDownloaded" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="89d62617-f756-47d5-bf1a-a8feba60a868" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:SetTransactionDownloaded>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+         <!--Optional:-->\r
+         <v2:fileId>?</v2:fileId>\r
+      </v2:SetTransactionDownloaded>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://www.shafafiya.org/v2/SetTransactionDownloaded"/></con:call></con:operation><con:operation id="18ba5bfc-7bd0-47d9-a25c-2232b43f5c47" isOneWay="false" action="https://www.shafafiya.org/v2/UploadTransaction" name="UploadTransaction" bindingOperationName="UploadTransaction" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1032ad92-5d40-4f28-b289-c34156516546" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:UploadTransaction>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+         <!--Optional:-->\r
+         <v2:fileContent>cid:1279047733757</v2:fileContent>\r
+         <!--Optional:-->\r
+         <v2:fileName>?</v2:fileName>\r
+      </v2:UploadTransaction>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://www.shafafiya.org/v2/UploadTransaction"/></con:call></con:operation></con:interface><con:testSuite id="5309e782-0d88-4e83-9de8-266dca16e7fd" name="WebservicesSoap TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="11cd3408-50bb-435d-a8fa-5698ed9300cd" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddDRGToEClaim TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="b7f31516-8ca7-40a9-9c75-50150d876ebf" name="AddDRGToEClaim"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WebservicesSoap</con:interface><con:operation>AddDRGToEClaim</con:operation><con:request name="AddDRGToEClaim" id="b151b4f6-e5fe-4c20-99f9-e38f104f3995"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:AddDRGToEClaim>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+         <!--Optional:-->\r
+         <v2:originalFileContent>cid:1234686900308</v2:originalFileContent>\r
+         <!--Optional:-->\r
+         <v2:originalFileName>?</v2:originalFileName>\r
+         <v2:baseRate>?</v2:baseRate>\r
+      </v2:AddDRGToEClaim>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="https://www.shafafiya.org/v2/AddDRGToEClaim"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="3cbf38bf-5510-4f36-ae5d-614b54f0f675" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CheckForNewPriorAuthorizationTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="7831176b-de06-4a7c-9c4c-8a10752c5557" name="CheckForNewPriorAuthorizationTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WebservicesSoap</con:interface><con:operation>CheckForNewPriorAuthorizationTransactions</con:operation><con:request name="CheckForNewPriorAuthorizationTransactions" id="5471d6ad-ac7a-4fef-b467-dce9e18601ee"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:CheckForNewPriorAuthorizationTransactions>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+      </v2:CheckForNewPriorAuthorizationTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="https://www.shafafiya.org/v2/CheckForNewPriorAuthorizationTransactions"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="38eaf366-d76c-4f3c-81d2-a2a169a18d3e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DownloadTransactionFile TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="9eeece91-4850-4871-b61a-11f224a30328" name="DownloadTransactionFile"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WebservicesSoap</con:interface><con:operation>DownloadTransactionFile</con:operation><con:request name="DownloadTransactionFile" id="f64bb112-1272-4ea6-b323-10e0b2f820e6"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:DownloadTransactionFile>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+         <!--Optional:-->\r
+         <v2:fileId>?</v2:fileId>\r
+      </v2:DownloadTransactionFile>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="https://www.shafafiya.org/v2/DownloadTransactionFile"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="705dd3a1-b7b2-4f83-85af-2fa34aaa8df5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetDRGDetails TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="021835a4-8299-4956-886e-6988ba5e8f49" name="GetDRGDetails"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WebservicesSoap</con:interface><con:operation>GetDRGDetails</con:operation><con:request name="GetDRGDetails" id="8b3abe0d-0d15-481d-b065-038c62befbb5"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:GetDRGDetails>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+         <!--Optional:-->\r
+         <v2:xmlClaimInput>?</v2:xmlClaimInput>\r
+      </v2:GetDRGDetails>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="https://www.shafafiya.org/v2/GetDRGDetails"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="8592606e-4c9e-414a-872b-096c85b6412a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetNewPriorAuthorizationTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="e8bde2f4-3d0c-4572-ae99-af0874a6f1b6" name="GetNewPriorAuthorizationTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WebservicesSoap</con:interface><con:operation>GetNewPriorAuthorizationTransactions</con:operation><con:request name="GetNewPriorAuthorizationTransactions" id="53fe8c8e-6a7b-4a28-af51-6607ae0901c9"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:GetNewPriorAuthorizationTransactions>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+      </v2:GetNewPriorAuthorizationTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="https://www.shafafiya.org/v2/GetNewPriorAuthorizationTransactions"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="5dcf4426-f18b-4899-a76c-3e1dea46f109" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetNewTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="8f16e93c-3122-4d78-9750-63d9e34b2468" name="GetNewTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WebservicesSoap</con:interface><con:operation>GetNewTransactions</con:operation><con:request name="GetNewTransactions" id="c99a5c56-33e6-4f93-993b-2edac88f5515"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:GetNewTransactions>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+      </v2:GetNewTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="https://www.shafafiya.org/v2/GetNewTransactions"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="1c666805-d683-4590-b892-3ecb1bd0bb7a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetPrescriptions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="1debd262-42ec-43ed-8705-7577514e60d1" name="GetPrescriptions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WebservicesSoap</con:interface><con:operation>GetPrescriptions</con:operation><con:request name="GetPrescriptions" id="46b04b77-e9d3-4089-997d-af0e0a629575"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:GetPrescriptions>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+         <!--Optional:-->\r
+         <v2:payerID>?</v2:payerID>\r
+         <!--Optional:-->\r
+         <v2:memberID>?</v2:memberID>\r
+      </v2:GetPrescriptions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="https://www.shafafiya.org/v2/GetPrescriptions"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="c6320af1-80e6-4e9e-bb12-26f26bc35da7" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SearchTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="ace734b6-67d1-4b2a-ac1a-7c3a0fd302e3" name="SearchTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WebservicesSoap</con:interface><con:operation>SearchTransactions</con:operation><con:request name="SearchTransactions" id="8db49037-f32d-4003-b18f-03a87e0170d2"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:SearchTransactions>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+         <v2:direction>?</v2:direction>\r
+         <!--Optional:-->\r
+         <v2:callerLicense>?</v2:callerLicense>\r
+         <!--Optional:-->\r
+         <v2:ePartner>?</v2:ePartner>\r
+         <v2:transactionID>?</v2:transactionID>\r
+         <v2:transactionStatus>?</v2:transactionStatus>\r
+         <!--Optional:-->\r
+         <v2:transactionFileName>?</v2:transactionFileName>\r
+         <!--Optional:-->\r
+         <v2:transactionFromDate>?</v2:transactionFromDate>\r
+         <!--Optional:-->\r
+         <v2:transactionToDate>?</v2:transactionToDate>\r
+         <v2:minRecordCount>?</v2:minRecordCount>\r
+         <v2:maxRecordCount>?</v2:maxRecordCount>\r
+      </v2:SearchTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="https://www.shafafiya.org/v2/SearchTransactions"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="15dabb85-8682-433d-84b6-5d7def5dfe20" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SetTransactionDownloaded TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="c101afa5-d41b-49e7-b1f3-99becd7af7c4" name="SetTransactionDownloaded"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WebservicesSoap</con:interface><con:operation>SetTransactionDownloaded</con:operation><con:request name="SetTransactionDownloaded" id="9f8f0fa4-8615-4096-b18a-f4ac8a605288"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:SetTransactionDownloaded>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+         <!--Optional:-->\r
+         <v2:fileId>?</v2:fileId>\r
+      </v2:SetTransactionDownloaded>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="https://www.shafafiya.org/v2/SetTransactionDownloaded"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="59d32a53-ce52-4bad-9d90-08f121101006" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadTransaction TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="70c3048b-83f1-4d21-ba43-42437979f0f1" name="UploadTransaction"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WebservicesSoap</con:interface><con:operation>UploadTransaction</con:operation><con:request name="UploadTransaction" id="e576fbf6-89c1-49d1-8e74-dd358d249fdc"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://shafafiyapte.haad.ae/v2/webservices.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="https://www.shafafiya.org/v2/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v2:UploadTransaction>\r
+         <!--Optional:-->\r
+         <v2:login>?</v2:login>\r
+         <!--Optional:-->\r
+         <v2:pwd>?</v2:pwd>\r
+         <!--Optional:-->\r
+         <v2:fileContent>cid:623975283453</v2:fileContent>\r
+         <!--Optional:-->\r
+         <v2:fileName>?</v2:fileName>\r
+      </v2:UploadTransaction>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="https://www.shafafiya.org/v2/UploadTransaction"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting></con:soapui-project>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.eclaimlink.ae/DHD/ValidationSchema" elementFormDefault="qualified" version="2.0" id="MemberRegister" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:import schemaLocation="CommonTypes.xsd" namespace="http://www.eclaimlink.ae/DHD/ValidationSchema"/>
+    <xs:element name="Member.Register">
+ <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="1" name="Header">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element minOccurs="1" maxOccurs="1" name="SenderID" type="tns:HeaderSenderID" />
+                            <xs:element minOccurs="1" maxOccurs="1" name="ReceiverID" type="tns:HeaderReceiverID" />
+                            <xs:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="tns:HeaderTransactionDate" />
+                            <xs:element minOccurs="1" maxOccurs="1" name="RecordCount" type="tns:HeaderRecordCount" />
+                            <xs:element minOccurs="1" maxOccurs="1" name="DispositionFlag" type="tns:HeaderDispositionFlag" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element minOccurs="1" maxOccurs="unbounded" name="Person">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element minOccurs="1" maxOccurs="1" name="FirstName" type="tns:PersonFirstName"/>
+                            <xs:element minOccurs="0" maxOccurs="1" name="SecondName" type="tns:PersonSecondName"/>
+                            <xs:element minOccurs="1" maxOccurs="1" name="FamilyName" type="tns:PersonFamilyName"/>
+                            <xs:element minOccurs="0" maxOccurs="1" name="ContactNumber" type="tns:PersonContactNumber"/>
+                            <xs:element minOccurs="1" maxOccurs="1" name="BirthDate" type="tns:PersonBirthDate"/>
+                            <xs:element minOccurs="1" maxOccurs="1" name="Gender" type="tns:PersonGender"/>
+                            <xs:element minOccurs="1" maxOccurs="1" name="Nationality" type="tns:PersonNationalityID"/>
+                            <xs:element minOccurs="1" maxOccurs="1" name="PassportNumber" type="tns:PersonPassportNumber"/>
+                            <xs:element minOccurs="1" maxOccurs="1" name="MaritalStatus" type="tns:PersonMaritalStatus"/>
+                            <xs:element minOccurs="0" maxOccurs="1" name="Email" type="tns:PersonEmail"/>
+                            <xs:element minOccurs="1" maxOccurs="1" name="Emirate" type="tns:PersonEmirate"/>
+                            <xs:element minOccurs="1" maxOccurs="1" name="ResidentialLocation" type="tns:PersonResidentialLocation"/>
+                            <xs:element minOccurs="1" maxOccurs="1" name="WorkLocation" type="tns:PersonWorkLocation"/>
+                            <xs:element minOccurs="1" maxOccurs="1" name="Salary" type="tns:PersonSalary"/>
+                            <xs:element minOccurs="1" maxOccurs="1" name="Commission" type="tns:PersonCommission"/>
+                            <xs:element minOccurs="1" maxOccurs="1" name="EmiratesIDNumber" type="tns:MemberEmiratesIDNumber"/>
+                            <xs:element minOccurs="1" maxOccurs="1" name="UIDNumber" type="tns:PersonUIDNumber"/>
+                            <xs:element minOccurs="1" maxOccurs="1" name="Member">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element minOccurs="1" maxOccurs="1" name="ID" type="tns:MemberID"/>
+                                        <xs:element minOccurs="1" maxOccurs="1" name="Relation" type="tns:MemberRelationEnum"/>
+                                        <xs:element minOccurs="1" maxOccurs="1" name="RelationTo" type="tns:MemberRelationTo"/>
+                                        <xs:element minOccurs="1" maxOccurs="unbounded" name="Contract">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                   <xs:element minOccurs="1" maxOccurs="1" name="PayerID" type="tns:PersonPayerID"/>
+                                                    <xs:element minOccurs="1" maxOccurs="1" name="ProductOrigin" type="tns:ContractProductOrigin"/>
+                                                    <xs:element minOccurs="1" maxOccurs="1" name="ProductCode" type="tns:ContractProductCode"/>
+                                                    <xs:element minOccurs="1" maxOccurs="1" name="ProductID" type="tns:ContractProductID"/>
+                                                    <xs:element minOccurs="1" maxOccurs="1" name="PolicyID" type="tns:ContractPolicyID"/>
+                                                    <xs:element minOccurs="1" maxOccurs="1" name="EnrollmentDate" type="tns:ContractEnrollmentDate"/>
+                                                    <xs:element minOccurs="1" maxOccurs="1" name="DeletionDate" type="tns:ContractDeletionDate"/>
+                                                    <xs:element minOccurs="1" maxOccurs="1" name="GrossPremium" type="tns:ContractGrossPremium"/>
+                                                    <xs:element minOccurs="1" maxOccurs="1" name="ActualPremium" type="tns:ContractActualPremium"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+										  <xs:element minOccurs="1" maxOccurs="1" name="Establishment">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element minOccurs="1" maxOccurs="1" name="EntityType" type="tns:EstablishmentEntityType"/>
+                                                    <xs:element minOccurs="1" maxOccurs="1" name="EntityID" type="tns:EstablishmentEntityID"/>
+                                                    <xs:element minOccurs="1" maxOccurs="1" name="ContactNumber" type="tns:EstablishmentContactNumber"/>
+                                                    <xs:element minOccurs="1" maxOccurs="1" name="Email" type="tns:EstablishmentEmail"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

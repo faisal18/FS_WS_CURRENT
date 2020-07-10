@@ -1,0 +1,1651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B03DE933-786D-46D0-B23E-D5AC6472AF86}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FS_WS_WSCTFW</RootNamespace>
+    <AssemblyName>FS_WS_WSCTFW</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.2.16.1.0\lib\net45\CsvHelper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.10.1.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EAGetMail45, Version=4.6.3.2, Culture=neutral, PublicKeyToken=e10a0812eb29cf94, processorArchitecture=MSIL">
+      <HintPath>..\packages\EAGetMail.4.6.3.2\lib\net45\EAGetMail45.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hl7.Fhir.Core, Version=0.11.5.28859, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hl7.Fhir.0.11.5\lib\net45\Hl7.Fhir.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="OpenPop, Version=2.0.6.1120, Culture=neutral, PublicKeyToken=6bdb97f144b7efc8, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenPop.NET.2.0.6.1120\lib\net40\OpenPop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog, Version=1.5.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.1.5.14\lib\net45\Serilog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Serilog.FullNetFx, Version=1.5.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.1.5.14\lib\net45\Serilog.FullNetFx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Shouldly, Version=2.6.0.0, Culture=neutral, PublicKeyToken=6042cbcb05cbc941, processorArchitecture=MSIL">
+      <HintPath>..\packages\Shouldly.2.6.0\lib\net40\Shouldly.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Json, Version=2.0.0.11, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.2.0.0.11\lib\net40\System.Text.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.0.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.10.2\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebDriver, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.3.0\lib\net40\WebDriver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+    <Reference Include="WinSCPnet, Version=1.3.3.6786, Culture=neutral, PublicKeyToken=2271ec4a3c56d0bf, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinSCP.5.9.0\lib\WinSCPnet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\AddPhoneNumber.aspx" />
+    <Content Include="Account\Admin\AddRoles.aspx" />
+    <Content Include="Account\Confirm.aspx" />
+    <Content Include="Account\Forgot.aspx" />
+    <Content Include="Account\Lockout.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Manage.aspx" />
+    <Content Include="Account\ManageLogins.aspx" />
+    <Content Include="Account\ManagePassword.aspx" />
+    <Content Include="Account\OpenAuthProviders.ascx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="Account\ResetPassword.aspx" />
+    <Content Include="Account\ResetPasswordConfirmation.aspx" />
+    <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
+    <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="App_Data\AIMS_API.xml" />
+    <Content Include="App_Data\Database1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Database1.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_Data\GraphQueries\Automation_GET_App_Statuses.sql" />
+    <Content Include="App_Data\GraphQueries\Automation_GET_DHPO.sql" />
+    <Content Include="App_Data\GraphQueries\Automation_GET_PBMERX.sql" />
+    <Content Include="App_Data\GraphQueries\Automation_GET_PBMERX_Pending.sql" />
+    <Content Include="App_Data\GraphQueries\Automation_GET_Tran_Count.sql" />
+    <Content Include="App_Data\GraphQueries\GET_DHPO_Faisal.sql" />
+    <Content Include="App_Data\GraphQueries\GET_DHPO_Fazeel.sql" />
+    <Content Include="App_Data\GraphQueries\GET_ERX_PENDING.sql" />
+    <Content Include="App_Data\GraphQueries\GET_ERX_Short.sql" />
+    <Content Include="App_Data\GraphQueries\GET_PBMLink_Pending.sql" />
+    <Content Include="App_Data\GraphQueries\GET_PBMLink_Short.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\31-Oct-2018\PayerIntegration-ClaimSubmission_Transaction.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\31-Oct-2018\PayerIntegration-PriorAuthorization_Transaction_Observation.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\31-Oct-2018\PayerIntegration-PriorRequest_Cancellation_Transaction.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\31-Oct-2018\PayerIntegration-PriorRequest_Transaction.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OMAN\PayerIntegration-Batch_Transaction - 4 Batches.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OMAN\PayerIntegration-Batch_Transaction.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OMAN\PayerIntegration-ClaimSubmission_Transaction.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OMAN\PayerIntegration-PriorAuthorization_Transaction.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OMAN\PayerIntegration-PriorAuthorization_Transaction_Observation.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OMAN\PayerIntegration-PriorAuthorization_Transaction_Observation_Batch.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OMAN\PayerIntegration-PriorRequest_Cancellation_Transaction.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OMAN\PayerIntegration-PriorRequest_Cancellation_Transaction_Batches.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OMAN\PayerIntegration-PriorRequest_Transaction.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OMAN\PayerIntegration-PriorRequest_Transaction_Batch.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OtherPayers\PayerIntegration-ClaimSubmission_Transaction.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OtherPayers\PayerIntegration-PriorAuthorization_Transaction_Observation.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OtherPayers\PayerIntegration-PriorRequest_Cancellation_Transaction.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OtherPayers\PayerIntegration-PriorRequest_Transaction.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OtherPayers\RAW\CS_RAW.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OtherPayers\RAW\PA_RAW.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OtherPayers\RAW\PR_RAW.sql" />
+    <Content Include="App_Data\PayerIntegrationQueries\OtherPayers\RAW\PR_RAW_Cancel.sql" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\dialog.css" />
+    <Content Include="Content\dimen-ims-logo.png" />
+    <Content Include="Content\dimensions_logo_footer.png" />
+    <Content Include="Content\Main.css" />
+    <Content Include="Dashboard\Dashboard_UI.aspx" />
+    <Content Include="Dashboard\Dash_UploadData.aspx" />
+    <Content Include="Dashboard\PerformanceIndicator.aspx" />
+    <Content Include="EmailQueue\fshaikh_Tester.txt" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Account\Web.config" />
+    <Content Include="Helpers\rc4Tester.aspx" />
+    <Content Include="Scripts\dialog.js" />
+    <Content Include="Scripts\knockout-3.3.0.debug.js" />
+    <Content Include="Scripts\knockout-3.3.0.js" />
+    <Content Include="Scripts\ManageEnvironments.js" />
+    <Content Include="Scripts\StaticHTMLPage.html" />
+    <Content Include="SOAPUI_Calls\AIMS\AIMS-OIC\AIMS-OIC-jenkins-dimensions-healthcare-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\AIMS\Aims-Project_Testing.xml" />
+    <Content Include="SOAPUI_Calls\AIMS\Aims-QA-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\AIMS\QA-AIMS-PErformance-Testing-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\AIMS\REST-Project-2-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\Automation\Script_Class_Automation_SoapUI.txt" />
+    <Content Include="SOAPUI_Calls\Automation\Script_Class_Automation_SoapUI_NPP.txt" />
+    <Content Include="SOAPUI_Calls\Automation\Testing Rest MOck\Testing-Rest-Mocking-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\AXARuleEngine\AXARuleEngine-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\AXARuleEngine\DataOUtput.txt" />
+    <Content Include="SOAPUI_Calls\CEED\CEED-gateway-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\CEED\CEED-QA-gateway-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\CEED\Properties.txt" />
+    <Content Include="SOAPUI_Calls\CEED\VPSHealth.xml" />
+    <Content Include="SOAPUI_Calls\default-soapui-workspace.xml" />
+    <Content Include="SOAPUI_Calls\DHCC\DHCC-GetProfessional-HCPService-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DHPO Erx\Production---eRxValidateTransaction-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DHPO- QA- ClinicianAuthentication\QA-DHPO-ClinicianAuthontication-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-Archive\DHPO-Archiving-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-New\DHPO-New-Environment-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-New\DHPO-New-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Fazeel-Test-C--soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Laptop-1.txt" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\eAuthPayer-1.txt" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\eAuthPayer-2.txt" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\eAuthPayer-3.txt" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\ERXLink-1-web-2.txt" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\ERXLink-1.txt" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\ERXLink-2-web-2.txt" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\ERXLink-2.txt" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\ERXLink-3-web-2.txt" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\ERXLink-3.txt" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\LocalLaptop.txt" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\PR_DHA-MAX-Size-1.5MB.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\PR_DHA-MAX-Size-100Kb.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\PR_DHA-MAX-Size-1MB.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\PR_DHA-MAX-Size-200Kb.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\PR_DHA-MAX-Size-300Kb.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\PR_DHA-MAX-Size-400Kb.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\PR_DHA-MAX-Size-500Kb.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\qa-1.txt" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\qa-2.txt" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\qa-3.txt" />
+    <Content Include="SOAPUI_Calls\DHPO-New\ValidateTransactions-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-Prod-ClinicianAuthentication\ClinicianAuthontication-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-PROD-eRXValidateTransaction\Production-DHPO-eRxValidateTransaction-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-QA-ValidateTransactions\HPO-Jordan-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-QA-ValidateTransactions\QA-DHPO-ValidateTransaction-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DHPO-QA\EXECUTION\DHPO-Executor.Bat.txt" />
+    <Content Include="SOAPUI_Calls\DHPO-QA\PROCESSING\DHPO-QA-eRx-ValidateTransaction-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DSS\cds-dimensions-healthcare-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DSS\cds-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DSS\DSS-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DSS\DSSRServicewsdl-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\DSS\Request_1.XML" />
+    <Content Include="SOAPUI_Calls\Eclaim-Kuwait\Eclaim-Kuwait-validatetransactions-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\Eclaim-QA\Eclaim-QA-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\Eclaim-QA\QA-EclaimLink-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\EclaimLink-Kuwait\Eclaim-Kuwait-validatetransactions-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\eReferral\eReferralTransactions-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\eReferral\fileContent.txt" />
+    <Content Include="SOAPUI_Calls\eReferral\QA---eReferralTransactions-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\FHIR\FHIR%28AU%29.xml" />
+    <Content Include="SOAPUI_Calls\FHIR\FHIR-http---fhirtest-uhn-ca-baseDstu2--soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\FHIR\Fhir-Rik-Smithies--soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\FHIR\FHIR-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\GTPO\QA-GTPO-ValidateTransactions-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\ICMService\ICMService-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\ICMService\MultActivity.xml" />
+    <Content Include="SOAPUI_Calls\ICMService\MultipleClaim.xml" />
+    <Content Include="SOAPUI_Calls\ICMService\OUTPUT_FIles.txt" />
+    <Content Include="SOAPUI_Calls\ICMService\OUTPUT_FIles_MultipleActivities.txt" />
+    <Content Include="SOAPUI_Calls\ICMService\Samplexml1.xml" />
+    <Content Include="SOAPUI_Calls\ICMService\soapui-settings.xml" />
+    <Content Include="SOAPUI_Calls\IDAM\eClaimLink-IDAM-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\Ishad\OrderId.txt" />
+    <Content Include="SOAPUI_Calls\Ishad\REST-Project-1-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\LMU\lmu-dimensions-healthcare-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Automation\EXECUTION\DHPO-Executor.Bat.txt" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Automation\PROCESSING\DHPO-QA-eRx-ValidateTransaction-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Automation\PROCESSING\MemberRegistration-Updated-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Member-Registration-GapInsurance-Kasem--soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Member-Registration-GapInsurance-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Member-Registration-MemberDetailInsuranceInformation-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\memberregister - Valid Request.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\MemberRegister-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\memberregister.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\MemberREgister_Empty Request.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\MemberRegistration-Updated-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\MemberRegistrationV2-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\memberuid.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Member\Member-Registration-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Member\readme.txt" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Production-MemberRegister\E_1486.MR.TPA004.26-Jan-2016.From.INS044.To.DHA.XML" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Production-MemberRegister\E_1501.MR.TPA004.27-Jan-2016.From.INS044.To.DHA.XML" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Production-MemberRegister\memberregister.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Production-MemberRegister\Production-MemberRegistration-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\wsdl-report.html" />
+    <Content Include="SOAPUI_Calls\Monitoring Services\GroovyScript-Assertion.txt" />
+    <Content Include="SOAPUI_Calls\Monitoring Services\Monitoring-Service-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\NPICOde_update_FromMicheal\PROD-pbm-Provider-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\NPICOde_update_FromMicheal\UAT-PBM-provider-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\OIC-MedicalService\OIC-MedicalService-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\PBMLINK-QA\PBMLINK-QA-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\PBMSwitch-QA\QA-PBMSwitch-dimensions-healthcare-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\PBMSwitch-QA\UAT-PBMSWITCH-DimensionsPbmWS-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\PBMSwitch-QA\UAT-PBMSWITCH-MEMBERUPDate--soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\PBMSwitch-QA\UAT-PBMSwitch-PayerIntegrationWS-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\PBMSwitch\PBMSwitch-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\PBMSwitch\PostPriorRequest.xml" />
+    <Content Include="SOAPUI_Calls\PBMSwitch\Production-pbmswitch-DimensionsWS-soapui-project-UPdated.xml" />
+    <Content Include="SOAPUI_Calls\PBMSwitch\Production-pbmswitch-DimensionsWS-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\PBMSwitch\Production-PBMSwitch-MemberUpdate-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\PBMSwitch\Production-pbmswitch-PayerIntegration-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\PBMSwitch\UAT-PBMSWITCH-PayerIntegration-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\QA-DHPO-DashboardWS\QA-DHPO-DashboardWS-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\Shafafiya\shafafiya---Test-Env---pte-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\Shafafiya\Shafafiya-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\Shafafiya\Shafafiye-UpdateNov1-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\Sharyan_Eclaimlink\Sharyan-eClaimLink-soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\Sheryan\Sheryan-API--soapui-project.xml" />
+    <Content Include="SOAPUI_Calls\TVSOL\TVSol-soapui-project.xml" />
+    <Content Include="Utilities\Automation_Workflow.aspx" />
+    <Content Include="Utilities\BatchFileGenerator.aspx" />
+    <Content Include="Utilities\BucketMappingGenerator.aspx" />
+    <Content Include="Utilities\CiscoVPN.aspx" />
+    <Content Include="Utilities\ClinicianUPdate.aspx" />
+    <Content Include="Utilities\connections_server.xml" />
+    <Content Include="Utilities\DBModification\Aims_Insert_Clinician.aspx" />
+    <Content Include="Utilities\DBModification\AIMS_RunCases.aspx" />
+    <Content Include="Utilities\DBModification\Bucket_Mapping_Report.aspx" />
+    <Content Include="Utilities\DBModification\Contra_Indication.aspx" />
+    <Content Include="Utilities\DBModification\Contra_Indication_Edit.aspx" />
+    <Content Include="Utilities\DBModification\DbMOdifierNavigator.aspx" />
+    <Content Include="Utilities\DBModification\DHPO_login_update.aspx" />
+    <Content Include="Utilities\DBModification\DHPO_payer_login_update.aspx" />
+    <Content Include="Utilities\DBModification\EclaimLinkPortal_login_update.aspx" />
+    <Content Include="Utilities\DBModification\EclaimLink_Login_Update.aspx" />
+    <Content Include="Utilities\DBModification\EclaimLink_PO_Update.aspx" />
+    <Content Include="Utilities\DBModification\EclaimParser_Account.aspx" />
+    <Content Include="Utilities\DBModification\ERX_Cancel_Transaction.aspx" />
+    <Content Include="Utilities\DBModification\ERX_Login_Update.aspx" />
+    <Content Include="Utilities\DBModification\ERX_Payer_Login_Update.aspx" />
+    <Content Include="Utilities\DBModification\ERX_PO_update.aspx" />
+    <Content Include="Utilities\DBModification\Generate_Batch_Transaction.aspx" />
+    <Content Include="Utilities\DBModification\Generate_CustomQuery.aspx" />
+    <Content Include="Utilities\DBModification\GetClaimDetails.aspx" />
+    <Content Include="Utilities\DBModification\Get_Clinician_Details.aspx" />
+    <Content Include="Utilities\DBModification\get_credentials.aspx" />
+    <Content Include="Utilities\DBModification\Get_DHPO_Transaction_Detail.aspx" />
+    <Content Include="Utilities\DBModification\Get_Drug_Details.aspx" />
+    <Content Include="Utilities\DBModification\get_ICDsMapping.aspx" />
+    <Content Include="Utilities\DBModification\Get_TurnAroundTime.aspx" />
+    <Content Include="Utilities\DBModification\DHPO_Clinician_Insert.aspx" />
+    <Content Include="Utilities\DBModification\Member_details.aspx" />
+    <Content Include="Utilities\DBModification\OIC_Cancel_Transaction.aspx" />
+    <Content Include="Utilities\DBModification\OIC_Process_Transaction.aspx" />
+    <Content Include="Utilities\DBModification\OIC_Provider_Cancel_Transaction.aspx" />
+    <Content Include="Utilities\DBModification\PBMM_Cancel_Transaction.aspx" />
+    <Content Include="Utilities\DBModification\PBMM_PO_Update.aspx" />
+    <Content Include="Utilities\DBModification\PBMSwitch_Accpted.aspx" />
+    <Content Include="Utilities\DBModification\PBMSwitch_Batch_Download.aspx" />
+    <Content Include="Utilities\DBModification\PBMSwitch_Sender_Update.aspx" />
+    <Content Include="Utilities\DBModification\PBMSwitch_TransactionUpdate.aspx" />
+    <Content Include="Utilities\DBModification\run_batches.aspx" />
+    <Content Include="Utilities\DBModification\SendEmail_BQS.aspx" />
+    <Content Include="Utilities\DBModification\Submit_Claim.aspx" />
+    <Content Include="Utilities\DBModification\Suspend_Clinician.aspx" />
+    <Content Include="Utilities\DBModification\Transactions_Detail_Report.aspx" />
+    <Content Include="Utilities\DBModification\Transaction_TAT.aspx" />
+    <Content Include="Utilities\DBModification\upload_file.aspx" />
+    <Content Include="Utilities\DHPO-ProviderUpdate.aspx" />
+    <Content Include="Utilities\DrugDownloader.aspx" />
+    <Content Include="Utilities\EgyptDrugDownloader.aspx" />
+    <Content Include="Utilities\EmailCheck.aspx" />
+    <Content Include="Utilities\EmailFetcher.aspx" />
+    <Content Include="Utilities\EncryptFile.aspx" />
+    <Content Include="Utilities\eRXAddUser.aspx" />
+    <Content Include="Utilities\Excel2XML.aspx" />
+    <Content Include="Utilities\FTPChecker.aspx" />
+    <Content Include="Utilities\JsonToExcel.aspx" />
+    <Content Include="Utilities\Payer_SubmissionTransactions_Report.aspx" />
+    <Content Include="Utilities\Script\EmailScriptExecutor.aspx" />
+    <Content Include="Utilities\Script\FTPScriptExecutor.aspx" />
+    <Content Include="Utilities\Script\PayerIntegration-ClaimSubmission_Transaction.sql" />
+    <Content Include="Utilities\Script\PayerIntegration-PriorAuthorization_Transaction_Observation.sql" />
+    <Content Include="Utilities\Script\PayerIntegration-PriorRequest_Cancellation_Transaction.sql" />
+    <Content Include="Utilities\Script\PayerIntegration-PriorRequest_Transaction.sql" />
+    <Content Include="Utilities\ServerMaintenance\CEED.aspx" />
+    <Content Include="Utilities\ServerMaintenance\ClearingHouse-eClaimExpress.aspx" />
+    <Content Include="Utilities\ServerMaintenance\DHPO.aspx" />
+    <Content Include="Utilities\ServerMaintenance\eClaimLink.aspx" />
+    <Content Include="Utilities\ServerMaintenance\eClaimParser.aspx" />
+    <Content Include="Utilities\ServerMaintenance\eRxPharmacy-eRxClinician.aspx" />
+    <Content Include="Utilities\ServerMaintenance\LMU.aspx" />
+    <Content Include="Utilities\ServerMaintenance\PBMLink.aspx" />
+    <Content Include="Utilities\ServerMaintenance\PBMSwitch.aspx" />
+    <Content Include="Utilities\SQLCountScript.aspx" />
+    <Content Include="Utilities\Utilities.aspx" />
+    <Content Include="WinSCP.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WSCaller\ManageEnvironments.aspx" />
+    <Content Include="WSCaller\ManageWebServices.aspx" />
+    <Content Include="App_Data\EF.Reverse.POCO.Core.ttinclude" />
+    <Content Include="App_Data\EF.Reverse.POCO.ttinclude" />
+    <Content Include="WSCaller\WSNavigator.aspx" />
+    <None Include="Properties\PublishProfiles\LocalSystem.pubxml" />
+    <None Include="Properties\PublishProfiles\TmpFOlder.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Site.Master" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Bundle.config" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Site.Mobile.Master" />
+    <Content Include="Utilities\ServerMaintenance\Executor\CEED-Prod.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\CEED-UAT.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\ClearingHouse-eClaimExpress-Prod.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\ClearingHouse-eClaimExpress-UAT.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\DHPO-Prod-Web-1.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\DHPO-Prod-Web-2.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\DHPO-UAT.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\eClaimlink-Prod.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\eClaimlink-UAT.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\eClaimParser-Prod.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\eClaimParser-UAT.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\eRxApps-Prod.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\eRxApps-UAT.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\LMU-Prod.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\LMU-UAT.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\PBMLink-Prod.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\PBMLink-UAT.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\PBMSwitch-Prod.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\PBMSwitch-UAT.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\DHPO-Prod-DB.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\FTP.Bat" />
+    <Content Include="Utilities\ICD9-10-Mapping\ICD9-10_mapping.csv" />
+    <Content Include="Utilities\ServerMaintenance\Executor\eHDF-VPN-Connect.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\eHDF-VPN-Disconnect.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\Cloud.bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\Cloud_Disconnect.bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\eHDF.bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\eHDF_Disconnect.bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\HyperV.bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\HyperV_Disconnect.bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\CiscoVPN.Bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\Asp_RSA.bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\Asp_UNRSA.bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\AppPoolRestart - Remotely.bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\AppPoolRestart.bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\AppPoolRestart_ERX_NewApps_Web - Copy.bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\AppPoolRestart_ERX_NewApps_Web.bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\AppPoolRestart_PBMLINK_Web - Copy.bat" />
+    <Content Include="Utilities\ServerMaintenance\Executor\AppPoolRestart_PBMLINK_Web.bat" />
+    <Content Include="SOAPUI_Calls\AIMS\AIMS-OIC\Drug-Price Mapping.xlsx" />
+    <Content Include="SOAPUI_Calls\Automation\WS_Automation Steps %28Data Driven Approach%29.xlsx" />
+    <Content Include="SOAPUI_Calls\AXARuleEngine\AXARuleEngine-soapui-project.xls" />
+    <Content Include="SOAPUI_Calls\AXARuleEngine\AXARuleEngine-soapui-project.xlsx" />
+    <Content Include="SOAPUI_Calls\CEED\CED" />
+    <Content Include="SOAPUI_Calls\CEED\CEED-XMLS-.rar" />
+    <Content Include="SOAPUI_Calls\CEED\CEED-XMLS-\CEED-QA-Result.csv" />
+    <Content Include="SOAPUI_Calls\CEED\CEED-XMLS-\CEED-QA-Result.zip" />
+    <Content Include="SOAPUI_Calls\CEED\CEED-XMLS-\CEED-XMLS-.7z" />
+    <Content Include="SOAPUI_Calls\CEED\GatewayQA-Fzeel.7z" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Searchdata.xlsx" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Searchresult.xlsx" />
+    <Content Include="SOAPUI_Calls\DHPO-New\Stress Test Files\stress results.xlsx" />
+    <Content Include="SOAPUI_Calls\DHPO-QA\DHPO-QA.zip" />
+    <Content Include="SOAPUI_Calls\DHPO-QA\PROCESSING\Response.xlsx" />
+    <Content Include="SOAPUI_Calls\DHPO-QA\RESULTS\Dashboard.xlsx" />
+    <Content Include="SOAPUI_Calls\DHPO-QA\Test Data\Test-Data.xlsx" />
+    <Content Include="SOAPUI_Calls\DSS\Book1.xlsm" />
+    <Content Include="SOAPUI_Calls\DSS\CDS_AutomationExcel.xlsx" />
+    <Content Include="SOAPUI_Calls\DSS\Claims File with Updated ICDS - Copy.xlsx" />
+    <Content Include="SOAPUI_Calls\DSS\Claims File with Updated ICDS.xlsx" />
+    <Content Include="SOAPUI_Calls\DSS\Claims File with Updated ICDS_v2.xlsx" />
+    <Content Include="SOAPUI_Calls\DSS\Claims File with Updated ICDS_v3.xlsx" />
+    <Content Include="SOAPUI_Calls\DSS\Copy of Claims Data with CPT 1 %28005%29.xlsx" />
+    <Content Include="SOAPUI_Calls\DSS\DSS.7z" />
+    <Content Include="SOAPUI_Calls\DSS\DSS.zip" />
+    <Content Include="SOAPUI_Calls\DSS\DSSR.xlsx" />
+    <Content Include="SOAPUI_Calls\FHIR\FHIR%28AU%29" />
+    <Content Include="SOAPUI_Calls\ICMService\Jenkins.xlsx" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Automation\PROCESSING\Response.xlsx" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Automation\RESULTS\Dashboard.xlsx" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Automation\Test Data\Test-Data.xlsx" />
+    <None Include="SOAPUI_Calls\MemberRegistration\commontypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOAPUI_Calls\MemberRegistration\MemberRegister.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="SOAPUI_Calls\MemberRegistration\memberregisterschemas.zip" />
+    <None Include="SOAPUI_Calls\MemberRegistration\memberregisterschemas\commontypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOAPUI_Calls\MemberRegistration\memberregisterschemas\MemberRegister.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOAPUI_Calls\MemberRegistration\MemberRegistration.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOAPUI_Calls\MemberRegistration\MemberRegistration_1.wsdl" />
+    <None Include="SOAPUI_Calls\MemberRegistration\MemberRegistration_1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOAPUI_Calls\MemberRegistration\MemberRegistration_1_2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="SOAPUI_Calls\MemberRegistration\MembersData.xlsx" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Member\member_1M - 2.7z" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Member\result.7z" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\Production-MemberRegister\ErrorReport 27012016093107.csv" />
+    <Content Include="SOAPUI_Calls\MemberRegistration\profile_275714_6_upload_reports_1440350291311.csv" />
+    <Content Include="SOAPUI_Calls\Monitoring Services\Automationtask.tas" />
+    <Content Include="SOAPUI_Calls\Monitoring Services\Batch\DHPO-Executor.Bat" />
+    <Content Include="SOAPUI_Calls\Monitoring Services\Batch\LOG\ExecutionLog2016-10-28 02-17-17.zip" />
+    <Content Include="SOAPUI_Calls\Monitoring Services\ToadExecutor.bat" />
+    <Content Include="SOAPUI_Calls\NPICOde_update_FromMicheal\2\B2_V28092016%28toTerm%29.xlsx" />
+    <Content Include="SOAPUI_Calls\NPICOde_update_FromMicheal\2\New Microsoft Excel Worksheet.xlsx" />
+    <Content Include="SOAPUI_Calls\NPICOde_update_FromMicheal\2\NEW NPI_Bahrain_STATUS.xlsx" />
+    <Content Include="SOAPUI_Calls\NPICOde_update_FromMicheal\2\New NPI_Update_as of_BahrainV26102016.xlsx" />
+    <Content Include="SOAPUI_Calls\NPICOde_update_FromMicheal\4\B4_Abu Dhabi and Al Ain_V06112016.xlsx" />
+    <Content Include="SOAPUI_Calls\NPICOde_update_FromMicheal\4\B4_Mapped_06112016.xlsx" />
+    <Content Include="SOAPUI_Calls\NPICOde_update_FromMicheal\eRx-PBM_Comprehensive Master List_20-October-2016_1202PM.zip" />
+    <Content Include="SOAPUI_Calls\NPICOde_update_FromMicheal\NPI_update_batches.xlsx" />
+    <Content Include="SOAPUI_Calls\NPICOde_update_FromMicheal\PBMLInk.xlsx" />
+    <Content Include="SOAPUI_Calls\NPICOde_update_FromMicheal\PBMswitch.xlsx" />
+    <Content Include="SOAPUI_Calls\NPICOde_update_FromMicheal\pharmacyintegration_Change_type.xlsx" />
+    <Content Include="SOAPUI_Calls\NPICOde_update_FromMicheal\Provider_list.xlsx" />
+    <Content Include="SOAPUI_Calls\PBMLINK-QA\1" />
+    <Content Include="Utilities\Script\PayerIntegration_Claims.bat" />
+    <Content Include="Utilities\Script\PayerIntegration_PA.bat" />
+    <Content Include="Utilities\Script\PayerIntegration_PR-Cancel.bat" />
+    <Content Include="Utilities\Script\PayerIntegration_PR.bat" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\AddPhoneNumber.aspx.cs">
+      <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\AddPhoneNumber.aspx.designer.cs">
+      <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Admin\AddRoles.aspx.cs">
+      <DependentUpon>AddRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Admin\AddRoles.aspx.designer.cs">
+      <DependentUpon>AddRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Confirm.aspx.cs">
+      <DependentUpon>Confirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Confirm.aspx.designer.cs">
+      <DependentUpon>Confirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Forgot.aspx.cs">
+      <DependentUpon>Forgot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Forgot.aspx.designer.cs">
+      <DependentUpon>Forgot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Lockout.aspx.cs">
+      <DependentUpon>Lockout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Lockout.aspx.designer.cs">
+      <DependentUpon>Lockout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ManageLogins.aspx.cs">
+      <DependentUpon>ManageLogins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ManageLogins.aspx.designer.cs">
+      <DependentUpon>ManageLogins.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ManagePassword.aspx.cs">
+      <DependentUpon>ManagePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ManagePassword.aspx.designer.cs">
+      <DependentUpon>ManagePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.designer.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\RegisterExternalLogin.aspx.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ResetPasswordConfirmation.aspx.cs">
+      <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ResetPasswordConfirmation.aspx.designer.cs">
+      <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\TwoFactorAuthenticationSignIn.aspx.cs">
+      <DependentUpon>TwoFactorAuthenticationSignIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\TwoFactorAuthenticationSignIn.aspx.designer.cs">
+      <DependentUpon>TwoFactorAuthenticationSignIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\VerifyPhoneNumber.aspx.cs">
+      <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
+      <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\Database1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\Dashboard_UI.aspx.cs">
+      <DependentUpon>Dashboard_UI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard\Dashboard_UI.aspx.designer.cs">
+      <DependentUpon>Dashboard_UI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\DashboardData.cs" />
+    <Compile Include="Dashboard\Dash_UploadData.aspx.cs">
+      <DependentUpon>Dash_UploadData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard\Dash_UploadData.aspx.designer.cs">
+      <DependentUpon>Dash_UploadData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\PerformanceIndicator.aspx.cs">
+      <DependentUpon>PerformanceIndicator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard\PerformanceIndicator.aspx.designer.cs">
+      <DependentUpon>PerformanceIndicator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\BatchFIleCaller.cs" />
+    <Compile Include="Helpers\BatchProcess.cs" />
+    <Compile Include="Helpers\CompressionHelper.cs" />
+    <Compile Include="Helpers\CSVHelper.cs" />
+    <Compile Include="Helpers\DBHelper.cs" />
+    <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Helpers\EmailParserHelper.cs" />
+    <Compile Include="Helpers\ExcelHelper.cs" />
+    <Compile Include="Helpers\FileEncryption.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
+    <Compile Include="Helpers\FTPHelper.cs" />
+    <Compile Include="Helpers\HL7.cs" />
+    <Compile Include="Helpers\Logger.cs" />
+    <Compile Include="Helpers\rc4encrypt.cs" />
+    <Compile Include="Helpers\rc4Tester.aspx.cs">
+      <DependentUpon>rc4Tester.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Helpers\rc4Tester.aspx.designer.cs">
+      <DependentUpon>rc4Tester.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\WSHelper.cs" />
+    <Compile Include="Helpers\XMLHelper.cs" />
+    <Compile Include="Migrations\201511250807111_AddBoolFields.cs" />
+    <Compile Include="Migrations\201511250807111_AddBoolFields.Designer.cs">
+      <DependentUpon>201511250807111_AddBoolFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511251122137_AddWSWebserviceCall.cs" />
+    <Compile Include="Migrations\201511251122137_AddWSWebserviceCall.Designer.cs">
+      <DependentUpon>201511251122137_AddWSWebserviceCall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511260906198_WSEnvironment_PublicCheckbox.cs" />
+    <Compile Include="Migrations\201511260906198_WSEnvironment_PublicCheckbox.Designer.cs">
+      <DependentUpon>201511260906198_WSEnvironment_PublicCheckbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511261013300_RenameColumn.cs" />
+    <Compile Include="Migrations\201511261013300_RenameColumn.Designer.cs">
+      <DependentUpon>201511261013300_RenameColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511261016094_ForiegnKeyDefinedforWSWebservices.cs" />
+    <Compile Include="Migrations\201511261016094_ForiegnKeyDefinedforWSWebservices.Designer.cs">
+      <DependentUpon>201511261016094_ForiegnKeyDefinedforWSWebservices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511301443516_RenameTableandColumn.cs" />
+    <Compile Include="Migrations\201511301443516_RenameTableandColumn.Designer.cs">
+      <DependentUpon>201511301443516_RenameTableandColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511301455124_AddedTableWSMethods.cs" />
+    <Compile Include="Migrations\201511301455124_AddedTableWSMethods.Designer.cs">
+      <DependentUpon>201511301455124_AddedTableWSMethods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511301457165_AddedTableWSMethods2.cs" />
+    <Compile Include="Migrations\201511301457165_AddedTableWSMethods2.Designer.cs">
+      <DependentUpon>201511301457165_AddedTableWSMethods2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511301458580_AddedTableWSMethods3.cs" />
+    <Compile Include="Migrations\201511301458580_AddedTableWSMethods3.Designer.cs">
+      <DependentUpon>201511301458580_AddedTableWSMethods3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511301526104_WSRequestTableMethodForiegnKeyDefined.cs" />
+    <Compile Include="Migrations\201511301526104_WSRequestTableMethodForiegnKeyDefined.Designer.cs">
+      <DependentUpon>201511301526104_WSRequestTableMethodForiegnKeyDefined.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511301536192_WSResponseStructureDefined.cs" />
+    <Compile Include="Migrations\201511301536192_WSResponseStructureDefined.Designer.cs">
+      <DependentUpon>201511301536192_WSResponseStructureDefined.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511301544140_WSRequestParametersTableAdded.cs" />
+    <Compile Include="Migrations\201511301544140_WSRequestParametersTableAdded.Designer.cs">
+      <DependentUpon>201511301544140_WSRequestParametersTableAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511301544586_WSRequestParametersTableAdded2.cs" />
+    <Compile Include="Migrations\201511301544586_WSRequestParametersTableAdded2.Designer.cs">
+      <DependentUpon>201511301544586_WSRequestParametersTableAdded2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512081056381_AddSoapActionField.cs" />
+    <Compile Include="Migrations\201512081056381_AddSoapActionField.Designer.cs">
+      <DependentUpon>201512081056381_AddSoapActionField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512081104104_UpdateBindingField.cs" />
+    <Compile Include="Migrations\201512081104104_UpdateBindingField.Designer.cs">
+      <DependentUpon>201512081104104_UpdateBindingField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512101643560_AddFieldBindingAddressWSMethod.cs" />
+    <Compile Include="Migrations\201512101643560_AddFieldBindingAddressWSMethod.Designer.cs">
+      <DependentUpon>201512101643560_AddFieldBindingAddressWSMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512150847528_WSParametersAddedColumn.cs" />
+    <Compile Include="Migrations\201512150847528_WSParametersAddedColumn.Designer.cs">
+      <DependentUpon>201512150847528_WSParametersAddedColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MaintenanceLogging.cs" />
+    <Compile Include="Models\Monitoring_ApplicationStatuses.cs" />
+    <Compile Include="Models\Monitoring_TransactionCount.cs" />
+    <Compile Include="Models\WSEnvironmentsModel.cs" />
+    <Compile Include="Models\WSMethods.cs" />
+    <Compile Include="Models\WSMethodParameters.cs" />
+    <Compile Include="Models\WSRequestParameters.cs" />
+    <Compile Include="Models\WSResponse.cs" />
+    <Compile Include="Models\WSWebServicesModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="Utilities\Automation_Workflow.aspx.cs">
+      <DependentUpon>Automation_Workflow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\Automation_Workflow.aspx.designer.cs">
+      <DependentUpon>Automation_Workflow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\BatchFileGenerator.aspx.cs">
+      <DependentUpon>BatchFileGenerator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\BatchFileGenerator.aspx.designer.cs">
+      <DependentUpon>BatchFileGenerator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\BucketMappingGenerator.aspx.cs">
+      <DependentUpon>BucketMappingGenerator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\BucketMappingGenerator.aspx.designer.cs">
+      <DependentUpon>BucketMappingGenerator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\CiscoVPN.aspx.cs">
+      <DependentUpon>CiscoVPN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\CiscoVPN.aspx.designer.cs">
+      <DependentUpon>CiscoVPN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\ClinicianUPdate.aspx.cs">
+      <DependentUpon>ClinicianUPdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\ClinicianUPdate.aspx.designer.cs">
+      <DependentUpon>ClinicianUPdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Aims_Insert_Clinician.aspx.cs">
+      <DependentUpon>Aims_Insert_Clinician.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Aims_Insert_Clinician.aspx.designer.cs">
+      <DependentUpon>Aims_Insert_Clinician.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\AIMS_RunCases.aspx.cs">
+      <DependentUpon>AIMS_RunCases.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\AIMS_RunCases.aspx.designer.cs">
+      <DependentUpon>AIMS_RunCases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Bucket_Mapping_Report.aspx.cs">
+      <DependentUpon>Bucket_Mapping_Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Bucket_Mapping_Report.aspx.designer.cs">
+      <DependentUpon>Bucket_Mapping_Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Contra_Indication.aspx.cs">
+      <DependentUpon>Contra_Indication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Contra_Indication.aspx.designer.cs">
+      <DependentUpon>Contra_Indication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Contra_Indication_Edit.aspx.cs">
+      <DependentUpon>Contra_Indication_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Contra_Indication_Edit.aspx.designer.cs">
+      <DependentUpon>Contra_Indication_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\DbMOdifierNavigator.aspx.cs">
+      <DependentUpon>DbMOdifierNavigator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\DbMOdifierNavigator.aspx.designer.cs">
+      <DependentUpon>DbMOdifierNavigator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\DHPO_login_update.aspx.cs">
+      <DependentUpon>DHPO_login_update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\DHPO_login_update.aspx.designer.cs">
+      <DependentUpon>DHPO_login_update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\DHPO_payer_login_update.aspx.cs">
+      <DependentUpon>DHPO_payer_login_update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\DHPO_payer_login_update.aspx.designer.cs">
+      <DependentUpon>DHPO_payer_login_update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\EclaimLinkPortal_login_update.aspx.cs">
+      <DependentUpon>EclaimLinkPortal_login_update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\EclaimLinkPortal_login_update.aspx.designer.cs">
+      <DependentUpon>EclaimLinkPortal_login_update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\EclaimLink_Login_Update.aspx.cs">
+      <DependentUpon>EclaimLink_Login_Update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\EclaimLink_Login_Update.aspx.designer.cs">
+      <DependentUpon>EclaimLink_Login_Update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\EclaimLink_PO_Update.aspx.cs">
+      <DependentUpon>EclaimLink_PO_Update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\EclaimLink_PO_Update.aspx.designer.cs">
+      <DependentUpon>EclaimLink_PO_Update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\EclaimParser_Account.aspx.cs">
+      <DependentUpon>EclaimParser_Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\EclaimParser_Account.aspx.designer.cs">
+      <DependentUpon>EclaimParser_Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\ERX_Cancel_Transaction.aspx.cs">
+      <DependentUpon>ERX_Cancel_Transaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\ERX_Cancel_Transaction.aspx.designer.cs">
+      <DependentUpon>ERX_Cancel_Transaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\ERX_Login_Update.aspx.cs">
+      <DependentUpon>ERX_Login_Update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\ERX_Login_Update.aspx.designer.cs">
+      <DependentUpon>ERX_Login_Update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\ERX_Payer_Login_Update.aspx.cs">
+      <DependentUpon>ERX_Payer_Login_Update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\ERX_Payer_Login_Update.aspx.designer.cs">
+      <DependentUpon>ERX_Payer_Login_Update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\ERX_PO_update.aspx.cs">
+      <DependentUpon>ERX_PO_update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\ERX_PO_update.aspx.designer.cs">
+      <DependentUpon>ERX_PO_update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\ExtraClasses\Aims_Insert_Clinician.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\AIMS_RunCases.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\automation_workfow.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\Bucket_Mapping_Report.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\Connections.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\contra_indication_edit.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\contra_indication_query.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\create_batch.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\create_script.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\DHPO_login_update.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\DHPO_Payer_login_update.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\EclaimLinkPortal_login_update.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\EclaimLink_login_update.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\EclaimLink_Po_update.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\EclaimParser_Account.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\EmailSender.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\erx_cancel_transaction.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\erx_login_update.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\erx_payer_login_update.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\erx_po_update.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\Generate_Batch_Transaction.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\getLMUValue.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\get_claim_detials.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\Get_Clinician_Details.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\get_credentials.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\Get_DHPO_Transaction_Detail.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\Get_Drug_Details.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\get_ICDsMapping.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\get_member_details.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\get_turnaroundtime.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\Insert_Clinician_Dhpo.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\Monitoring_Transactions.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\Monitoring_UploadData.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\oic_cancel_transaction.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\oic_process_transaction.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\oic_provider_cancel_transction.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\pbmm_cancel_transaction.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\Pbmm_Po_update.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\PBMSwitch_Accepted.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\PBMSwitch_Batch_Download.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\PBMSwitch_TransactionUpdate.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\PBMSwtich_Sender_Update.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\runUtilities.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\sqlcmd_createfile.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\submit_claim.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\Suspend_Clinician.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\Transactions_Detail_Report.cs" />
+    <Compile Include="Utilities\DBModification\ExtraClasses\Transaction_TAT.cs" />
+    <Compile Include="Utilities\DBModification\Generate_Batch_Transaction.aspx.cs">
+      <DependentUpon>Generate_Batch_Transaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Generate_Batch_Transaction.aspx.designer.cs">
+      <DependentUpon>Generate_Batch_Transaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Generate_CustomQuery.aspx.cs">
+      <DependentUpon>Generate_CustomQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Generate_CustomQuery.aspx.designer.cs">
+      <DependentUpon>Generate_CustomQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\GetClaimDetails.aspx.cs">
+      <DependentUpon>GetClaimDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\GetClaimDetails.aspx.designer.cs">
+      <DependentUpon>GetClaimDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Get_Clinician_Details.aspx.cs">
+      <DependentUpon>Get_Clinician_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Get_Clinician_Details.aspx.designer.cs">
+      <DependentUpon>Get_Clinician_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\get_credentials.aspx.cs">
+      <DependentUpon>get_credentials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\get_credentials.aspx.designer.cs">
+      <DependentUpon>get_credentials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Get_DHPO_Transaction_Detail.aspx.cs">
+      <DependentUpon>Get_DHPO_Transaction_Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Get_DHPO_Transaction_Detail.aspx.designer.cs">
+      <DependentUpon>Get_DHPO_Transaction_Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Get_Drug_Details.aspx.cs">
+      <DependentUpon>Get_Drug_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Get_Drug_Details.aspx.designer.cs">
+      <DependentUpon>Get_Drug_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\get_ICDsMapping.aspx.cs">
+      <DependentUpon>get_ICDsMapping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\get_ICDsMapping.aspx.designer.cs">
+      <DependentUpon>get_ICDsMapping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Get_TurnAroundTime.aspx.cs">
+      <DependentUpon>Get_TurnAroundTime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Get_TurnAroundTime.aspx.designer.cs">
+      <DependentUpon>Get_TurnAroundTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\DHPO_Clinician_Insert.aspx.cs">
+      <DependentUpon>DHPO_Clinician_Insert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\DHPO_Clinician_Insert.aspx.designer.cs">
+      <DependentUpon>DHPO_Clinician_Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Member_details.aspx.cs">
+      <DependentUpon>Member_details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Member_details.aspx.designer.cs">
+      <DependentUpon>Member_details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\OIC_Cancel_Transaction.aspx.cs">
+      <DependentUpon>OIC_Cancel_Transaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\OIC_Cancel_Transaction.aspx.designer.cs">
+      <DependentUpon>OIC_Cancel_Transaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\OIC_Process_Transaction.aspx.cs">
+      <DependentUpon>OIC_Process_Transaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\OIC_Process_Transaction.aspx.designer.cs">
+      <DependentUpon>OIC_Process_Transaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\OIC_Provider_Cancel_Transaction.aspx.cs">
+      <DependentUpon>OIC_Provider_Cancel_Transaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\OIC_Provider_Cancel_Transaction.aspx.designer.cs">
+      <DependentUpon>OIC_Provider_Cancel_Transaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\PBMM_Cancel_Transaction.aspx.cs">
+      <DependentUpon>PBMM_Cancel_Transaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\PBMM_Cancel_Transaction.aspx.designer.cs">
+      <DependentUpon>PBMM_Cancel_Transaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\PBMM_PO_Update.aspx.cs">
+      <DependentUpon>PBMM_PO_Update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\PBMM_PO_Update.aspx.designer.cs">
+      <DependentUpon>PBMM_PO_Update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\PBMSwitch_Accpted.aspx.cs">
+      <DependentUpon>PBMSwitch_Accpted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\PBMSwitch_Accpted.aspx.designer.cs">
+      <DependentUpon>PBMSwitch_Accpted.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\PBMSwitch_Batch_Download.aspx.cs">
+      <DependentUpon>PBMSwitch_Batch_Download.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\PBMSwitch_Batch_Download.aspx.designer.cs">
+      <DependentUpon>PBMSwitch_Batch_Download.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\PBMSwitch_Sender_Update.aspx.cs">
+      <DependentUpon>PBMSwitch_Sender_Update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\PBMSwitch_Sender_Update.aspx.designer.cs">
+      <DependentUpon>PBMSwitch_Sender_Update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\PBMSwitch_TransactionUpdate.aspx.cs">
+      <DependentUpon>PBMSwitch_TransactionUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\PBMSwitch_TransactionUpdate.aspx.designer.cs">
+      <DependentUpon>PBMSwitch_TransactionUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\run_batches.aspx.cs">
+      <DependentUpon>run_batches.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\run_batches.aspx.designer.cs">
+      <DependentUpon>run_batches.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\SendEmail_BQS.aspx.cs">
+      <DependentUpon>SendEmail_BQS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\SendEmail_BQS.aspx.designer.cs">
+      <DependentUpon>SendEmail_BQS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Submit_Claim.aspx.cs">
+      <DependentUpon>Submit_Claim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Submit_Claim.aspx.designer.cs">
+      <DependentUpon>Submit_Claim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Suspend_Clinician.aspx.cs">
+      <DependentUpon>Suspend_Clinician.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Suspend_Clinician.aspx.designer.cs">
+      <DependentUpon>Suspend_Clinician.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\TestClass.cs" />
+    <Compile Include="Utilities\DBModification\Transactions_Detail_Report.aspx.cs">
+      <DependentUpon>Transactions_Detail_Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Transactions_Detail_Report.aspx.designer.cs">
+      <DependentUpon>Transactions_Detail_Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Transaction_TAT.aspx.cs">
+      <DependentUpon>Transaction_TAT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\Transaction_TAT.aspx.designer.cs">
+      <DependentUpon>Transaction_TAT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DBModification\upload_file.aspx.cs">
+      <DependentUpon>upload_file.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DBModification\upload_file.aspx.designer.cs">
+      <DependentUpon>upload_file.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DHPO-ProviderUpdate.aspx.cs">
+      <DependentUpon>DHPO-ProviderUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DHPO-ProviderUpdate.aspx.designer.cs">
+      <DependentUpon>DHPO-ProviderUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DrugDownloader.aspx.cs">
+      <DependentUpon>DrugDownloader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\DrugDownloader.aspx.designer.cs">
+      <DependentUpon>DrugDownloader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\EgyptDrugDownloader.aspx.cs">
+      <DependentUpon>EgyptDrugDownloader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\EgyptDrugDownloader.aspx.designer.cs">
+      <DependentUpon>EgyptDrugDownloader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\EmailCheck.aspx.cs">
+      <DependentUpon>EmailCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\EmailCheck.aspx.designer.cs">
+      <DependentUpon>EmailCheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\EmailFetcher.aspx.cs">
+      <DependentUpon>EmailFetcher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\EmailFetcher.aspx.designer.cs">
+      <DependentUpon>EmailFetcher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\EncryptFile.aspx.cs">
+      <DependentUpon>EncryptFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\EncryptFile.aspx.designer.cs">
+      <DependentUpon>EncryptFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\eRXAddUser.aspx.cs">
+      <DependentUpon>eRXAddUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\eRXAddUser.aspx.designer.cs">
+      <DependentUpon>eRXAddUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Excel2XML.aspx.cs">
+      <DependentUpon>Excel2XML.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\Excel2XML.aspx.designer.cs">
+      <DependentUpon>Excel2XML.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\FTPChecker.aspx.cs">
+      <DependentUpon>FTPChecker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\FTPChecker.aspx.designer.cs">
+      <DependentUpon>FTPChecker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\JsonToExcel.aspx.cs">
+      <DependentUpon>JsonToExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\JsonToExcel.aspx.designer.cs">
+      <DependentUpon>JsonToExcel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Payer_SubmissionTransactions_Report.aspx.cs">
+      <DependentUpon>Payer_SubmissionTransactions_Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\Payer_SubmissionTransactions_Report.aspx.designer.cs">
+      <DependentUpon>Payer_SubmissionTransactions_Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Script\EmailScriptExecutor.aspx.cs">
+      <DependentUpon>EmailScriptExecutor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\Script\EmailScriptExecutor.aspx.designer.cs">
+      <DependentUpon>EmailScriptExecutor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Script\FTPScriptExecutor.aspx.cs">
+      <DependentUpon>FTPScriptExecutor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\Script\FTPScriptExecutor.aspx.designer.cs">
+      <DependentUpon>FTPScriptExecutor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\CEED.aspx.cs">
+      <DependentUpon>CEED.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\CEED.aspx.designer.cs">
+      <DependentUpon>CEED.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\ClearingHouse-eClaimExpress.aspx.cs">
+      <DependentUpon>ClearingHouse-eClaimExpress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\ClearingHouse-eClaimExpress.aspx.designer.cs">
+      <DependentUpon>ClearingHouse-eClaimExpress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\DHPO.aspx.cs">
+      <DependentUpon>DHPO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\DHPO.aspx.designer.cs">
+      <DependentUpon>DHPO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\eClaimLink.aspx.cs">
+      <DependentUpon>eClaimLink.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\eClaimLink.aspx.designer.cs">
+      <DependentUpon>eClaimLink.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\eClaimParser.aspx.cs">
+      <DependentUpon>eClaimParser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\eClaimParser.aspx.designer.cs">
+      <DependentUpon>eClaimParser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\eRxPharmacy-eRxClinician.aspx.cs">
+      <DependentUpon>eRxPharmacy-eRxClinician.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\eRxPharmacy-eRxClinician.aspx.designer.cs">
+      <DependentUpon>eRxPharmacy-eRxClinician.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\LMU.aspx.cs">
+      <DependentUpon>LMU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\LMU.aspx.designer.cs">
+      <DependentUpon>LMU.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\PBMLink.aspx.cs">
+      <DependentUpon>PBMLink.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\PBMLink.aspx.designer.cs">
+      <DependentUpon>PBMLink.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\PBMSwitch.aspx.cs">
+      <DependentUpon>PBMSwitch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\ServerMaintenance\PBMSwitch.aspx.designer.cs">
+      <DependentUpon>PBMSwitch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\SQLCountScript.aspx.cs">
+      <DependentUpon>SQLCountScript.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\SQLCountScript.aspx.designer.cs">
+      <DependentUpon>SQLCountScript.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Utilities.aspx.cs">
+      <DependentUpon>Utilities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\Utilities.aspx.designer.cs">
+      <DependentUpon>Utilities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WSCaller\ManageEnvironments.aspx.cs">
+      <DependentUpon>ManageEnvironments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WSCaller\ManageEnvironments.aspx.designer.cs">
+      <DependentUpon>ManageEnvironments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WSCaller\ManageWebServices.aspx.cs">
+      <DependentUpon>ManageWebServices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WSCaller\ManageWebServices.aspx.designer.cs">
+      <DependentUpon>ManageWebServices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WSCaller\WSNavigator.aspx.cs">
+      <DependentUpon>WSNavigator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WSCaller\WSNavigator.aspx.designer.cs">
+      <DependentUpon>WSNavigator.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Context\" />
+    <Folder Include="SOAPUI_Calls\DHPO-QA\PROCESSING\LOG\" />
+    <Folder Include="SOAPUI_Calls\MemberRegistration\Automation\PROCESSING\LOG\" />
+    <Folder Include="SOAPUI_Calls\NPICOde_update_FromMicheal\3\" />
+    <Folder Include="Utilities\ClinicianUpdateScript\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201511250807111_AddBoolFields.resx">
+      <DependentUpon>201511250807111_AddBoolFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511251122137_AddWSWebserviceCall.resx">
+      <DependentUpon>201511251122137_AddWSWebserviceCall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511260906198_WSEnvironment_PublicCheckbox.resx">
+      <DependentUpon>201511260906198_WSEnvironment_PublicCheckbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511261013300_RenameColumn.resx">
+      <DependentUpon>201511261013300_RenameColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511261016094_ForiegnKeyDefinedforWSWebservices.resx">
+      <DependentUpon>201511261016094_ForiegnKeyDefinedforWSWebservices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511301443516_RenameTableandColumn.resx">
+      <DependentUpon>201511301443516_RenameTableandColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511301455124_AddedTableWSMethods.resx">
+      <DependentUpon>201511301455124_AddedTableWSMethods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511301457165_AddedTableWSMethods2.resx">
+      <DependentUpon>201511301457165_AddedTableWSMethods2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511301458580_AddedTableWSMethods3.resx">
+      <DependentUpon>201511301458580_AddedTableWSMethods3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511301526104_WSRequestTableMethodForiegnKeyDefined.resx">
+      <DependentUpon>201511301526104_WSRequestTableMethodForiegnKeyDefined.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511301536192_WSResponseStructureDefined.resx">
+      <DependentUpon>201511301536192_WSResponseStructureDefined.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511301544140_WSRequestParametersTableAdded.resx">
+      <DependentUpon>201511301544140_WSRequestParametersTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511301544586_WSRequestParametersTableAdded2.resx">
+      <DependentUpon>201511301544586_WSRequestParametersTableAdded2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512081056381_AddSoapActionField.resx">
+      <DependentUpon>201512081056381_AddSoapActionField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512081104104_UpdateBindingField.resx">
+      <DependentUpon>201512081104104_UpdateBindingField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512101643560_AddFieldBindingAddressWSMethod.resx">
+      <DependentUpon>201512101643560_AddFieldBindingAddressWSMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512150847528_WSParametersAddedColumn.resx">
+      <DependentUpon>201512150847528_WSParametersAddedColumn.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52502</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52522/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

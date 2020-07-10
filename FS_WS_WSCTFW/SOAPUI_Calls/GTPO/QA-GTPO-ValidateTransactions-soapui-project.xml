@@ -1,0 +1,1072 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e035972c-cd07-4b86-870c-4419c12319a0" activeEnvironment="Default" name="QA-GTPO-ValidateTransactions" resourceRoot="${projectDir}" soapui-version="5.1.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="30a4088a-9a9b-4d0b-8c92-39742db7ddcc" wsaVersion="NONE" name="ValidateTransactionsSoap12" type="wsdl" bindingName="{http://www.eClaimLink.ae/}ValidateTransactionsSoap12" soapVersion="1_2" anonymous="optional" definition="http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx?wsdl"><con:part><con:url>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.eClaimLink.ae/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.eClaimLink.ae/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.eClaimLink.ae/">
+      <s:element name="GetNewTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNewTransactionsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlTransaction" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewPriorAuthorizationTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewPriorAuthorizationTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNewPriorAuthorizationTransactionsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlTransaction" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileContent" type="s:base64Binary"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UploadTransactionResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorReport" type="s:base64Binary"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadTransactionFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadTransactionFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadTransactionFileResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="file" type="s:base64Binary"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckForNewPriorAuthorizationTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckForNewPriorAuthorizationTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckForNewPriorAuthorizationTransactionsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTransactionDownloaded">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fieldId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTransactionDownloadedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetTransactionDownloadedResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="direction" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="callerLicense" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ePartner" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="transactionID" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="TransactionStatus" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionFileName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionFromDate" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionToDate" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="minRecordCount" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="maxRecordCount" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchTransactionsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="foundTransactions" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetNewTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewTransactions"/>
+  </wsdl:message>
+  <wsdl:message name="GetNewTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewTransactionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetNewPriorAuthorizationTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewPriorAuthorizationTransactions"/>
+  </wsdl:message>
+  <wsdl:message name="GetNewPriorAuthorizationTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewPriorAuthorizationTransactionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="UploadTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadTransaction"/>
+  </wsdl:message>
+  <wsdl:message name="UploadTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadTransactionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DownloadTransactionFileSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadTransactionFile"/>
+  </wsdl:message>
+  <wsdl:message name="DownloadTransactionFileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadTransactionFileResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CheckForNewPriorAuthorizationTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckForNewPriorAuthorizationTransactions"/>
+  </wsdl:message>
+  <wsdl:message name="CheckForNewPriorAuthorizationTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckForNewPriorAuthorizationTransactionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetTransactionDownloadedSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTransactionDownloaded"/>
+  </wsdl:message>
+  <wsdl:message name="SetTransactionDownloadedSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTransactionDownloadedResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SearchTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchTransactions"/>
+  </wsdl:message>
+  <wsdl:message name="SearchTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchTransactionsResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ValidateTransactionsSoap">
+    <wsdl:operation name="GetNewTransactions">
+      <wsdl:input message="tns:GetNewTransactionsSoapIn"/>
+      <wsdl:output message="tns:GetNewTransactionsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPriorAuthorizationTransactions">
+      <wsdl:input message="tns:GetNewPriorAuthorizationTransactionsSoapIn"/>
+      <wsdl:output message="tns:GetNewPriorAuthorizationTransactionsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UploadTransaction">
+      <wsdl:input message="tns:UploadTransactionSoapIn"/>
+      <wsdl:output message="tns:UploadTransactionSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTransactionFile">
+      <wsdl:input message="tns:DownloadTransactionFileSoapIn"/>
+      <wsdl:output message="tns:DownloadTransactionFileSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CheckForNewPriorAuthorizationTransactions">
+      <wsdl:input message="tns:CheckForNewPriorAuthorizationTransactionsSoapIn"/>
+      <wsdl:output message="tns:CheckForNewPriorAuthorizationTransactionsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetTransactionDownloaded">
+      <wsdl:input message="tns:SetTransactionDownloadedSoapIn"/>
+      <wsdl:output message="tns:SetTransactionDownloadedSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <wsdl:input message="tns:SearchTransactionsSoapIn"/>
+      <wsdl:output message="tns:SearchTransactionsSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ValidateTransactionsSoap" type="tns:ValidateTransactionsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetNewTransactions">
+      <soap:operation soapAction="http://www.eClaimLink.ae/GetNewTransactions" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPriorAuthorizationTransactions">
+      <soap:operation soapAction="http://www.eClaimLink.ae/GetNewPriorAuthorizationTransactions" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadTransaction">
+      <soap:operation soapAction="http://www.eClaimLink.ae/UploadTransaction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTransactionFile">
+      <soap:operation soapAction="http://www.eClaimLink.ae/DownloadTransactionFile" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckForNewPriorAuthorizationTransactions">
+      <soap:operation soapAction="http://www.eClaimLink.ae/CheckForNewPriorAuthorizationTransactions" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTransactionDownloaded">
+      <soap:operation soapAction="http://www.eClaimLink.ae/SetTransactionDownloaded" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <soap:operation soapAction="http://www.eClaimLink.ae/SearchTransactions" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ValidateTransactionsSoap12" type="tns:ValidateTransactionsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetNewTransactions">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/GetNewTransactions" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPriorAuthorizationTransactions">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/GetNewPriorAuthorizationTransactions" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadTransaction">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/UploadTransaction" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTransactionFile">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/DownloadTransactionFile" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckForNewPriorAuthorizationTransactions">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/CheckForNewPriorAuthorizationTransactions" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTransactionDownloaded">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/SetTransactionDownloaded" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/SearchTransactions" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ValidateTransactions">
+    <wsdl:port name="ValidateTransactionsSoap" binding="tns:ValidateTransactionsSoap">
+      <soap:address location="http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ValidateTransactionsSoap12" binding="tns:ValidateTransactionsSoap12">
+      <soap12:address location="http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint></con:endpoints><con:operation id="15e22a7d-92a8-4f49-b1ca-4e863241a0b9" isOneWay="false" action="http://www.eClaimLink.ae/CheckForNewPriorAuthorizationTransactions" name="CheckForNewPriorAuthorizationTransactions" bindingOperationName="CheckForNewPriorAuthorizationTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="522d3ece-1196-4f1d-a145-b7f4c87d688b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:CheckForNewPriorAuthorizationTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+      </ecl:CheckForNewPriorAuthorizationTransactions>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/ValidateTransactionsSoap/CheckForNewPriorAuthorizationTransactionsRequest"/></con:call></con:operation><con:operation id="4e3aebde-b7c7-4d0a-a17f-44757d42585a" isOneWay="false" action="http://www.eClaimLink.ae/DownloadTransactionFile" name="DownloadTransactionFile" bindingOperationName="DownloadTransactionFile" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="972a5ab9-944c-469c-b78b-93887aa1ae36" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:DownloadTransactionFile>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:DownloadTransactionFile>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/ValidateTransactionsSoap/DownloadTransactionFileRequest"/></con:call></con:operation><con:operation id="df33a31e-5000-4561-a840-da9710d85e8c" isOneWay="false" action="http://www.eClaimLink.ae/GetNewPriorAuthorizationTransactions" name="GetNewPriorAuthorizationTransactions" bindingOperationName="GetNewPriorAuthorizationTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="18b5e636-6f1f-43ec-86ca-d5437d31cf7c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:GetNewPriorAuthorizationTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+      </ecl:GetNewPriorAuthorizationTransactions>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/ValidateTransactionsSoap/GetNewPriorAuthorizationTransactionsRequest"/></con:call></con:operation><con:operation id="521276d1-3773-43d8-8b43-ff8c151852db" isOneWay="false" action="http://www.eClaimLink.ae/GetNewTransactions" name="GetNewTransactions" bindingOperationName="GetNewTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d3b73b27-94e2-4e12-97b9-2db00f6dcc76" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:GetNewTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+      </ecl:GetNewTransactions>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/ValidateTransactionsSoap/GetNewTransactionsRequest"/></con:call></con:operation><con:operation id="dde5131d-714b-4349-a292-8f633614f3a4" isOneWay="false" action="http://www.eClaimLink.ae/SearchTransactions" name="SearchTransactions" bindingOperationName="SearchTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4d88ad19-9e5d-479f-8e91-29b00469ae86" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:SearchTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <ecl:direction>?</ecl:direction>\r
+         <!--Optional:-->\r
+         <ecl:callerLicense>?</ecl:callerLicense>\r
+         <!--Optional:-->\r
+         <ecl:ePartner>?</ecl:ePartner>\r
+         <ecl:transactionID>?</ecl:transactionID>\r
+         <ecl:TransactionStatus>?</ecl:TransactionStatus>\r
+         <!--Optional:-->\r
+         <ecl:transactionFileName>?</ecl:transactionFileName>\r
+         <!--Optional:-->\r
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>\r
+         <!--Optional:-->\r
+         <ecl:transactionToDate>?</ecl:transactionToDate>\r
+         <ecl:minRecordCount>?</ecl:minRecordCount>\r
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>\r
+      </ecl:SearchTransactions>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/ValidateTransactionsSoap/SearchTransactionsRequest"/></con:call></con:operation><con:operation id="9d400ada-4484-4dbb-ad0d-cfe6035df3e1" isOneWay="false" action="http://www.eClaimLink.ae/SetTransactionDownloaded" name="SetTransactionDownloaded" bindingOperationName="SetTransactionDownloaded" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="317e80f6-4100-49d5-aa33-0f9be5d2f5b0" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:SetTransactionDownloaded>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fieldId>?</ecl:fieldId>\r
+      </ecl:SetTransactionDownloaded>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/ValidateTransactionsSoap/SetTransactionDownloadedRequest"/></con:call></con:operation><con:operation id="9bfe711f-df61-4fd5-90ba-8b9c55782ef4" isOneWay="false" action="http://www.eClaimLink.ae/UploadTransaction" name="UploadTransaction" bindingOperationName="UploadTransaction" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a936df02-a7ad-44db-99f8-7e2c59e5a70a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:UploadTransaction>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileContent>cid:1050316577708</ecl:fileContent>\r
+         <!--Optional:-->\r
+         <ecl:fileName>?</ecl:fileName>\r
+      </ecl:UploadTransaction>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/ValidateTransactionsSoap/UploadTransactionRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="e43bbeb0-4b6b-4a1d-adcb-e9ba7c7d044d" wsaVersion="NONE" name="ValidateTransactionsSoap" type="wsdl" bindingName="{http://www.eClaimLink.ae/}ValidateTransactionsSoap" soapVersion="1_1" anonymous="optional" definition="http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx?wsdl"><con:part><con:url>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.eClaimLink.ae/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.eClaimLink.ae/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.eClaimLink.ae/">
+      <s:element name="GetNewTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNewTransactionsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlTransaction" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewPriorAuthorizationTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewPriorAuthorizationTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNewPriorAuthorizationTransactionsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlTransaction" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileContent" type="s:base64Binary"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UploadTransactionResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorReport" type="s:base64Binary"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadTransactionFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadTransactionFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadTransactionFileResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="file" type="s:base64Binary"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckForNewPriorAuthorizationTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckForNewPriorAuthorizationTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckForNewPriorAuthorizationTransactionsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTransactionDownloaded">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fieldId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTransactionDownloadedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetTransactionDownloadedResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="direction" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="callerLicense" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ePartner" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="transactionID" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="TransactionStatus" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionFileName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionFromDate" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionToDate" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="minRecordCount" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="maxRecordCount" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchTransactionsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="foundTransactions" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetNewTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewTransactions"/>
+  </wsdl:message>
+  <wsdl:message name="GetNewTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewTransactionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetNewPriorAuthorizationTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewPriorAuthorizationTransactions"/>
+  </wsdl:message>
+  <wsdl:message name="GetNewPriorAuthorizationTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewPriorAuthorizationTransactionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="UploadTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadTransaction"/>
+  </wsdl:message>
+  <wsdl:message name="UploadTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadTransactionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DownloadTransactionFileSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadTransactionFile"/>
+  </wsdl:message>
+  <wsdl:message name="DownloadTransactionFileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadTransactionFileResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CheckForNewPriorAuthorizationTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckForNewPriorAuthorizationTransactions"/>
+  </wsdl:message>
+  <wsdl:message name="CheckForNewPriorAuthorizationTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckForNewPriorAuthorizationTransactionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetTransactionDownloadedSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTransactionDownloaded"/>
+  </wsdl:message>
+  <wsdl:message name="SetTransactionDownloadedSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTransactionDownloadedResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SearchTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchTransactions"/>
+  </wsdl:message>
+  <wsdl:message name="SearchTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchTransactionsResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ValidateTransactionsSoap">
+    <wsdl:operation name="GetNewTransactions">
+      <wsdl:input message="tns:GetNewTransactionsSoapIn"/>
+      <wsdl:output message="tns:GetNewTransactionsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPriorAuthorizationTransactions">
+      <wsdl:input message="tns:GetNewPriorAuthorizationTransactionsSoapIn"/>
+      <wsdl:output message="tns:GetNewPriorAuthorizationTransactionsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UploadTransaction">
+      <wsdl:input message="tns:UploadTransactionSoapIn"/>
+      <wsdl:output message="tns:UploadTransactionSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTransactionFile">
+      <wsdl:input message="tns:DownloadTransactionFileSoapIn"/>
+      <wsdl:output message="tns:DownloadTransactionFileSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CheckForNewPriorAuthorizationTransactions">
+      <wsdl:input message="tns:CheckForNewPriorAuthorizationTransactionsSoapIn"/>
+      <wsdl:output message="tns:CheckForNewPriorAuthorizationTransactionsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetTransactionDownloaded">
+      <wsdl:input message="tns:SetTransactionDownloadedSoapIn"/>
+      <wsdl:output message="tns:SetTransactionDownloadedSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <wsdl:input message="tns:SearchTransactionsSoapIn"/>
+      <wsdl:output message="tns:SearchTransactionsSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ValidateTransactionsSoap" type="tns:ValidateTransactionsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetNewTransactions">
+      <soap:operation soapAction="http://www.eClaimLink.ae/GetNewTransactions" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPriorAuthorizationTransactions">
+      <soap:operation soapAction="http://www.eClaimLink.ae/GetNewPriorAuthorizationTransactions" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadTransaction">
+      <soap:operation soapAction="http://www.eClaimLink.ae/UploadTransaction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTransactionFile">
+      <soap:operation soapAction="http://www.eClaimLink.ae/DownloadTransactionFile" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckForNewPriorAuthorizationTransactions">
+      <soap:operation soapAction="http://www.eClaimLink.ae/CheckForNewPriorAuthorizationTransactions" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTransactionDownloaded">
+      <soap:operation soapAction="http://www.eClaimLink.ae/SetTransactionDownloaded" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <soap:operation soapAction="http://www.eClaimLink.ae/SearchTransactions" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ValidateTransactionsSoap12" type="tns:ValidateTransactionsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetNewTransactions">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/GetNewTransactions" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPriorAuthorizationTransactions">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/GetNewPriorAuthorizationTransactions" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadTransaction">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/UploadTransaction" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTransactionFile">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/DownloadTransactionFile" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckForNewPriorAuthorizationTransactions">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/CheckForNewPriorAuthorizationTransactions" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTransactionDownloaded">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/SetTransactionDownloaded" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/SearchTransactions" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ValidateTransactions">
+    <wsdl:port name="ValidateTransactionsSoap" binding="tns:ValidateTransactionsSoap">
+      <soap:address location="http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ValidateTransactionsSoap12" binding="tns:ValidateTransactionsSoap12">
+      <soap12:address location="http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint></con:endpoints><con:operation id="01bd568f-bac9-4600-9810-f5f6aec1d59b" isOneWay="false" action="http://www.eClaimLink.ae/CheckForNewPriorAuthorizationTransactions" name="CheckForNewPriorAuthorizationTransactions" bindingOperationName="CheckForNewPriorAuthorizationTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ed55635d-2d14-4a6b-8e83-ceb5b0b86dd9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:CheckForNewPriorAuthorizationTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+      </ecl:CheckForNewPriorAuthorizationTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/CheckForNewPriorAuthorizationTransactions"/></con:call></con:operation><con:operation id="2a32f416-02ea-43d7-93e0-db815a525e1d" isOneWay="false" action="http://www.eClaimLink.ae/DownloadTransactionFile" name="DownloadTransactionFile" bindingOperationName="DownloadTransactionFile" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f2136d54-827e-474b-abc5-3dec389e53a1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:DownloadTransactionFile>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:DownloadTransactionFile>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/DownloadTransactionFile"/></con:call></con:operation><con:operation id="e4dfd442-5a31-4afb-a24d-1cad9e3bad6b" isOneWay="false" action="http://www.eClaimLink.ae/GetNewPriorAuthorizationTransactions" name="GetNewPriorAuthorizationTransactions" bindingOperationName="GetNewPriorAuthorizationTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="77b7aec9-d0bf-40b9-b7e1-2ce4bded1352" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:GetNewPriorAuthorizationTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+      </ecl:GetNewPriorAuthorizationTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/GetNewPriorAuthorizationTransactions"/></con:call></con:operation><con:operation id="65c7f896-c85d-4fdf-aeec-ffca349ce101" isOneWay="false" action="http://www.eClaimLink.ae/GetNewTransactions" name="GetNewTransactions" bindingOperationName="GetNewTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1a403880-e704-4d92-9936-703942f2c611" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:GetNewTransactions>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <ecl:login>tpayer</ecl:login><ecl:pwd>Tpayer2345</ecl:pwd>
+      </ecl:GetNewTransactions>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/GetNewTransactions"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="5ab29401-81ae-416a-9c2c-c818f963de6d" isOneWay="false" action="http://www.eClaimLink.ae/SearchTransactions" name="SearchTransactions" bindingOperationName="SearchTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bd30492a-aee6-44cb-9ac4-9b7d6b24e5be" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:SearchTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <ecl:direction>?</ecl:direction>\r
+         <!--Optional:-->\r
+         <ecl:callerLicense>?</ecl:callerLicense>\r
+         <!--Optional:-->\r
+         <ecl:ePartner>?</ecl:ePartner>\r
+         <ecl:transactionID>?</ecl:transactionID>\r
+         <ecl:TransactionStatus>?</ecl:TransactionStatus>\r
+         <!--Optional:-->\r
+         <ecl:transactionFileName>?</ecl:transactionFileName>\r
+         <!--Optional:-->\r
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>\r
+         <!--Optional:-->\r
+         <ecl:transactionToDate>?</ecl:transactionToDate>\r
+         <ecl:minRecordCount>?</ecl:minRecordCount>\r
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>\r
+      </ecl:SearchTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/SearchTransactions"/></con:call></con:operation><con:operation id="bcee3494-a25e-4391-ac5a-1a6dd09b05fe" isOneWay="false" action="http://www.eClaimLink.ae/SetTransactionDownloaded" name="SetTransactionDownloaded" bindingOperationName="SetTransactionDownloaded" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="73d579fd-7826-4c93-b947-6b5ed0e562b9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:SetTransactionDownloaded>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fieldId>?</ecl:fieldId>\r
+      </ecl:SetTransactionDownloaded>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/SetTransactionDownloaded"/></con:call></con:operation><con:operation id="b688cd3b-82fe-478a-bae1-08b05abfe405" isOneWay="false" action="http://www.eClaimLink.ae/UploadTransaction" name="UploadTransaction" bindingOperationName="UploadTransaction" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="623ed2b2-cc5d-4bef-8869-a56bac549e8d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:UploadTransaction>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileContent>cid:355917932308</ecl:fileContent>\r
+         <!--Optional:-->\r
+         <ecl:fileName>?</ecl:fileName>\r
+      </ecl:UploadTransaction>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/UploadTransaction"/></con:call></con:operation></con:interface><con:testSuite id="e7abf4d3-e24f-41c4-a419-48189f3cfbe6" name="ValidateTransactionsSoap12 TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="1e0244f3-66f7-4cfc-857b-cd41c5ff531e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CheckForNewPriorAuthorizationTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="7225da53-0798-49e2-8073-279f301b2a0c" name="CheckForNewPriorAuthorizationTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateTransactionsSoap12</con:interface><con:operation>CheckForNewPriorAuthorizationTransactions</con:operation><con:request name="CheckForNewPriorAuthorizationTransactions" id="aa57fc5c-a60d-42f8-905d-87631541f0dc"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:CheckForNewPriorAuthorizationTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+      </ecl:CheckForNewPriorAuthorizationTransactions>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/ValidateTransactionsSoap/CheckForNewPriorAuthorizationTransactionsRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="d763cb78-fea3-45b5-9bf8-37d4e6929d0e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DownloadTransactionFile TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="116993ff-a552-4cd3-97b0-db35e8d4c570" name="DownloadTransactionFile"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateTransactionsSoap12</con:interface><con:operation>DownloadTransactionFile</con:operation><con:request name="DownloadTransactionFile" id="db9eeb36-72da-43c5-a1e3-7f56498989d4"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:DownloadTransactionFile>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:DownloadTransactionFile>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/ValidateTransactionsSoap/DownloadTransactionFileRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="cc19e870-587b-4b53-9711-31203d442508" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetNewPriorAuthorizationTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="69c588b6-6f3c-4b9f-8287-96adcde58964" name="GetNewPriorAuthorizationTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateTransactionsSoap12</con:interface><con:operation>GetNewPriorAuthorizationTransactions</con:operation><con:request name="GetNewPriorAuthorizationTransactions" id="6bd67e79-08b1-46a2-997d-28e2d219a202"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:GetNewPriorAuthorizationTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+      </ecl:GetNewPriorAuthorizationTransactions>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/ValidateTransactionsSoap/GetNewPriorAuthorizationTransactionsRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="f58ed693-6d6f-4d6a-875e-47047c272517" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetNewTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="57bd299c-f830-4f42-a325-92bdda8dcc26" name="GetNewTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateTransactionsSoap12</con:interface><con:operation>GetNewTransactions</con:operation><con:request name="GetNewTransactions" id="6117ec7e-f5b0-4845-8d62-b03940308a3e"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:GetNewTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+      </ecl:GetNewTransactions>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/ValidateTransactionsSoap/GetNewTransactionsRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="7123dc77-252d-4dd8-b523-992967bcd3ee" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SearchTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="1f22adf5-f4a1-4ae5-8925-4f368e6a9dbf" name="SearchTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateTransactionsSoap12</con:interface><con:operation>SearchTransactions</con:operation><con:request name="SearchTransactions" id="9a17323a-559a-4dc4-8533-d8c50fd86aa1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:SearchTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <ecl:direction>?</ecl:direction>\r
+         <!--Optional:-->\r
+         <ecl:callerLicense>?</ecl:callerLicense>\r
+         <!--Optional:-->\r
+         <ecl:ePartner>?</ecl:ePartner>\r
+         <ecl:transactionID>?</ecl:transactionID>\r
+         <ecl:TransactionStatus>?</ecl:TransactionStatus>\r
+         <!--Optional:-->\r
+         <ecl:transactionFileName>?</ecl:transactionFileName>\r
+         <!--Optional:-->\r
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>\r
+         <!--Optional:-->\r
+         <ecl:transactionToDate>?</ecl:transactionToDate>\r
+         <ecl:minRecordCount>?</ecl:minRecordCount>\r
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>\r
+      </ecl:SearchTransactions>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/ValidateTransactionsSoap/SearchTransactionsRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="46bedfc3-6adb-42ef-90ee-9da9c071c0e3" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SetTransactionDownloaded TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="8485393f-86b3-416e-b0cf-b7a49a3d0ee7" name="SetTransactionDownloaded"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateTransactionsSoap12</con:interface><con:operation>SetTransactionDownloaded</con:operation><con:request name="SetTransactionDownloaded" id="57945913-022b-468c-a73b-0043346cbc08"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:SetTransactionDownloaded>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fieldId>?</ecl:fieldId>\r
+      </ecl:SetTransactionDownloaded>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/ValidateTransactionsSoap/SetTransactionDownloadedRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="a143300e-1260-49b6-b9d2-f1e25659111a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadTransaction TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="e0fabcb4-4478-475a-8f31-05f9624bfc3e" name="UploadTransaction"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateTransactionsSoap12</con:interface><con:operation>UploadTransaction</con:operation><con:request name="UploadTransaction" id="f6d34c57-853d-45bc-bf9e-18a939ee98e7"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:UploadTransaction>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileContent>cid:1022396046961</ecl:fileContent>\r
+         <!--Optional:-->\r
+         <ecl:fileName>?</ecl:fileName>\r
+      </ecl:UploadTransaction>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/ValidateTransactionsSoap/UploadTransactionRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite id="cf3bad2a-6b53-4783-8e67-3ade2c0e282d" name="ValidateTransactionsSoap TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="dbd6fc25-1db2-4e19-8b18-a202f789ab19" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CheckForNewPriorAuthorizationTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="18c23dfd-38df-41a2-a8b0-830a06230983" name="CheckForNewPriorAuthorizationTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateTransactionsSoap</con:interface><con:operation>CheckForNewPriorAuthorizationTransactions</con:operation><con:request name="CheckForNewPriorAuthorizationTransactions" id="f262058f-b4c5-47e8-9fa3-b049c22c7c95"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:CheckForNewPriorAuthorizationTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+      </ecl:CheckForNewPriorAuthorizationTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/CheckForNewPriorAuthorizationTransactions"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="774a6198-a206-4560-b163-93fc75dcdf66" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DownloadTransactionFile TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="c25a1fab-a252-45e8-bc36-165fbe4cb1aa" name="DownloadTransactionFile"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateTransactionsSoap</con:interface><con:operation>DownloadTransactionFile</con:operation><con:request name="DownloadTransactionFile" id="5eeb0926-8620-4a7b-9912-4bf346ec98e5"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:DownloadTransactionFile>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:DownloadTransactionFile>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/DownloadTransactionFile"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="9c8daa60-6691-4491-9ea2-712d917d8cd0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetNewPriorAuthorizationTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="19fa05bf-d2b3-4b47-9061-3029deb25a1b" name="GetNewPriorAuthorizationTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateTransactionsSoap</con:interface><con:operation>GetNewPriorAuthorizationTransactions</con:operation><con:request name="GetNewPriorAuthorizationTransactions" id="0fa8a4d7-e697-4089-aac6-862bb501fb90"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:GetNewPriorAuthorizationTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+      </ecl:GetNewPriorAuthorizationTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/GetNewPriorAuthorizationTransactions"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="91821ee2-5ab9-4984-a52a-0cc9dd4ad499" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetNewTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="59735374-60ab-4d99-b938-631752ab1499" name="GetNewTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateTransactionsSoap</con:interface><con:operation>GetNewTransactions</con:operation><con:request name="GetNewTransactions" id="5efd65dd-12b3-4e2a-abae-d7e4dbeec9e6"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:GetNewTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+      </ecl:GetNewTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/GetNewTransactions"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="1dd2d2b8-e97d-42a9-aa7d-e3d9ff04ca11" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SearchTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="6a83af19-4823-4dbe-84b2-f0b7e14c9aec" name="SearchTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateTransactionsSoap</con:interface><con:operation>SearchTransactions</con:operation><con:request name="SearchTransactions" id="e986f711-a60b-4937-8bc9-e8e5d6c13d4d"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:SearchTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <ecl:direction>?</ecl:direction>\r
+         <!--Optional:-->\r
+         <ecl:callerLicense>?</ecl:callerLicense>\r
+         <!--Optional:-->\r
+         <ecl:ePartner>?</ecl:ePartner>\r
+         <ecl:transactionID>?</ecl:transactionID>\r
+         <ecl:TransactionStatus>?</ecl:TransactionStatus>\r
+         <!--Optional:-->\r
+         <ecl:transactionFileName>?</ecl:transactionFileName>\r
+         <!--Optional:-->\r
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>\r
+         <!--Optional:-->\r
+         <ecl:transactionToDate>?</ecl:transactionToDate>\r
+         <ecl:minRecordCount>?</ecl:minRecordCount>\r
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>\r
+      </ecl:SearchTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/SearchTransactions"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="bcde5e91-261f-43f5-831f-0e353c1ecd56" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SetTransactionDownloaded TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="fa3b1245-a240-4fea-a449-dd24e471a43a" name="SetTransactionDownloaded"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateTransactionsSoap</con:interface><con:operation>SetTransactionDownloaded</con:operation><con:request name="SetTransactionDownloaded" id="2c7fc71d-1b99-4c89-9453-ed09069f7ab4"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:SetTransactionDownloaded>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fieldId>?</ecl:fieldId>\r
+      </ecl:SetTransactionDownloaded>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/SetTransactionDownloaded"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="3f853ced-f05b-4ecc-b9b9-bd9a33e4dea1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadTransaction TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="44c66ef8-db49-4a59-84fe-ddf928796be9" name="UploadTransaction"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateTransactionsSoap</con:interface><con:operation>UploadTransaction</con:operation><con:request name="UploadTransaction" id="60ad7413-8207-4903-a78b-5a70f80dcd16"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://tpo.dimensions-healthcare.com/GTPO/validatetransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:UploadTransaction>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileContent>cid:494141239671</ecl:fileContent>\r
+         <!--Optional:-->\r
+         <ecl:fileName>?</ecl:fileName>\r
+      </ecl:UploadTransaction>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/UploadTransaction"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>

@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="b6eeee1e-4af7-45ca-859e-deaa9981e054" activeEnvironment="Default" name="OIC-MedicalService" resourceRoot="${projectDir}" soapui-version="5.1.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="0fdee72b-1a01-4a21-8472-a85f898c65d2" wsaVersion="NONE" name="BasicHttpBinding_IMedicalService" type="wsdl" bindingName="{http://tempuri.org/}BasicHttpBinding_IMedicalService" soapVersion="1_1" anonymous="optional" definition="https://medservice.tameen.ae/MedicalService.svc?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://medservice.tameen.ae/MedicalService.svc?wsdl"><con:part><con:url>https://medservice.tameen.ae/MedicalService.svc?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="MedicalService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:i0="medservice.tameen.ae" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IMedicalService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:BasicAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http"/>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false"/>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="medservice.tameen.ae" location="https://medservice.tameen.ae/MedicalService.svc?wsdl=wsdl0"/>
+  <wsdl:types/>
+  <wsdl:binding name="BasicHttpBinding_IMedicalService" type="i0:IMedicalService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IMedicalService_policy"/>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="CheckMemberEligibility">
+      <soap:operation soapAction="medservice.tameen.ae/IMedicalService/CheckMemberEligibility" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCoverAndLimit">
+      <soap:operation soapAction="medservice.tameen.ae/IMedicalService/GetCoverAndLimit" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBenefitFeeGuide">
+      <soap:operation soapAction="medservice.tameen.ae/IMedicalService/GetBenefitFeeGuide" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPolicyDocument">
+      <soap:operation soapAction="medservice.tameen.ae/IMedicalService/GetPolicyDocument" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MedicalService">
+    <wsdl:port name="BasicHttpBinding_IMedicalService" binding="tns:BasicHttpBinding_IMedicalService">
+      <soap:address location="https://medservice.tameen.ae/MedicalService.svc"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://medservice.tameen.ae/MedicalService.svc?wsdl=wsdl0</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="medservice.tameen.ae" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="medservice.tameen.ae" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="medservice.tameen.ae/Imports">
+      <xsd:import schemaLocation="https://medservice.tameen.ae/MedicalService.svc?xsd=xsd0" namespace="medservice.tameen.ae"/>
+      <xsd:import schemaLocation="https://medservice.tameen.ae/MedicalService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMedicalService_CheckMemberEligibility_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckMemberEligibility"/>
+  </wsdl:message>
+  <wsdl:message name="IMedicalService_CheckMemberEligibility_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckMemberEligibilityResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IMedicalService_GetCoverAndLimit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCoverAndLimit"/>
+  </wsdl:message>
+  <wsdl:message name="IMedicalService_GetCoverAndLimit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCoverAndLimitResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IMedicalService_GetBenefitFeeGuide_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBenefitFeeGuide"/>
+  </wsdl:message>
+  <wsdl:message name="IMedicalService_GetBenefitFeeGuide_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBenefitFeeGuideResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IMedicalService_GetPolicyDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPolicyDocument"/>
+  </wsdl:message>
+  <wsdl:message name="IMedicalService_GetPolicyDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPolicyDocumentResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="IMedicalService">
+    <wsdl:operation name="CheckMemberEligibility">
+      <wsdl:input wsaw:Action="medservice.tameen.ae/IMedicalService/CheckMemberEligibility" message="tns:IMedicalService_CheckMemberEligibility_InputMessage"/>
+      <wsdl:output wsaw:Action="medservice.tameen.ae/IMedicalService/CheckMemberEligibilityResponse" message="tns:IMedicalService_CheckMemberEligibility_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCoverAndLimit">
+      <wsdl:input wsaw:Action="medservice.tameen.ae/IMedicalService/GetCoverAndLimit" message="tns:IMedicalService_GetCoverAndLimit_InputMessage"/>
+      <wsdl:output wsaw:Action="medservice.tameen.ae/IMedicalService/GetCoverAndLimitResponse" message="tns:IMedicalService_GetCoverAndLimit_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetBenefitFeeGuide">
+      <wsdl:input wsaw:Action="medservice.tameen.ae/IMedicalService/GetBenefitFeeGuide" message="tns:IMedicalService_GetBenefitFeeGuide_InputMessage"/>
+      <wsdl:output wsaw:Action="medservice.tameen.ae/IMedicalService/GetBenefitFeeGuideResponse" message="tns:IMedicalService_GetBenefitFeeGuide_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetPolicyDocument">
+      <wsdl:input wsaw:Action="medservice.tameen.ae/IMedicalService/GetPolicyDocument" message="tns:IMedicalService_GetPolicyDocument_InputMessage"/>
+      <wsdl:output wsaw:Action="medservice.tameen.ae/IMedicalService/GetPolicyDocumentResponse" message="tns:IMedicalService_GetPolicyDocument_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://medservice.tameen.ae/MedicalService.svc?xsd=xsd0</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="medservice.tameen.ae" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="medservice.tameen.ae">
+  <xs:element name="CheckMemberEligibility">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eligibilityRequest" nillable="true" type="tns:MemberEligibilityRequest"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="MemberEligibilityRequest">
+    <xs:sequence>
+      <xs:element name="HealthCardNumber" nillable="true" type="xs:string"/>
+      <xs:element name="SenderID" nillable="true" type="xs:string"/>
+      <xs:element name="SourceSystem" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MemberEligibilityRequest" nillable="true" type="tns:MemberEligibilityRequest"/>
+  <xs:element name="CheckMemberEligibilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckMemberEligibilityResult" nillable="true" type="tns:MemberEligibilityResponse"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="MemberEligibilityResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HealthCardDetails" nillable="true" type="tns:HealthCardDetail"/>
+      <xs:element minOccurs="0" name="MemberDetails" nillable="true" type="tns:MemberDetail"/>
+      <xs:element minOccurs="0" name="NetworkDetails" nillable="true" type="tns:NetworkDetail"/>
+      <xs:element minOccurs="0" name="PolicyDetails" nillable="true" type="tns:PolicyDetail"/>
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ValidationResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MemberEligibilityResponse" nillable="true" type="tns:MemberEligibilityResponse"/>
+  <xs:complexType name="HealthCardDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CardNumber" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ExpiryDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="IssueDate" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HealthCardDetail" nillable="true" type="tns:HealthCardDetail"/>
+  <xs:complexType name="MemberDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateOfBirth" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="EmiratesID" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="MobileNumber" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MemberDetail" nillable="true" type="tns:MemberDetail"/>
+  <xs:complexType name="NetworkDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EligibilityDescription" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="EligibilityFlag" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="EligibilityResponseCode" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="FacilityName" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NetworkDetail" nillable="true" type="tns:NetworkDetail"/>
+  <xs:complexType name="PolicyDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="EffectiveDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="ExpiryDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="GroupPolicyId" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="IsBupa" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="IsDependent" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="IsManualProcess" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="IsVIP" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="IsValid" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="MemberBenefits" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="NetworkType" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="PolicyName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="PolicyNumber" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="WaitingPeriod" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PolicyDetail" nillable="true" type="tns:PolicyDetail"/>
+  <xs:complexType name="ValidationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StatusCode" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="StatusDescription" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidationResult" nillable="true" type="tns:ValidationResult"/>
+  <xs:element name="GetCoverAndLimit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCoverAndLimitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCoverAndLimitResult" nillable="true" type="tns:PriorAuthorizationResponse"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="PriorAuthorizationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BenefitGroups" nillable="true" type="tns:ArrayOfBenefitGroup"/>
+      <xs:element minOccurs="0" name="FeeGuideList" nillable="true" type="tns:ArrayOfFeeGuide"/>
+      <xs:element minOccurs="0" name="RequestContext" nillable="true" type="tns:MessageContext"/>
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ValidationResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PriorAuthorizationResponse" nillable="true" type="tns:PriorAuthorizationResponse"/>
+  <xs:complexType name="ArrayOfBenefitGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BenefitGroup" nillable="true" type="tns:BenefitGroup"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBenefitGroup" nillable="true" type="tns:ArrayOfBenefitGroup"/>
+  <xs:complexType name="BenefitGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivityCode" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ActivityId" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CoverBenefits" nillable="true" type="tns:ArrayOfCoverBenefit"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BenefitGroup" nillable="true" type="tns:BenefitGroup"/>
+  <xs:complexType name="ArrayOfCoverBenefit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CoverBenefit" nillable="true" type="tns:CoverBenefit"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCoverBenefit" nillable="true" type="tns:ArrayOfCoverBenefit"/>
+  <xs:complexType name="CoverBenefit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccessType" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="AggregateLimit" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="BillingMode" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Coinsurance" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="CoinsuranceCap" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="Copay" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="CoverCode" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CoverLimit" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="CoverName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CoverUtilized" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="FullUtilized" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="IsCovered" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="LimitAmount" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="ResponseCode" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ResponseMessage" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="SystemMessage" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="WaitingPeriod" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CoverBenefit" nillable="true" type="tns:CoverBenefit"/>
+  <xs:complexType name="ArrayOfFeeGuide">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FeeGuide" nillable="true" type="tns:FeeGuide"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFeeGuide" nillable="true" type="tns:ArrayOfFeeGuide"/>
+  <xs:complexType name="FeeGuide">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Benefit" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="BenefitFee" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="BenefitType" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FeeGuide" nillable="true" type="tns:FeeGuide"/>
+  <xs:complexType name="MessageContext">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Environment" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ExpiresOn" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="MessageSentOn" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="MessageType" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="MessageUID" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Originator" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ReplyOf" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ReplyTo" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="User" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageContext" nillable="true" type="tns:MessageContext"/>
+  <xs:element name="GetBenefitFeeGuide">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBenefitFeeGuideResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetBenefitFeeGuideResult" nillable="true" type="tns:BenefitFeeGuideResponse"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="BenefitFeeGuideResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FeeGuides" nillable="true" type="tns:ArrayOfBenefitFeeGuide"/>
+      <xs:element minOccurs="0" name="RequestContext" nillable="true" type="tns:MessageContext"/>
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ValidationResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BenefitFeeGuideResponse" nillable="true" type="tns:BenefitFeeGuideResponse"/>
+  <xs:complexType name="ArrayOfBenefitFeeGuide">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BenefitFeeGuide" nillable="true" type="tns:BenefitFeeGuide"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBenefitFeeGuide" nillable="true" type="tns:ArrayOfBenefitFeeGuide"/>
+  <xs:complexType name="BenefitFeeGuide">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BenefitFee" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="BenefitId" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="BenefitType" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BenefitFeeGuide" nillable="true" type="tns:BenefitFeeGuide"/>
+  <xs:element name="GetPolicyDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="policyDocumentRequest" nillable="true" type="tns:PolicyDocumentRequest"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="PolicyDocumentRequest">
+    <xs:sequence>
+      <xs:element name="CountryIsoCode" nillable="true" type="xs:string"/>
+      <xs:element name="PolicyNumber" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PolicyDocumentRequest" nillable="true" type="tns:PolicyDocumentRequest"/>
+  <xs:element name="GetPolicyDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPolicyDocumentResult" nillable="true" type="tns:PolicyDocumentResponse"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="PolicyDocumentResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PolicyDocuments" nillable="true" type="tns:ArrayOfPolicyDocument"/>
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ValidationResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PolicyDocumentResponse" nillable="true" type="tns:PolicyDocumentResponse"/>
+  <xs:complexType name="ArrayOfPolicyDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PolicyDocument" nillable="true" type="tns:PolicyDocument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPolicyDocument" nillable="true" type="tns:ArrayOfPolicyDocument"/>
+  <xs:complexType name="PolicyDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentContents" nillable="true" type="xs:base64Binary"/>
+      <xs:element minOccurs="0" name="DocumentName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="DocumentType" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PolicyDocument" nillable="true" type="tns:PolicyDocument"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://medservice.tameen.ae/MedicalService.svc?xsd=xsd1</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+  <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+  <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+  <xs:element name="byte" nillable="true" type="xs:byte"/>
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+  <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+  <xs:element name="double" nillable="true" type="xs:double"/>
+  <xs:element name="float" nillable="true" type="xs:float"/>
+  <xs:element name="int" nillable="true" type="xs:int"/>
+  <xs:element name="long" nillable="true" type="xs:long"/>
+  <xs:element name="QName" nillable="true" type="xs:QName"/>
+  <xs:element name="short" nillable="true" type="xs:short"/>
+  <xs:element name="string" nillable="true" type="xs:string"/>
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+  <xs:element name="char" nillable="true" type="tns:char"/>
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int"/>
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration"/>
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="guid" nillable="true" type="tns:guid"/>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="FactoryType" type="xs:QName"/>
+  <xs:attribute name="Id" type="xs:ID"/>
+  <xs:attribute name="Ref" type="xs:IDREF"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://medservice.tameen.ae/MedicalService.svc</con:endpoint></con:endpoints><con:operation id="ad6959c6-573e-47d2-a788-45b8f70cdb49" isOneWay="false" action="medservice.tameen.ae/IMedicalService/CheckMemberEligibility" name="CheckMemberEligibility" bindingOperationName="CheckMemberEligibility" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="93f90eec-6413-4c03-85d4-93f4171eb0f2" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://medservice.tameen.ae/MedicalService.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:med="medservice.tameen.ae">
+  <soapenv:Header/>
+  <soapenv:Body>
+     <med:CheckMemberEligibility>
+        <!--Optional:-->
+        <med:eligibilityRequest>
+           <med:HealthCardNumber>BI-6000-0219-6556</med:HealthCardNumber>
+           <med:SenderID>oic01</med:SenderID>
+           <med:SourceSystem>DIMENSION</med:SourceSystem>
+        </med:eligibilityRequest>
+     </med:CheckMemberEligibility>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="medservice.tameen.ae/IMedicalService/CheckMemberEligibility"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="71f9257f-321d-4cac-9577-9f12ba13a290" isOneWay="false" action="medservice.tameen.ae/IMedicalService/GetBenefitFeeGuide" name="GetBenefitFeeGuide" bindingOperationName="GetBenefitFeeGuide" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e8f79332-8bd2-4b35-9ba6-ab327ca9336e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://medservice.tameen.ae/MedicalService.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:med="medservice.tameen.ae">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <med:GetBenefitFeeGuide>\r
+         <!--Optional:-->\r
+         <med:request>?</med:request>\r
+      </med:GetBenefitFeeGuide>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:username/><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="medservice.tameen.ae/IMedicalService/GetBenefitFeeGuide"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="bc3911cd-c2ea-47a7-b2b9-5a3cdd03e030" isOneWay="false" action="medservice.tameen.ae/IMedicalService/GetCoverAndLimit" name="GetCoverAndLimit" bindingOperationName="GetCoverAndLimit" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8d01d2bc-f3e9-4424-a0d8-f369d2719ed5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://medservice.tameen.ae/MedicalService.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:med="medservice.tameen.ae">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <med:GetCoverAndLimit>\r
+         <!--Optional:-->\r
+         <med:request>?</med:request>\r
+      </med:GetCoverAndLimit>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="medservice.tameen.ae/IMedicalService/GetCoverAndLimit"/></con:call></con:operation><con:operation id="7c6b1a45-179c-4213-ac76-63a24d1197ba" isOneWay="false" action="medservice.tameen.ae/IMedicalService/GetPolicyDocument" name="GetPolicyDocument" bindingOperationName="GetPolicyDocument" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="178de562-3dbd-46cf-8aab-1fa39ad14a47" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://medservice.tameen.ae/MedicalService.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:med="medservice.tameen.ae">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <med:GetPolicyDocument>\r
+         <!--Optional:-->\r
+         <med:policyDocumentRequest>\r
+            <med:CountryIsoCode>?</med:CountryIsoCode>\r
+            <med:PolicyNumber>?</med:PolicyNumber>\r
+         </med:policyDocumentRequest>\r
+      </med:GetPolicyDocument>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="medservice.tameen.ae/IMedicalService/GetPolicyDocument"/></con:call></con:operation></con:interface><con:testSuite id="84dd3e2a-fe26-4039-adbe-50253ec72097" name="BasicHttpBinding_IMedicalService TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="aa0b4981-15ef-41f9-a564-074414b9e4c8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CheckMemberEligibility TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="2e147695-3182-4130-8a58-8321d060166c" name="CheckMemberEligibility"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BasicHttpBinding_IMedicalService</con:interface><con:operation>CheckMemberEligibility</con:operation><con:request name="CheckMemberEligibility" id="40eb29e5-e276-44c0-bef5-6e2ccf97b1ca"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://medservice.tameen.ae/MedicalService.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:med="medservice.tameen.ae">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <med:CheckMemberEligibility>\r
+         <!--Optional:-->\r
+         <med:eligibilityRequest>\r
+            <med:HealthCardNumber>?</med:HealthCardNumber>\r
+            <med:SenderID>?</med:SenderID>\r
+            <med:SourceSystem>?</med:SourceSystem>\r
+         </med:eligibilityRequest>\r
+      </med:CheckMemberEligibility>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="medservice.tameen.ae/IMedicalService/CheckMemberEligibility"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="fa1a4d20-6655-4eec-9009-c6c5af5ab1a4" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetBenefitFeeGuide TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="c2b25689-90c8-42f1-868b-d4eae7f620dc" name="GetBenefitFeeGuide"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BasicHttpBinding_IMedicalService</con:interface><con:operation>GetBenefitFeeGuide</con:operation><con:request name="GetBenefitFeeGuide" id="38729045-3d1b-4e72-8201-94c58e9e65fe"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://medservice.tameen.ae/MedicalService.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:med="medservice.tameen.ae">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <med:GetBenefitFeeGuide>\r
+         <!--Optional:-->\r
+         <med:request>?</med:request>\r
+      </med:GetBenefitFeeGuide>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="medservice.tameen.ae/IMedicalService/GetBenefitFeeGuide"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="b09ab714-2a09-4f1b-bfb6-c1854357b49d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetCoverAndLimit TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="0d4d0176-44a4-4f01-bc7f-4bb4e2ecf3d0" name="GetCoverAndLimit"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BasicHttpBinding_IMedicalService</con:interface><con:operation>GetCoverAndLimit</con:operation><con:request name="GetCoverAndLimit" id="288d3490-4ffe-4a0c-9ccb-27bbec03796b"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://medservice.tameen.ae/MedicalService.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:med="medservice.tameen.ae">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <med:GetCoverAndLimit>\r
+         <!--Optional:-->\r
+         <med:request>?</med:request>\r
+      </med:GetCoverAndLimit>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="medservice.tameen.ae/IMedicalService/GetCoverAndLimit"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="c4ce0a94-6113-4d34-901a-0fbfbdb73a47" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetPolicyDocument TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="5b7d814b-89da-4a5f-9379-93c46924fa1b" name="GetPolicyDocument"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BasicHttpBinding_IMedicalService</con:interface><con:operation>GetPolicyDocument</con:operation><con:request name="GetPolicyDocument" id="f08e2969-934f-44b2-9bae-01b85b62c445"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://medservice.tameen.ae/MedicalService.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:med="medservice.tameen.ae">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <med:GetPolicyDocument>\r
+         <!--Optional:-->\r
+         <med:policyDocumentRequest>\r
+            <med:CountryIsoCode>?</med:CountryIsoCode>\r
+            <med:PolicyNumber>?</med:PolicyNumber>\r
+         </med:policyDocumentRequest>\r
+      </med:GetPolicyDocument>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="medservice.tameen.ae/IMedicalService/GetPolicyDocument"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting></con:soapui-project>

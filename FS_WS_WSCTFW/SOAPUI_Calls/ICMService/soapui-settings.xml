@@ -1,0 +1,1907 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" id="dc6f5638-123d-4de0-8dd2-33c40a88334e" name="Jenkins ICM" resourceRoot="" soapui-version="5.1.1" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface anonymous="optional" bindingName="{http://ws.icm.dhc.com/}ICMServiceServiceSoapBinding" definition="http://jenkins:8181/ICM/ws/ICMService?wsdl" id="e8b3e94e-3bf0-4bd7-8031-41d4b9c45530" name="ICMServiceServiceSoapBinding" soapVersion="1_1" type="wsdl" wsaVersion="NONE" xsi:type="con:WsdlInterface" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    
+    <con:definitionCache type="TEXT" rootPart="http://jenkins:8181/ICM/ws/ICMService?wsdl"><con:part><con:url>http://jenkins:8181/ICM/ws/ICMService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ICMServiceService" targetNamespace="http://ws.icm.dhc.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.icm.dhc.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.dimensions-healthcare.net/ICM/ICMSchema" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="HeaderDispositionFlag">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="TEST"/>
+          <xs:enumeration value="PRODUCTION"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="HeaderTransactionType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Claim"/>
+          <xs:enumeration value="Remittance"/>
+          <xs:enumeration value="PriorRequest"/>
+          <xs:enumeration value="Authorization"/>
+          <xs:enumeration value="Eligibility"/>
+          <xs:enumeration value="FinancialCharge"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="HeaderProcessType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Review"/>
+          <xs:enumeration value="Submit"/>
+          <xs:enumeration value="Transmit"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="Gender">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="M"/>
+          <xs:enumeration value="F"/>
+          <xs:enumeration value="U"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DiagnosisType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Principal"/>
+          <xs:enumeration value="Secondary"/>
+          <xs:enumeration value="Admitting"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PatientShareType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Deductible"/>
+          <xs:enumeration value="Co-pay"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ObservationType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="LOINC"/>
+          <xs:enumeration value="Text"/>
+          <xs:enumeration value="File"/>
+          <xs:enumeration value="Universal Dental"/>
+          <xs:enumeration value="Financial"/>
+          <xs:enumeration value="Grouping"/>
+          <xs:enumeration value="Modifier"/>
+          <xs:enumeration value="ERX"/>
+          <xs:enumeration value="RESULT"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ResubmissionType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="correction"/>
+          <xs:enumeration value="internal complaint"/>
+          <xs:enumeration value="legacy"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ActivityEditRank">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="A"/>
+          <xs:enumeration value="R"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://ws.icm.dhc.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.dimensions-healthcare.net/ICM/ICMSchema" xmlns="http://ws.icm.dhc.com/">
+      <xs:import namespace="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+      <xs:element name="ICMResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Status" type="xs:boolean"/>
+            <xs:element name="Msg" type="xs:string"/>
+            <xs:element name="SubmissionResponse">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Header">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="SenderID" type="xs:string"/>
+                        <xs:element name="ReceiverID" type="xs:string"/>
+                        <xs:element name="DispositionFlag" type="ns1:HeaderDispositionFlag"/>
+                        <xs:element name="ReferenceID" type="xs:string"/>
+                        <xs:element name="TransactionDate" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" name="Transaction">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ID" type="xs:string"/>
+                        <xs:element name="PayerID" type="xs:string"/>
+                        <xs:element name="ProviderID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DenialCode" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Comments" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" name="Activity">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ID" type="xs:string"/>
+                              <xs:element name="Code" type="xs:string"/>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+                              <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+                              <xs:element minOccurs="0" name="Quantity" type="xs:double"/>
+                              <xs:element minOccurs="0" name="orderingClinician" type="xs:string"/>
+                              <xs:element minOccurs="0" name="clinician" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Gross" type="xs:double"/>
+                              <xs:element minOccurs="0" name="Net" type="xs:double"/>
+                              <xs:element name="PatientShare">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Type" type="xs:string"/>
+                                    <xs:element name="Value" type="xs:double"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="paymentAmount" type="xs:double"/>
+                              <xs:element minOccurs="0" name="PriorAuthorizationID" type="xs:string"/>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="Edit">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ID" type="xs:string"/>
+                                    <xs:element name="Type" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="SubType" type="xs:string"/>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Rank" type="ns1:ActivityEditRank"/>
+                                    <xs:element minOccurs="0" name="ResultCode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Result" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Comment" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ruleName" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="Observation">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Type" type="ns1:ObservationType"/>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Value" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" name="Diagnosis">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element name="Type" type="xs:string"/>
+                              <xs:element name="Code" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Submission">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Header">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SubmissionDestination" type="xs:integer"/>
+                  <xs:element name="SenderID" type="xs:string"/>
+                  <xs:element name="ReceiverID" type="xs:string"/>
+                  <xs:element name="DispositionFlag" type="ns1:HeaderDispositionFlag"/>
+                  <xs:element name="ReferenceID" type="xs:string"/>
+                  <xs:element name="transactionType" type="ns1:HeaderTransactionType"/>
+                  <xs:element name="processType" type="ns1:HeaderProcessType"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" name="Transaction">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID" type="xs:string"/>
+                  <xs:element name="PayerID" type="xs:string"/>
+                  <xs:element name="ProviderID" type="xs:string"/>
+                  <xs:element minOccurs="0" name="HealthPlanID" type="xs:string"/>
+                  <xs:element minOccurs="0" name="PayerTransactionReference" type="xs:string"/>
+                  <xs:element minOccurs="0" name="TransactionGross" type="xs:double"/>
+                  <xs:element minOccurs="0" name="TransactionPatientShare" type="xs:string"/>
+                  <xs:element minOccurs="0" name="TransactionNet" type="xs:double"/>
+                  <xs:element minOccurs="0" name="TransactionPriorAuthorizationID" type="xs:string"/>
+                  <xs:element name="Person">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="ID" type="xs:string"/>
+                        <xs:element name="InsuranceMemberNumber" type="xs:string"/>
+                        <xs:element name="NationalIDNumber" type="xs:string"/>
+                        <xs:element minOccurs="0" name="BirthDate" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Gender" type="ns1:Gender"/>
+                        <xs:element minOccurs="0" name="Name" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Policy" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Group" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Address" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Weight" type="xs:integer"/>
+                        <xs:element minOccurs="0" name="BreastFeeding" type="xs:integer"/>
+                        <xs:element minOccurs="0" name="WeeksOfAmenorrhoea" type="xs:integer"/>
+                        <xs:element minOccurs="0" name="CreatinClearance" type="xs:integer"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Encounter">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="FacilityID" type="xs:string"/>
+                        <xs:element name="Type" type="xs:integer"/>
+                        <xs:element minOccurs="0" name="Start" type="xs:string"/>
+                        <xs:element minOccurs="0" name="End" type="xs:string"/>
+                        <xs:element minOccurs="0" name="StartType" type="xs:integer"/>
+                        <xs:element minOccurs="0" name="EndType" type="xs:integer"/>
+                        <xs:element minOccurs="0" name="EligibilityIDPayer" type="xs:string"/>
+                        <xs:element minOccurs="0" name="TransferSource" type="xs:string"/>
+                        <xs:element minOccurs="0" name="TransferDestination" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="Diagnosis">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="CodeTerm" type="xs:string"/>
+                        <xs:element name="Type" type="ns1:DiagnosisType"/>
+                        <xs:element name="Code" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="Activity">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ID" type="xs:string"/>
+                        <xs:element name="CodeTerm" type="xs:string"/>
+                        <xs:element name="Start" type="xs:string"/>
+                        <xs:element name="End" type="xs:string"/>
+                        <xs:element name="Code" type="xs:string"/>
+                        <xs:element name="Quantity" type="xs:double"/>
+                        <xs:element name="OrderingClinician" type="xs:string"/>
+                        <xs:element name="Clinician" type="xs:string"/>
+                        <xs:element minOccurs="0" name="PriorAuthorizationID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ActivityNet" type="xs:double"/>
+                        <xs:element minOccurs="0" name="ActivityGross" type="xs:double"/>
+                        <xs:element minOccurs="0" name="ActivityPatientShare">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="Type" type="ns1:PatientShareType"/>
+                              <xs:element minOccurs="0" name="Value" type="xs:double"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="Observation">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ID" type="xs:string"/>
+                              <xs:element name="Type" type="ns1:ObservationType"/>
+                              <xs:element name="Code" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Value" type="xs:string"/>
+                              <xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="Resubmission">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="Sequence" type="xs:integer"/>
+                        <xs:element name="Type" type="ns1:ResubmissionType"/>
+                        <xs:element name="Comment" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Attachment" type="xs:base64Binary"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="ScrubbingHint">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="Code" type="xs:string"/>
+                        <xs:element name="Value" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="submission" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Header">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SubmissionDestination" type="xs:integer"/>
+                  <xs:element name="SenderID" type="xs:string"/>
+                  <xs:element name="ReceiverID" type="xs:string"/>
+                  <xs:element name="DispositionFlag" type="ns1:HeaderDispositionFlag"/>
+                  <xs:element name="ReferenceID" type="xs:string"/>
+                  <xs:element name="transactionType" type="ns1:HeaderTransactionType"/>
+                  <xs:element name="processType" type="ns1:HeaderProcessType"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" name="Transaction">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ID" type="xs:string"/>
+                  <xs:element name="PayerID" type="xs:string"/>
+                  <xs:element name="ProviderID" type="xs:string"/>
+                  <xs:element minOccurs="0" name="HealthPlanID" type="xs:string"/>
+                  <xs:element minOccurs="0" name="PayerTransactionReference" type="xs:string"/>
+                  <xs:element minOccurs="0" name="TransactionGross" type="xs:double"/>
+                  <xs:element minOccurs="0" name="TransactionPatientShare" type="xs:string"/>
+                  <xs:element minOccurs="0" name="TransactionNet" type="xs:double"/>
+                  <xs:element minOccurs="0" name="TransactionPriorAuthorizationID" type="xs:string"/>
+                  <xs:element name="Person">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" name="ID" type="xs:string"/>
+                        <xs:element name="InsuranceMemberNumber" type="xs:string"/>
+                        <xs:element name="NationalIDNumber" type="xs:string"/>
+                        <xs:element minOccurs="0" name="BirthDate" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Gender" type="ns1:Gender"/>
+                        <xs:element minOccurs="0" name="Name" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Policy" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Group" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Address" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Weight" type="xs:integer"/>
+                        <xs:element minOccurs="0" name="BreastFeeding" type="xs:integer"/>
+                        <xs:element minOccurs="0" name="WeeksOfAmenorrhoea" type="xs:integer"/>
+                        <xs:element minOccurs="0" name="CreatinClearance" type="xs:integer"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Encounter">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="FacilityID" type="xs:string"/>
+                        <xs:element name="Type" type="xs:integer"/>
+                        <xs:element minOccurs="0" name="Start" type="xs:string"/>
+                        <xs:element minOccurs="0" name="End" type="xs:string"/>
+                        <xs:element minOccurs="0" name="StartType" type="xs:integer"/>
+                        <xs:element minOccurs="0" name="EndType" type="xs:integer"/>
+                        <xs:element minOccurs="0" name="EligibilityIDPayer" type="xs:string"/>
+                        <xs:element minOccurs="0" name="TransferSource" type="xs:string"/>
+                        <xs:element minOccurs="0" name="TransferDestination" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="Diagnosis">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="CodeTerm" type="xs:string"/>
+                        <xs:element name="Type" type="ns1:DiagnosisType"/>
+                        <xs:element name="Code" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="Activity">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ID" type="xs:string"/>
+                        <xs:element name="CodeTerm" type="xs:string"/>
+                        <xs:element name="Start" type="xs:string"/>
+                        <xs:element name="End" type="xs:string"/>
+                        <xs:element name="Code" type="xs:string"/>
+                        <xs:element name="Quantity" type="xs:double"/>
+                        <xs:element name="OrderingClinician" type="xs:string"/>
+                        <xs:element name="Clinician" type="xs:string"/>
+                        <xs:element minOccurs="0" name="PriorAuthorizationID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ActivityNet" type="xs:double"/>
+                        <xs:element minOccurs="0" name="ActivityGross" type="xs:double"/>
+                        <xs:element minOccurs="0" name="ActivityPatientShare">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="Type" type="ns1:PatientShareType"/>
+                              <xs:element minOccurs="0" name="Value" type="xs:double"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="Observation">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ID" type="xs:string"/>
+                              <xs:element name="Type" type="ns1:ObservationType"/>
+                              <xs:element name="Code" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Value" type="xs:string"/>
+                              <xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="Resubmission">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="Sequence" type="xs:integer"/>
+                        <xs:element name="Type" type="ns1:ResubmissionType"/>
+                        <xs:element name="Comment" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Attachment" type="xs:base64Binary"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="ScrubbingHint">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="Code" type="xs:string"/>
+                        <xs:element name="Value" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="proccessTransactionResponse" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Status" type="xs:boolean"/>
+            <xs:element name="Msg" type="xs:string"/>
+            <xs:element name="SubmissionResponse">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Header">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="SenderID" type="xs:string"/>
+                        <xs:element name="ReceiverID" type="xs:string"/>
+                        <xs:element name="DispositionFlag" type="ns1:HeaderDispositionFlag"/>
+                        <xs:element name="ReferenceID" type="xs:string"/>
+                        <xs:element name="TransactionDate" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" name="Transaction">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ID" type="xs:string"/>
+                        <xs:element name="PayerID" type="xs:string"/>
+                        <xs:element name="ProviderID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DenialCode" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Comments" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" name="Activity">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ID" type="xs:string"/>
+                              <xs:element name="Code" type="xs:string"/>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+                              <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+                              <xs:element minOccurs="0" name="Quantity" type="xs:double"/>
+                              <xs:element minOccurs="0" name="orderingClinician" type="xs:string"/>
+                              <xs:element minOccurs="0" name="clinician" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Gross" type="xs:double"/>
+                              <xs:element minOccurs="0" name="Net" type="xs:double"/>
+                              <xs:element name="PatientShare">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Type" type="xs:string"/>
+                                    <xs:element name="Value" type="xs:double"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="paymentAmount" type="xs:double"/>
+                              <xs:element minOccurs="0" name="PriorAuthorizationID" type="xs:string"/>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="Edit">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ID" type="xs:string"/>
+                                    <xs:element name="Type" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="SubType" type="xs:string"/>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Rank" type="ns1:ActivityEditRank"/>
+                                    <xs:element minOccurs="0" name="ResultCode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Result" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Comment" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ruleName" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="Observation">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Type" type="ns1:ObservationType"/>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Value" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" name="Diagnosis">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element name="Type" type="xs:string"/>
+                              <xs:element name="Code" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="proccessTransaction">
+    <wsdl:part element="tns:submission" name="submission"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="proccessTransactionResponse">
+    <wsdl:part element="tns:proccessTransactionResponse" name="proccessTransactionResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ICMService">
+    <wsdl:operation name="proccessTransaction">
+      <wsdl:input message="tns:proccessTransaction" name="proccessTransaction"></wsdl:input>
+      <wsdl:output message="tns:proccessTransactionResponse" name="proccessTransactionResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ICMServiceServiceSoapBinding" type="tns:ICMService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="proccessTransaction">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="proccessTransaction">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="proccessTransactionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ICMServiceService">
+    <wsdl:port binding="tns:ICMServiceServiceSoapBinding" name="ICMServicePort">
+      <soap:address location="http://jenkins:8181/ICM/ws/ICMService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints>
+      <con:endpoint>http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService</con:endpoint>
+    </con:endpoints>
+    <con:operation action="" anonymous="optional" bindingOperationName="proccessTransaction" id="2bdb65f8-932a-44c0-9446-1d5bf8c920a8" inputName="proccessTransaction" isOneWay="false" name="proccessTransaction" outputName="proccessTransactionResponse" receivesAttachments="false" sendsAttachments="false" type="Request-Response">
+      <con:settings/>
+      <con:call id="681ec801-c44d-4026-9aa0-c424f1a7bcdf" name="Request 1">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.icm.dhc.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:ICMRequest>
+         <Username>pbmSyncUser</Username>
+         <Key>8nFL2Ba4-1A34-4a4a-b14b-7fB12eAF3f32</Key>
+         <Submission>
+             <Header>
+               <SubmissionDestination>2</SubmissionDestination>
+               <SenderID>QAOman02</SenderID>
+               <ReceiverID>INS012</ReceiverID>
+               <DispositionFlag>PRODUCTION</DispositionFlag>
+               <ReferenceID>663689</ReferenceID>
+               <transactionType>PriorRequest</transactionType>
+               <processType>Review</processType>
+            </Header>
+            <!--1 or more repetitions:-->
+            <Transaction>
+              <ID>Oman02-INS012-Rukab-140</ID>
+               <PayerID>INS012</PayerID>
+               <ProviderID>QAOman02</ProviderID>
+               <Person>
+                  <ID>1059202</ID>
+                  <InsuranceMemberNumber>OIG/ME-73/E/270341</InsuranceMemberNumber>
+                  <NationalIDNumber>784-1978-4605208-8</NationalIDNumber>
+                  <BirthDate>05/03/1978</BirthDate>
+                  <Gender>M</Gender>
+                  <Name>TAUSEEF AHMAD</Name>
+                  <Group>73</Group>
+               </Person>
+               <Encounter>
+                  <FacilityID>QAOman02</FacilityID>
+                  <Type>1</Type>
+               </Encounter>
+               <Diagnosis>
+                  <CodeTerm>ICD10</CodeTerm>
+                  <Type>Principal</Type>
+                  <Code>G43.409 </Code>
+               </Diagnosis>
+               <Activity>
+                  <ID>17530</ID>
+                  <CodeTerm>DDC_20122</CodeTerm>
+                  <Start>17/10/2017 21:55</Start>
+                
+                 <Code>0228-107901-1171</Code>
+                  <Quantity>2.0</Quantity>
+                  <OrderingClinician>GP12158</OrderingClinician>
+                  <Clinician>GP12158</Clinician>
+                  <Duration>2</Duration>
+               </Activity>
+               <ScrubbingHint>
+                  <Code>AUTO_STORE</Code>
+                  <Value>PRIOR_AUTHORIZATION</Value>
+               </ScrubbingHint>
+               <ScrubbingHint>
+                  <Code>Ignore</Code>
+                  <Value>TRANSACTION_SAVING_ERROR</Value>
+               </ScrubbingHint>
+               <ScrubbingHint>
+                  <Code>DEFINE_VALUE</Code>
+                  <Value>DEFAULT_NETWORK</Value>
+                  <ValueType>ExtraInfo.network</ValueType>
+               </ScrubbingHint>
+               <ScrubbingHint>
+                  <Code>CUSTOM_PREDEFIND_BUCKET</Code>
+                  <Value>PX</Value>
+               </ScrubbingHint>
+               <ScrubbingHint>
+                  <Code>CUSTOM_AUTH_PAYER_REF</Code>
+                  <Value>PBM_663684_11024</Value>
+               </ScrubbingHint>   
+                    <ScrubbingHint>
+			<Code>Ignore</Code>
+			<Value>MEMBER_HISTORY</Value>
+			</ScrubbingHint>      
+            </Transaction>
+         </Submission>
+      </ws:ICMRequest>
+   <ws:submission><Header><SubmissionDestination/><SenderID/><ReceiverID/><DispositionFlag/><ReferenceID/><transactionType/><processType/></Header></ws:submission></soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://ws.icm.dhc.com/ICMService/proccessTransaction" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:call>
+    <con:call id="cf1d7b25-afc9-47a4-a329-05d40eac4d56" name="Backup of [Request 1]"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.icm.dhc.com/">
+            <soapenv:Header/>
+            <soapenv:Body>
+              <ws:submission>
+                <Header>
+                  <SubmissionDestination>12412</SubmissionDestination>
+                  <SenderID>DHA-F-2222</SenderID>
+                  <ReceiverID>INS997</ReceiverID>
+                  <DispositionFlag>PRODUCTION</DispositionFlag>
+                  <!--<ReferenceID>{=System.currentTimeMillis() + ((int)(Math.random()*1000))}</ReferenceID>-->
+                  <ReferenceID>32434335893</ReferenceID>
+                  <transactionType>Claim</transactionType>
+                  <processType>Review</processType></Header>
+                <!--1 or more repetitions:-->
+                <Transaction>
+                  <ID>1231231231</ID>
+                  <PayerID>INS997</PayerID>
+                  <ProviderID>DHA-F-2222</ProviderID>
+                  <HealthPlanID>1</HealthPlanID>
+                  <TransactionPriorAuthorizationID>1</TransactionPriorAuthorizationID>
+                  <Person>
+                    <ID>TESTMEMSAM</ID>
+                    <InsuranceMemberNumber>TESTMEMSAM</InsuranceMemberNumber>
+                    <NationalIDNumber>1</NationalIDNumber>
+                    <BirthDate>25/08/1988</BirthDate>
+                    <Gender>M</Gender>
+                  </Person>
+                  <Encounter>
+                    <FacilityID>NoVal</FacilityID>
+                    <Type>1</Type>
+                  </Encounter>
+                  <Diagnosis>
+                    <CodeTerm>ICD10</CodeTerm>
+                    <Type>Principal</Type>
+                    <Code>A01.00</Code>
+                  </Diagnosis>
+                  <Activity>
+                    <ID>79431</ID>
+                    <CodeTerm>CPT_04_2012</CodeTerm>
+                    <Start>14/12/2016 00:00</Start>
+                    <End/>
+                    <Code>99213</Code>
+                    <Quantity>1</Quantity>
+                    <OrderingClinician/>
+                    <Clinician>MOHD38104</Clinician>
+                    <ActivityNet>1</ActivityNet>
+                    <ActivityPatientShare>
+                      <Type/>
+                    </ActivityPatientShare>
+                    <Observation>
+                      <ID/>
+                      <Type>Text</Type>
+                      <Code/>
+                    </Observation>
+                  </Activity>
+                  <Resubmission>
+                    <Sequence>1</Sequence>
+                    <Type>correction</Type>
+                    <Comment>1</Comment>
+                    <Attachment>dsad.xml</Attachment>
+                  </Resubmission>
+                  <ScrubbingHint>
+                    <Code>Ignore</Code>
+                    <Value>MEMBER_HISTORY</Value>
+                  </ScrubbingHint>
+                  <ScrubbingHint>
+                    <Code>CUSTOM_PREDEFIND_COVERAGE</Code>
+                    <Value>true</Value>
+                  </ScrubbingHint>
+                  <ScrubbingHint>
+                    <Code>PREDEFIND_COPAY</Code>
+                    <Value>20</Value>
+                    <ValueType>
+                      <!-- Benifit Code -->
+                    </ValueType>
+                  </ScrubbingHint>
+                  <ScrubbingHint>
+                    <Code>PREDEFIND_COVERED</Code>
+                    <Value>YES</Value>
+                    <ValueType>
+                      <!-- Benifit Code -->
+                    </ValueType>
+                  </ScrubbingHint>
+                  <ScrubbingHint>
+                    <Code>PREDEFIND_DEDUCT</Code>
+                    <Value>25</Value>
+                    <ValueType>
+                      <!-- Benifit Code -->
+                    </ValueType>
+                  </ScrubbingHint>
+                  <ScrubbingHint>
+                    <Code>PREDEFIND_MAX_COPAY</Code>
+                    <Value>15</Value>
+                  </ScrubbingHint>
+                  <ScrubbingHint>
+                    <Code>PREDEFIND_COPAY</Code>
+                    <Value>20</Value>
+                    <ValueType>OP</ValueType>
+                  </ScrubbingHint>
+                  <ScrubbingHint>
+                    <Code>PREDEFIND_COPAY</Code>
+                    <Value>20</Value>
+                    <ValueType>IP</ValueType>
+                  </ScrubbingHint>
+                </Transaction>
+              </ws:submission>
+            </soapenv:Body>
+          </soapenv:Envelope>]]></con:request><con:credentials>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.icm.dhc.com/ICMService/proccessTransaction"/><con:wsrmConfig version="1.2"/></con:call></con:operation>
+  </con:interface>
+  <con:testSuite id="9c76a9b5-f6fa-461f-822d-e28397e72ce4" name="jenkinsSuite">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase failOnError="true" failTestCaseOnErrors="true" id="cde3a8e4-5293-4bc3-9d90-3f596ee03cba" keepSession="false" maxResults="0" name="ICM" searchProperties="true">
+      <con:settings/>
+      <con:testStep id="a4170987-b4d7-42ba-8658-370680b7f455" name="Request Source" type="datasource">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Excel">
+            <con:configuration><file>D:/Fazeel Data/DHC/SOAPUI-Rep/ICMService/Jenkins.xlsx</file><worksheet>Request</worksheet><cell>A2</cell><ignoreEmpty>true</ignoreEmpty></con:configuration>
+          </con:dataSource>
+          <con:shared>false</con:shared>
+          <con:preload>false</con:preload>
+          <con:property>Header_SubmissionDestination</con:property>
+          <con:property>Header_SenderId</con:property>
+          <con:property>Header_ReceiverId</con:property>
+          <con:property>Header_DispositionFlag</con:property>
+          <con:property>Header_ReferenceID</con:property>
+          <con:property>Header_TransactionType</con:property>
+          <con:property>Header_ProcessType</con:property>
+          <con:property>Transaction_ID</con:property>
+          <con:property>Transaction_PayerId</con:property>
+          <con:property>Transaction_ProviderId</con:property>
+          <con:property>Transaction_HealthPlanId</con:property>
+          <con:property>Transaction_PayerTransactionReference</con:property>
+          <con:property>Transaction_TransactionGross</con:property>
+          <con:property>Transaction_TransactionPatientShare</con:property>
+          <con:property>Transaction_TransactionNet</con:property>
+          <con:property>Transaction_PriorAuthourizationID</con:property>
+          <con:property>Person_ID</con:property>
+          <con:property>Person_InsuranceMemberNumber</con:property>
+          <con:property>Person_NationalIdNumber</con:property>
+          <con:property>Person_BirthDate</con:property>
+          <con:property>Person_Gender</con:property>
+          <con:property>Person_Name</con:property>
+          <con:property>Person_Policy</con:property>
+          <con:property>Person_Group</con:property>
+          <con:property>Person_Address</con:property>
+          <con:property>Person_Weight</con:property>
+          <con:property>Person_BreastFeeding</con:property>
+          <con:property>Person_WeeksofAmenorrhoea</con:property>
+          <con:property>Person_CreatinClearance</con:property>
+          <con:property>Encounter_FacilityId</con:property>
+          <con:property>Encounter_Type</con:property>
+          <con:property>Encounter_Start</con:property>
+          <con:property>Encounter_End</con:property>
+          <con:property>Encounter_StartType</con:property>
+          <con:property>Encounter_EndType</con:property>
+          <con:property>Encounter_EligibilityIDPayer</con:property>
+          <con:property>Encounter_TransferSource</con:property>
+          <con:property>Encounter_TransferDestination</con:property>
+          <con:property>Diagnosis_CodeTerm</con:property>
+          <con:property>Diagnosis_Type</con:property>
+          <con:property>Diagnosis_Code</con:property>
+          <con:property>Diagnosis2_CodeTerm</con:property>
+          <con:property>Diagnosis2_Type</con:property>
+          <con:property>Diagnosis2_Code</con:property>
+          <con:property>Diagnosis3_CodeTerm</con:property>
+          <con:property>Diagnosis3_Type</con:property>
+          <con:property>Diagnosis3_Code</con:property>
+          <con:property>Diagnosis4_CodeTerm</con:property>
+          <con:property>Diagnosis4_Type</con:property>
+          <con:property>Diagnosis4_Code</con:property>
+          <con:property>Diagnosis5_CodeTerm</con:property>
+          <con:property>Diagnosis5_Type</con:property>
+          <con:property>Diagnosis5_Code</con:property>
+          <con:property>Diagnosis6_CodeTerm</con:property>
+          <con:property>Diagnosis6_Type</con:property>
+          <con:property>Diagnosis6_Code</con:property>
+          <con:property>Diagnosis7_CodeTerm</con:property>
+          <con:property>Diagnosis7_Type</con:property>
+          <con:property>Diagnosis7_Code</con:property>
+          <con:property>Activity_ID</con:property>
+          <con:property>Activity_CodeTerm</con:property>
+          <con:property>Activity_Start</con:property>
+          <con:property>Activity_End</con:property>
+          <con:property>Activity_Code</con:property>
+          <con:property>Activity_Quantity</con:property>
+          <con:property>Activity_OrderingClinician</con:property>
+          <con:property>Activity_Clinician</con:property>
+          <con:property>Activity_PriorAuthourizationID</con:property>
+          <con:property>Activity_ActivityNet</con:property>
+          <con:property>Activity_ActivityGross</con:property>
+          <con:property>Activity2_ID</con:property>
+          <con:property>Activity2_CodeTerm</con:property>
+          <con:property>Activity2_Start</con:property>
+          <con:property>Activity2_End</con:property>
+          <con:property>Activity2_Code</con:property>
+          <con:property>Activity2_Quantity</con:property>
+          <con:property>Activity2_OrderingClinician</con:property>
+          <con:property>Activity2_Clinician</con:property>
+          <con:property>Activity2_PriorAuthourizationID</con:property>
+          <con:property>Activity2_ActivityNet</con:property>
+          <con:property>Activity2_ActivityGross</con:property>
+          <con:property>Activity3_ID</con:property>
+          <con:property>Activity3_CodeTerm</con:property>
+          <con:property>Activity3_Start</con:property>
+          <con:property>Activity3_End</con:property>
+          <con:property>Activity3_Code</con:property>
+          <con:property>Activity3_Quantity</con:property>
+          <con:property>Activity3_OrderingClinician</con:property>
+          <con:property>Activity3_Clinician</con:property>
+          <con:property>Activity3_PriorAuthourizationID</con:property>
+          <con:property>Activity3_ActivityNet</con:property>
+          <con:property>Activity3_ActivityGross</con:property>
+          <con:property>Activity4_ID</con:property>
+          <con:property>Activity4_CodeTerm</con:property>
+          <con:property>Activity4_Start</con:property>
+          <con:property>Activity4_End</con:property>
+          <con:property>Activity4_Code</con:property>
+          <con:property>Activity4_Quantity</con:property>
+          <con:property>Activity4_OrderingClinician</con:property>
+          <con:property>Activity4_Clinician</con:property>
+          <con:property>Activity4_PriorAuthourizatioID</con:property>
+          <con:property>Activity4_ActivityNet</con:property>
+          <con:property>Activity4_ActivityGross</con:property>
+          <con:property>Activity5_ID</con:property>
+          <con:property>Activity5_CodeTerm</con:property>
+          <con:property>Activity5_Start</con:property>
+          <con:property>Activity5_End</con:property>
+          <con:property>Activity5_Code</con:property>
+          <con:property>Activity5_Quantiy</con:property>
+          <con:property>Activity5_OrderingClinician</con:property>
+          <con:property>Activity5_Clinician</con:property>
+          <con:property>Activity5_PriorAuthourizationID</con:property>
+          <con:property>Activity5_ActivityNet</con:property>
+          <con:property>Activity5_ActivityGross</con:property>
+          <con:property>Activity6_ID</con:property>
+          <con:property>Activity6_CodeTerm</con:property>
+          <con:property>Activity6_Start</con:property>
+          <con:property>Activity6_End</con:property>
+          <con:property>Activity6_Quantity</con:property>
+          <con:property>Activity6_Code</con:property>
+          <con:property>Activity6_OrderingClinician</con:property>
+          <con:property>Activity6_Clinician</con:property>
+          <con:property>Activity6_PriorAuthourizationID</con:property>
+          <con:property>Activity6_ActivityNet</con:property>
+          <con:property>Activity6_ActivityGross</con:property>
+          <con:property>Activity7_ID</con:property>
+          <con:property>Activity7_CodeTerm</con:property>
+          <con:property>Activity7_Start</con:property>
+          <con:property>Activity7_End</con:property>
+          <con:property>Activity7_Code</con:property>
+          <con:property>Activity7_Quantity</con:property>
+          <con:property>Activity7_OrderingClinician</con:property>
+          <con:property>Activity7_Clinician</con:property>
+          <con:property>Activity7_PriorAuthourizationID</con:property>
+          <con:property>Activity7_ActivityNet</con:property>
+          <con:property>Activity7_ActivityGross</con:property>
+          <con:property>ActivityPatientShare_Type</con:property>
+          <con:property>ActivityPatientShare_Value</con:property>
+          <con:property>ActivityPatientShare2_Type</con:property>
+          <con:property>ActivityPatientShare2_Value</con:property>
+          <con:property>ActivityPatientShare3_Type</con:property>
+          <con:property>ActivityPatientShare3_Value</con:property>
+          <con:property>ActivityPatientShare4_Type</con:property>
+          <con:property>ActivityPatientShare4_Value</con:property>
+          <con:property>ActivityPatientShare5_Type</con:property>
+          <con:property>ActivityPatientShare5_Value</con:property>
+          <con:property>ActivityPatientShare6_Type</con:property>
+          <con:property>ActivityPatientShare6_Value</con:property>
+          <con:property>ActivityPatientShare7_Type</con:property>
+          <con:property>ActivityPatientShare7_Value</con:property>
+          <con:property>Observation_ID</con:property>
+          <con:property>Observation_Type</con:property>
+          <con:property>Observation_Code</con:property>
+          <con:property>Observation_Value</con:property>
+          <con:property>Observation_ValueType</con:property>
+          <con:property>Observation2_ID</con:property>
+          <con:property>Observation2_Type</con:property>
+          <con:property>Observation2_Code</con:property>
+          <con:property>Observation2_Value</con:property>
+          <con:property>Observation2_ValueType</con:property>
+          <con:property>Observation3_ID</con:property>
+          <con:property>Observation3_Type</con:property>
+          <con:property>Observation3_Code</con:property>
+          <con:property>Observation3_Value</con:property>
+          <con:property>Observation3_ValueType</con:property>
+          <con:property>Observation4_ID</con:property>
+          <con:property>Observation4_Type</con:property>
+          <con:property>Observation4_Code</con:property>
+          <con:property>Observation4_Value</con:property>
+          <con:property>Observation4_ValueType</con:property>
+          <con:property>Observation5_ID</con:property>
+          <con:property>Observation5_Type</con:property>
+          <con:property>Observation5_Code</con:property>
+          <con:property>Observation5_Value</con:property>
+          <con:property>Observation5_ValueType</con:property>
+          <con:property>Observation6_ID</con:property>
+          <con:property>Observation6_Type</con:property>
+          <con:property>Observation6_Code</con:property>
+          <con:property>Observation6_Value</con:property>
+          <con:property>Observation6_ValueType</con:property>
+          <con:property>Observation7_ID</con:property>
+          <con:property>Observation7_Type</con:property>
+          <con:property>Observation7_Code</con:property>
+          <con:property>Observation7_Value</con:property>
+          <con:property>Observation7_ValueType</con:property>
+          <con:property>Resubmission_Sequence</con:property>
+          <con:property>Resubmission_Type</con:property>
+          <con:property>Resubmission_Comment</con:property>
+          <con:property>Resubmission_Attachment</con:property>
+          <con:property>ScrubbingHint_Code</con:property>
+          <con:property>ScrubbingHint_Value</con:property>
+          <con:property>ScrubbingHint_ValueTypes</con:property>
+          <con:property>ScrubbingHint2_Code</con:property>
+          <con:property>ScrubbingHint2_Value</con:property>
+          <con:property>ScrubbingHint2_ValueType</con:property>
+          <con:property>ScrubbingHint3_Code</con:property>
+          <con:property>ScrubbingHint3_Value</con:property>
+          <con:property>ScrubbingHint3_ValueType</con:property>
+          <con:property>ScrubbingHint4_Code</con:property>
+          <con:property>ScrubbingHint4_Value</con:property>
+          <con:property>ScrubbingHint4_ValueType</con:property>
+          <con:property>ScrubbingHint5_Code</con:property>
+          <con:property>ScrubbingHint5_Value</con:property>
+          <con:property>ScrubbingHint5_ValueType</con:property>
+          <con:property>ScrubbingHint6_Code</con:property>
+          <con:property>ScrubbingHint6_Value</con:property>
+          <con:property>ScrubbingHint6_ValueType</con:property>
+          <con:property>ScrubbingHint7_Code</con:property>
+          <con:property>ScrubbingHint7_Value</con:property>
+          <con:property>ScrubbingHint7_ValueType</con:property>
+          <con:property>ScrubbingHint8_Code</con:property>
+          <con:property>ScrubbingHint8_Value</con:property>
+          <con:property>ScrubbingHint8_Type</con:property>
+          <con:startRow/>
+          <con:endRow/>
+          <con:trimValues>false</con:trimValues>
+          <con:entitizeValues>false</con:entitizeValues>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:expandProperties>false</con:expandProperties>
+        </con:config>
+      </con:testStep>
+      <con:testStep disabled="true" id="dec286c8-445b-479c-b8c3-0e9d7a9a4dad" name="patientshare Source" type="datasource">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Excel">
+            <con:configuration><file>D:/Fazeel Data/DHC/SOAPUI-Rep/ICMService/Jenkins.xlsx</file><worksheet>patientshare_M</worksheet><cell>A2</cell><ignoreEmpty>false</ignoreEmpty></con:configuration>
+          </con:dataSource>
+          <con:property>ActivityPatientShare2_Type</con:property>
+          <con:property>ActivityPatientShare2_Value</con:property>
+          <con:property>ActivityPatientShare3_Type</con:property>
+          <con:property>ActivityPatientShare3_Value</con:property>
+          <con:property>ActivityPatientShare4_Type</con:property>
+          <con:property>ActivityPatientShare4_Value</con:property>
+          <con:property>ActivityPatientShare5_Type</con:property>
+          <con:property>ActivityPatientShare5_Value</con:property>
+          <con:property>ActivityPatientShare6_Type</con:property>
+          <con:property>ActivityPatientShare6_Value</con:property>
+          <con:property>ActivityPatientShare7_Type</con:property>
+          <con:property>ActivityPatientShare7_Value</con:property>
+          <con:restartOnRun>true</con:restartOnRun>
+        </con:config>
+      </con:testStep>
+      <con:testStep disabled="true" id="14237d64-65a6-4dba-b810-eeee11c46d08" name="Person Source" type="datasource">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Excel">
+            <con:configuration><file>D:/Fazeel Data/DHC/SOAPUI-Rep/ICMService/Jenkins.xlsx</file><worksheet>Person</worksheet><cell>A1</cell><ignoreEmpty>false</ignoreEmpty></con:configuration>
+          </con:dataSource>
+          <con:shared>false</con:shared>
+          <con:preload>false</con:preload>
+          <con:property>Person_ID</con:property>
+          <con:property>Person_InsuranceMemberNumber</con:property>
+          <con:property>Person_NationalIdNumber</con:property>
+          <con:property>Person_BirthDate</con:property>
+          <con:property>Person_Gender</con:property>
+          <con:property>Person_Name</con:property>
+          <con:property>Person_Policy</con:property>
+          <con:property>Person_Group</con:property>
+          <con:property>Person_Address</con:property>
+          <con:property>Person_Weight</con:property>
+          <con:property>Person_BreastFeeding</con:property>
+          <con:property>Person_WeeksofAmenorrhoea</con:property>
+          <con:property>Person_CreatinClearance</con:property>
+          <con:startRow/>
+          <con:endRow/>
+          <con:trimValues>false</con:trimValues>
+          <con:entitizeValues>false</con:entitizeValues>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:expandProperties>false</con:expandProperties>
+        </con:config>
+      </con:testStep>
+      <con:testStep disabled="true" id="aef8bf5e-37c1-494a-91d4-56abd8b29f75" name="Encounter Source" type="datasource">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Excel">
+            <con:configuration><file>D:/Fazeel Data/DHC/SOAPUI-Rep/ICMService/Jenkins.xlsx</file><worksheet>Encounter</worksheet><cell>A1</cell><ignoreEmpty>false</ignoreEmpty></con:configuration>
+          </con:dataSource>
+          <con:shared>false</con:shared>
+          <con:preload>false</con:preload>
+          <con:property>Encounter_FacilityId</con:property>
+          <con:property>Encounter_Type</con:property>
+          <con:property>Encounter_Start</con:property>
+          <con:property>Encounter_End</con:property>
+          <con:property>Encounter_StartType</con:property>
+          <con:property>Encounter_EndType</con:property>
+          <con:property>Encounter_EligibilityIDPayer</con:property>
+          <con:property>Encounter_TransferSource</con:property>
+          <con:property>Encounter_TransferDestination</con:property>
+          <con:startRow/>
+          <con:endRow/>
+          <con:trimValues>false</con:trimValues>
+          <con:entitizeValues>false</con:entitizeValues>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:expandProperties>false</con:expandProperties>
+        </con:config>
+      </con:testStep>
+      <con:testStep disabled="true" id="1f3abbd4-71df-4e36-84b4-ebcc825e34f6" name="Diagnosis Source" type="datasource">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Excel">
+            <con:configuration><file>D:/Fazeel Data/DHC/SOAPUI-Rep/ICMService/Jenkins.xlsx</file><worksheet>diagnosis_M</worksheet><cell>A1</cell><ignoreEmpty>false</ignoreEmpty></con:configuration>
+          </con:dataSource>
+          <con:shared>false</con:shared>
+          <con:preload>false</con:preload>
+          <con:property>Diagnosis2_CodeTerm</con:property>
+          <con:property>Diagnosis2_Type</con:property>
+          <con:property>Diagnosis2_Code</con:property>
+          <con:property>Diagnosis3_CodeTerm</con:property>
+          <con:property>Diagnosis3_Type</con:property>
+          <con:property>Diagnosis3_Code</con:property>
+          <con:property>Diagnosis4_CodeTerm</con:property>
+          <con:property>Diagnosis4_Type</con:property>
+          <con:property>Diagnosis4_Code</con:property>
+          <con:property>Diagnosis5_CodeTerm</con:property>
+          <con:property>Diagnosis5_Type</con:property>
+          <con:property>Diagnosis5_Code</con:property>
+          <con:property>Diagnosis6_CodeTerm</con:property>
+          <con:property>Diagnosis6_Type</con:property>
+          <con:property>Diagnosis6_Code</con:property>
+          <con:property>Diagnosis7_CodeTerm</con:property>
+          <con:property>Diagnosis7_Type</con:property>
+          <con:property>Diagnosis7_Code</con:property>
+          <con:startRow/>
+          <con:endRow/>
+          <con:trimValues>false</con:trimValues>
+          <con:entitizeValues>false</con:entitizeValues>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:expandProperties>false</con:expandProperties>
+        </con:config>
+      </con:testStep>
+      <con:testStep disabled="true" id="edcd50d7-26a0-4577-aaab-64e0754c91b6" name="Activity Source" type="datasource">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Excel">
+            <con:configuration><file>D:/Fazeel Data/DHC/SOAPUI-Rep/ICMService/Jenkins.xlsx</file><worksheet>activity_M</worksheet><cell>A1</cell><ignoreEmpty>false</ignoreEmpty></con:configuration>
+          </con:dataSource>
+          <con:shared>false</con:shared>
+          <con:preload>false</con:preload>
+          <con:property>Activity2_ID</con:property>
+          <con:property>Activity2_CodeTerm</con:property>
+          <con:property>Activity2_Start</con:property>
+          <con:property>Activity2_End</con:property>
+          <con:property>Activity2_Code</con:property>
+          <con:property>Activity2_Quantity</con:property>
+          <con:property>Activity2_OrderingClinician</con:property>
+          <con:property>Activity2_Clinician</con:property>
+          <con:property>Activity2_PriorAuthourizationID</con:property>
+          <con:property>Activity2_ActivityNet</con:property>
+          <con:property>Activity2_ActivityGross</con:property>
+          <con:property>Activity3_ID</con:property>
+          <con:property>Activity3_CodeTerm</con:property>
+          <con:property>Activity3_Start</con:property>
+          <con:property>Activity3_End</con:property>
+          <con:property>Activity3_Code</con:property>
+          <con:property>Activity3_Quantity</con:property>
+          <con:property>Activity3_OrderingClinician</con:property>
+          <con:property>Activity3_Clinician</con:property>
+          <con:property>Activity3_PriorAuthourizationID</con:property>
+          <con:property>Activity3_ActivityNet</con:property>
+          <con:property>Activity3_ActivityGross</con:property>
+          <con:property>Activity4_ID</con:property>
+          <con:property>Activity4_CodeTerm</con:property>
+          <con:property>Activity4_Start</con:property>
+          <con:property>Activity4_End</con:property>
+          <con:property>Activity4_Code</con:property>
+          <con:property>Activity4_Quantity</con:property>
+          <con:property>Activity4_OrderingClinician</con:property>
+          <con:property>Activity4_Clinician</con:property>
+          <con:property>Activity4_PriorAuthourizatioID</con:property>
+          <con:property>Activity4_ActivityNet</con:property>
+          <con:property>Activity4_ActivityGross</con:property>
+          <con:property>Activity5_ID</con:property>
+          <con:property>Activity5_CodeTerm</con:property>
+          <con:property>Activity5_Start</con:property>
+          <con:property>Activity5_End</con:property>
+          <con:property>Activity5_Code</con:property>
+          <con:property>Activity5_Quantiy</con:property>
+          <con:property>Activity5_OrderingClinician</con:property>
+          <con:property>Activity5_Clinician</con:property>
+          <con:property>Activity5_PriorAuthourizationID</con:property>
+          <con:property>Activity5_ActivityNet</con:property>
+          <con:property>Activity5_ActivityGross</con:property>
+          <con:property>Activity6_ID</con:property>
+          <con:property>Activity6_CodeTerm</con:property>
+          <con:property>Activity6_Start</con:property>
+          <con:property>Activity6_End</con:property>
+          <con:property>Activity6_Quantity</con:property>
+          <con:property>Activity6_Code</con:property>
+          <con:property>Activity6_OrderingClinician</con:property>
+          <con:property>Activity6_Clinician</con:property>
+          <con:property>Activity6_PriorAuthourizationID</con:property>
+          <con:property>Activity6_ActivityNet</con:property>
+          <con:property>Activity6_ActivityGross</con:property>
+          <con:property>Activity7_ID</con:property>
+          <con:property>Activity7_CodeTerm</con:property>
+          <con:property>Activity7_Start</con:property>
+          <con:property>Activity7_End</con:property>
+          <con:property>Activity7_Code</con:property>
+          <con:property>Activity7_Quantity</con:property>
+          <con:property>Activity7_OrderingClinician</con:property>
+          <con:property>Activity7_Clinician</con:property>
+          <con:property>Activity7_PriorAuthourizationID</con:property>
+          <con:property>Activity7_ActivityNet</con:property>
+          <con:property>Activity7_ActivityGross</con:property>
+          <con:startRow/>
+          <con:endRow/>
+          <con:trimValues>false</con:trimValues>
+          <con:entitizeValues>false</con:entitizeValues>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:expandProperties>false</con:expandProperties>
+        </con:config>
+      </con:testStep>
+      <con:testStep disabled="true" id="ac76c278-f522-4ea2-ba9b-b2c2760cecfa" name="Observation Source" type="datasource">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Excel">
+            <con:configuration><file>D:/Fazeel Data/DHC/SOAPUI-Rep/ICMService/Jenkins.xlsx</file><worksheet>Observation_M</worksheet><cell>A1</cell><ignoreEmpty>false</ignoreEmpty></con:configuration>
+          </con:dataSource>
+          <con:shared>false</con:shared>
+          <con:preload>false</con:preload>
+          <con:property>Observation2_ID</con:property>
+          <con:property>Observation2_Type</con:property>
+          <con:property>Observation2_Code</con:property>
+          <con:property>Observation2_Value</con:property>
+          <con:property>Observation2_ValueType</con:property>
+          <con:property>Observation3_ID</con:property>
+          <con:property>Observation3_Type</con:property>
+          <con:property>Observation3_Code</con:property>
+          <con:property>Observation3_Value</con:property>
+          <con:property>Observation3_ValueType</con:property>
+          <con:property>Observation4_ID</con:property>
+          <con:property>Observation4_Type</con:property>
+          <con:property>Observation4_Code</con:property>
+          <con:property>Observation4_Value</con:property>
+          <con:property>Observation4_ValueType</con:property>
+          <con:property>Observation5_ID</con:property>
+          <con:property>Observation5_Type</con:property>
+          <con:property>Observation5_Code</con:property>
+          <con:property>Observation5_Value</con:property>
+          <con:property>Observation5_ValueType</con:property>
+          <con:property>Observation6_ID</con:property>
+          <con:property>Observation6_Type</con:property>
+          <con:property>Observation6_Code</con:property>
+          <con:property>Observation6_Value</con:property>
+          <con:property>Observation6_ValueType</con:property>
+          <con:property>Observation7_ID</con:property>
+          <con:property>Observation7_Type</con:property>
+          <con:property>Observation7_Code</con:property>
+          <con:property>Observation7_Value</con:property>
+          <con:property>Observation7_ValueType</con:property>
+          <con:startRow/>
+          <con:endRow/>
+          <con:trimValues>false</con:trimValues>
+          <con:entitizeValues>false</con:entitizeValues>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:expandProperties>false</con:expandProperties>
+        </con:config>
+      </con:testStep>
+      <con:testStep disabled="true" id="d3c60292-5ea7-40e0-bbce-263d74d454d0" name="Scrubbing Source" type="datasource">
+        <con:settings/>
+        <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSource type="Excel">
+            <con:configuration><file>D:/Fazeel Data/DHC/SOAPUI-Rep/ICMService/Jenkins.xlsx</file><worksheet>Scrubbing_M</worksheet><cell>A1</cell><ignoreEmpty>false</ignoreEmpty></con:configuration>
+          </con:dataSource>
+          <con:shared>false</con:shared>
+          <con:preload>false</con:preload>
+          <con:property>ScrubbingHint2_Code</con:property>
+          <con:property>ScrubbingHint2_Value</con:property>
+          <con:property>ScrubbingHint2_ValueType</con:property>
+          <con:property>ScrubbingHint3_Code</con:property>
+          <con:property>ScrubbingHint3_Value</con:property>
+          <con:property>ScrubbingHint3_ValueType</con:property>
+          <con:property>ScrubbingHint4_Code</con:property>
+          <con:property>ScrubbingHint4_Value</con:property>
+          <con:property>ScrubbingHint4_ValueType</con:property>
+          <con:property>ScrubbingHint5_Code</con:property>
+          <con:property>ScrubbingHint5_Value</con:property>
+          <con:property>ScrubbingHint5_ValueType</con:property>
+          <con:property>ScrubbingHint6_Code</con:property>
+          <con:property>ScrubbingHint6_Value</con:property>
+          <con:property>ScrubbingHint6_ValueType</con:property>
+          <con:property>ScrubbingHint7_Code</con:property>
+          <con:property>ScrubbingHint7_Value</con:property>
+          <con:property>ScrubbingHint7_ValueType</con:property>
+          <con:property>ScrubbingHint8_Code</con:property>
+          <con:property>ScrubbingHint8_Value</con:property>
+          <con:property>ScrubbingHint8_Type</con:property>
+          <con:startRow/>
+          <con:endRow/>
+          <con:trimValues>false</con:trimValues>
+          <con:entitizeValues>false</con:entitizeValues>
+          <con:restartOnRun>true</con:restartOnRun>
+          <con:expandProperties>false</con:expandProperties>
+        </con:config>
+      </con:testStep>
+      <con:testStep id="176c5b1b-2753-4cbf-8b5d-dd139d4f13c5" name="Request" type="request">
+        <con:settings/>
+        <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:interface>ICMServiceServiceSoapBinding</con:interface>
+          <con:operation>proccessTransaction</con:operation>
+          <con:request id="d7cc355e-d780-4afc-959d-7754267996ea" incomingWss="" name="Request" outgoingWss="" sslKeystore="" timeout="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:encoding>UTF-8</con:encoding>
+            <con:endpoint>http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService</con:endpoint>
+            <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.icm.dhc.com/">
+                <soapenv:Header/>
+   <soapenv:Body>
+                  <ws:submission>
+                    <Header>
+                      <SubmissionDestination>${Request Source#Header_SubmissionDestination}</SubmissionDestination>
+            <SenderID>${Request Source#Header_SenderID}</SenderID>
+            <ReceiverID>${Request Source#Header_ReceiverId}</ReceiverID>
+            <DispositionFlag>${Request Source#Header_DispositionFlag}</DispositionFlag>
+            <ReferenceID>${Request Source#Header_ReferenceID}</ReferenceID>
+            <transactionType>${Request Source#Header_TransactionType}</transactionType>
+            <processType>${Request Source#Header_ProcessType}</processType>
+         </Header>
+         <!--1 or more repetitions:-->
+         <Transaction>
+                      <ID>${Request Source#Transaction_ID}</ID>
+            <PayerID>${Request Source#Transaction_PayerId}</PayerID>
+            <ProviderID>${Request Source#Transaction_ProviderId}</ProviderID>
+            <!--Optional:-->
+            <HealthPlanID>${Request Source#Transaction_HealthPlanId}</HealthPlanID>
+            <!--Optional:-->
+            <PayerTransactionReference>${Request Source#Transaction_PayerTransactionReference}</PayerTransactionReference>
+            <!--Optional:-->
+            <TransactionGross>${Request Source#Transaction_TransactionGross}</TransactionGross>
+            <!--Optional:-->
+            <TransactionPatientShare>${Request Source#Transaction_TransactionPatientShare}</TransactionPatientShare>
+            <!--Optional:-->
+            <TransactionNet>${Request Source#Transaction_TransactionNet}</TransactionNet>
+            <!--Optional:-->
+            <TransactionPriorAuthorizationID>${Request Source#Transaction_PriorAuthourizationID}</TransactionPriorAuthorizationID>
+            <Person>
+                        <!--Optional:-->
+               <ID>${Request Source#Person_ID}</ID>
+               <InsuranceMemberNumber>${Request Source#Person_InsuranceMemberNumber}</InsuranceMemberNumber>
+               <NationalIDNumber>${Request Source#Person_NationalIdNumber}</NationalIDNumber>
+               <!--Optional:-->
+               <BirthDate>${Request Source#Person_BirthDate}</BirthDate>
+               <!--Optional:-->
+               <Gender>${Request Source#Person_Gender}</Gender>
+               <!--Optional:-->
+               <Name>${Request Source#Person_Name}</Name>
+               <!--Optional:-->
+               <Policy>${Request Source#Person_Policy}</Policy>
+               <!--Optional:-->
+               <Group>${Request Source#Person_Group}</Group>
+               <!--Optional:-->
+               <Address>${Request Source#Person_Address}</Address>
+               <!--Optional:-->
+               <Weight>${Request Source#Person_Weight}</Weight>
+               <!--Optional:-->
+               <BreastFeeding>${Request Source#Person_BreastFeeding}</BreastFeeding>
+               <!--Optional:-->
+               <WeeksOfAmenorrhoea>${Request Source#Person_WeeksofAmenorrhoea}</WeeksOfAmenorrhoea>
+               <!--Optional:-->
+               <CreatinClearance>${Request Source#Person_CreatinClearance}</CreatinClearance>
+            </Person>
+            <Encounter>
+                        <FacilityID>${Request Source#Encounter_FacilityId}</FacilityID>
+               <Type>${Request Source#Encounter_Type}</Type>
+               <!--Optional:-->
+               <Start>${Request Source#Encounter_Start}</Start>
+               <!--Optional:-->
+               <End>${Request Source#Encounter_End}</End>
+               <!--Optional:-->
+               <StartType>${Request Source#Encounter_StartType}</StartType>
+               <!--Optional:-->
+               <EndType>${Request Source#Encounter_EndType}</EndType>
+               <!--Optional:-->
+               <EligibilityIDPayer>${Request Source#Encounter_EligibilityIDPayer}</EligibilityIDPayer>
+               <!--Optional:-->
+               <TransferSource>${Request Source#Encounter_TransferSource}</TransferSource>
+               <!--Optional:-->
+               <TransferDestination>${Request Source#Encounter_TransferDestination}</TransferDestination>
+            </Encounter>
+            <!--Zero or more repetitions:-->
+            <Diagnosis>
+                        <CodeTerm>${Request Source#Diagnosis_CodeTerm}</CodeTerm>
+               <Type>${Request Source#Diagnosis_Type}</Type>
+               <Code>${Request Source#Diagnosis_Code}</Code>
+            </Diagnosis>
+            <!--Zero or more repetitions:-->
+            <Activity>
+                        <ID>${Request Source#Activity_ID}</ID>
+               <CodeTerm>${Request Source#Activity_CodeTerm}</CodeTerm>
+               <Start>${Request Source#Activity_Start}</Start>
+               <End>${Request Source#Activity_End}</End>
+               <Code>${Request Source#Activity_Code}</Code>
+               <Quantity>${Request Source#Activity_Quantity}</Quantity>
+               <OrderingClinician>${Request Source#Activity_OrderingClinician}</OrderingClinician>
+               <Clinician>${Request Source#Activity_Clinician}</Clinician>
+               <!--Optional:-->
+               <PriorAuthorizationID>${Request Source#Activity_PriorAuthourizationID}</PriorAuthorizationID>
+               <!--Optional:-->
+               <ActivityNet>${Request Source#Activity_ActivityNet}</ActivityNet>
+               <!--Optional:-->
+               <ActivityGross>${Request Source#Activity_ActivityGross}</ActivityGross>
+               <!--Optional:-->
+               <ActivityPatientShare>
+                          <Type>${Request Source#ActivityPatientShare_Type}</Type>
+                  <!--Optional:-->
+                  <Value>${Request Source#ActivityPatientShare_Value}</Value>
+               </ActivityPatientShare>
+               <!--Zero or more repetitions:-->
+               <Observation>
+                          <ID>${Request Source#Observation_ID}</ID>
+                  <Type>${Request Source#Observation_Type}</Type>
+                  <Code>${Request Source#Observation_Code}</Code>
+                  <!--Optional:-->
+                  <Value>${Request Source#Observation_Value}</Value>
+                  <!--Optional:-->
+                  <ValueType>${Request Source#Observation_ValueType}</ValueType>
+               </Observation>
+            </Activity>
+            <!--Optional:-->
+            <Resubmission>
+                        <Sequence>${Request Source#Resubmission_Sequence}</Sequence>
+               <Type>${Request Source#Resubmission_Type}</Type>
+               <Comment>${Request Source#Resubmission_Comment}</Comment>
+               <!--Optional:-->
+               <Attachment>${Request Source#Resubmission_Attachment}</Attachment>
+            </Resubmission>
+            <!--Zero or more repetitions:-->
+            <ScrubbingHint>
+                        <Code>${Request Source#ScrubbingHint_Code}</Code>
+               <Value>${Request Source#ScrubbingHint_Value}</Value>
+               <!--Optional:-->
+               <ValueType>${Request Source#ScrubbingHint_ValueType}</ValueType>
+            </ScrubbingHint>
+         </Transaction>
+      </ws:submission>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+            <con:assertion id="da9d208d-d722-44f3-b87d-c7169aa198ff" name="SOAP Response" type="SOAP Response"/>
+            <con:credentials>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:wsaConfig action="http://ws.icm.dhc.com/ICMService/proccessTransaction" mustUnderstand="NONE" version="200508"/>
+            <con:wsrmConfig version="1.2"/>
+          </con:request>
+        </con:config>
+      </con:testStep>
+      <con:testStep id="111f14fd-a9d7-4336-80cc-343fa98f90c9" name="DataSink" type="datasink">
+        <con:settings/>
+        <con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:dataSink type="Excel">
+            <con:configuration><file>D:/Fazeel Data/DHC/SOAPUI-Rep/ICMService/Jenkins.xlsx</file><outfile>D:/Fazeel Data/DHC/SOAPUI-Rep/ICMService/Jenkins.xlsx</outfile><worksheet>result</worksheet><cell>A1</cell></con:configuration>
+          </con:dataSink>
+          <con:properties/>
+        </con:config>
+      </con:testStep>
+      <con:testStep id="1cd271c7-0b16-466e-8aed-ffff1157f299" name="Request loop" type="datasourceloop">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>Request Source</dataSourceStep>
+          <targetStep>Request</targetStep>
+        </con:config>
+      </con:testStep>
+      <con:testStep disabled="true" id="458e48be-a691-4635-9611-1e9efadef6c8" name="Person loop" type="datasourceloop">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>Request Source</dataSourceStep>
+          <targetStep>Request</targetStep>
+        </con:config>
+      </con:testStep>
+      <con:testStep disabled="true" id="31a33f3a-0739-4855-8de9-158e65409bb5" name="Encounter loop" type="datasourceloop">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>Request Source</dataSourceStep>
+          <targetStep>Request</targetStep>
+        </con:config>
+      </con:testStep>
+      <con:testStep disabled="true" id="47afa0e1-2c52-4084-9b79-dac987c40f35" name="Diagnosis loop" type="datasourceloop">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>Request Source</dataSourceStep>
+          <targetStep>Request</targetStep>
+        </con:config>
+      </con:testStep>
+      <con:testStep disabled="true" id="481d7062-37db-494b-ac45-23196a86b545" name="Activity loop" type="datasourceloop">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>Request Source</dataSourceStep>
+          <targetStep>Request</targetStep>
+        </con:config>
+      </con:testStep>
+      <con:testStep disabled="true" id="ab8b2019-a98e-4f8e-9a30-c44cc790b7da" name="Observation loop" type="datasourceloop">
+        <con:settings/>
+        <con:config>
+          <dataSourceStep>Request Source</dataSourceStep>
+          <targetStep>Request</targetStep>
+        </con:config>
+      </con:testStep>
+      <con:testStep id="e1dcd3ec-c3c2-4c40-a683-c12e6b4b32b7" name="Backup of [Request]" type="request" disabled="true">
+        <con:settings/>
+        <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:interface>ICMServiceServiceSoapBinding</con:interface>
+          <con:operation>proccessTransaction</con:operation>
+          <con:request id="d7cc355e-d780-4afc-959d-7754267996ea" incomingWss="" name="Backup of [Request]" outgoingWss="" sslKeystore="" timeout="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:encoding>UTF-8</con:encoding>
+            <con:endpoint>http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService</con:endpoint>
+            <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.icm.dhc.com/">
+                <soapenv:Header/>
+                <soapenv:Body>
+                  <ws:submission>
+                    <Header>
+                      <SubmissionDestination>${Request Source#Header_SubmissionDestination}</SubmissionDestination>
+                      <SenderID>${Request Source#Header_SenderID}</SenderID>
+                      <ReceiverID>${Request Source#Header_ReceiverId}</ReceiverID>
+                      <DispositionFlag>${Request Source#Header_DispositionFlag}</DispositionFlag>
+                      <!--<ReferenceID>{=System.currentTimeMillis() + ((int)(Math.random()*1000))}</ReferenceID>-->
+                      <ReferenceID>${Request Source#Header_ReferenceID}</ReferenceID>
+                      <transactionType>${Request Source#Header_TransactionType}</transactionType>
+                      <processType>${Request Source#Header_ProcessType}</processType></Header>
+                    <!--1 or more repetitions:-->
+                    <Transaction>
+                      <ID>${Request Source#Transaction_ID}</ID>
+                      <PayerID>${Request Source#Transaction_PayerId}</PayerID>
+                      <ProviderID>${Request Source#Transaction_ProviderId}</ProviderID>
+                      <HealthPlanID>${Request Source#Transaction_HealthPlanId}</HealthPlanID>
+                      <PayerTransactionReference>${Request Source#Transaction_PayerTransactionReference}</PayerTransactionReference>
+                      <TransactionGross>${Request Source#Transaction_TransactionGross}</TransactionGross>
+                      <TransactionPatientShare>${Request Source#Transaction_TransactionPatientShare}</TransactionPatientShare>
+                      <TransactionNet>${Request Source#Transaction_TransactionNet}</TransactionNet>
+                      <TransactionPriorAuthorizationID>${Request Source#Transaction_PriorAuthourizationID}</TransactionPriorAuthorizationID>
+                      <Person>
+                        <ID>${Request Source#Person_ID}</ID>
+                        <InsuranceMemberNumber>${Request Source#Person_InsuranceMemberNumber}</InsuranceMemberNumber>
+                        <NationalIDNumber>${Request Source#Person_NationalIdNumber}</NationalIDNumber>
+                        <BirthDate>${Request Source#Person_BirthDate}</BirthDate>
+                        <Gender>${Request Source#Person_Gender}</Gender>
+                        <Name>${Request Source#Person_Name}</Name>
+                        <Policy>${Request Source#Person_Policy}</Policy>
+                        <Group>${Request Source#Person_Group}</Group>
+                        <Address>${Request Source#Person_Address}</Address>
+                        <Weight>${Request Source#Person_Weight}</Weight>
+                        <BreastFeeding>${Request Source#Person_BreastFeeding}</BreastFeeding>
+                        <WeeksOfAmenorrhoea>${Request Source#Person_WeeksofAmenorrhoea}</WeeksOfAmenorrhoea>
+                        <CreatinClearance>${Request Source#Person_CreatinClearance}</CreatinClearance>
+                      </Person>
+                      <Encounter>
+                        <FacilityID>${Request Source#Encounter_FacilityId}</FacilityID>
+                        <Type>${Request Source#Encounter_Type}</Type>
+                        <Start>${Request Source#Encounter_Start}</Start>
+                        <End>${Request Source#Encounter_End}</End>
+                        <StartType>${Request Source#Encounter_StartType}</StartType>
+                        <EndType>${Request Source#Encounter_EndType}</EndType>
+                        <EligibilityIDPayer>${Request Source#Encounter_EligibilityIDPayer}</EligibilityIDPayer>
+                        <TransferSource>${Request Source#Encounter_TransferSource}</TransferSource>
+                        <TransferDestination>${Request Source#Encounter_TransferDestination}</TransferDestination>
+                      </Encounter>
+                      <Diagnosis>
+                        <CodeTerm>${Request Source#Diagnosis_CodeTerm}</CodeTerm>
+                        <Type>${Request Source#Diagnosis_Type}</Type>
+                        <Code>${Request Source#Diagnosis_Code}</Code>
+                      </Diagnosis>
+                      <Diagnosis>
+                        <CodeTerm>${Request Source#Diagnosis2_CodeTerm}</CodeTerm>
+                        <Type>${Request Source#Diagnosis2_Type}</Type>
+                        <Code>${Request Source#Diagnosis2_Code}</Code>
+                      </Diagnosis>
+                      <Diagnosis>
+                        <CodeTerm>${Request Source#Diagnosis3_CodeTerm}</CodeTerm>
+                        <Type>${Request Source#Diagnosis3_Type}</Type>
+                        <Code>${Request Source#Diagnosis3_Code}</Code>
+                      </Diagnosis>
+                      <Diagnosis>
+                        <CodeTerm>${Request Source#Diagnosis4_CodeTerm}</CodeTerm>
+                        <Type>${Request Source#Diagnosis4_Type}</Type>
+                        <Code>${Request Source#Diagnosis4_Code}</Code>
+                      </Diagnosis>
+                      <Diagnosis>
+                        <CodeTerm>${Request Source#Diagnosis5_CodeTerm}</CodeTerm>
+                        <Type>${Request Source#Diagnosis5_Type}</Type>
+                        <Code>${Request Source#Diagnosis5_Code}</Code>
+                      </Diagnosis>
+                      <Diagnosis>
+                        <CodeTerm>${Request Source#Diagnosis6_CodeTerm}</CodeTerm>
+                        <Type>${Request Source#Diagnosis6_Type}</Type>
+                        <Code>${Request Source#Diagnosis6_Code}</Code>
+                      </Diagnosis>
+                      <Diagnosis>
+                        <CodeTerm>${Request Source#Diagnosis7_CodeTerm}</CodeTerm>
+                        <Type>${Request Source#Diagnosis7_Type}</Type>
+                        <Code>${Request Source#Diagnosis7_Code}</Code>
+                      </Diagnosis>
+                      <Activity>
+                        <ID>${Request Source#Activity_ID}</ID>
+                        <CodeTerm>${Request Source#Activity_CodeTerm}</CodeTerm>
+                        <Start>${Request Source#Activity_Start}</Start>
+                        <End>${Request Source#Activity_End}</End>
+                        <Code>${Request Source#Activity_Code}</Code>
+                        <Quantity>${Request Source#Activity_Quantity}</Quantity>
+                        <OrderingClinician>${Request Source#Activity_OrderingClinician}</OrderingClinician>
+                        <Clinician>${Request Source#Activity_Clinician}</Clinician>
+                        <PriorAuthorizationID>${Request Source#Activity_PriorAuthourizationID}</PriorAuthorizationID>
+                        <ActivityNet>${Request Source#Activity_ActivityNet}</ActivityNet>
+                        <ActivityGross>${Request Source#Activity_ActivityGross}</ActivityGross>
+                        <ActivityPatientShare>
+                          <Type>${Request Source#ActivityPatientShare_Type}</Type>
+                          <Value>${Request Source#ActivityPatientShare_Value}</Value>
+                        </ActivityPatientShare>
+                        <Observation>
+                          <ID>${Request Source#Observation_ID}</ID>
+                          <Type>${Request Source#Observation_Type}</Type>
+                          <Code>${Request Source#Observation_Code}</Code>
+                          <Value>${Request Source#Observation_Value}</Value>
+                          <ValueType>${Request Source#Observation_ValueType}</ValueType>
+                        </Observation>
+                      </Activity>
+                      <Activity>
+                        <ID>${Request Source#Activity2_ID}</ID>
+                        <CodeTerm>${Request Source#Activity2_CodeTerm}</CodeTerm>
+                        <Start>${Request Source#Activity2_Start}</Start>
+                        <End>${Request Source#Activity2_End}</End>
+                        <Code>${Request Source#Activity2_Code}</Code>
+                        <Quantity>${Request Source#Activity2_Quantity}</Quantity>
+                        <OrderingClinician>${Request Source#Activity2_OrderingClinician}</OrderingClinician>
+                        <Clinician>${Request Source#Activity2_Clinician}</Clinician>
+                        <PriorAuthorizationID>${Request Source#Activity2_PriorAuthourizationID}</PriorAuthorizationID>
+                        <ActivityNet>${Request Source#Activity2_ActivityNet}</ActivityNet>
+                        <ActivityGross>${Request Source#Activity_ActivityGross}</ActivityGross>
+                        <ActivityPatientShare>
+                          <Type>${Request Source#ActivityPatientShare2_Type}</Type>
+                          <Value>${Request Source#ActivityPatientShare2_Value}</Value>
+                        </ActivityPatientShare>
+                        <Observation>
+                          <ID>${Request Source#Observation2_ID}</ID>
+                          <Type>${Request Source#Observation2_Type}</Type>
+                          <Code>${Request Source#Observation2_Code}</Code>
+                          <Value>${Request Source#Observation2_Value}</Value>
+                          <ValueType>${Request Source#Observation2_ValueType}</ValueType>
+                        </Observation>
+                      </Activity>
+                      <Activity>
+                        <ID>${Request Source#Activity3_ID}</ID>
+                        <CodeTerm>${Request Source#Activity3_CodeTerm}</CodeTerm>
+                        <Start>${Request Source#Activity3_Start}</Start>
+                        <End>${Request Source#Activity3_End}</End>
+                        <Code>${Request Source#Activity3_Code}</Code>
+                        <Quantity>${Request Source#Activity3_Quantity}</Quantity>
+                        <OrderingClinician>${Request Source#Activity3_OrderingClinician}</OrderingClinician>
+                        <Clinician>${Request Source#Activity3_Clinician}</Clinician>
+                        <PriorAuthorizationID>${Request Source#Activity3_PriorAuthourizationID}</PriorAuthorizationID>
+                        <ActivityNet>${Request Source#Activity3_ActivityNet}</ActivityNet>
+                        <ActivityGross>${Request Source#Activity_ActivityGross}</ActivityGross>
+                        <ActivityPatientShare>
+                          <Type>${Request Source#ActivityPatientShare3_Type}</Type>
+                          <Value>${Request Source#ActivityPatientShare3_Value}</Value>
+                        </ActivityPatientShare>
+                        <Observation>
+                          <ID>${Request Source#Observation3_ID}</ID>
+                          <Type>${Request Source#Observation3_Type}</Type>
+                          <Code>${Request Source#Observation3_Code}</Code>
+                          <Value>${Request Source#Observation3_Value}</Value>
+                          <ValueType>${Request Source#Observation3_ValueType}</ValueType>
+                        </Observation>
+                      </Activity>
+                      <Activity>
+                        <ID>${Request Source#Activity4_ID}</ID>
+                        <CodeTerm>${Request Source#Activity4_CodeTerm}</CodeTerm>
+                        <Start>${Request Source#Activity4_Start}</Start>
+                        <End>${Request Source#Activity4_End}</End>
+                        <Code>${Request Source#Activity4_Code}</Code>
+                        <Quantity>${Request Source#Activity4_Quantity}</Quantity>
+                        <OrderingClinician>${Request Source#Activity4_OrderingClinician}</OrderingClinician>
+                        <Clinician>${Request Source#Activity4_Clinician}</Clinician>
+                        <PriorAuthorizationID>${Request Source#Activity4_PriorAuthourizationID}</PriorAuthorizationID>
+                        <ActivityNet>${Request Source#Activity4_ActivityNet}</ActivityNet>
+                        <ActivityGross>${Request Source#Activity_ActivityGross}</ActivityGross>
+                        <ActivityPatientShare>
+                          <Type>${Request Source#ActivityPatientShare4_Type}</Type>
+                          <Value>${Request Source#ActivityPatientShare4_Value}</Value>
+                        </ActivityPatientShare>
+                        <Observation>
+                          <ID>${Request Source#Observation4_ID}</ID>
+                          <Type>${Request Source#Observation4_Type}</Type>
+                          <Code>${Request Source#Observation4_Code}</Code>
+                          <Value>${Request Source#Observation4_Value}</Value>
+                          <ValueType>${Request Source#Observation4_ValueType}</ValueType>
+                        </Observation>
+                      </Activity>
+                      <Activity>
+                        <ID>${Request Source#Activity5_ID}</ID>
+                        <CodeTerm>${Request Source#Activity5_CodeTerm}</CodeTerm>
+                        <Start>${Request Source#Activity5_Start}</Start>
+                        <End>${Request Source#Activity5_End}</End>
+                        <Code>${Request Source#Activity5_Code}</Code>
+                        <Quantity>${Request Source#Activity5_Quantity}</Quantity>
+                        <OrderingClinician>${Request Source#Activity5_OrderingClinician}</OrderingClinician>
+                        <Clinician>${Request Source#Activity5_Clinician}</Clinician>
+                        <PriorAuthorizationID>${Request Source#Activity5_PriorAuthourizationID}</PriorAuthorizationID>
+                        <ActivityNet>${Request Source#Activity5_ActivityNet}</ActivityNet>
+                        <ActivityGross>${Request Source#Activity_ActivityGross}</ActivityGross>
+                        <ActivityPatientShare>
+                          <Type>${Request Source#ActivityPatientShare5_Type}</Type>
+                          <Value>${Request Source#ActivityPatientShare5_Value}</Value>
+                        </ActivityPatientShare>
+                        <Observation>
+                          <ID>${Request Source#Observation5_ID}</ID>
+                          <Type>${Request Source#Observation5_Type}</Type>
+                          <Code>${Request Source#Observation5_Code}</Code>
+                          <Value>${Request Source#Observation5_Value}</Value>
+                          <ValueType>${Request Source#Observation5_ValueType}</ValueType>
+                        </Observation>
+                      </Activity>
+                      <Activity>
+                        <ID>${Request Source#Activity6_ID}</ID>
+                        <CodeTerm>${Request Source#Activity6_CodeTerm}</CodeTerm>
+                        <Start>${Request Source#Activity6_Start}</Start>
+                        <End>${Request Source#Activity6_End}</End>
+                        <Code>${Request Source#Activity6_Code}</Code>
+                        <Quantity>${Request Source#Activity6_Quantity}</Quantity>
+                        <OrderingClinician>${Request Source#Activity6_OrderingClinician}</OrderingClinician>
+                        <Clinician>${Request Source#Activity6_Clinician}</Clinician>
+                        <PriorAuthorizationID>${Request Source#Activity6_PriorAuthourizationID}</PriorAuthorizationID>
+                        <ActivityNet>${Request Source#Activity6_ActivityNet}</ActivityNet>
+                        <ActivityGross>${Request Source#Activity_ActivityGross}</ActivityGross>
+                        <ActivityPatientShare>
+                          <Type>${Request Source#ActivityPatientShare6_Type}</Type>
+                          <Value>${Request Source#ActivityPatientShare6_Value}</Value>
+                        </ActivityPatientShare>
+                        <Observation>
+                          <ID>${Request Source#Observation6_ID}</ID>
+                          <Type>${Request Source#Observation6_Type}</Type>
+                          <Code>${Request Source#Observation6_Code}</Code>
+                          <Value>${Request Source#Observation6_Value}</Value>
+                          <ValueType>${Request Source#Observation6_ValueType}</ValueType>
+                        </Observation>
+                      </Activity>
+                      <Activity>
+                        <ID>${Request Source#Activity7_ID}</ID>
+                        <CodeTerm>${Request Source#Activity7_CodeTerm}</CodeTerm>
+                        <Start>${Request Source#Activity7_Start}</Start>
+                        <End>${Request Source#Activity7_End}</End>
+                        <Code>${Request Source#Activity7_Code}</Code>
+                        <Quantity>${Request Source#Activity7_Quantity}</Quantity>
+                        <OrderingClinician>${Request Source#Activity7_OrderingClinician}</OrderingClinician>
+                        <Clinician>${Request Source#Activity7_Clinician}</Clinician>
+                        <PriorAuthorizationID>${Request Source#Activity7_PriorAuthourizationID}</PriorAuthorizationID>
+                        <ActivityNet>${Request Source#Activity7_ActivityNet}</ActivityNet>
+                        <ActivityGross>${Request Source#Activity_ActivityGross}</ActivityGross>
+                        <ActivityPatientShare>
+                          <Type>${Request Source#ActivityPatientShare7_Type}</Type>
+                          <Value>${Request Source#ActivityPatientShare7_Value}</Value>
+                        </ActivityPatientShare>
+                        <Observation>
+                          <ID>${Request Source#Observation7_ID}</ID>
+                          <Type>${Request Source#Observation7_Type}</Type>
+                          <Code>${Request Source#Observation7_Code}</Code>
+                          <Value>${Request Source#Observation7_Value}</Value>
+                          <ValueType>${Request Source#Observation7_ValueType}</ValueType>
+                        </Observation>
+                      </Activity>
+                      <Resubmission>
+                        <Sequence>${Request Source#Resubmission_Sequence}</Sequence>
+                        <Type>${Request Source#Resubmission_Type}</Type>
+                        <Comment>${Request Source#Resubmission_Comment}</Comment>
+                        <Attachment>${Request Source#Resubmission_Attachment}</Attachment>
+                      </Resubmission>
+                      <ScrubbingHint>
+                        <Code>${Request Source#ScrubbingHint_Code}</Code>
+                        <Value>${Request Source#ScrubbingHint_Value}</Value>
+                        <ValueType>${Request Source#ScrubbingHint_ValueType}</ValueType>
+                      </ScrubbingHint>
+                      <ScrubbingHint>
+                        <Code>${Request Source#ScrubbingHint2_Code}</Code>
+                        <Value>${Request Source#ScrubbingHint2_Value}</Value>
+                        <ValueType>${Request Source#ScrubbingHint2_ValueType}</ValueType>
+                      </ScrubbingHint>
+                      <ScrubbingHint>
+                        <Code>${Request Source#ScrubbingHint3_Code}</Code>
+                        <Value>${Request Source#ScrubbingHint3_Value}</Value>
+                        <ValueType>${Request Source#ScrubbingHint3_ValueType}<!-- Benifit Code --></ValueType>
+                      </ScrubbingHint>
+                      <ScrubbingHint>
+                        <Code>${Request Source#ScrubbingHint4_Code}</Code>
+                        <Value>${Request Source#ScrubbingHint4_Value}</Value>
+                        <ValueType>${Request Source#ScrubbingHint4_ValueType}                                              <!-- Benifit Code --></ValueType>
+                      </ScrubbingHint>
+                      <ScrubbingHint>
+                        <Code>${Request Source#ScrubbingHint5_Code}</Code>
+                        <Value>${Request Source#ScrubbingHint5_Value}</Value>
+                        <ValueType>${Request Source#ScrubbingHint5_ValueType}             <!-- Benifit Code --></ValueType>
+                      </ScrubbingHint>
+                      <ScrubbingHint>
+                        <Code>${Request Source#ScrubbingHint6_Code}</Code>
+                        <Value>${Request Source#ScrubbingHint6_Value}</Value>
+                        <ValueType>${Request Source#ScrubbingHint6_ValueType}</ValueType>
+                      </ScrubbingHint>
+                      <ScrubbingHint>
+                        <Code>${Request Source#ScrubbingHint7_Code}</Code>
+                        <Value>${Request Source#ScrubbingHint7_Value}</Value>
+                        <ValueType>${Request Source#ScrubbingHint7_ValueType}</ValueType>
+                      </ScrubbingHint>
+                      <ScrubbingHint>
+                        <Code>${Request Source#ScrubbingHint8_Code}</Code>
+                        <Value>${Request Source#ScrubbingHint8_Value}</Value>
+                        <ValueType>${Request Source#ScrubbingHint8_ValueType}</ValueType>
+                      </ScrubbingHint>
+                    </Transaction>
+                  </ws:submission>
+                </soapenv:Body>
+              </soapenv:Envelope>]]></con:request>
+            <con:assertion id="da9d208d-d722-44f3-b87d-c7169aa198ff" name="SOAP Response" type="SOAP Response"/>
+            <con:credentials>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:wsaConfig action="http://ws.icm.dhc.com/ICMService/proccessTransaction" mustUnderstand="NONE" version="200508"/>
+            <con:wsrmConfig version="1.2"/>
+          </con:request>
+        </con:config>
+      </con:testStep><con:properties/>
+      <con:reportParameters/>
+      <con:breakPoints>
+        <con:testStepId>a4170987-b4d7-42ba-8658-370680b7f455</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>14237d64-65a6-4dba-b810-eeee11c46d08</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>aef8bf5e-37c1-494a-91d4-56abd8b29f75</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>1f3abbd4-71df-4e36-84b4-ebcc825e34f6</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>edcd50d7-26a0-4577-aaab-64e0754c91b6</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>ac76c278-f522-4ea2-ba9b-b2c2760cecfa</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>d3c60292-5ea7-40e0-bbce-263d74d454d0</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>176c5b1b-2753-4cbf-8b5d-dd139d4f13c5</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>111f14fd-a9d7-4336-80cc-343fa98f90c9</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>1cd271c7-0b16-466e-8aed-ffff1157f299</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>458e48be-a691-4635-9611-1e9efadef6c8</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>31a33f3a-0739-4855-8de9-158e65409bb5</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>47afa0e1-2c52-4084-9b79-dac987c40f35</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>481d7062-37db-494b-ac45-23196a86b545</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+      <con:breakPoints>
+        <con:testStepId>ab8b2019-a98e-4f8e-9a30-c44cc790b7da</con:testStepId>
+        <con:status>NONE</con:status>
+        <con:properties/>
+      </con:breakPoints>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:requirements/>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:reporting>
+    <con:reportTemplates/>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
+<con:sensitiveInformation/></con:soapui-project>

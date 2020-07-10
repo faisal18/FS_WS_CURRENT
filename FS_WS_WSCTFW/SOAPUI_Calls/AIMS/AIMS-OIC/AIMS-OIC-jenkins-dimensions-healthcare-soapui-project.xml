@@ -1,0 +1,1441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="d1a720d4-9790-4a95-9428-946eefa5f4e3" activeEnvironment="Default" name="AIMS-OIC-jenkins.dimensions-healthcare" resourceRoot="${projectDir}" soapui-version="5.1.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="0b5b2a35-cf54-4f21-a0bf-8db19be96d2b" wsaVersion="NONE" name="ICMServiceServiceSoapBinding" type="wsdl" bindingName="{http://ws.icm.dhc.com/}ICMServiceServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService?wsdl"><con:part><con:url>http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ICMServiceService" targetNamespace="http://ws.icm.dhc.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.icm.dhc.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.dimensions-healthcare.net/ICM/ICMSchema" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="HeaderDispositionFlag">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="TEST"/>
+          <xs:enumeration value="PRODUCTION"/>
+          <xs:enumeration value="PTE_SUBMIT"/>
+          <xs:enumeration value="PTE_VALIDATE_ONLY"/>
+          <xs:enumeration value="PTE_RESPONSE"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ActivityEditRank">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="A"/>
+          <xs:enumeration value="R"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ObservationType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="LOINC"/>
+          <xs:enumeration value="Text"/>
+          <xs:enumeration value="File"/>
+          <xs:enumeration value="Universal Dental"/>
+          <xs:enumeration value="Financial"/>
+          <xs:enumeration value="Grouping"/>
+          <xs:enumeration value="Modifier"/>
+          <xs:enumeration value="ERX"/>
+          <xs:enumeration value="Result"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="HeaderTransactionType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Claim"/>
+          <xs:enumeration value="Remittance"/>
+          <xs:enumeration value="PriorRequest"/>
+          <xs:enumeration value="Authorization"/>
+          <xs:enumeration value="Eligibility"/>
+          <xs:enumeration value="Cancellation"/>
+          <xs:enumeration value="Prescription"/>
+          <xs:enumeration value="FinancialCharge"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="HeaderProcessType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Review"/>
+          <xs:enumeration value="Submit"/>
+          <xs:enumeration value="Transmit"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="Gender">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="M"/>
+          <xs:enumeration value="F"/>
+          <xs:enumeration value="U"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DiagnosisType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Principal"/>
+          <xs:enumeration value="Secondary"/>
+          <xs:enumeration value="Admitting"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PatientShareType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Deductible"/>
+          <xs:enumeration value="Co-pay"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ResubmissionType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="correction"/>
+          <xs:enumeration value="internal complaint"/>
+          <xs:enumeration value="legacy"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://ws.icm.dhc.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.dimensions-healthcare.net/ICM/ICMSchema" xmlns="http://ws.icm.dhc.com/">
+      <xs:element name="ICMRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Username" type="xs:string"/>
+            <xs:element name="Key" type="xs:string"/>
+            <xs:element name="Submission">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Header">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="SubmissionDestination" type="xs:integer"/>
+                        <xs:element name="SenderID" type="xs:string"/>
+                        <xs:element name="ReceiverID" type="xs:string"/>
+                        <xs:element name="DispositionFlag" type="ns0:HeaderDispositionFlag" xmlns:ns1="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                        <xs:element name="ReferenceID" type="xs:string"/>
+                        <xs:element name="transactionType" type="ns0:HeaderTransactionType" xmlns:ns2="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                        <xs:element name="processType" type="ns0:HeaderProcessType" xmlns:ns3="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" name="Transaction">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ID" type="xs:string"/>
+                        <xs:element name="PayerID" type="xs:string"/>
+                        <xs:element name="ProviderID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="HealthPlanID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="PayerTransactionReference" type="xs:string"/>
+                        <xs:element minOccurs="0" name="TransactionGross" type="xs:double"/>
+                        <xs:element minOccurs="0" name="TransactionPatientShare" type="xs:double"/>
+                        <xs:element minOccurs="0" name="TransactionPaymentAmount" type="xs:double"/>
+                        <xs:element minOccurs="0" name="TransactionNet" type="xs:double"/>
+                        <xs:element minOccurs="0" name="TransactionPriorAuthorizationID" type="xs:string"/>
+                        <xs:element name="Person">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" name="ID" type="xs:string"/>
+                              <xs:element name="InsuranceMemberNumber" type="xs:string"/>
+                              <xs:element name="NationalIDNumber" type="xs:string"/>
+                              <xs:element minOccurs="0" name="BirthDate" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Gender" type="ns0:Gender" xmlns:ns4="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                              <xs:element minOccurs="0" name="Name" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Policy" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Group" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Address" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Weight" type="xs:integer"/>
+                              <xs:element minOccurs="0" name="BreastFeeding" type="xs:integer"/>
+                              <xs:element minOccurs="0" name="WeeksOfAmenorrhoea" type="xs:integer"/>
+                              <xs:element minOccurs="0" name="CreatinClearance" type="xs:integer"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Encounter">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="FacilityID" type="xs:string"/>
+                              <xs:element name="Type" type="xs:integer"/>
+                              <xs:element minOccurs="0" name="Start" type="xs:string"/>
+                              <xs:element minOccurs="0" name="End" type="xs:string"/>
+                              <xs:element minOccurs="0" name="StartType" type="xs:integer"/>
+                              <xs:element minOccurs="0" name="EndType" type="xs:integer"/>
+                              <xs:element minOccurs="0" name="EligibilityIDPayer" type="xs:string"/>
+                              <xs:element minOccurs="0" name="TransferSource" type="xs:string"/>
+                              <xs:element minOccurs="0" name="TransferDestination" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="Diagnosis">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element name="Type" type="ns0:DiagnosisType" xmlns:ns5="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                              <xs:element name="Code" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="Activity">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ID" type="xs:string"/>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element name="Start" type="xs:string"/>
+                              <xs:element name="End" type="xs:string"/>
+                              <xs:element name="Code" type="xs:string"/>
+                              <xs:element name="Quantity" type="xs:double"/>
+                              <xs:element name="OrderingClinician" type="xs:string"/>
+                              <xs:element name="Clinician" type="xs:string"/>
+                              <xs:element minOccurs="0" name="PriorAuthorizationID" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Net" type="xs:double"/>
+                              <xs:element minOccurs="0" name="Gross" type="xs:double"/>
+                              <xs:element minOccurs="0" name="PatientShare">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Type" type="ns0:PatientShareType" xmlns:ns6="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                                    <xs:element minOccurs="0" name="Value" type="xs:double"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="Observation">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ID" type="xs:string"/>
+                                    <xs:element name="Type" type="ns0:ObservationType" xmlns:ns7="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Value" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="PaymentAmount" type="xs:double"/>
+                              <xs:element minOccurs="0" name="Duration" type="xs:int"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="Resubmission">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="Sequence" type="xs:integer"/>
+                              <xs:element name="Type" type="ns0:ResubmissionType" xmlns:ns8="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                              <xs:element name="Comment" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Attachment" type="xs:base64Binary"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="ScrubbingHint">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="Code" type="xs:string"/>
+                              <xs:element name="Value" type="xs:string"/>
+                              <xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ICMResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Status" type="xs:boolean"/>
+            <xs:element name="Msg" type="xs:string"/>
+            <xs:element name="SubmissionResponse">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Header">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="SenderID" type="xs:string"/>
+                        <xs:element name="ReceiverID" type="xs:string"/>
+                        <xs:element name="DispositionFlag" type="ns0:HeaderDispositionFlag" xmlns:ns9="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                        <xs:element name="ReferenceID" type="xs:string"/>
+                        <xs:element name="TransactionDate" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" name="Transaction">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ID" type="xs:string"/>
+                        <xs:element name="PayerID" type="xs:string"/>
+                        <xs:element name="ProviderID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="PayerTransactionReference" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ReferenceID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Result" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DenialCode" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Comments" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" name="Activity">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ID" type="xs:string"/>
+                              <xs:element name="Code" type="xs:string"/>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+                              <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Quantity" type="xs:double"/>
+                              <xs:element minOccurs="0" name="orderingClinician" type="xs:string"/>
+                              <xs:element minOccurs="0" name="clinician" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Gross" type="xs:double"/>
+                              <xs:element minOccurs="0" name="Net" type="xs:double"/>
+                              <xs:element name="PatientShare">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Type" type="xs:string"/>
+                                    <xs:element name="Value" type="xs:double"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="paymentAmount" type="xs:double"/>
+                              <xs:element minOccurs="0" name="PriorAuthorizationID" type="xs:string"/>
+                              <xs:element minOccurs="0" name="ReferenceID" type="xs:string"/>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="Edit">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ID" type="xs:string"/>
+                                    <xs:element name="Type" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="SubType" type="xs:string"/>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Rank" type="ns0:ActivityEditRank" xmlns:ns10="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                                    <xs:element minOccurs="0" name="ResultCode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Result" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Comment" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ruleName" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="Observation">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Type" type="ns0:ObservationType" xmlns:ns11="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Value" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" name="Diagnosis">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element name="Type" type="xs:string"/>
+                              <xs:element name="Code" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="AuthorizationStart" type="xs:string"/>
+                        <xs:element minOccurs="0" name="AuthorizationEnd" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ICMStoreResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Username" type="xs:string"/>
+            <xs:element name="Key" type="xs:string"/>
+            <xs:element name="SubmissionResponse">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Header">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="SenderID" type="xs:string"/>
+                        <xs:element name="ReceiverID" type="xs:string"/>
+                        <xs:element name="DispositionFlag" type="ns0:HeaderDispositionFlag" xmlns:ns12="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                        <xs:element name="ReferenceID" type="xs:string"/>
+                        <xs:element name="TransactionDate" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" name="Transaction">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ID" type="xs:string"/>
+                        <xs:element name="PayerID" type="xs:string"/>
+                        <xs:element name="ProviderID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="PayerTransactionReference" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ReferenceID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Result" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DenialCode" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Comments" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" name="Activity">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ID" type="xs:string"/>
+                              <xs:element name="Code" type="xs:string"/>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+                              <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Quantity" type="xs:double"/>
+                              <xs:element minOccurs="0" name="orderingClinician" type="xs:string"/>
+                              <xs:element minOccurs="0" name="clinician" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Gross" type="xs:double"/>
+                              <xs:element minOccurs="0" name="Net" type="xs:double"/>
+                              <xs:element name="PatientShare">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Type" type="xs:string"/>
+                                    <xs:element name="Value" type="xs:double"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="paymentAmount" type="xs:double"/>
+                              <xs:element minOccurs="0" name="PriorAuthorizationID" type="xs:string"/>
+                              <xs:element minOccurs="0" name="ReferenceID" type="xs:string"/>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="Edit">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ID" type="xs:string"/>
+                                    <xs:element name="Type" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="SubType" type="xs:string"/>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Rank" type="ns0:ActivityEditRank" xmlns:ns13="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                                    <xs:element minOccurs="0" name="ResultCode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Result" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Comment" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ruleName" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="Observation">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Type" type="ns0:ObservationType" xmlns:ns14="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Value" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" name="Diagnosis">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element name="Type" type="xs:string"/>
+                              <xs:element name="Code" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="AuthorizationStart" type="xs:string"/>
+                        <xs:element minOccurs="0" name="AuthorizationEnd" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="storeResponseTransactionResponse" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Status" type="xs:boolean"/>
+            <xs:element name="Msg" type="xs:string"/>
+            <xs:element name="SubmissionResponse">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Header">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="SenderID" type="xs:string"/>
+                        <xs:element name="ReceiverID" type="xs:string"/>
+                        <xs:element name="DispositionFlag" type="ns0:HeaderDispositionFlag" xmlns:ns9="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                        <xs:element name="ReferenceID" type="xs:string"/>
+                        <xs:element name="TransactionDate" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" name="Transaction">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ID" type="xs:string"/>
+                        <xs:element name="PayerID" type="xs:string"/>
+                        <xs:element name="ProviderID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="PayerTransactionReference" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ReferenceID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Result" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DenialCode" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Comments" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" name="Activity">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ID" type="xs:string"/>
+                              <xs:element name="Code" type="xs:string"/>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+                              <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Quantity" type="xs:double"/>
+                              <xs:element minOccurs="0" name="orderingClinician" type="xs:string"/>
+                              <xs:element minOccurs="0" name="clinician" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Gross" type="xs:double"/>
+                              <xs:element minOccurs="0" name="Net" type="xs:double"/>
+                              <xs:element name="PatientShare">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Type" type="xs:string"/>
+                                    <xs:element name="Value" type="xs:double"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="paymentAmount" type="xs:double"/>
+                              <xs:element minOccurs="0" name="PriorAuthorizationID" type="xs:string"/>
+                              <xs:element minOccurs="0" name="ReferenceID" type="xs:string"/>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="Edit">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ID" type="xs:string"/>
+                                    <xs:element name="Type" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="SubType" type="xs:string"/>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Rank" type="ns0:ActivityEditRank" xmlns:ns10="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                                    <xs:element minOccurs="0" name="ResultCode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Result" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Comment" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ruleName" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="Observation">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Type" type="ns0:ObservationType" xmlns:ns11="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Value" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" name="Diagnosis">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element name="Type" type="xs:string"/>
+                              <xs:element name="Code" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="AuthorizationStart" type="xs:string"/>
+                        <xs:element minOccurs="0" name="AuthorizationEnd" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="processTransactionResponse" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Status" type="xs:boolean"/>
+            <xs:element name="Msg" type="xs:string"/>
+            <xs:element name="SubmissionResponse">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Header">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="SenderID" type="xs:string"/>
+                        <xs:element name="ReceiverID" type="xs:string"/>
+                        <xs:element name="DispositionFlag" type="ns0:HeaderDispositionFlag" xmlns:ns9="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                        <xs:element name="ReferenceID" type="xs:string"/>
+                        <xs:element name="TransactionDate" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" name="Transaction">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ID" type="xs:string"/>
+                        <xs:element name="PayerID" type="xs:string"/>
+                        <xs:element name="ProviderID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="PayerTransactionReference" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ReferenceID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Result" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DenialCode" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Comments" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" name="Activity">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ID" type="xs:string"/>
+                              <xs:element name="Code" type="xs:string"/>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+                              <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Quantity" type="xs:double"/>
+                              <xs:element minOccurs="0" name="orderingClinician" type="xs:string"/>
+                              <xs:element minOccurs="0" name="clinician" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Gross" type="xs:double"/>
+                              <xs:element minOccurs="0" name="Net" type="xs:double"/>
+                              <xs:element name="PatientShare">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Type" type="xs:string"/>
+                                    <xs:element name="Value" type="xs:double"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="paymentAmount" type="xs:double"/>
+                              <xs:element minOccurs="0" name="PriorAuthorizationID" type="xs:string"/>
+                              <xs:element minOccurs="0" name="ReferenceID" type="xs:string"/>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="Edit">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ID" type="xs:string"/>
+                                    <xs:element name="Type" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="SubType" type="xs:string"/>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Rank" type="ns0:ActivityEditRank" xmlns:ns10="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                                    <xs:element minOccurs="0" name="ResultCode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Result" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Comment" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ruleName" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="Observation">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Type" type="ns0:ObservationType" xmlns:ns11="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Value" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" name="Diagnosis">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element name="Type" type="xs:string"/>
+                              <xs:element name="Code" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="AuthorizationStart" type="xs:string"/>
+                        <xs:element minOccurs="0" name="AuthorizationEnd" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="storeRequestTransactionResponse" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Status" type="xs:boolean"/>
+            <xs:element name="Msg" type="xs:string"/>
+            <xs:element name="SubmissionResponse">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Header">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="SenderID" type="xs:string"/>
+                        <xs:element name="ReceiverID" type="xs:string"/>
+                        <xs:element name="DispositionFlag" type="ns0:HeaderDispositionFlag" xmlns:ns9="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                        <xs:element name="ReferenceID" type="xs:string"/>
+                        <xs:element name="TransactionDate" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element maxOccurs="unbounded" name="Transaction">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="ID" type="xs:string"/>
+                        <xs:element name="PayerID" type="xs:string"/>
+                        <xs:element name="ProviderID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="PayerTransactionReference" type="xs:string"/>
+                        <xs:element minOccurs="0" name="ReferenceID" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Result" type="xs:string"/>
+                        <xs:element minOccurs="0" name="DenialCode" type="xs:string"/>
+                        <xs:element minOccurs="0" name="Comments" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" name="Activity">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="ID" type="xs:string"/>
+                              <xs:element name="Code" type="xs:string"/>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+                              <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Quantity" type="xs:double"/>
+                              <xs:element minOccurs="0" name="orderingClinician" type="xs:string"/>
+                              <xs:element minOccurs="0" name="clinician" type="xs:string"/>
+                              <xs:element minOccurs="0" name="Gross" type="xs:double"/>
+                              <xs:element minOccurs="0" name="Net" type="xs:double"/>
+                              <xs:element name="PatientShare">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Type" type="xs:string"/>
+                                    <xs:element name="Value" type="xs:double"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element minOccurs="0" name="paymentAmount" type="xs:double"/>
+                              <xs:element minOccurs="0" name="PriorAuthorizationID" type="xs:string"/>
+                              <xs:element minOccurs="0" name="ReferenceID" type="xs:string"/>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="Edit">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ID" type="xs:string"/>
+                                    <xs:element name="Type" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="SubType" type="xs:string"/>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Rank" type="ns0:ActivityEditRank" xmlns:ns10="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                                    <xs:element minOccurs="0" name="ResultCode" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Result" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Comment" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ruleName" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                              <xs:element maxOccurs="unbounded" minOccurs="0" name="Observation">
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="Type" type="ns0:ObservationType" xmlns:ns11="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+                                    <xs:element name="Code" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="Value" type="xs:string"/>
+                                    <xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                              </xs:element>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element maxOccurs="unbounded" name="Diagnosis">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="CodeTerm" type="xs:string"/>
+                              <xs:element name="Type" type="xs:string"/>
+                              <xs:element name="Code" type="xs:string"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" name="AuthorizationStart" type="xs:string"/>
+                        <xs:element minOccurs="0" name="AuthorizationEnd" type="xs:string"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="storeRequestTransactionResponse">
+    <wsdl:part element="tns:storeRequestTransactionResponse" name="storeRequestTransactionResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="storeResponseTransaction">
+    <wsdl:part element="tns:ICMStoreResponse" name="ICMStoreResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="storeRequestTransaction">
+    <wsdl:part element="tns:ICMRequest" name="ICMRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="storeResponseTransactionResponse">
+    <wsdl:part element="tns:storeResponseTransactionResponse" name="storeResponseTransactionResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="processTransactionResponse">
+    <wsdl:part element="tns:processTransactionResponse" name="processTransactionResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="processTransaction">
+    <wsdl:part element="tns:ICMRequest" name="ICMRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ICMService">
+    <wsdl:operation name="storeResponseTransaction">
+      <wsdl:input message="tns:storeResponseTransaction" name="storeResponseTransaction"></wsdl:input>
+      <wsdl:output message="tns:storeResponseTransactionResponse" name="storeResponseTransactionResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processTransaction">
+      <wsdl:input message="tns:processTransaction" name="processTransaction"></wsdl:input>
+      <wsdl:output message="tns:processTransactionResponse" name="processTransactionResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="storeRequestTransaction">
+      <wsdl:input message="tns:storeRequestTransaction" name="storeRequestTransaction"></wsdl:input>
+      <wsdl:output message="tns:storeRequestTransactionResponse" name="storeRequestTransactionResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ICMServiceServiceSoapBinding" type="tns:ICMService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="storeResponseTransaction">
+      <soap:operation soapAction="storeResponseTransaction" style="document"/>
+      <wsdl:input name="storeResponseTransaction">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="storeResponseTransactionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processTransaction">
+      <soap:operation soapAction="processTransaction" style="document"/>
+      <wsdl:input name="processTransaction">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processTransactionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="storeRequestTransaction">
+      <soap:operation soapAction="storeRequestTransaction" style="document"/>
+      <wsdl:input name="storeRequestTransaction">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="storeRequestTransactionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ICMServiceService">
+    <wsdl:port binding="tns:ICMServiceServiceSoapBinding" name="ICMServicePort">
+      <soap:address location="http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService</con:endpoint></con:endpoints><con:operation id="497f369d-006a-4afa-b545-86534bedac27" isOneWay="false" action="processTransaction" name="processTransaction" bindingOperationName="processTransaction" type="Request-Response" outputName="processTransactionResponse" inputName="processTransaction" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7552defa-892d-4856-b1b8-23e6eafaf794" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.icm.dhc.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:ICMRequest>
+         <Username>pbmSyncUser</Username>
+         <Key>8nFL2Ba4-1A34-4a4a-b14b-7fB12eAF3f32</Key>
+         <Submission>
+             <Header>
+               <SubmissionDestination>2</SubmissionDestination>
+               <SenderID>QAOman02</SenderID>
+               <ReceiverID>INS012</ReceiverID>
+               <DispositionFlag>PRODUCTION</DispositionFlag>
+               <ReferenceID>663689</ReferenceID>
+               <transactionType>PriorRequest</transactionType>
+               <processType>Transmit</processType>
+            </Header>
+            <!--1 or more repetitions:-->
+            <Transaction>
+              <ID>Oman02-INS012-FS-0799995002</ID>
+               <PayerID>INS012</PayerID>
+               <ProviderID>QAOman02</ProviderID>
+               <Person>
+                  <ID>1059202</ID>
+                  <InsuranceMemberNumber>OIG/ME-73/E/270341</InsuranceMemberNumber>
+                  <NationalIDNumber>784-1978-4605208-8</NationalIDNumber>
+                  <BirthDate>05/03/1978</BirthDate>
+                  <Gender>M</Gender>
+                  <Name>TAUSEEF AHMAD</Name>
+                  <Group>73</Group>
+               </Person>
+               <Encounter>
+                  <FacilityID>QAOman02</FacilityID>
+                  <Type>1</Type>
+               </Encounter>
+               <Diagnosis>
+                  <CodeTerm>ICD10</CodeTerm>
+                  <Type>Principal</Type>
+                  <Code>H65.411</Code>
+               </Diagnosis>
+               <Activity>
+                  <ID>17530</ID>
+                  <CodeTerm>DDC_20122</CodeTerm>
+                  <Start>17/10/2017 21:55</Start>
+                 <End>27/10/2017 21:55</End><Code>0219-123701-0391</Code>
+                  <Quantity>1500</Quantity>
+                  <OrderingClinician>GP12158</OrderingClinician>
+                  <Clinician>GP12158</Clinician>
+                  <Duration>2</Duration>
+               </Activity>
+               <ScrubbingHint>
+                  <Code>AUTO_STORE</Code>
+                  <Value>PRIOR_AUTHORIZATION</Value>
+               </ScrubbingHint>
+               <ScrubbingHint>
+                  <Code>Ignore</Code>
+                  <Value>TRANSACTION_SAVING_ERROR</Value>
+               </ScrubbingHint>
+               <ScrubbingHint>
+                  <Code>DEFINE_VALUE</Code>
+                  <Value>DEFAULT_NETWORK</Value>
+                  <ValueType>ExtraInfo.network</ValueType>
+               </ScrubbingHint>
+               <ScrubbingHint>
+                  <Code>CUSTOM_PREDEFIND_BUCKET</Code>
+                  <Value>PX</Value>
+               </ScrubbingHint>
+               <ScrubbingHint>
+                  <Code>CUSTOM_AUTH_PAYER_REF</Code>
+                  <Value>PBM_663684_11024</Value>
+               </ScrubbingHint>   
+                    <ScrubbingHint>
+			<Code>Ignore</Code>
+			<Value>MEMBER_HISTORY</Value>
+			</ScrubbingHint>      
+            </Transaction>
+         </Submission>
+      </ws:ICMRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="processTransaction"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="beb9c137-c5e8-45f3-afc8-fb10e5718f57" isOneWay="false" action="storeRequestTransaction" name="storeRequestTransaction" bindingOperationName="storeRequestTransaction" type="Request-Response" outputName="storeRequestTransactionResponse" inputName="storeRequestTransaction" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0f5505ad-15e3-437a-8e56-78ece5949ba0" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.icm.dhc.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:ICMRequest>
+         <Username>?</Username>
+         <Key>?</Key>
+         <Submission>
+            <Header>
+               <SubmissionDestination>?</SubmissionDestination>
+               <SenderID>?</SenderID>
+               <ReceiverID>?</ReceiverID>
+               <DispositionFlag>?</DispositionFlag>
+               <ReferenceID>?</ReferenceID>
+               <transactionType>?</transactionType>
+               <processType>?</processType>
+            </Header>
+            <!--1 or more repetitions:-->
+            <Transaction>
+               <ID>?</ID>
+               <PayerID>?</PayerID>
+               <ProviderID>?</ProviderID>
+               <!--Optional:-->
+               <HealthPlanID>?</HealthPlanID>
+               <!--Optional:-->
+               <PayerTransactionReference>?</PayerTransactionReference>
+               <!--Optional:-->
+               <TransactionGross>?</TransactionGross>
+               <!--Optional:-->
+               <TransactionPatientShare>?</TransactionPatientShare>
+               <!--Optional:-->
+               <TransactionPaymentAmount>?</TransactionPaymentAmount>
+               <!--Optional:-->
+               <TransactionNet>?</TransactionNet>
+               <!--Optional:-->
+               <TransactionPriorAuthorizationID>?</TransactionPriorAuthorizationID>
+               <Person>
+                  <!--Optional:-->
+                  <ID>?</ID>
+                  <InsuranceMemberNumber>?</InsuranceMemberNumber>
+                  <NationalIDNumber>?</NationalIDNumber>
+                  <!--Optional:-->
+                  <BirthDate>?</BirthDate>
+                  <!--Optional:-->
+                  <Gender>?</Gender>
+                  <!--Optional:-->
+                  <Name>?</Name>
+                  <!--Optional:-->
+                  <Policy>?</Policy>
+                  <!--Optional:-->
+                  <Group>?</Group>
+                  <!--Optional:-->
+                  <Address>?</Address>
+                  <!--Optional:-->
+                  <Weight>?</Weight>
+                  <!--Optional:-->
+                  <BreastFeeding>?</BreastFeeding>
+                  <!--Optional:-->
+                  <WeeksOfAmenorrhoea>?</WeeksOfAmenorrhoea>
+                  <!--Optional:-->
+                  <CreatinClearance>?</CreatinClearance>
+               </Person>
+               <Encounter>
+                  <FacilityID>?</FacilityID>
+                  <Type>?</Type>
+                  <!--Optional:-->
+                  <Start>?</Start>
+                  <!--Optional:-->
+                  <End>?</End>
+                  <!--Optional:-->
+                  <StartType>?</StartType>
+                  <!--Optional:-->
+                  <EndType>?</EndType>
+                  <!--Optional:-->
+                  <EligibilityIDPayer>?</EligibilityIDPayer>
+                  <!--Optional:-->
+                  <TransferSource>?</TransferSource>
+                  <!--Optional:-->
+                  <TransferDestination>?</TransferDestination>
+               </Encounter>
+               <!--Zero or more repetitions:-->
+               <Diagnosis>
+                  <CodeTerm>?</CodeTerm>
+                  <Type>?</Type>
+                  <Code>?</Code>
+               </Diagnosis>
+               <!--Zero or more repetitions:-->
+               <Activity>
+                  <ID>?</ID>
+                  <CodeTerm>?</CodeTerm>
+                  <Start>?</Start>
+                  <End>?</End>
+                  <Code>?</Code>
+                  <Quantity>?</Quantity>
+                  <OrderingClinician>?</OrderingClinician>
+                  <Clinician>?</Clinician>
+                  <!--Optional:-->
+                  <PriorAuthorizationID>?</PriorAuthorizationID>
+                  <!--Optional:-->
+                  <Net>?</Net>
+                  <!--Optional:-->
+                  <Gross>?</Gross>
+                  <!--Optional:-->
+                  <PatientShare>
+                     <Type>?</Type>
+                     <!--Optional:-->
+                     <Value>?</Value>
+                  </PatientShare>
+                  <!--Zero or more repetitions:-->
+                  <Observation>
+                     <ID>?</ID>
+                     <Type>?</Type>
+                     <Code>?</Code>
+                     <!--Optional:-->
+                     <Value>?</Value>
+                     <!--Optional:-->
+                     <ValueType>?</ValueType>
+                  </Observation>
+                  <!--Optional:-->
+                  <PaymentAmount>?</PaymentAmount>
+                  <!--Optional:-->
+                  <Duration>?</Duration>
+               </Activity>
+               <!--Optional:-->
+               <Resubmission>
+                  <Sequence>?</Sequence>
+                  <Type>?</Type>
+                  <Comment>?</Comment>
+                  <!--Optional:-->
+                  <Attachment>cid:607355487932</Attachment>
+               </Resubmission>
+               <!--Zero or more repetitions:-->
+               <ScrubbingHint>
+                  <Code>?</Code>
+                  <Value>?</Value>
+                  <!--Optional:-->
+                  <ValueType>?</ValueType>
+               </ScrubbingHint>
+            </Transaction>
+         </Submission>
+      </ws:ICMRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="storeRequestTransaction"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="d0cca828-8f2c-4b9f-9f65-6211895ecf72" isOneWay="false" action="storeResponseTransaction" name="storeResponseTransaction" bindingOperationName="storeResponseTransaction" type="Request-Response" outputName="storeResponseTransactionResponse" inputName="storeResponseTransaction" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3ad3decf-32d2-4e65-afab-4880a114d4d8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.icm.dhc.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:ICMStoreResponse>
+         <Username>?</Username>
+         <Key>?</Key>
+         <SubmissionResponse>
+            <Header>
+               <SenderID>?</SenderID>
+               <ReceiverID>?</ReceiverID>
+               <DispositionFlag>?</DispositionFlag>
+               <ReferenceID>?</ReferenceID>
+               <TransactionDate>?</TransactionDate>
+            </Header>
+            <!--1 or more repetitions:-->
+            <Transaction>
+               <ID>?</ID>
+               <PayerID>?</PayerID>
+               <ProviderID>?</ProviderID>
+               <!--Optional:-->
+               <PayerTransactionReference>?</PayerTransactionReference>
+               <!--Optional:-->
+               <ReferenceID>?</ReferenceID>
+               <!--Optional:-->
+               <Result>?</Result>
+               <!--Optional:-->
+               <DenialCode>?</DenialCode>
+               <!--Optional:-->
+               <Comments>?</Comments>
+               <!--1 or more repetitions:-->
+               <Activity>
+                  <ID>?</ID>
+                  <Code>?</Code>
+                  <CodeTerm>?</CodeTerm>
+                  <!--Optional:-->
+                  <startDate>?</startDate>
+                  <!--Optional:-->
+                  <endDate>?</endDate>
+                  <!--Optional:-->
+                  <Quantity>?</Quantity>
+                  <!--Optional:-->
+                  <orderingClinician>?</orderingClinician>
+                  <!--Optional:-->
+                  <clinician>?</clinician>
+                  <!--Optional:-->
+                  <Gross>?</Gross>
+                  <!--Optional:-->
+                  <Net>?</Net>
+                  <PatientShare>
+                     <Type>?</Type>
+                     <Value>?</Value>
+                  </PatientShare>
+                  <!--Optional:-->
+                  <paymentAmount>?</paymentAmount>
+                  <!--Optional:-->
+                  <PriorAuthorizationID>?</PriorAuthorizationID>
+                  <!--Optional:-->
+                  <ReferenceID>?</ReferenceID>
+                  <!--Zero or more repetitions:-->
+                  <Edit>
+                     <ID>?</ID>
+                     <Type>?</Type>
+                     <!--Optional:-->
+                     <SubType>?</SubType>
+                     <Code>?</Code>
+                     <!--Optional:-->
+                     <Rank>?</Rank>
+                     <!--Optional:-->
+                     <ResultCode>?</ResultCode>
+                     <!--Optional:-->
+                     <Result>?</Result>
+                     <!--Optional:-->
+                     <Comment>?</Comment>
+                     <!--Optional:-->
+                     <ruleName>?</ruleName>
+                  </Edit>
+                  <!--Zero or more repetitions:-->
+                  <Observation>
+                     <Type>?</Type>
+                     <Code>?</Code>
+                     <!--Optional:-->
+                     <Value>?</Value>
+                     <!--Optional:-->
+                     <ValueType>?</ValueType>
+                  </Observation>
+               </Activity>
+               <!--1 or more repetitions:-->
+               <Diagnosis>
+                  <CodeTerm>?</CodeTerm>
+                  <Type>?</Type>
+                  <Code>?</Code>
+               </Diagnosis>
+               <!--Optional:-->
+               <AuthorizationStart>?</AuthorizationStart>
+               <!--Optional:-->
+               <AuthorizationEnd>?</AuthorizationEnd>
+            </Transaction>
+         </SubmissionResponse>
+      </ws:ICMStoreResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="storeResponseTransaction"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="481bf3d9-9afe-44fa-ad9f-ad35e1d0b387" name="ICMServiceServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="e4019a61-d4bf-4dd1-bf67-4274a3b67d2d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="processTransaction TestCase" searchProperties="true"><con:settings/><con:testStep type="datasource" name="DataSource" id="248968c8-1f22-495c-8fbd-44de71480f74"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="Excel"><con:configuration><file>Drug-Price Mapping.xlsx</file><worksheet/><cell>A1</cell><ignoreEmpty>true</ignoreEmpty></con:configuration></con:dataSource><con:property>Drug</con:property><con:property>ICD</con:property><con:startRow>20</con:startRow><con:endRow/><con:gotoLoopOnEmpty>true</con:gotoLoopOnEmpty><con:trimValues>false</con:trimValues><con:entitizeValues>false</con:entitizeValues><con:restartOnRun>true</con:restartOnRun><con:expandProperties>false</con:expandProperties></con:config></con:testStep><con:testStep type="request" id="860e06b1-9638-443f-b242-054994040941" name="processTransaction"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ICMServiceServiceSoapBinding</con:interface><con:operation>processTransaction</con:operation><con:request name="processTransaction" id="6a91af93-ea33-4f3c-b9aa-4de41d7a1b26"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.icm.dhc.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:ICMRequest>
+         <Username>pbmSyncUser</Username>
+         <Key>8nFL2Ba4-1A34-4a4a-b14b-7fB12eAF3f32</Key>
+         <Submission>
+             <Header>
+               <SubmissionDestination>2</SubmissionDestination>
+               <SenderID>QAOman02</SenderID>
+               <ReceiverID>INS012</ReceiverID>
+               <DispositionFlag>PRODUCTION</DispositionFlag>
+               <ReferenceID>663689</ReferenceID>
+               <transactionType>Cancellation</transactionType>
+               <processType>Submit</processType>
+            </Header>
+            <!--1 or more repetitions:-->
+            <Transaction>
+              <ID>Oman02-INS012-FS-079999${=(int)(Math.random()*9999)}</ID>
+               <PayerID>INS012</PayerID>
+               <ProviderID>QAOman02</ProviderID>
+               <Person>
+                  <ID>1059202</ID>
+                  <InsuranceMemberNumber>OIG/ME-73/C/6124915</InsuranceMemberNumber>
+                  <NationalIDNumber>784-1978-4605208-8</NationalIDNumber>
+                  <BirthDate>05/03/1978</BirthDate>
+                  
+                  <Gender>F</Gender>
+                  <Name>No Validation</Name><Group>73</Group>
+               </Person>
+               <Encounter>
+                  <FacilityID>QAOman02</FacilityID>
+                  <Type>1</Type>
+               </Encounter>
+               <Diagnosis>
+                  <CodeTerm>ICD10</CodeTerm>
+                  <Type>Secondary</Type>
+                  <Code>${DataSource#ICD}</Code>
+               </Diagnosis>
+               <Activity>
+                  <ID>17530</ID>
+                  <CodeTerm>DDC_20122</CodeTerm>
+                  <Start>17/10/2017 21:55</Start>
+                 <End>27/10/2017 21:55</End><Code>${DataSource#Drug}</Code>
+                  <Quantity>1</Quantity>
+                  <OrderingClinician/>
+                  <Clinician>GP12158</Clinician>
+                  <PriorAuthorizationID>GP12158</PriorAuthorizationID><PatientShare><Type>Co-pay</Type><Value>10</Value></PatientShare><Observation><ID>${=(int)(Math.random()*9999)}</ID><Type>Text</Type><Code>1</Code><Value>1</Value><ValueType>1</ValueType></Observation><Duration>2</Duration>
+               </Activity>
+               <ScrubbingHint>
+                  <Code>AUTO_STORE</Code>
+                  <Value>PRIOR_AUTHORIZATION</Value>
+               </ScrubbingHint>
+               <ScrubbingHint>
+                  <Code>Ignore</Code>
+                  <Value>TRANSACTION_SAVING_ERROR</Value>
+               </ScrubbingHint>
+               <ScrubbingHint>
+                  <Code>DEFINE_VALUE</Code>
+                  <Value>DEFAULT_NETWORK</Value>
+                  <ValueType>ExtraInfo.network</ValueType>
+               </ScrubbingHint>
+               <ScrubbingHint>
+                  <Code>CUSTOM_PREDEFIND_BUCKET</Code>
+                  <Value>PX</Value>
+               </ScrubbingHint>
+               <ScrubbingHint>
+                  <Code>CUSTOM_AUTH_PAYER_REF</Code>
+                  <Value>PBM_663684_11024</Value>
+               </ScrubbingHint>   
+                    <ScrubbingHint>
+			<Code>Ignore</Code>
+			<Value>MEMBER_HISTORY</Value>
+			</ScrubbingHint>      
+            </Transaction>
+         </Submission>
+      </ws:ICMRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="processTransaction" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="datasourceloop" name="DataSource Loop" id="00c7cee9-95dd-4771-86b1-ae608d38d47d"><con:settings/><con:config><dataSourceStep>DataSource</dataSourceStep><targetStep>processTransaction</targetStep></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>248968c8-1f22-495c-8fbd-44de71480f74</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="24c664e9-3652-4752-bbc0-39c1f95850ff" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="storeRequestTransaction TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="2153b1ce-2789-4773-a8ab-784a24c0b289" name="storeRequestTransaction"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ICMServiceServiceSoapBinding</con:interface><con:operation>storeRequestTransaction</con:operation><con:request name="storeRequestTransaction" id="45996f94-bce8-431c-a582-eab5efc1c69e"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.icm.dhc.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ws:ICMRequest>\r
+         <Username>?</Username>\r
+         <Key>?</Key>\r
+         <Submission>\r
+            <Header>\r
+               <SubmissionDestination>?</SubmissionDestination>\r
+               <SenderID>?</SenderID>\r
+               <ReceiverID>?</ReceiverID>\r
+               <DispositionFlag>?</DispositionFlag>\r
+               <ReferenceID>?</ReferenceID>\r
+               <transactionType>?</transactionType>\r
+               <processType>?</processType>\r
+            </Header>\r
+            <!--1 or more repetitions:-->\r
+            <Transaction>\r
+               <ID>?</ID>\r
+               <PayerID>?</PayerID>\r
+               <ProviderID>?</ProviderID>\r
+               <!--Optional:-->\r
+               <HealthPlanID>?</HealthPlanID>\r
+               <!--Optional:-->\r
+               <PayerTransactionReference>?</PayerTransactionReference>\r
+               <!--Optional:-->\r
+               <TransactionGross>?</TransactionGross>\r
+               <!--Optional:-->\r
+               <TransactionPatientShare>?</TransactionPatientShare>\r
+               <!--Optional:-->\r
+               <TransactionPaymentAmount>?</TransactionPaymentAmount>\r
+               <!--Optional:-->\r
+               <TransactionNet>?</TransactionNet>\r
+               <!--Optional:-->\r
+               <TransactionPriorAuthorizationID>?</TransactionPriorAuthorizationID>\r
+               <Person>\r
+                  <!--Optional:-->\r
+                  <ID>?</ID>\r
+                  <InsuranceMemberNumber>?</InsuranceMemberNumber>\r
+                  <NationalIDNumber>?</NationalIDNumber>\r
+                  <!--Optional:-->\r
+                  <BirthDate>?</BirthDate>\r
+                  <!--Optional:-->\r
+                  <Gender>?</Gender>\r
+                  <!--Optional:-->\r
+                  <Name>?</Name>\r
+                  <!--Optional:-->\r
+                  <Policy>?</Policy>\r
+                  <!--Optional:-->\r
+                  <Group>?</Group>\r
+                  <!--Optional:-->\r
+                  <Address>?</Address>\r
+                  <!--Optional:-->\r
+                  <Weight>?</Weight>\r
+                  <!--Optional:-->\r
+                  <BreastFeeding>?</BreastFeeding>\r
+                  <!--Optional:-->\r
+                  <WeeksOfAmenorrhoea>?</WeeksOfAmenorrhoea>\r
+                  <!--Optional:-->\r
+                  <CreatinClearance>?</CreatinClearance>\r
+               </Person>\r
+               <Encounter>\r
+                  <FacilityID>?</FacilityID>\r
+                  <Type>?</Type>\r
+                  <!--Optional:-->\r
+                  <Start>?</Start>\r
+                  <!--Optional:-->\r
+                  <End>?</End>\r
+                  <!--Optional:-->\r
+                  <StartType>?</StartType>\r
+                  <!--Optional:-->\r
+                  <EndType>?</EndType>\r
+                  <!--Optional:-->\r
+                  <EligibilityIDPayer>?</EligibilityIDPayer>\r
+                  <!--Optional:-->\r
+                  <TransferSource>?</TransferSource>\r
+                  <!--Optional:-->\r
+                  <TransferDestination>?</TransferDestination>\r
+               </Encounter>\r
+               <!--Zero or more repetitions:-->\r
+               <Diagnosis>\r
+                  <CodeTerm>?</CodeTerm>\r
+                  <Type>?</Type>\r
+                  <Code>?</Code>\r
+               </Diagnosis>\r
+               <!--Zero or more repetitions:-->\r
+               <Activity>\r
+                  <ID>?</ID>\r
+                  <CodeTerm>?</CodeTerm>\r
+                  <Start>?</Start>\r
+                  <End>?</End>\r
+                  <Code>?</Code>\r
+                  <Quantity>?</Quantity>\r
+                  <OrderingClinician>?</OrderingClinician>\r
+                  <Clinician>?</Clinician>\r
+                  <!--Optional:-->\r
+                  <PriorAuthorizationID>?</PriorAuthorizationID>\r
+                  <!--Optional:-->\r
+                  <Net>?</Net>\r
+                  <!--Optional:-->\r
+                  <Gross>?</Gross>\r
+                  <!--Optional:-->\r
+                  <PatientShare>\r
+                     <Type>?</Type>\r
+                     <!--Optional:-->\r
+                     <Value>?</Value>\r
+                  </PatientShare>\r
+                  <!--Zero or more repetitions:-->\r
+                  <Observation>\r
+                     <ID>?</ID>\r
+                     <Type>?</Type>\r
+                     <Code>?</Code>\r
+                     <!--Optional:-->\r
+                     <Value>?</Value>\r
+                     <!--Optional:-->\r
+                     <ValueType>?</ValueType>\r
+                  </Observation>\r
+                  <!--Optional:-->\r
+                  <PaymentAmount>?</PaymentAmount>\r
+                  <!--Optional:-->\r
+                  <Duration>?</Duration>\r
+               </Activity>\r
+               <!--Optional:-->\r
+               <Resubmission>\r
+                  <Sequence>?</Sequence>\r
+                  <Type>?</Type>\r
+                  <Comment>?</Comment>\r
+                  <!--Optional:-->\r
+                  <Attachment>cid:1046976481626</Attachment>\r
+               </Resubmission>\r
+               <!--Zero or more repetitions:-->\r
+               <ScrubbingHint>\r
+                  <Code>?</Code>\r
+                  <Value>?</Value>\r
+                  <!--Optional:-->\r
+                  <ValueType>?</ValueType>\r
+               </ScrubbingHint>\r
+            </Transaction>\r
+         </Submission>\r
+      </ws:ICMRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="storeRequestTransaction"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="10314c72-2657-4fdd-afbe-fddb2711a33e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="storeResponseTransaction TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="deba8b0d-2234-4a6f-b4be-0b5aa58c38de" name="storeResponseTransaction"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ICMServiceServiceSoapBinding</con:interface><con:operation>storeResponseTransaction</con:operation><con:request name="storeResponseTransaction" id="5d31baa4-27cd-4c85-b143-0ab73595fc5f"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://jenkins.dimensions-healthcare.net:8181/ICM/ws/ICMService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.icm.dhc.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ws:ICMStoreResponse>\r
+         <Username>?</Username>\r
+         <Key>?</Key>\r
+         <SubmissionResponse>\r
+            <Header>\r
+               <SenderID>?</SenderID>\r
+               <ReceiverID>?</ReceiverID>\r
+               <DispositionFlag>?</DispositionFlag>\r
+               <ReferenceID>?</ReferenceID>\r
+               <TransactionDate>?</TransactionDate>\r
+            </Header>\r
+            <!--1 or more repetitions:-->\r
+            <Transaction>\r
+               <ID>?</ID>\r
+               <PayerID>?</PayerID>\r
+               <ProviderID>?</ProviderID>\r
+               <!--Optional:-->\r
+               <PayerTransactionReference>?</PayerTransactionReference>\r
+               <!--Optional:-->\r
+               <ReferenceID>?</ReferenceID>\r
+               <!--Optional:-->\r
+               <Result>?</Result>\r
+               <!--Optional:-->\r
+               <DenialCode>?</DenialCode>\r
+               <!--Optional:-->\r
+               <Comments>?</Comments>\r
+               <!--1 or more repetitions:-->\r
+               <Activity>\r
+                  <ID>?</ID>\r
+                  <Code>?</Code>\r
+                  <CodeTerm>?</CodeTerm>\r
+                  <!--Optional:-->\r
+                  <startDate>?</startDate>\r
+                  <!--Optional:-->\r
+                  <endDate>?</endDate>\r
+                  <!--Optional:-->\r
+                  <Quantity>?</Quantity>\r
+                  <!--Optional:-->\r
+                  <orderingClinician>?</orderingClinician>\r
+                  <!--Optional:-->\r
+                  <clinician>?</clinician>\r
+                  <!--Optional:-->\r
+                  <Gross>?</Gross>\r
+                  <!--Optional:-->\r
+                  <Net>?</Net>\r
+                  <PatientShare>\r
+                     <Type>?</Type>\r
+                     <Value>?</Value>\r
+                  </PatientShare>\r
+                  <!--Optional:-->\r
+                  <paymentAmount>?</paymentAmount>\r
+                  <!--Optional:-->\r
+                  <PriorAuthorizationID>?</PriorAuthorizationID>\r
+                  <!--Optional:-->\r
+                  <ReferenceID>?</ReferenceID>\r
+                  <!--Zero or more repetitions:-->\r
+                  <Edit>\r
+                     <ID>?</ID>\r
+                     <Type>?</Type>\r
+                     <!--Optional:-->\r
+                     <SubType>?</SubType>\r
+                     <Code>?</Code>\r
+                     <!--Optional:-->\r
+                     <Rank>?</Rank>\r
+                     <!--Optional:-->\r
+                     <ResultCode>?</ResultCode>\r
+                     <!--Optional:-->\r
+                     <Result>?</Result>\r
+                     <!--Optional:-->\r
+                     <Comment>?</Comment>\r
+                     <!--Optional:-->\r
+                     <ruleName>?</ruleName>\r
+                  </Edit>\r
+                  <!--Zero or more repetitions:-->\r
+                  <Observation>\r
+                     <Type>?</Type>\r
+                     <Code>?</Code>\r
+                     <!--Optional:-->\r
+                     <Value>?</Value>\r
+                     <!--Optional:-->\r
+                     <ValueType>?</ValueType>\r
+                  </Observation>\r
+               </Activity>\r
+               <!--1 or more repetitions:-->\r
+               <Diagnosis>\r
+                  <CodeTerm>?</CodeTerm>\r
+                  <Type>?</Type>\r
+                  <Code>?</Code>\r
+               </Diagnosis>\r
+               <!--Optional:-->\r
+               <AuthorizationStart>?</AuthorizationStart>\r
+               <!--Optional:-->\r
+               <AuthorizationEnd>?</AuthorizationEnd>\r
+            </Transaction>\r
+         </SubmissionResponse>\r
+      </ws:ICMStoreResponse>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="storeResponseTransaction"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>

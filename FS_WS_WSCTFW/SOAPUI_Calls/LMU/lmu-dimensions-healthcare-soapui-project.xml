@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="49e4a904-67de-4d8c-b3bd-a0f724465bc2" activeEnvironment="Default" name="lmu.dimensions-healthcare" resourceRoot="${projectDir}" soapui-version="5.1.1" defaultScriptLanguage="Javascript" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="786776fb-be3e-460b-aea8-1c90bf3c215c" wsaVersion="NONE" name="DataSyncServiceServiceSoapBinding" type="wsdl" bindingName="{http://services.lmu.dimensions.com/}DataSyncServiceServiceSoapBinding" soapVersion="1_2" anonymous="optional" definition="http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService?WSDL"><con:part><con:url>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService?WSDL</con:url><con:content><![CDATA[<wsdl:definitions name="DataSyncServiceService" targetNamespace="http://services.lmu.dimensions.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://services.lmu.dimensions.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://services.lmu.dimensions.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="currentVersion" type="tns:currentVersion"/>
+      <xs:element name="currentVersionResponse" type="tns:currentVersionResponse"/>
+      <xs:element name="findChanges" type="tns:findChanges"/>
+      <xs:element name="findChangesByParam" type="tns:findChangesByParam"/>
+      <xs:element name="findChangesByParamResponse" type="tns:findChangesByParamResponse"/>
+      <xs:element name="findChangesResponse" type="tns:findChangesResponse"/>
+      <xs:element name="findRecords" type="tns:findRecords"/>
+      <xs:element name="findRecordsResponse" type="tns:findRecordsResponse"/>
+      <xs:complexType name="currentVersion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorizationCode" type="tns:authorizationCode"/>
+          <xs:element minOccurs="0" name="listName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authorizationCode">
+        <xs:sequence>
+          <xs:element name="username" type="xs:string"/>
+          <xs:element name="key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="currentVersionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="VersionResult" type="tns:versionResult"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="versionResult">
+        <xs:sequence>
+          <xs:element name="success" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="msg" type="xs:string"/>
+          <xs:element minOccurs="0" name="version" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findRecords">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorizationCode" type="tns:authorizationCode"/>
+          <xs:element minOccurs="0" name="listName" type="xs:string"/>
+          <xs:element minOccurs="0" name="targetVersion" type="xs:int"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="recordsIdsList" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findRecordsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RecordsResult" type="tns:recordsResult"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="recordsResult">
+        <xs:sequence>
+          <xs:element name="Success" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="msg" type="xs:string"/>
+          <xs:element minOccurs="0" name="xmlContent" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findChangesByParam">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorizationCode" type="tns:authorizationCode"/>
+          <xs:element minOccurs="0" name="listName" type="xs:string"/>
+          <xs:element minOccurs="0" name="localVersion" type="xs:int"/>
+          <xs:element minOccurs="0" name="targetVersion" type="xs:int"/>
+          <xs:element minOccurs="0" name="param" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findChangesByParamResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ChangesResult" type="tns:changesResult"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changesResult">
+        <xs:sequence>
+          <xs:element name="success" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="msg" type="xs:string"/>
+          <xs:element minOccurs="0" name="currentVersion" type="xs:int"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="records" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findChanges">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorizationCode" type="tns:authorizationCode"/>
+          <xs:element minOccurs="0" name="listName" type="xs:string"/>
+          <xs:element minOccurs="0" name="localVersion" type="xs:int"/>
+          <xs:element minOccurs="0" name="targetVersion" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findChangesResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ChangesResult" type="tns:changesResult"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="findChangesByParamResponse">
+    <wsdl:part element="tns:findChangesByParamResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findChanges">
+    <wsdl:part element="tns:findChanges" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="currentVersionResponse">
+    <wsdl:part element="tns:currentVersionResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findRecords">
+    <wsdl:part element="tns:findRecords" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findRecordsResponse">
+    <wsdl:part element="tns:findRecordsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="currentVersion">
+    <wsdl:part element="tns:currentVersion" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findChangesResponse">
+    <wsdl:part element="tns:findChangesResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findChangesByParam">
+    <wsdl:part element="tns:findChangesByParam" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DataSyncService">
+    <wsdl:operation name="currentVersion">
+      <wsdl:input message="tns:currentVersion" name="currentVersion"></wsdl:input>
+      <wsdl:output message="tns:currentVersionResponse" name="currentVersionResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findRecords">
+      <wsdl:input message="tns:findRecords" name="findRecords"></wsdl:input>
+      <wsdl:output message="tns:findRecordsResponse" name="findRecordsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findChangesByParam">
+      <wsdl:input message="tns:findChangesByParam" name="findChangesByParam"></wsdl:input>
+      <wsdl:output message="tns:findChangesByParamResponse" name="findChangesByParamResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findChanges">
+      <wsdl:input message="tns:findChanges" name="findChanges"></wsdl:input>
+      <wsdl:output message="tns:findChangesResponse" name="findChangesResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DataSyncServiceServiceSoapBinding" type="tns:DataSyncService">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="currentVersion">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="currentVersion">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="currentVersionResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findChangesByParam">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="findChangesByParam">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findChangesByParamResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findRecords">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="findRecords">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findRecordsResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findChanges">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="findChanges">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findChangesResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataSyncServiceService">
+    <wsdl:port binding="tns:DataSyncServiceServiceSoapBinding" name="DataSyncServicePort">
+      <soap12:address location="http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint></con:endpoints><con:operation id="1580023d-f9c3-4611-90c7-291e88a2336f" isOneWay="false" action="" name="currentVersion" bindingOperationName="currentVersion" type="Request-Response" outputName="currentVersionResponse" inputName="currentVersion" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b066d937-2186-4a05-9c7e-28256a6858ed" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:currentVersion>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>pbmlink</username>
+            <key>vCUY7BqYl4j9HlRM49L56dcmL7zCjCJJ</key>
+         </authorizationCode><listName>CountryMasterDrugs</listName>
+         <!--Optional:-->
+         
+      </ser:currentVersion>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.lmu.dimensions.com/DataSyncService/currentVersion"/><con:wsrmConfig version="1.2"/></con:call><con:call id="980d968b-b2ba-4af6-b4df-625b4dba1d7f" name="Backup of [Request 1]"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:currentVersion>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>pbmlink</username>
+            <key>vCUY7BqYl4j9HlRM49L56dcmL7zCjCJJ</key>
+         </authorizationCode>
+         <!--Optional:-->
+         <listName>DRUGS</listName>
+      </ser:currentVersion>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.lmu.dimensions.com/DataSyncService/currentVersion"/><con:wsrmConfig version="1.2"/></con:call><con:call id="23bfbda7-80f4-4925-8a17-c32c8ce86076" name="DHPO"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:currentVersion>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>dhpouser</username>
+            <key>l0KAsQFd8qAsWdKpaf1Lgu9D2ZuAVz72</key>
+         </authorizationCode><listName>Providers</listName>
+         <!--Optional:-->
+         
+      </ser:currentVersion>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.lmu.dimensions.com/DataSyncService/currentVersion"/><con:wsrmConfig version="1.2"/></con:call><con:call id="80a2760b-e205-43d3-8ffc-577a24b8cad1" name="Backup of [Request 1]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:currentVersion>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>pbmlink</username>
+            <key>vCUY7BqYl4j9HlRM49L56dcmL7zCjCJJ</key>
+         </authorizationCode><listName>DDC</listName>
+         <!--Optional:-->
+         
+      </ser:currentVersion>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.lmu.dimensions.com/DataSyncService/currentVersion"/></con:call><con:call id="68dedda4-fbc7-4b1d-83df-916c8c8a50b8" name="Backup of [Backup of [Request 1]]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:currentVersion>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>pbmlink</username>
+            <key>vCUY7BqYl4j9HlRM49L56dcmL7zCjCJJ</key>
+         </authorizationCode><listName>DRUGS</listName>
+         <!--Optional:-->
+         
+      </ser:currentVersion>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.lmu.dimensions.com/DataSyncService/currentVersion"/></con:call><con:call id="462e6941-1381-4cec-af5a-5ba91831abf0" name="Backup of [DHPO]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:currentVersion>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>dhpouser</username>
+            <key>l0KAsQFd8qAsWdKpaf1Lgu9D2ZuAVz72</key>
+         </authorizationCode><listName>DDC</listName>
+         <!--Optional:-->
+         
+      </ser:currentVersion>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.lmu.dimensions.com/DataSyncService/currentVersion"/></con:call></con:operation><con:operation id="7f519bbe-ddc4-4e03-a525-0dccaa36f113" isOneWay="false" action="" name="findChanges" bindingOperationName="findChanges" type="Request-Response" outputName="findChangesResponse" inputName="findChanges" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6538fe53-daad-4e42-9929-8837ff091d42" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:findChanges>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>dhpouser</username>
+            <key>l0KAsQFd8qAsWdKpaf1Lgu9D2ZuAVz72</key>
+         </authorizationCode>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <listName>CountryMasterDrugs</listName><localVersion>265</localVersion><targetVersion>273</targetVersion>
+      </ser:findChanges>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.lmu.dimensions.com/DataSyncService/findChanges"/><con:wsrmConfig version="1.2"/></con:call><con:call id="72afee12-9848-4ba7-b505-881cbe8da9c0" name="Backup of [Request 1]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:findChanges>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>dhpouser</username>
+            <key>l0KAsQFd8qAsWdKpaf1Lgu9D2ZuAVz72</key>
+         </authorizationCode>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <listName>DDC</listName>
+         <!--Optional:-->
+         <localVersion>94</localVersion><targetVersion>95</targetVersion>
+      </ser:findChanges>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.lmu.dimensions.com/DataSyncService/findChanges"/></con:call><con:call id="6236e99d-f963-4fe1-bb99-cca46b9f2b9f" name="PBMLinkUser"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:findChanges>
+         <!--Optional:-->
+         <authorizationCode>
+             <username>pbmlink</username>
+            <key>vCUY7BqYl4j9HlRM49L56dcmL7zCjCJJ</key>
+         </authorizationCode>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <listName>Providers</listName><localVersion>4345</localVersion><targetVersion>4346</targetVersion>
+      </ser:findChanges>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.lmu.dimensions.com/DataSyncService/findChanges"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="10271545-9f96-471e-a087-d3f72bc581c6" isOneWay="false" action="" name="findRecords" bindingOperationName="findRecords" type="Request-Response" outputName="findRecordsResponse" inputName="findRecords" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d41a8cef-0852-476a-a930-e7eb09fa6c40" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:findRecords>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>dhpouser</username>
+            <key>l0KAsQFd8qAsWdKpaf1Lgu9D2ZuAVz72</key>
+         </authorizationCode>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <listName>Clinicians</listName><targetVersion>2599</targetVersion>
+         <!--Zero or more repetitions:-->
+         <recordsIdsList>149000</recordsIdsList>
+         <recordsIdsList>150000</recordsIdsList>
+         
+      </ser:findRecords>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.lmu.dimensions.com/DataSyncService/findRecords"/><con:wsrmConfig version="1.2"/></con:call><con:call id="b1ae5956-6ccd-4417-9e00-6a82db9bdc02" name="Backup of [Request 1]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:findRecords>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>dhpouser</username>
+            <key>l0KAsQFd8qAsWdKpaf1Lgu9D2ZuAVz72</key>
+         </authorizationCode>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <listName>DDC</listName><targetVersion>100</targetVersion>
+         <!--Zero or more repetitions:-->
+         
+      <recordsIdsList/><recordsIdsList>1</recordsIdsList><recordsIdsList>2</recordsIdsList></ser:findRecords>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.lmu.dimensions.com/DataSyncService/findRecords"/></con:call><con:call id="d9a8ad65-6d36-44c1-8fa1-51bf7ce4e6c4" name="PBMLink User"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:findRecords>
+         <!--Optional:-->
+         <authorizationCode>
+             <username>pbmlink</username>
+            <key>vCUY7BqYl4j9HlRM49L56dcmL7zCjCJJ</key>
+         </authorizationCode>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <listName>Providers</listName>
+         <!--Zero or more repetitions:-->
+         
+         
+<targetVersion>4346</targetVersion>
+<recordsIdsList>36754</recordsIdsList>
+
+        </ser:findRecords>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.lmu.dimensions.com/DataSyncService/findRecords"/><con:wsrmConfig version="1.2"/></con:call><con:call id="2fb77f6c-8796-45c6-a1cd-666ae0589a84" name="DHPO_Providers"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:findRecords>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>dhpouser</username>
+            <key>l0KAsQFd8qAsWdKpaf1Lgu9D2ZuAVz72</key>
+         </authorizationCode>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <listName>Providers</listName>
+         <!--Zero or more repetitions:-->
+         <targetVersion>2531</targetVersion>
+         <recordsIdsList>38860</recordsIdsList>
+         
+      </ser:findRecords>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.lmu.dimensions.com/DataSyncService/findRecords"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="a36a331b-359c-4d42-a7df-4d79e4ca43fe" isOneWay="false" action="" name="findChangesByParam" bindingOperationName="findChangesByParam" type="Request-Response" outputName="findChangesByParamResponse" inputName="findChangesByParam" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3fd1e166-a94c-4b36-8e97-32347bc54cd2" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:findChangesByParam>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>dhpouser</username>
+            <key>l0KAsQFd8qAsWdKpaf1Lgu9D2ZuAVz72</key>
+         </authorizationCode>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <listName>Providers</listName>
+         <!--Optional:-->
+         <localVersion>4345</localVersion><targetVersion>4346</targetVersion><param>Provider</param>
+      </ser:findChangesByParam>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.lmu.dimensions.com/DataSyncService/findChangesByParam"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="89406d3d-fcd0-4003-917c-9076fb9a1f69" name="DataSyncServiceServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="df317ad2-1205-4737-874d-6a07c6c1c273" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="currentVersion TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="0cdb270d-c13d-4bb3-bb1b-fdef0040bb5e" name="currentVersion" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DataSyncServiceServiceSoapBinding</con:interface><con:operation>currentVersion</con:operation><con:request name="currentVersion" id="e0e060cb-a74a-43ca-9feb-52832232d70f"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:currentVersion>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>?</username>
+            <key>?</key>
+         </authorizationCode>
+         <!--Optional:-->
+         <listName>?</listName>
+      </ser:currentVersion>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://services.lmu.dimensions.com/DataSyncService/currentVersion" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" id="eb9a7dde-1584-4c34-8c19-857bac2fda2a" name="Backup of [currentVersion]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DataSyncServiceServiceSoapBinding</con:interface><con:operation>currentVersion</con:operation><con:request name="Backup of [currentVersion]" id="e0e060cb-a74a-43ca-9feb-52832232d70f"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:currentVersion>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>?</username>
+            <key>?</key>
+         </authorizationCode>
+         <!--Optional:-->
+         <listName>?</listName>
+      </ser:currentVersion>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://services.lmu.dimensions.com/DataSyncService/currentVersion" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script33" id="99709716-cb34-4992-bb31-95eb0b6a6a68"><con:settings/><con:config><script>alert ('test')</script></con:config></con:testStep><con:testStep type="request" id="7ad7aa56-e95a-4507-a572-aa0b264b9b49" name="Backup of [Backup of [currentVersion]]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DataSyncServiceServiceSoapBinding</con:interface><con:operation>currentVersion</con:operation><con:request name="Backup of [Backup of [currentVersion]]" id="e0e060cb-a74a-43ca-9feb-52832232d70f"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ser:currentVersion>\r
+         <!--Optional:-->\r
+         <authorizationCode>\r
+            <username>?</username>\r
+            <key>?</key>\r
+         </authorizationCode>\r
+         <!--Optional:-->\r
+         <listName>?</listName>\r
+      </ser:currentVersion>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig action="http://services.lmu.dimensions.com/DataSyncService/currentVersion" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="52365492-2743-4ca7-ab52-cc9ce67813bf" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="findChanges TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="d8cbc723-ef30-4941-b8bd-2903cdf5f5d9" name="findChanges"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DataSyncServiceServiceSoapBinding</con:interface><con:operation>findChanges</con:operation><con:request name="findChanges" id="3a2e5469-39ea-4f23-a675-5bae680fe0c7"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:findChanges>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>?</username>
+            <key>?</key>
+         </authorizationCode>
+         <!--Optional:-->
+         <listName>?</listName>
+         <!--Optional:-->
+         <localVersion>?</localVersion>
+         <!--Optional:-->
+         <targetVersion>?</targetVersion>
+      </ser:findChanges>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://services.lmu.dimensions.com/DataSyncService/findChanges"/></con:request></con:config></con:testStep><con:testStep type="request" id="cd34967f-2208-4d82-9c51-a7db9a117c3f" name="Backup of [findChanges]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DataSyncServiceServiceSoapBinding</con:interface><con:operation>findChanges</con:operation><con:request name="Backup of [findChanges]" id="3a2e5469-39ea-4f23-a675-5bae680fe0c7"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:findChanges>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>?</username>
+            <key>?</key>
+         </authorizationCode>
+         <!--Optional:-->
+         <listName>?</listName>
+         <!--Optional:-->
+         <localVersion>?</localVersion>
+         <!--Optional:-->
+         <targetVersion>?</targetVersion>
+      </ser:findChanges>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://services.lmu.dimensions.com/DataSyncService/findChanges"/></con:request></con:config></con:testStep><con:testStep type="request" id="61fc8543-4f3b-4a5c-a8d0-eb94f94cde4a" name="Backup of [Backup of [findChanges]]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DataSyncServiceServiceSoapBinding</con:interface><con:operation>findChanges</con:operation><con:request name="Backup of [Backup of [findChanges]]" id="3a2e5469-39ea-4f23-a675-5bae680fe0c7"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ser:findChanges>\r
+         <!--Optional:-->\r
+         <authorizationCode>\r
+            <username>?</username>\r
+            <key>?</key>\r
+         </authorizationCode>\r
+         <!--Optional:-->\r
+         <listName>?</listName>\r
+         <!--Optional:-->\r
+         <localVersion>?</localVersion>\r
+         <!--Optional:-->\r
+         <targetVersion>?</targetVersion>\r
+      </ser:findChanges>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://services.lmu.dimensions.com/DataSyncService/findChanges"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="2eff550c-df64-42ba-a351-7bf67fda4a33" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="findRecords TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="ce4693d0-2471-409a-9f7b-49a09a9e882c" name="findRecords"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DataSyncServiceServiceSoapBinding</con:interface><con:operation>findRecords</con:operation><con:request name="findRecords" id="952f1ea7-dbff-4017-b29a-5ecf0db4be77"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:findRecords>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>?</username>
+            <key>?</key>
+         </authorizationCode>
+         <!--Optional:-->
+         <listName>?</listName>
+         <!--Optional:-->
+         <targetVersion>?</targetVersion>
+         <!--Zero or more repetitions:-->
+         <recordsIdsList>?</recordsIdsList>
+      </ser:findRecords>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://services.lmu.dimensions.com/DataSyncService/findRecords" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="7b5d93dd-673d-4759-84ae-4511beb496a8" name="Backup of [findRecords]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DataSyncServiceServiceSoapBinding</con:interface><con:operation>findRecords</con:operation><con:request name="Backup of [findRecords]" id="952f1ea7-dbff-4017-b29a-5ecf0db4be77"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">
+   <soap:Header/>
+   <soap:Body>
+      <ser:findRecords>
+         <!--Optional:-->
+         <authorizationCode>
+            <username>?</username>
+            <key>?</key>
+         </authorizationCode>
+         <!--Optional:-->
+         <listName>?</listName>
+         <!--Optional:-->
+         <targetVersion>?</targetVersion>
+         <!--Zero or more repetitions:-->
+         <recordsIdsList>?</recordsIdsList>
+      </ser:findRecords>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://services.lmu.dimensions.com/DataSyncService/findRecords"/></con:request></con:config></con:testStep><con:testStep type="request" id="97cc4a42-2c61-442d-b85f-b05790420e3f" name="Backup of [Backup of [findRecords]]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>DataSyncServiceServiceSoapBinding</con:interface><con:operation>findRecords</con:operation><con:request name="Backup of [Backup of [findRecords]]" id="952f1ea7-dbff-4017-b29a-5ecf0db4be77"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://lmu.dimensions-healthcare.com/LMU/services/v1/dataSyncService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://services.lmu.dimensions.com/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ser:findRecords>\r
+         <!--Optional:-->\r
+         <authorizationCode>\r
+            <username>?</username>\r
+            <key>?</key>\r
+         </authorizationCode>\r
+         <!--Optional:-->\r
+         <listName>?</listName>\r
+         <!--Optional:-->\r
+         <targetVersion>?</targetVersion>\r
+         <!--Zero or more repetitions:-->\r
+         <recordsIdsList>?</recordsIdsList>\r
+      </ser:findRecords>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://services.lmu.dimensions.com/DataSyncService/findRecords"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>

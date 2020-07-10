@@ -1,0 +1,1 @@
+"D:\Fazeel Data\Installations\SOAPUI-Build\SoapUI-Pro-5.1.1-windows-bin\SoapUI-Pro-5.1.1\bin\testrunner.bat" "D:\Fazeel Data\DHC\SOAPUI\DHPO-QA\PROCESSING\DHPO-QA-eRx-ValidateTransaction-soapui-project.xml" -a -f "D:\Fazeel Data\DHC\SOAPUI\DHPO-QA\PROCESSING\LOG"

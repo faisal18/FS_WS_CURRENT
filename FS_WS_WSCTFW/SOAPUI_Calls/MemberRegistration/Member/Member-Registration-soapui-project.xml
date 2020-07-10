@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="83d7b500-7227-40ad-a2d2-dfa5f1b27542" activeEnvironment="Default" name="Member Registration" resourceRoot="" soapui-version="5.1.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="0a11ee98-3adc-4f12-8665-aad45f04cc42" wsaVersion="NONE" name="basicEndpoint" type="wsdl" bindingName="{http://tempuri.org/}basicEndpoint" soapVersion="1_1" anonymous="optional" definition="https://mr.eclaimlink.ae/MemberRegistration.svc?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://mr.eclaimlink.ae/MemberRegistration.svc?wsdl"><con:part><con:url>https://mr.eclaimlink.ae/MemberRegistration.svc?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="MemberRegistration" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsp:Policy wsu:Id="basicEndpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false"/>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://mr.eclaimlink.ae/MemberRegistration.svc?xsd=xsd0" namespace="http://tempuri.org/"/>
+      <xsd:import schemaLocation="https://mr.eclaimlink.ae/MemberRegistration.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+      <xsd:import schemaLocation="https://mr.eclaimlink.ae/MemberRegistration.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMemberRegistration_UploadMemberRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadMemberRegistration"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_UploadMemberRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadMemberRegistrationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_UploadBulkMemberRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadBulkMemberRegistration"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_UploadBulkMemberRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadBulkMemberRegistrationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_ValidateMemberUID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateMemberUID"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_ValidateMemberUID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateMemberUIDResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_GetMemberInsuranceInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberInsuranceInformation"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_GetMemberInsuranceInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberInsuranceInformationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_DownloadTransactionFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadTransactionFile"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_DownloadTransactionFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadTransactionFileResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_DownloadReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadReport"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_DownloadReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadReportResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="IMemberRegistration">
+    <wsdl:operation name="UploadMemberRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberRegistration/UploadMemberRegistration" message="tns:IMemberRegistration_UploadMemberRegistration_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberRegistration/UploadMemberRegistrationResponse" message="tns:IMemberRegistration_UploadMemberRegistration_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="UploadBulkMemberRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberRegistration/UploadBulkMemberRegistration" message="tns:IMemberRegistration_UploadBulkMemberRegistration_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberRegistration/UploadBulkMemberRegistrationResponse" message="tns:IMemberRegistration_UploadBulkMemberRegistration_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMemberUID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberRegistration/ValidateMemberUID" message="tns:IMemberRegistration_ValidateMemberUID_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberRegistration/ValidateMemberUIDResponse" message="tns:IMemberRegistration_ValidateMemberUID_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberInsuranceInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation" message="tns:IMemberRegistration_GetMemberInsuranceInformation_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformationResponse" message="tns:IMemberRegistration_GetMemberInsuranceInformation_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTransactionFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberRegistration/DownloadTransactionFile" message="tns:IMemberRegistration_DownloadTransactionFile_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberRegistration/DownloadTransactionFileResponse" message="tns:IMemberRegistration_DownloadTransactionFile_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberRegistration/DownloadReport" message="tns:IMemberRegistration_DownloadReport_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberRegistration/DownloadReportResponse" message="tns:IMemberRegistration_DownloadReport_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="basicEndpoint" type="tns:IMemberRegistration">
+    <wsp:PolicyReference URI="#basicEndpoint_policy"/>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="UploadMemberRegistration">
+      <soap:operation soapAction="http://tempuri.org/IMemberRegistration/UploadMemberRegistration" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadBulkMemberRegistration">
+      <soap:operation soapAction="http://tempuri.org/IMemberRegistration/UploadBulkMemberRegistration" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMemberUID">
+      <soap:operation soapAction="http://tempuri.org/IMemberRegistration/ValidateMemberUID" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberInsuranceInformation">
+      <soap:operation soapAction="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTransactionFile">
+      <soap:operation soapAction="http://tempuri.org/IMemberRegistration/DownloadTransactionFile" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReport">
+      <soap:operation soapAction="http://tempuri.org/IMemberRegistration/DownloadReport" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MemberRegistration">
+    <wsdl:port name="basicEndpoint" binding="tns:basicEndpoint">
+      <soap:address location="https://mr.eclaimlink.ae/MemberRegistration.svc/basic"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://mr.eclaimlink.ae/MemberRegistration.svc?xsd=xsd0</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+  <xs:import schemaLocation="https://mr.eclaimlink.ae/MemberRegistration.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+  <xs:element name="UploadMemberRegistration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="fileContent" nillable="true" type="xs:base64Binary"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadMemberRegistrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadMemberRegistrationResult" nillable="true" type="q1:UploadResponse" xmlns:q1="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadBulkMemberRegistration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="fileContent" nillable="true" type="xs:base64Binary"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadBulkMemberRegistrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadBulkMemberRegistrationResult" nillable="true" type="q2:UploadResponse" xmlns:q2="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateMemberUID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="payerLogin" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="payerPwd" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="gender" type="xs:int"/>
+        <xs:element minOccurs="0" name="dateOfBirth" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="nationality" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="passportNumber" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="visaSource" type="xs:int"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateMemberUIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidateMemberUIDResult" nillable="true" type="q3:ValidateMemberResponse" xmlns:q3="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberInsuranceInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="UID" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="dateOfBirth" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="gender" type="xs:int"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberInsuranceInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMemberInsuranceInformationResult" nillable="true" type="q4:MemberInsuranceResponse" xmlns:q4="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadTransactionFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="fileId" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadTransactionFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DownloadTransactionFileResult" nillable="true" type="q5:DownloadResponse" xmlns:q5="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="fileId" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DownloadReportResult" nillable="true" type="q6:DownloadReportResponse" xmlns:q6="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://mr.eclaimlink.ae/MemberRegistration.svc?xsd=xsd2</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberRegistration" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/MemberRegistration">
+  <xs:complexType name="UploadResponse">
+    <xs:sequence>
+      <xs:element name="Result" type="xs:int"/>
+      <xs:element name="FileId" nillable="true" type="xs:string"/>
+      <xs:element name="ErrorMessage" nillable="true" type="xs:string"/>
+      <xs:element name="ErrorReport" nillable="true" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadResponse" nillable="true" type="tns:UploadResponse"/>
+  <xs:complexType name="ValidateMemberResponse">
+    <xs:sequence>
+      <xs:element name="Result" type="xs:int"/>
+      <xs:element name="UID" nillable="true" type="xs:string"/>
+      <xs:element name="ErrorMessage" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidateMemberResponse" nillable="true" type="tns:ValidateMemberResponse"/>
+  <xs:complexType name="MemberInsuranceResponse">
+    <xs:sequence>
+      <xs:element name="Result" type="xs:int"/>
+      <xs:element name="memberInformation" nillable="true" type="xs:string"/>
+      <xs:element name="ErrorMessage" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MemberInsuranceResponse" nillable="true" type="tns:MemberInsuranceResponse"/>
+  <xs:complexType name="DownloadResponse">
+    <xs:sequence>
+      <xs:element name="Result" type="xs:int"/>
+      <xs:element name="ErrorMessage" nillable="true" type="xs:string"/>
+      <xs:element name="FileContnet" nillable="true" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DownloadResponse" nillable="true" type="tns:DownloadResponse"/>
+  <xs:complexType name="DownloadReportResponse">
+    <xs:sequence>
+      <xs:element name="Result" type="xs:int"/>
+      <xs:element name="ErrorMessage" nillable="true" type="xs:string"/>
+      <xs:element name="ReportContent" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DownloadReportResponse" nillable="true" type="tns:DownloadReportResponse"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://mr.eclaimlink.ae/MemberRegistration.svc?xsd=xsd1</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+  <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+  <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+  <xs:element name="byte" nillable="true" type="xs:byte"/>
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+  <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+  <xs:element name="double" nillable="true" type="xs:double"/>
+  <xs:element name="float" nillable="true" type="xs:float"/>
+  <xs:element name="int" nillable="true" type="xs:int"/>
+  <xs:element name="long" nillable="true" type="xs:long"/>
+  <xs:element name="QName" nillable="true" type="xs:QName"/>
+  <xs:element name="short" nillable="true" type="xs:short"/>
+  <xs:element name="string" nillable="true" type="xs:string"/>
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+  <xs:element name="char" nillable="true" type="tns:char"/>
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int"/>
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration"/>
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="guid" nillable="true" type="tns:guid"/>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="FactoryType" type="xs:QName"/>
+  <xs:attribute name="Id" type="xs:ID"/>
+  <xs:attribute name="Ref" type="xs:IDREF"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint></con:endpoints><con:operation id="6735a413-84ae-4333-8a63-96ec03c3aeab" isOneWay="false" action="http://tempuri.org/IMemberRegistration/DownloadTransactionFile" name="DownloadTransactionFile" bindingOperationName="DownloadTransactionFile" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f95d59b4-62c8-44fc-a823-0abb17989477" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:DownloadTransactionFile>
+         <!--Optional:-->
+         <tem:login>c</tem:login>
+         <!--Optional:-->
+         <tem:pwd>Thospital@123</tem:pwd>
+         <!--Optional:-->
+         <tem:fileId xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      </tem:DownloadTransactionFile>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/DownloadTransactionFile"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="52b6cece-9e84-44e7-8a43-0c02659f21f6" isOneWay="false" action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation" name="GetMemberInsuranceInformation" bindingOperationName="GetMemberInsuranceInformation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0fce2046-d8f7-41f5-8ec2-6715a1c1fea0" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>104177279</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>29/01/1976</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>0</tem:gender>
+      </tem:GetMemberInsuranceInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation"/><con:wsrmConfig version="1.2"/></con:call><con:call id="d72af4ee-f413-4499-93fc-4ec9cb57f469" name="Backup of [Request 1]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>104177279</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>29/01/1976</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>0</tem:gender>
+      </tem:GetMemberInsuranceInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation"/></con:call><con:call id="5e2a02b0-7ba0-4d37-abb1-89b4f8b91dc5" name="Backup of [Backup of [Request 1]]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>104177279</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>29/01/1976</tem:dateOfBirth><tem:gender>0</tem:gender>
+         <!--Optional:-->
+         
+      </tem:GetMemberInsuranceInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation"/></con:call></con:operation><con:operation id="8f4bd642-7c01-4f5b-9d66-591225052c74" isOneWay="false" action="http://tempuri.org/IMemberRegistration/UploadMemberRegistration" name="UploadMemberRegistration" bindingOperationName="UploadMemberRegistration" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8199c957-c6b0-4ca1-8d27-1853ca482c2f" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:UploadMemberRegistration>
+         <!--Optional:-->
+         <tem:login>Thospital</tem:login>
+         <!--Optional:-->
+         <tem:pwd>Thospital@123</tem:pwd>
+         <!--Optional:-->
+         <tem:fileContent>cid:TPA_DHA_PROD_161213033255944_2215.xml</tem:fileContent>
+      </tem:UploadMemberRegistration>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:attachment><con:name>TPA_DHA_PROD_161213033255944_2215.xml</con:name><con:contentType>text/xml</con:contentType><con:size>136967</con:size><con:contentId>TPA_DHA_PROD_161213033255944_2215.xml</con:contentId><con:part>TPA_DHA_PROD_161213033255944_2215.xml</con:part><con:data>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</con:data><con:id>547387b4-fb64-481b-8c26-678e982bba45</con:id></con:attachment><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/UploadMemberRegistration"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="72f092ca-10ba-461b-a511-ce3021c4e1a9" isOneWay="false" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID" name="ValidateMemberUID" bindingOperationName="ValidateMemberUID" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7f4a09af-98b4-40bb-b609-fc62e354c404" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ValidateMemberUID>
+         <!--Optional:-->
+         <tem:payerLogin>gdrfauser</tem:payerLogin>
+         <!--Optional:-->
+         <tem:payerPwd>gdrfapwd</tem:payerPwd>
+         <!--Optional:-->
+         <tem:gender>1</tem:gender>
+         <!--Optional:-->
+         <tem:dateOfBirth>12/02/1984</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:nationality>205</tem:nationality>
+         <!--Optional:-->
+         <tem:passportNumber>M9395128</tem:passportNumber>
+         <!--Optional:-->
+         <tem:visaSource>1</tem:visaSource>
+      </tem:ValidateMemberUID>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/><con:wsrmConfig version="1.2"/></con:call><con:call id="59f31e71-60b2-4ff1-9ba7-836fbedc34de" name="Backup of [Request 1]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ValidateMemberUID>
+         <!--Optional:-->
+         <tem:payerLogin>Dr Ali</tem:payerLogin>
+         <!--Optional:-->
+         <tem:payerPwd>h9#2T5vL</tem:payerPwd>
+         <!--Optional:-->
+         <tem:gender>1</tem:gender>
+         <!--Optional:-->
+         <tem:dateOfBirth>12/02/1984</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:nationality>205</tem:nationality>
+         <!--Optional:-->
+         <tem:passportNumber>M 9395128</tem:passportNumber>
+         <!--Optional:-->
+         <tem:visaSource>1</tem:visaSource>
+      </tem:ValidateMemberUID>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/><con:wsrmConfig version="1.2"/></con:call><con:call id="ec5ab8b5-4a84-45f4-8f28-2e73e1ba607c" name="Backup of [Backup of [Request 1]]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ValidateMemberUID>
+         <!--Optional:-->
+         <tem:payerLogin>Dr Ali</tem:payerLogin>
+         <!--Optional:-->
+         <tem:payerPwd>h9#2T5vL</tem:payerPwd>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <tem:gender>1</tem:gender><tem:dateOfBirth>12/02/1984</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:nationality>205</tem:nationality>
+         <!--Optional:-->
+         <tem:passportNumber>M 9395128</tem:passportNumber><tem:visaSource>1</tem:visaSource>
+         <!--Optional:-->
+         
+      </tem:ValidateMemberUID>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/></con:call><con:call id="64191352-c6ac-4960-b03b-989b24f424ec" name="tpayer"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ValidateMemberUID>
+         <!--Optional:-->
+         <tem:payerLogin>ISAHD</tem:payerLogin>
+         <!--Optional:-->
+         <tem:payerPwd>IS@HD12345</tem:payerPwd>
+         <!--Optional:-->
+         <tem:gender>1</tem:gender>
+         <!--Optional:-->
+         <tem:dateOfBirth>12/02/1984</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:nationality>205</tem:nationality>
+         <!--Optional:-->
+         <tem:passportNumber>M9395128</tem:passportNumber>
+         <!--Optional:-->
+         <tem:visaSource>1</tem:visaSource>
+      </tem:ValidateMemberUID>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="8864a879-ce05-4db4-9abd-5d685fd89d4c" isOneWay="false" action="http://tempuri.org/IMemberRegistration/UploadBulkMemberRegistration" name="UploadBulkMemberRegistration" bindingOperationName="UploadBulkMemberRegistration" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="273ea1af-94a0-4ddc-a0ab-5267e2bf85f1" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:UploadBulkMemberRegistration>
+         <!--Optional:-->
+         <tem:login>?</tem:login>
+         <!--Optional:-->
+         <tem:pwd>?</tem:pwd>
+         <!--Optional:-->
+         <tem:fileContent>cid:1289277734797</tem:fileContent>
+      </tem:UploadBulkMemberRegistration>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/UploadBulkMemberRegistration"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="7ca945dd-90e2-461e-b21a-314408ba6b35" isOneWay="false" action="http://tempuri.org/IMemberRegistration/DownloadReport" name="DownloadReport" bindingOperationName="DownloadReport" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d2191aa0-2fbb-481d-87a6-2a69f3c58305" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:DownloadReport>\r
+         <!--Optional:-->\r
+         <tem:login>?</tem:login>\r
+         <!--Optional:-->\r
+         <tem:pwd>?</tem:pwd>\r
+         <!--Optional:-->\r
+         <tem:fileId>?</tem:fileId>\r
+      </tem:DownloadReport>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/DownloadReport"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="f0a542a4-1b4f-40dd-a98b-3784a50482b4" name="membersuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="9adaa57e-a374-4775-baba-70b346edb358" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getmemberinsurance" searchProperties="true"><con:settings/><con:testStep type="datasource" name="DataSource" id="cb548fca-fe5c-4c7f-80b0-682489c2fab2"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="Excel"><con:configuration><file>C:/Users/faisal/Downloads/SOAP Projects/Member-Registration/getmemberinsurance.xlsx</file><worksheet>data</worksheet><cell>A2</cell><ignoreEmpty>false</ignoreEmpty></con:configuration></con:dataSource><con:property>UBNO</con:property><con:property>DOB</con:property><con:property>gender</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="request" id="56df83c5-5210-474b-8fc4-61e712e2358e" name="GetMemberInsuranceInformation"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceInformation</con:operation><con:request name="GetMemberInsuranceInformation" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="bb81b532-f7d3-40ca-8add-0008fbd1be66"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>${DataSource#UBNO}</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>${DataSource#DOB}</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>${DataSource#gender}</tem:gender>
+      </tem:GetMemberInsuranceInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="ef5a761b-42a1-4b45-b868-2b2c6bbda00c" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="30d46727-90c1-4fc1-b263-c6e07df908d5"><con:settings/><con:config><script>import groovy.xml.MarkupBuilder
+import org.custommonkey.xmlunit.*
+import java.util.Random  
+import java.security.MessageDigest
+import java.nio.file.*
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+	def projectPath = groovyUtils.projectPath
+	def project = testRunner.testCase.testSuite.project
+	def myTestSuite = testRunner.testCase.testSuite;
+	def testCase = testRunner.testCase
+	def testStepUploadDataAfterCheck = testCase.getTestStepByName("GetMemberInsuranceInformation")
+	def time = testRunner.testCase.getTestStepByName("GetMemberInsuranceInformation").testRequest.response.timeTaken
+	testRunner.testCase.getTestStepByName("responsetime").getProperty("rtime").setValue(time.toString())</script></con:config></con:testStep><con:testStep type="properties" name="responsetime" id="9002ce15-dbf4-496a-888f-32bff0e780e2"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>rtime</con:name><con:value>523</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="datasink" name="DataSink" id="ff1ae8f0-1a14-409b-a559-b500480bb3c1"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="Excel"><con:configuration><file>C:/Users/faisal/Downloads/SOAP Projects/Member-Registration/getmemberinsurance.xlsx</file><outfile>C:/Users/faisal/Downloads/SOAP Projects/Member-Registration/getmemberinsurance.xlsx</outfile><worksheet>result</worksheet><cell>A2</cell></con:configuration></con:dataSink><con:properties><con:property><con:name>errorcode</con:name><con:value>${GetMemberInsuranceInformation#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/MemberRegistration'; //ns1:GetMemberInsuranceInformationResponse[1]/ns1:GetMemberInsuranceInformationResult[1]/a:Result[1]}</con:value></con:property><con:property><con:name>errormessage</con:name><con:value>${GetMemberInsuranceInformation#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/MemberRegistration'; //ns1:GetMemberInsuranceInformationResponse[1]/ns1:GetMemberInsuranceInformationResult[1]/a:ErrorMessage[1]}</con:value></con:property><con:property><con:name>resultmessage</con:name><con:value>${GetMemberInsuranceInformation#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/MemberRegistration'; //ns1:GetMemberInsuranceInformationResponse[1]/ns1:GetMemberInsuranceInformationResult[1]/a:memberInformation[1]}</con:value></con:property><con:property><con:name>time</con:name><con:value>${responsetime#rtime}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="datasourceloop" name="DataSource Loop" id="67c7a2df-8e80-4ab8-9096-d0d2258116e0"><con:settings/><con:config><dataSourceStep>DataSource</dataSourceStep><targetStep>GetMemberInsuranceInformation</targetStep></con:config></con:testStep><con:testStep type="request" id="c3cb7ce3-9241-4848-9bb8-da120386d0e5" name="Backup of [GetMemberInsuranceInformation]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceInformation</con:operation><con:request name="Backup of [GetMemberInsuranceInformation]" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="bb81b532-f7d3-40ca-8add-0008fbd1be66"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>${DataSource#UBNO}</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>${DataSource#DOB}</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>${DataSource#gender}</tem:gender>
+      </tem:GetMemberInsuranceInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="ef5a761b-42a1-4b45-b868-2b2c6bbda00c" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="4dc129e4-b057-4031-a7cf-e7d1bf25fc8d" name="Backup of [Backup of [GetMemberInsuranceInformation]]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceInformation</con:operation><con:request name="Backup of [Backup of [GetMemberInsuranceInformation]]" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="bb81b532-f7d3-40ca-8add-0008fbd1be66"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>${DataSource#UBNO}</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>${DataSource#DOB}</tem:dateOfBirth><tem:gender>${DataSource#gender}</tem:gender>
+         <!--Optional:-->
+         
+      </tem:GetMemberInsuranceInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="ef5a761b-42a1-4b45-b868-2b2c6bbda00c" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>cb548fca-fe5c-4c7f-80b0-682489c2fab2</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>56df83c5-5210-474b-8fc4-61e712e2358e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>ff1ae8f0-1a14-409b-a559-b500480bb3c1</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>67c7a2df-8e80-4ab8-9096-d0d2258116e0</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>30d46727-90c1-4fc1-b263-c6e07df908d5</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>9002ce15-dbf4-496a-888f-32bff0e780e2</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="10137fb8-6045-42dc-a58b-f99b937cf98a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="memberuid" searchProperties="true"><con:settings/><con:testStep type="datasource" name="DataSource" id="c9f377bb-3aa5-42e1-93e1-4cf3ac5f3f7d" disabled="true"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="Excel"><con:configuration><file>C:/Users/faisal/Downloads/SOAP Projects/Member-Registration/memberuid.xlsx</file><worksheet>data</worksheet><cell>A2</cell><ignoreEmpty>false</ignoreEmpty></con:configuration></con:dataSource><con:property>username</con:property><con:property>password</con:property><con:property>gender</con:property><con:property>dob</con:property><con:property>nationality</con:property><con:property>passport</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="request" id="67b63fd8-dfff-4ecf-be5e-a9f320e4f43d" name="ValidateMemberUID" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>ValidateMemberUID</con:operation><con:request name="ValidateMemberUID" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="59c96011-24e9-4089-a8ff-472cbe83eb85"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ValidateMemberUID>
+         <!--Optional:-->
+         <tem:payerLogin>${DataSource#username}</tem:payerLogin>
+         <!--Optional:-->
+         <tem:payerPwd>${DataSource#password}</tem:payerPwd>
+         <!--Optional:-->
+         <tem:gender>${DataSource#gender}</tem:gender>
+         <!--Optional:-->
+         <tem:dateOfBirth>${DataSource#dob}</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:nationality>${DataSource#nationality}</tem:nationality>
+         <!--Optional:-->
+         <tem:passportNumber>${DataSource#passport}</tem:passportNumber>
+         <!--Optional:-->
+         <tem:visaSource>1</tem:visaSource>
+      </tem:ValidateMemberUID>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="163143b2-1ee0-4974-b7e4-8ed90c947107" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="datasink" name="DataSink" id="b74dc6ad-0566-4f73-b378-e8e2dd8de664" disabled="true"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="Excel"><con:configuration><file>C:/Users/faisal/Downloads/SOAP Projects/Member-Registration/memberuid.xlsx</file><outfile>C:/Users/faisal/Downloads/SOAP Projects/Member-Registration/memberuid.xlsx</outfile><worksheet>result</worksheet><cell>A2</cell></con:configuration></con:dataSink><con:properties><con:property><con:name>code</con:name><con:value>${ValidateMemberUID#Response#declare namespace tem='http://tempuri.org/'; declare namespace mem='http://schemas.datacontract.org/2004/07/MemberRegistration'; //tem:ValidateMemberUIDResponse[1]/tem:ValidateMemberUIDResult[1]/mem:Result[1]}</con:value></con:property><con:property><con:name>description</con:name><con:value>${ValidateMemberUID#Response#declare namespace tem='http://tempuri.org/'; declare namespace mem='http://schemas.datacontract.org/2004/07/MemberRegistration'; //tem:ValidateMemberUIDResponse[1]/tem:ValidateMemberUIDResult[1]/mem:UID[1]}</con:value></con:property><con:property><con:name>error</con:name><con:value>${ValidateMemberUID#Response#declare namespace tem='http://tempuri.org/'; declare namespace mem='http://schemas.datacontract.org/2004/07/MemberRegistration'; //tem:ValidateMemberUIDResponse[1]/tem:ValidateMemberUIDResult[1]/mem:ErrorMessage[1]}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="datasource" name="Copy of DataSource" id="c581c514-7e5f-41c1-9749-c4a7fdebda8a"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="File"><con:configuration><fileName>D:/Fazeel Data/DHC/SOAPUI-Rep/MemberRegistration/Member/member_1M - 2.csv</fileName><separator>,</separator><trim>true</trim><charset>Cp1252</charset><quotedValues>false</quotedValues></con:configuration></con:dataSource><con:property>senderid</con:property><con:property>username</con:property><con:property>password</con:property><con:property>gender</con:property><con:property>dob</con:property><con:property>nationaltiy</con:property><con:property>passport</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="request" id="50791505-4834-42ea-b7b8-439b413dbe2f" name="Copy of ValidateMemberUID"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>ValidateMemberUID</con:operation><con:request name="Copy of ValidateMemberUID" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="59c96011-24e9-4089-a8ff-472cbe83eb85"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ValidateMemberUID>
+         <!--Optional:-->
+         <tem:payerLogin>${Copy of DataSource#username}</tem:payerLogin>
+         <!--Optional:-->
+         <tem:payerPwd>${Copy of DataSource#password}</tem:payerPwd>
+         <!--Optional:-->
+         <tem:gender>${Copy of DataSource#gender}</tem:gender>
+         <!--Optional:-->
+         <tem:dateOfBirth>${Copy of DataSource#dob}</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:nationality>${Copy of DataSource#nationaltiy}</tem:nationality>
+         <!--Optional:-->
+         <tem:passportNumber>${Copy of DataSource#passport}</tem:passportNumber>
+         <!--Optional:-->
+         <tem:visaSource>1</tem:visaSource>
+      </tem:ValidateMemberUID>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="163143b2-1ee0-4974-b7e4-8ed90c947107" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="bedd7750-fda4-436d-9232-f9df6772e0d7"><con:settings/><con:config><script>import groovy.xml.MarkupBuilder
+import org.custommonkey.xmlunit.*
+import java.util.Random  
+import java.security.MessageDigest
+import java.nio.file.*
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+	def projectPath = groovyUtils.projectPath
+	def project = testRunner.testCase.testSuite.project
+	def myTestSuite = testRunner.testCase.testSuite;
+	def testCase = testRunner.testCase
+	def testStepUploadDataAfterCheck = testCase.getTestStepByName("Copy of ValidateMemberUID")
+	def time = testRunner.testCase.getTestStepByName("Copy of ValidateMemberUID").testRequest.response.timeTaken
+	testRunner.testCase.getTestStepByName("responsetime").getProperty("rtime").setValue(time.toString())</script></con:config></con:testStep><con:testStep type="properties" name="responsetime" id="387ff1a4-b9d9-4085-a2f2-128ac2a58bf4"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>rtime</con:name><con:value>128</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="datasink" name="Copy of DataSink" id="72106c06-27a3-4eb4-94b0-5c7123391cfa"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="File"><con:configuration><fileName>D:/Fazeel Data/DHC/SOAPUI-Rep/MemberRegistration/Member/result.csv</fileName><separator>,</separator><quote>true</quote><trim>true</trim><append>false</append><encoding>Cp1252</encoding></con:configuration></con:dataSink><con:properties><con:property><con:name>userid</con:name><con:value>${Copy of ValidateMemberUID#Request#declare namespace tem='http://tempuri.org/'; //tem:ValidateMemberUID[1]/tem:payerLogin[1]}</con:value></con:property><con:property><con:name>password</con:name><con:value>${Copy of ValidateMemberUID#Request#declare namespace tem='http://tempuri.org/'; //tem:ValidateMemberUID[1]/tem:payerPwd[1]}</con:value></con:property><con:property><con:name>gender</con:name><con:value>${Copy of ValidateMemberUID#Request#declare namespace tem='http://tempuri.org/'; //tem:ValidateMemberUID[1]/tem:gender[1]}</con:value></con:property><con:property><con:name>dob</con:name><con:value>${Copy of ValidateMemberUID#Request#declare namespace tem='http://tempuri.org/'; //tem:ValidateMemberUID[1]/tem:dateOfBirth[1]}</con:value></con:property><con:property><con:name>nationality</con:name><con:value>${Copy of ValidateMemberUID#Request#declare namespace tem='http://tempuri.org/'; //tem:ValidateMemberUID[1]/tem:nationality[1]}</con:value></con:property><con:property><con:name>passport</con:name><con:value>${Copy of ValidateMemberUID#Request#declare namespace tem='http://tempuri.org/'; //tem:ValidateMemberUID[1]/tem:passportNumber[1]}</con:value></con:property><con:property><con:name>resultcode</con:name><con:value>${Copy of ValidateMemberUID#Response#declare namespace tem='http://tempuri.org/'; declare namespace mem='http://schemas.datacontract.org/2004/07/MemberRegistration'; //tem:ValidateMemberUIDResponse[1]/tem:ValidateMemberUIDResult[1]/mem:Result[1]}</con:value></con:property><con:property><con:name>resultUID</con:name><con:value>${Copy of ValidateMemberUID#Response#declare namespace tem='http://tempuri.org/'; declare namespace mem='http://schemas.datacontract.org/2004/07/MemberRegistration'; //tem:ValidateMemberUIDResponse[1]/tem:ValidateMemberUIDResult[1]/mem:UID[1]}</con:value></con:property><con:property><con:name>errormessage</con:name><con:value>${Copy of ValidateMemberUID#Response#declare namespace tem='http://tempuri.org/'; declare namespace mem='http://schemas.datacontract.org/2004/07/MemberRegistration'; //tem:ValidateMemberUIDResponse[1]/tem:ValidateMemberUIDResult[1]/mem:ErrorMessage[1]}</con:value></con:property><con:property><con:name>timetaken</con:name><con:value>${responsetime#rtime}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="datasourceloop" name="DataSource Loop" id="f9f0c0f6-a649-4625-9de5-3423ab4da50f"><con:settings/><con:config><dataSourceStep>Copy of DataSource</dataSourceStep><targetStep>Copy of ValidateMemberUID</targetStep></con:config></con:testStep><con:testStep type="request" id="87c6f022-8ffa-4baa-93ef-4043bd5b7943" name="Backup of [ValidateMemberUID]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>ValidateMemberUID</con:operation><con:request name="Backup of [ValidateMemberUID]" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="59c96011-24e9-4089-a8ff-472cbe83eb85"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ValidateMemberUID>
+         <!--Optional:-->
+         <tem:payerLogin>${DataSource#username}</tem:payerLogin>
+         <!--Optional:-->
+         <tem:payerPwd>${DataSource#password}</tem:payerPwd>
+         <!--Optional:-->
+         <tem:gender>${DataSource#gender}</tem:gender>
+         <!--Optional:-->
+         <tem:dateOfBirth>${DataSource#dob}</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:nationality>${DataSource#nationality}</tem:nationality>
+         <!--Optional:-->
+         <tem:passportNumber>${DataSource#passport}</tem:passportNumber>
+         <!--Optional:-->
+         <tem:visaSource>1</tem:visaSource>
+      </tem:ValidateMemberUID>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="163143b2-1ee0-4974-b7e4-8ed90c947107" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="18f766b2-228f-4b45-8726-566fbc1b1a40" name="Backup of [Copy of ValidateMemberUID]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>ValidateMemberUID</con:operation><con:request name="Backup of [Copy of ValidateMemberUID]" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="59c96011-24e9-4089-a8ff-472cbe83eb85"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ValidateMemberUID>
+         <!--Optional:-->
+         <tem:payerLogin>${Copy of DataSource#username}</tem:payerLogin>
+         <!--Optional:-->
+         <tem:payerPwd>${Copy of DataSource#password}</tem:payerPwd>
+         <!--Optional:-->
+         <tem:gender>${Copy of DataSource#gender}</tem:gender>
+         <!--Optional:-->
+         <tem:dateOfBirth>${Copy of DataSource#dob}</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:nationality>${Copy of DataSource#nationaltiy}</tem:nationality>
+         <!--Optional:-->
+         <tem:passportNumber>${Copy of DataSource#passport}</tem:passportNumber>
+         <!--Optional:-->
+         <tem:visaSource>1</tem:visaSource>
+      </tem:ValidateMemberUID>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="163143b2-1ee0-4974-b7e4-8ed90c947107" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="a7fe280d-aadc-4f66-b8f6-dcac54cd3085" name="Backup of [Backup of [ValidateMemberUID]]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>ValidateMemberUID</con:operation><con:request name="Backup of [Backup of [ValidateMemberUID]]" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="59c96011-24e9-4089-a8ff-472cbe83eb85"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ValidateMemberUID>
+         <!--Optional:-->
+         <tem:payerLogin>${DataSource#username}</tem:payerLogin>
+         <!--Optional:-->
+         <tem:payerPwd>${DataSource#password}</tem:payerPwd>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <tem:gender>${DataSource#gender}</tem:gender><tem:dateOfBirth>${DataSource#dob}</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:nationality>${DataSource#nationality}</tem:nationality>
+         <!--Optional:-->
+         <tem:passportNumber>${DataSource#passport}</tem:passportNumber><tem:visaSource>1</tem:visaSource>
+         <!--Optional:-->
+         
+      </tem:ValidateMemberUID>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="163143b2-1ee0-4974-b7e4-8ed90c947107" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="a09a0b8b-ab8e-4a52-a08f-6f30665063bf" name="Backup of [Backup of [Copy of ValidateMemberUID]]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>ValidateMemberUID</con:operation><con:request name="Backup of [Backup of [Copy of ValidateMemberUID]]" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="59c96011-24e9-4089-a8ff-472cbe83eb85"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ValidateMemberUID>
+         <!--Optional:-->
+         <tem:payerLogin>${Copy of DataSource#username}</tem:payerLogin>
+         <!--Optional:-->
+         <tem:payerPwd>${Copy of DataSource#password}</tem:payerPwd>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <tem:gender>${Copy of DataSource#gender}</tem:gender><tem:dateOfBirth>${Copy of DataSource#dob}</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:nationality>${Copy of DataSource#nationaltiy}</tem:nationality>
+         <!--Optional:-->
+         <tem:passportNumber>${Copy of DataSource#passport}</tem:passportNumber><tem:visaSource>1</tem:visaSource>
+         <!--Optional:-->
+         
+      </tem:ValidateMemberUID>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="163143b2-1ee0-4974-b7e4-8ed90c947107" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>c9f377bb-3aa5-42e1-93e1-4cf3ac5f3f7d</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>c581c514-7e5f-41c1-9749-c4a7fdebda8a</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>72106c06-27a3-4eb4-94b0-5c7123391cfa</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>67b63fd8-dfff-4ecf-be5e-a9f320e4f43d</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>b74dc6ad-0566-4f73-b378-e8e2dd8de664</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>50791505-4834-42ea-b7b8-439b413dbe2f</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting></con:soapui-project>

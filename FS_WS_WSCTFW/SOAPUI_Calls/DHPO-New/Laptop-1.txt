@@ -1,0 +1,7 @@
+Test started at 2016-11-22 14:55:15.579
+Step 1 [UploadTransaction - 100KB] OK: took 4561 ms
+Step 2 [UploadTransaction - 200KB] OK: took 15674 ms
+Step 3 [UploadTransaction - 300KB] OK: took 14005 ms
+Step 4 [UploadTransaction - 400KB] OK: took 25317 ms
+Step 5 [UploadTransaction - 500KB] OK: took 29880 ms
+Step 6 [UploadTransaction - 1MB] OK: took 139030 ms

@@ -1,0 +1,1821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="39c4e199-63af-4fef-b42d-e237c7322627" activeEnvironment="Default" name="Production-DHPO-eReferralTransactions" resourceRoot="${projectDir}" soapui-version="5.1.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="38792040-48ea-4c25-b664-3d78a3c8bb7d" wsaVersion="NONE" name="eReferralTransactionsSoap12" type="wsdl" bindingName="{http://www.eClaimLink.ae/}eReferralTransactionsSoap12" soapVersion="1_2" anonymous="optional" definition="https://dhpo.eclaimlink.ae/eReferralTransactions.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://dhpo.eclaimlink.ae/eReferralTransactions.asmx?wsdl"><con:part><con:url>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.eClaimLink.ae/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.eClaimLink.ae/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.eClaimLink.ae/">
+      <s:element name="UploadReferral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileContent" type="s:base64Binary"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadReferralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UploadReferralResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="eReferalReferenceNo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorReport" type="s:base64Binary"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewReferrals">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PayerLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="PayerPwd" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewReferralsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNewReferralsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlTransactions" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchReferralHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityPwd" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="direction" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianLicense" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="memberID" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="eReferalReferenceNo" nillable="true" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="transactionStatus" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionFromDate" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionToDate" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="minRecordCount" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="maxRecordCount" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchReferralHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchReferralHistoryResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="foundTransactions" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReferralReferenceNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="memberID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReferralReferenceNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReferralReferenceNoResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="eReferalReferenceNo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReferralDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="eReferalReferenceNo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="memberID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReferralDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReferralDetailsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlReferralDetailsMessage" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReferralFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="Pwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReferralFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadReferralFileResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="file" type="s:base64Binary"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetReferralDownloaded">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PayerLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="PayerPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetReferralDownloadedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetReferralDownloadedResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReleaseReferral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="eReferalReferenceNo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="memberID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReleaseReferralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReleaseReferralResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LockReferral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="eReferalReferenceNo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="memberID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LockReferralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LockReferralResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="dischargeReferral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="eReferalReferenceNo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="memberID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="dischargeReferralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dischargeReferralResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UploadReferralSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadReferral"/>
+  </wsdl:message>
+  <wsdl:message name="UploadReferralSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadReferralResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetNewReferralsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewReferrals"/>
+  </wsdl:message>
+  <wsdl:message name="GetNewReferralsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewReferralsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SearchReferralHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:SearchReferralHistory"/>
+  </wsdl:message>
+  <wsdl:message name="SearchReferralHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:SearchReferralHistoryResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetReferralReferenceNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReferralReferenceNo"/>
+  </wsdl:message>
+  <wsdl:message name="GetReferralReferenceNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReferralReferenceNoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetReferralDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReferralDetails"/>
+  </wsdl:message>
+  <wsdl:message name="GetReferralDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReferralDetailsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DownloadReferralFileSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadReferralFile"/>
+  </wsdl:message>
+  <wsdl:message name="DownloadReferralFileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadReferralFileResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetReferralDownloadedSoapIn">
+    <wsdl:part name="parameters" element="tns:SetReferralDownloaded"/>
+  </wsdl:message>
+  <wsdl:message name="SetReferralDownloadedSoapOut">
+    <wsdl:part name="parameters" element="tns:SetReferralDownloadedResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ReleaseReferralSoapIn">
+    <wsdl:part name="parameters" element="tns:ReleaseReferral"/>
+  </wsdl:message>
+  <wsdl:message name="ReleaseReferralSoapOut">
+    <wsdl:part name="parameters" element="tns:ReleaseReferralResponse"/>
+  </wsdl:message>
+  <wsdl:message name="LockReferralSoapIn">
+    <wsdl:part name="parameters" element="tns:LockReferral"/>
+  </wsdl:message>
+  <wsdl:message name="LockReferralSoapOut">
+    <wsdl:part name="parameters" element="tns:LockReferralResponse"/>
+  </wsdl:message>
+  <wsdl:message name="dischargeReferralSoapIn">
+    <wsdl:part name="parameters" element="tns:dischargeReferral"/>
+  </wsdl:message>
+  <wsdl:message name="dischargeReferralSoapOut">
+    <wsdl:part name="parameters" element="tns:dischargeReferralResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="eReferralTransactionsSoap">
+    <wsdl:operation name="UploadReferral">
+      <wsdl:input message="tns:UploadReferralSoapIn"/>
+      <wsdl:output message="tns:UploadReferralSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewReferrals">
+      <wsdl:input message="tns:GetNewReferralsSoapIn"/>
+      <wsdl:output message="tns:GetNewReferralsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SearchReferralHistory">
+      <wsdl:input message="tns:SearchReferralHistorySoapIn"/>
+      <wsdl:output message="tns:SearchReferralHistorySoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralReferenceNo">
+      <wsdl:input message="tns:GetReferralReferenceNoSoapIn"/>
+      <wsdl:output message="tns:GetReferralReferenceNoSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralDetails">
+      <wsdl:input message="tns:GetReferralDetailsSoapIn"/>
+      <wsdl:output message="tns:GetReferralDetailsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReferralFile">
+      <wsdl:input message="tns:DownloadReferralFileSoapIn"/>
+      <wsdl:output message="tns:DownloadReferralFileSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetReferralDownloaded">
+      <wsdl:input message="tns:SetReferralDownloadedSoapIn"/>
+      <wsdl:output message="tns:SetReferralDownloadedSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseReferral">
+      <wsdl:input message="tns:ReleaseReferralSoapIn"/>
+      <wsdl:output message="tns:ReleaseReferralSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="LockReferral">
+      <wsdl:input message="tns:LockReferralSoapIn"/>
+      <wsdl:output message="tns:LockReferralSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="dischargeReferral">
+      <wsdl:input message="tns:dischargeReferralSoapIn"/>
+      <wsdl:output message="tns:dischargeReferralSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="eReferralTransactionsSoap" type="tns:eReferralTransactionsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="UploadReferral">
+      <soap:operation soapAction="http://www.eClaimLink.ae/UploadReferral" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewReferrals">
+      <soap:operation soapAction="http://www.eClaimLink.ae/GetNewReferrals" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchReferralHistory">
+      <soap:operation soapAction="http://www.eClaimLink.ae/SearchReferralHistory" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralReferenceNo">
+      <soap:operation soapAction="http://www.eClaimLink.ae/GetReferralReferenceNo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralDetails">
+      <soap:operation soapAction="http://www.eClaimLink.ae/GetReferralDetails" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReferralFile">
+      <soap:operation soapAction="http://www.eClaimLink.ae/DownloadReferralFile" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetReferralDownloaded">
+      <soap:operation soapAction="http://www.eClaimLink.ae/SetReferralDownloaded" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseReferral">
+      <soap:operation soapAction="http://www.eClaimLink.ae/ReleaseReferral" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockReferral">
+      <soap:operation soapAction="http://www.eClaimLink.ae/LockReferral" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="dischargeReferral">
+      <soap:operation soapAction="http://www.eClaimLink.ae/dischargeReferral" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="eReferralTransactionsSoap12" type="tns:eReferralTransactionsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="UploadReferral">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/UploadReferral" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewReferrals">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/GetNewReferrals" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchReferralHistory">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/SearchReferralHistory" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralReferenceNo">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/GetReferralReferenceNo" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralDetails">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/GetReferralDetails" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReferralFile">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/DownloadReferralFile" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetReferralDownloaded">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/SetReferralDownloaded" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseReferral">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/ReleaseReferral" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockReferral">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/LockReferral" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="dischargeReferral">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/dischargeReferral" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="eReferralTransactions">
+    <wsdl:port name="eReferralTransactionsSoap" binding="tns:eReferralTransactionsSoap">
+      <soap:address location="https://dhpo.eclaimlink.ae/eReferralTransactions.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="eReferralTransactionsSoap12" binding="tns:eReferralTransactionsSoap12">
+      <soap12:address location="https://dhpo.eclaimlink.ae/eReferralTransactions.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint></con:endpoints><con:operation id="ed6309da-6d40-4646-86c4-127fa0a72a3b" isOneWay="false" action="http://www.eClaimLink.ae/dischargeReferral" name="dischargeReferral" bindingOperationName="dischargeReferral" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="33a9efb5-93d1-4bea-9e82-48908d2b758f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:dischargeReferral>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+      </ecl:dischargeReferral>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eReferralTransactionsSoap/dischargeReferralRequest"/></con:call></con:operation><con:operation id="db928a24-029d-4ae1-9568-8fb4843f0dae" isOneWay="false" action="http://www.eClaimLink.ae/DownloadReferralFile" name="DownloadReferralFile" bindingOperationName="DownloadReferralFile" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="66cf70cf-dca9-47cf-b62b-21cdea982bdd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:DownloadReferralFile>\r
+         <!--Optional:-->\r
+         <ecl:Login>?</ecl:Login>\r
+         <!--Optional:-->\r
+         <ecl:Pwd>?</ecl:Pwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:DownloadReferralFile>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eReferralTransactionsSoap/DownloadReferralFileRequest"/></con:call></con:operation><con:operation id="a72fb37f-96ca-4419-b62a-61803465f711" isOneWay="false" action="http://www.eClaimLink.ae/GetNewReferrals" name="GetNewReferrals" bindingOperationName="GetNewReferrals" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4829214d-8f6e-4a24-8e34-f6d24447ab83" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:GetNewReferrals>\r
+         <!--Optional:-->\r
+         <ecl:PayerLogin>?</ecl:PayerLogin>\r
+         <!--Optional:-->\r
+         <ecl:PayerPwd>?</ecl:PayerPwd>\r
+      </ecl:GetNewReferrals>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eReferralTransactionsSoap/GetNewReferralsRequest"/></con:call></con:operation><con:operation id="856878be-5f32-4571-ac54-4a1555285d82" isOneWay="false" action="http://www.eClaimLink.ae/GetReferralDetails" name="GetReferralDetails" bindingOperationName="GetReferralDetails" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ceccfcf2-5b71-4138-a9c8-da4e6e247c1d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:GetReferralDetails>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+      </ecl:GetReferralDetails>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eReferralTransactionsSoap/GetReferralDetailsRequest"/></con:call></con:operation><con:operation id="c2adf90d-84bf-4ab0-973e-e9cd8af76668" isOneWay="false" action="http://www.eClaimLink.ae/GetReferralReferenceNo" name="GetReferralReferenceNo" bindingOperationName="GetReferralReferenceNo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6b0dd1c8-9d76-4706-8bc9-a4c5b1965551" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soap:Header/>
+   <soap:Body>
+      <ecl:GetReferralReferenceNo>
+         <!--Optional:-->
+         <ecl:facilityLogin>?</ecl:facilityLogin>
+         <!--Optional:-->
+         <ecl:facilityPwd>?</ecl:facilityPwd>
+         <!--Optional:-->
+         <ecl:memberID>?</ecl:memberID>
+      </ecl:GetReferralReferenceNo>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eReferralTransactionsSoap/GetReferralReferenceNoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6248d4f6-fd59-4fa7-a506-d75c22958991" isOneWay="false" action="http://www.eClaimLink.ae/LockReferral" name="LockReferral" bindingOperationName="LockReferral" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fd9e730d-d39b-4955-8dc3-e3272654ef12" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:LockReferral>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+      </ecl:LockReferral>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eReferralTransactionsSoap/LockReferralRequest"/></con:call></con:operation><con:operation id="d0aa3528-d946-481e-a9df-52bdada3f6c6" isOneWay="false" action="http://www.eClaimLink.ae/ReleaseReferral" name="ReleaseReferral" bindingOperationName="ReleaseReferral" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="433b4fff-9393-408f-a67c-edca45ebbdc7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:ReleaseReferral>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+      </ecl:ReleaseReferral>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eReferralTransactionsSoap/ReleaseReferralRequest"/></con:call></con:operation><con:operation id="70d164e6-af58-4077-a068-5fae5beb706b" isOneWay="false" action="http://www.eClaimLink.ae/SearchReferralHistory" name="SearchReferralHistory" bindingOperationName="SearchReferralHistory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6975a603-4b01-4a8e-9be0-8c44316ff1e6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:SearchReferralHistory>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <ecl:direction>?</ecl:direction>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLicense>?</ecl:clinicianLicense>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <ecl:transactionStatus>?</ecl:transactionStatus>\r
+         <!--Optional:-->\r
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>\r
+         <!--Optional:-->\r
+         <ecl:transactionToDate>?</ecl:transactionToDate>\r
+         <ecl:minRecordCount>?</ecl:minRecordCount>\r
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>\r
+      </ecl:SearchReferralHistory>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eReferralTransactionsSoap/SearchReferralHistoryRequest"/></con:call></con:operation><con:operation id="60eaeae6-7f5c-473d-951b-a7a87ccd76cf" isOneWay="false" action="http://www.eClaimLink.ae/SetReferralDownloaded" name="SetReferralDownloaded" bindingOperationName="SetReferralDownloaded" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="630d5a7f-3195-4787-afc7-019f2721f2f7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:SetReferralDownloaded>\r
+         <!--Optional:-->\r
+         <ecl:PayerLogin>?</ecl:PayerLogin>\r
+         <!--Optional:-->\r
+         <ecl:PayerPwd>?</ecl:PayerPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:SetReferralDownloaded>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eReferralTransactionsSoap/SetReferralDownloadedRequest"/></con:call></con:operation><con:operation id="f226f3f4-40c0-4acb-8ffa-b73a9750320a" isOneWay="false" action="http://www.eClaimLink.ae/UploadReferral" name="UploadReferral" bindingOperationName="UploadReferral" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3cc54add-2372-442e-a9f4-7cacfbc1e6bf" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:UploadReferral>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileContent>cid:1147204543951</ecl:fileContent>\r
+         <!--Optional:-->\r
+         <ecl:fileName>?</ecl:fileName>\r
+      </ecl:UploadReferral>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eReferralTransactionsSoap/UploadReferralRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="bab46512-342d-4d0f-bbd5-8f63a7c91e25" wsaVersion="NONE" name="eReferralTransactionsSoap" type="wsdl" bindingName="{http://www.eClaimLink.ae/}eReferralTransactionsSoap" soapVersion="1_1" anonymous="optional" definition="https://dhpo.eclaimlink.ae/eReferralTransactions.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://dhpo.eclaimlink.ae/eReferralTransactions.asmx?wsdl"><con:part><con:url>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.eClaimLink.ae/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.eClaimLink.ae/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.eClaimLink.ae/">
+      <s:element name="UploadReferral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileContent" type="s:base64Binary"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadReferralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UploadReferralResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="eReferalReferenceNo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorReport" type="s:base64Binary"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewReferrals">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PayerLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="PayerPwd" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewReferralsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNewReferralsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlTransactions" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchReferralHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityPwd" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="direction" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianLicense" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="memberID" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="eReferalReferenceNo" nillable="true" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="transactionStatus" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionFromDate" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionToDate" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="minRecordCount" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="maxRecordCount" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchReferralHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchReferralHistoryResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="foundTransactions" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReferralReferenceNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="memberID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReferralReferenceNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReferralReferenceNoResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="eReferalReferenceNo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReferralDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="eReferalReferenceNo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="memberID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReferralDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetReferralDetailsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlReferralDetailsMessage" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReferralFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="Pwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReferralFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadReferralFileResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="file" type="s:base64Binary"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetReferralDownloaded">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PayerLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="PayerPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetReferralDownloadedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetReferralDownloadedResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReleaseReferral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="eReferalReferenceNo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="memberID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReleaseReferralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReleaseReferralResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LockReferral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="eReferalReferenceNo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="memberID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LockReferralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LockReferralResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="dischargeReferral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="eReferalReferenceNo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="memberID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="dischargeReferralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dischargeReferralResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UploadReferralSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadReferral"/>
+  </wsdl:message>
+  <wsdl:message name="UploadReferralSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadReferralResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetNewReferralsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewReferrals"/>
+  </wsdl:message>
+  <wsdl:message name="GetNewReferralsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewReferralsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SearchReferralHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:SearchReferralHistory"/>
+  </wsdl:message>
+  <wsdl:message name="SearchReferralHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:SearchReferralHistoryResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetReferralReferenceNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReferralReferenceNo"/>
+  </wsdl:message>
+  <wsdl:message name="GetReferralReferenceNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReferralReferenceNoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetReferralDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReferralDetails"/>
+  </wsdl:message>
+  <wsdl:message name="GetReferralDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReferralDetailsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DownloadReferralFileSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadReferralFile"/>
+  </wsdl:message>
+  <wsdl:message name="DownloadReferralFileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadReferralFileResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetReferralDownloadedSoapIn">
+    <wsdl:part name="parameters" element="tns:SetReferralDownloaded"/>
+  </wsdl:message>
+  <wsdl:message name="SetReferralDownloadedSoapOut">
+    <wsdl:part name="parameters" element="tns:SetReferralDownloadedResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ReleaseReferralSoapIn">
+    <wsdl:part name="parameters" element="tns:ReleaseReferral"/>
+  </wsdl:message>
+  <wsdl:message name="ReleaseReferralSoapOut">
+    <wsdl:part name="parameters" element="tns:ReleaseReferralResponse"/>
+  </wsdl:message>
+  <wsdl:message name="LockReferralSoapIn">
+    <wsdl:part name="parameters" element="tns:LockReferral"/>
+  </wsdl:message>
+  <wsdl:message name="LockReferralSoapOut">
+    <wsdl:part name="parameters" element="tns:LockReferralResponse"/>
+  </wsdl:message>
+  <wsdl:message name="dischargeReferralSoapIn">
+    <wsdl:part name="parameters" element="tns:dischargeReferral"/>
+  </wsdl:message>
+  <wsdl:message name="dischargeReferralSoapOut">
+    <wsdl:part name="parameters" element="tns:dischargeReferralResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="eReferralTransactionsSoap">
+    <wsdl:operation name="UploadReferral">
+      <wsdl:input message="tns:UploadReferralSoapIn"/>
+      <wsdl:output message="tns:UploadReferralSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewReferrals">
+      <wsdl:input message="tns:GetNewReferralsSoapIn"/>
+      <wsdl:output message="tns:GetNewReferralsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SearchReferralHistory">
+      <wsdl:input message="tns:SearchReferralHistorySoapIn"/>
+      <wsdl:output message="tns:SearchReferralHistorySoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralReferenceNo">
+      <wsdl:input message="tns:GetReferralReferenceNoSoapIn"/>
+      <wsdl:output message="tns:GetReferralReferenceNoSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralDetails">
+      <wsdl:input message="tns:GetReferralDetailsSoapIn"/>
+      <wsdl:output message="tns:GetReferralDetailsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReferralFile">
+      <wsdl:input message="tns:DownloadReferralFileSoapIn"/>
+      <wsdl:output message="tns:DownloadReferralFileSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetReferralDownloaded">
+      <wsdl:input message="tns:SetReferralDownloadedSoapIn"/>
+      <wsdl:output message="tns:SetReferralDownloadedSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseReferral">
+      <wsdl:input message="tns:ReleaseReferralSoapIn"/>
+      <wsdl:output message="tns:ReleaseReferralSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="LockReferral">
+      <wsdl:input message="tns:LockReferralSoapIn"/>
+      <wsdl:output message="tns:LockReferralSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="dischargeReferral">
+      <wsdl:input message="tns:dischargeReferralSoapIn"/>
+      <wsdl:output message="tns:dischargeReferralSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="eReferralTransactionsSoap" type="tns:eReferralTransactionsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="UploadReferral">
+      <soap:operation soapAction="http://www.eClaimLink.ae/UploadReferral" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewReferrals">
+      <soap:operation soapAction="http://www.eClaimLink.ae/GetNewReferrals" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchReferralHistory">
+      <soap:operation soapAction="http://www.eClaimLink.ae/SearchReferralHistory" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralReferenceNo">
+      <soap:operation soapAction="http://www.eClaimLink.ae/GetReferralReferenceNo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralDetails">
+      <soap:operation soapAction="http://www.eClaimLink.ae/GetReferralDetails" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReferralFile">
+      <soap:operation soapAction="http://www.eClaimLink.ae/DownloadReferralFile" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetReferralDownloaded">
+      <soap:operation soapAction="http://www.eClaimLink.ae/SetReferralDownloaded" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseReferral">
+      <soap:operation soapAction="http://www.eClaimLink.ae/ReleaseReferral" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockReferral">
+      <soap:operation soapAction="http://www.eClaimLink.ae/LockReferral" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="dischargeReferral">
+      <soap:operation soapAction="http://www.eClaimLink.ae/dischargeReferral" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="eReferralTransactionsSoap12" type="tns:eReferralTransactionsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="UploadReferral">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/UploadReferral" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewReferrals">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/GetNewReferrals" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchReferralHistory">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/SearchReferralHistory" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralReferenceNo">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/GetReferralReferenceNo" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferralDetails">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/GetReferralDetails" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReferralFile">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/DownloadReferralFile" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetReferralDownloaded">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/SetReferralDownloaded" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseReferral">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/ReleaseReferral" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LockReferral">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/LockReferral" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="dischargeReferral">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/dischargeReferral" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="eReferralTransactions">
+    <wsdl:port name="eReferralTransactionsSoap" binding="tns:eReferralTransactionsSoap">
+      <soap:address location="https://dhpo.eclaimlink.ae/eReferralTransactions.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="eReferralTransactionsSoap12" binding="tns:eReferralTransactionsSoap12">
+      <soap12:address location="https://dhpo.eclaimlink.ae/eReferralTransactions.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint></con:endpoints><con:operation id="8df82a01-5150-44fd-a9cd-27db399936b4" isOneWay="false" action="http://www.eClaimLink.ae/dischargeReferral" name="dischargeReferral" bindingOperationName="dischargeReferral" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3b462788-8b5f-4f38-98a6-fa89e6344054" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:dischargeReferral>
+         <!--Optional:-->
+         <ecl:facilityLogin>?</ecl:facilityLogin>
+         <!--Optional:-->
+         <ecl:facilityPwd>?</ecl:facilityPwd>
+         <!--Optional:-->
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>
+         <!--Optional:-->
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>
+         <!--Optional:-->
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>
+         <!--Optional:-->
+         <ecl:memberID>?</ecl:memberID>
+      </ecl:dischargeReferral>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/dischargeReferral"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b6bcc012-cf94-4e87-b580-d59358ca37e6" isOneWay="false" action="http://www.eClaimLink.ae/DownloadReferralFile" name="DownloadReferralFile" bindingOperationName="DownloadReferralFile" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b033731e-7775-4a1d-8a58-ddbb417ae714" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:DownloadReferralFile>
+         <!--Optional:-->
+         <ecl:Login>?</ecl:Login>
+         <!--Optional:-->
+         <ecl:Pwd>?</ecl:Pwd>
+         <!--Optional:-->
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>
+         <!--Optional:-->
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>
+         <!--Optional:-->
+         <ecl:fileId>?</ecl:fileId>
+      </ecl:DownloadReferralFile>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/DownloadReferralFile"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9e8ca6c7-92c8-4c2c-8893-c493b7682453" isOneWay="false" action="http://www.eClaimLink.ae/GetNewReferrals" name="GetNewReferrals" bindingOperationName="GetNewReferrals" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="20664e25-81ab-4b47-af60-30e71c8798e8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:GetNewReferrals>
+         <!--Optional:-->
+         <ecl:PayerLogin>thumbayhospitaldubai</ecl:PayerLogin>
+         <!--Optional:-->
+         <ecl:PayerPwd>thumbay@123</ecl:PayerPwd>
+      </ecl:GetNewReferrals>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/GetNewReferrals"/><con:wsrmConfig version="1.2"/></con:call><con:call id="37860ed9-895c-49e5-a3e5-8c32bfc6b4e0" name="Backup of [Request 1]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:GetNewReferrals>
+         <!--Optional:-->
+         <ecl:PayerLogin>thumbayhospitaldubai</ecl:PayerLogin><ecl:PayerPwd>thumbay@123</ecl:PayerPwd>
+         <!--Optional:-->
+         
+      </ecl:GetNewReferrals>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/GetNewReferrals"/></con:call></con:operation><con:operation id="69792dfc-77c2-4708-9ef0-3fc0c077164e" isOneWay="false" action="http://www.eClaimLink.ae/GetReferralDetails" name="GetReferralDetails" bindingOperationName="GetReferralDetails" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2e42bd10-1ea5-4a9f-8a2c-b0b8084113d8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:GetReferralDetails>
+         <!--Optional:-->
+         <ecl:facilityLogin>?</ecl:facilityLogin>
+         <!--Optional:-->
+         <ecl:facilityPwd>?</ecl:facilityPwd>
+         <!--Optional:-->
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>
+         <!--Optional:-->
+         <ecl:memberID>?</ecl:memberID>
+      </ecl:GetReferralDetails>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/GetReferralDetails"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e021788e-a3ac-4d2f-a1d8-322cd74bb849" isOneWay="false" action="http://www.eClaimLink.ae/GetReferralReferenceNo" name="GetReferralReferenceNo" bindingOperationName="GetReferralReferenceNo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d0a22730-d098-467c-affc-6db7f5d2f950" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:GetReferralReferenceNo>
+         <!--Optional:-->
+         <ecl:facilityLogin>thumbayhospitaldubai</ecl:facilityLogin>
+         <!--Optional:-->
+         <ecl:facilityPwd>thumbay@123</ecl:facilityPwd>
+         <!--Optional:-->
+         <ecl:memberID>999-9999-9999999-9</ecl:memberID>
+      </ecl:GetReferralReferenceNo>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/GetReferralReferenceNo"/><con:wsrmConfig version="1.2"/></con:call><con:call id="7a138270-cc00-46d8-8669-e22f1893a6bc" name="Backup of [Request 1]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:GetReferralReferenceNo>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <ecl:facilityLogin>thumbayhospitaldubai</ecl:facilityLogin><ecl:facilityPwd>thumbay@123</ecl:facilityPwd><ecl:memberID>999-9999-9999999-9</ecl:memberID>
+         <!--Optional:-->
+         
+      </ecl:GetReferralReferenceNo>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/GetReferralReferenceNo"/></con:call></con:operation><con:operation id="783a7f77-6b65-4668-95ae-ad5999e991fa" isOneWay="false" action="http://www.eClaimLink.ae/LockReferral" name="LockReferral" bindingOperationName="LockReferral" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d2ecf030-9850-409b-957b-7bc83c77fa36" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:LockReferral>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+      </ecl:LockReferral>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/LockReferral"/></con:call></con:operation><con:operation id="dd6cb6d2-ef08-4f53-962e-134fb8a2ce83" isOneWay="false" action="http://www.eClaimLink.ae/ReleaseReferral" name="ReleaseReferral" bindingOperationName="ReleaseReferral" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="41449ecc-490b-4615-ad08-2c4bee1657d3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:ReleaseReferral>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+      </ecl:ReleaseReferral>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/ReleaseReferral"/></con:call></con:operation><con:operation id="eba38a69-dfd2-41a3-9596-1a741648cb51" isOneWay="false" action="http://www.eClaimLink.ae/SearchReferralHistory" name="SearchReferralHistory" bindingOperationName="SearchReferralHistory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bb7679d7-21b4-4681-bfe8-4bb1b65db0eb" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:SearchReferralHistory>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <ecl:direction>?</ecl:direction>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLicense>?</ecl:clinicianLicense>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <ecl:transactionStatus>?</ecl:transactionStatus>\r
+         <!--Optional:-->\r
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>\r
+         <!--Optional:-->\r
+         <ecl:transactionToDate>?</ecl:transactionToDate>\r
+         <ecl:minRecordCount>?</ecl:minRecordCount>\r
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>\r
+      </ecl:SearchReferralHistory>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/SearchReferralHistory"/></con:call></con:operation><con:operation id="94fe0b01-1d28-4ed9-87aa-6b5d9a6e5e98" isOneWay="false" action="http://www.eClaimLink.ae/SetReferralDownloaded" name="SetReferralDownloaded" bindingOperationName="SetReferralDownloaded" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e3dbe2d9-012c-4626-b24e-3cea3ee65ba5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:SetReferralDownloaded>\r
+         <!--Optional:-->\r
+         <ecl:PayerLogin>?</ecl:PayerLogin>\r
+         <!--Optional:-->\r
+         <ecl:PayerPwd>?</ecl:PayerPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:SetReferralDownloaded>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/SetReferralDownloaded"/></con:call></con:operation><con:operation id="4eb47a4c-0d71-493a-b1dd-cb074e8c2b7d" isOneWay="false" action="http://www.eClaimLink.ae/UploadReferral" name="UploadReferral" bindingOperationName="UploadReferral" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="09c1f226-7dc3-46f8-89d9-f5d846c23397" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:UploadReferral>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileContent>cid:476999409942</ecl:fileContent>\r
+         <!--Optional:-->\r
+         <ecl:fileName>?</ecl:fileName>\r
+      </ecl:UploadReferral>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/UploadReferral"/></con:call></con:operation></con:interface><con:testSuite id="9c0a79b1-c1f2-4050-907b-a4a9c3d4402c" name="eReferralTransactionsSoap12 TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="f0a8004c-f58c-4c81-a724-651aca7c3a9e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="dischargeReferral TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="b028d9d4-2161-43d0-9314-74e1f9bf7fbb" name="dischargeReferral"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap12</con:interface><con:operation>dischargeReferral</con:operation><con:request name="dischargeReferral" id="a92068a1-6a81-4044-b9dd-94bc53eff151"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:dischargeReferral>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+      </ecl:dischargeReferral>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eReferralTransactionsSoap/dischargeReferralRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="7c598056-5126-4548-a1cc-ba1d3274c0c3" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DownloadReferralFile TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="5a7bebdd-6ce6-498c-bd67-ecc2b302be1e" name="DownloadReferralFile"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap12</con:interface><con:operation>DownloadReferralFile</con:operation><con:request name="DownloadReferralFile" id="9f47d3f1-b556-4599-82c2-c0a905ad98f8"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:DownloadReferralFile>\r
+         <!--Optional:-->\r
+         <ecl:Login>?</ecl:Login>\r
+         <!--Optional:-->\r
+         <ecl:Pwd>?</ecl:Pwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:DownloadReferralFile>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eReferralTransactionsSoap/DownloadReferralFileRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="13733a17-3223-4a90-8947-50bfd3a114fb" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetNewReferrals TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="c8185f19-e68e-4b35-ae60-b3f943a1c1e8" name="GetNewReferrals"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap12</con:interface><con:operation>GetNewReferrals</con:operation><con:request name="GetNewReferrals" id="0c1c3994-ef5c-4cfb-9d50-730bb100bf44"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:GetNewReferrals>\r
+         <!--Optional:-->\r
+         <ecl:PayerLogin>?</ecl:PayerLogin>\r
+         <!--Optional:-->\r
+         <ecl:PayerPwd>?</ecl:PayerPwd>\r
+      </ecl:GetNewReferrals>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eReferralTransactionsSoap/GetNewReferralsRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="ee157d0d-f376-473b-a39b-f2dbafcd84e2" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetReferralDetails TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="79566e47-00dd-4965-9262-542750efe443" name="GetReferralDetails"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap12</con:interface><con:operation>GetReferralDetails</con:operation><con:request name="GetReferralDetails" id="64ce71ae-8c13-486c-ba25-70cecc57b73b"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:GetReferralDetails>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+      </ecl:GetReferralDetails>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eReferralTransactionsSoap/GetReferralDetailsRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="f95556c3-1570-4d11-8a26-0fdd7f8ae823" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetReferralReferenceNo TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="f0af0714-f56a-4bc6-8417-7f99695d4fac" name="GetReferralReferenceNo"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap12</con:interface><con:operation>GetReferralReferenceNo</con:operation><con:request name="GetReferralReferenceNo" id="f2d0b675-23d3-4af9-b357-f18a2d6c0789"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soap:Header/>
+   <soap:Body>
+      <ecl:GetReferralReferenceNo>
+         <!--Optional:-->
+         <ecl:facilityLogin>?</ecl:facilityLogin>
+         <!--Optional:-->
+         <ecl:facilityPwd>?</ecl:facilityPwd>
+         <!--Optional:-->
+         <ecl:memberID>?</ecl:memberID>
+      </ecl:GetReferralReferenceNo>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.eClaimLink.ae/eReferralTransactionsSoap/GetReferralReferenceNoRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="fd73e68b-3701-4728-bd6c-2c1f1007d272" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="LockReferral TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="99efdc80-6444-4185-8db5-f5b22a47e4ce" name="LockReferral"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap12</con:interface><con:operation>LockReferral</con:operation><con:request name="LockReferral" id="cdf91393-46e7-4907-80a2-105e9a704268"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:LockReferral>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+      </ecl:LockReferral>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eReferralTransactionsSoap/LockReferralRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="c3316d32-5a07-4bf5-9814-46ed8dd5be13" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ReleaseReferral TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="c55e1245-8a5b-464a-a6f3-e7097db1921c" name="ReleaseReferral"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap12</con:interface><con:operation>ReleaseReferral</con:operation><con:request name="ReleaseReferral" id="31a4e07c-f461-4d80-b82c-6b873f797225"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:ReleaseReferral>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+      </ecl:ReleaseReferral>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eReferralTransactionsSoap/ReleaseReferralRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="02ffa85d-01f2-49c9-a591-ac2cdc03fb98" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SearchReferralHistory TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="781fb74c-b643-49c9-95b6-a8c9bc783940" name="SearchReferralHistory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap12</con:interface><con:operation>SearchReferralHistory</con:operation><con:request name="SearchReferralHistory" id="36b6400c-843c-460e-9f06-4d8ffcfd6963"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:SearchReferralHistory>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <ecl:direction>?</ecl:direction>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLicense>?</ecl:clinicianLicense>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <ecl:transactionStatus>?</ecl:transactionStatus>\r
+         <!--Optional:-->\r
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>\r
+         <!--Optional:-->\r
+         <ecl:transactionToDate>?</ecl:transactionToDate>\r
+         <ecl:minRecordCount>?</ecl:minRecordCount>\r
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>\r
+      </ecl:SearchReferralHistory>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eReferralTransactionsSoap/SearchReferralHistoryRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="7b20b28f-1590-43a5-8d47-e5394b803adb" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SetReferralDownloaded TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="c3675acf-d9b8-4a9c-b533-e82adc44b110" name="SetReferralDownloaded"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap12</con:interface><con:operation>SetReferralDownloaded</con:operation><con:request name="SetReferralDownloaded" id="6d287a56-b50f-4a86-ba8d-52b1ddef2401"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:SetReferralDownloaded>\r
+         <!--Optional:-->\r
+         <ecl:PayerLogin>?</ecl:PayerLogin>\r
+         <!--Optional:-->\r
+         <ecl:PayerPwd>?</ecl:PayerPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:SetReferralDownloaded>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eReferralTransactionsSoap/SetReferralDownloadedRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="7e010ca9-183e-4d86-ab98-dab4860c0ea0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadReferral TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="4cf720a1-fa91-4fe6-871a-1916eb1b9ad1" name="UploadReferral"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap12</con:interface><con:operation>UploadReferral</con:operation><con:request name="UploadReferral" id="16696387-7076-4771-bea4-eec718702ed6"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:UploadReferral>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileContent>cid:564925210903</ecl:fileContent>\r
+         <!--Optional:-->\r
+         <ecl:fileName>?</ecl:fileName>\r
+      </ecl:UploadReferral>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eReferralTransactionsSoap/UploadReferralRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite id="e82d9ef5-88bb-4c0b-8f09-e40d9d8fc25a" name="eReferralTransactionsSoap TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="1ddce700-ac81-428e-b037-0fbb62c468cd" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="dischargeReferral TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="44a29cda-7d09-4858-bca4-1e9bcfaae6f4" name="dischargeReferral"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>dischargeReferral</con:operation><con:request name="dischargeReferral" id="49f0677b-90b7-43b6-bed0-c61ffbade455"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:dischargeReferral>
+         <!--Optional:-->
+         <ecl:facilityLogin>?</ecl:facilityLogin>
+         <!--Optional:-->
+         <ecl:facilityPwd>?</ecl:facilityPwd>
+         <!--Optional:-->
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>
+         <!--Optional:-->
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>
+         <!--Optional:-->
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>
+         <!--Optional:-->
+         <ecl:memberID>?</ecl:memberID>
+      </ecl:dischargeReferral>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/dischargeReferral"/></con:request></con:config></con:testStep><con:testStep type="request" id="9b1f9bee-71b2-48c1-8b36-0c6da2860376" name="Backup of [dischargeReferral]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>dischargeReferral</con:operation><con:request name="Backup of [dischargeReferral]" id="49f0677b-90b7-43b6-bed0-c61ffbade455"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:dischargeReferral>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+      </ecl:dischargeReferral>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/dischargeReferral"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="12e83470-3350-46e6-91cf-80ac91c98922" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DownloadReferralFile TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="e4a6becc-a4c5-41a5-bd87-029ea2a3a930" name="DownloadReferralFile"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>DownloadReferralFile</con:operation><con:request name="DownloadReferralFile" id="1566bf92-7898-476b-8cac-fce362e2a8c2"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:DownloadReferralFile>
+         <!--Optional:-->
+         <ecl:Login>?</ecl:Login>
+         <!--Optional:-->
+         <ecl:Pwd>?</ecl:Pwd>
+         <!--Optional:-->
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>
+         <!--Optional:-->
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>
+         <!--Optional:-->
+         <ecl:fileId>?</ecl:fileId>
+      </ecl:DownloadReferralFile>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/DownloadReferralFile"/></con:request></con:config></con:testStep><con:testStep type="request" id="93dab55d-f99f-4d13-b131-4ebb54a28fdb" name="Backup of [DownloadReferralFile]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>DownloadReferralFile</con:operation><con:request name="Backup of [DownloadReferralFile]" id="1566bf92-7898-476b-8cac-fce362e2a8c2"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:DownloadReferralFile>\r
+         <!--Optional:-->\r
+         <ecl:Login>?</ecl:Login>\r
+         <!--Optional:-->\r
+         <ecl:Pwd>?</ecl:Pwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:DownloadReferralFile>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/DownloadReferralFile"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="40e872c2-b321-44ef-999a-bd019206f725" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetNewReferrals TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="2a995fa9-74ed-4f5f-9db2-285415665750" name="GetNewReferrals"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>GetNewReferrals</con:operation><con:request name="GetNewReferrals" id="af2df8d3-2c46-4f31-8c2b-10944fbaa4bc"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:GetNewReferrals>
+         <!--Optional:-->
+         <ecl:PayerLogin>?</ecl:PayerLogin>
+         <!--Optional:-->
+         <ecl:PayerPwd>?</ecl:PayerPwd>
+      </ecl:GetNewReferrals>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/GetNewReferrals"/></con:request></con:config></con:testStep><con:testStep type="request" id="f82f8280-7c71-470e-9187-2f0ab5c0acd2" name="Backup of [GetNewReferrals]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>GetNewReferrals</con:operation><con:request name="Backup of [GetNewReferrals]" id="af2df8d3-2c46-4f31-8c2b-10944fbaa4bc"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:GetNewReferrals>\r
+         <!--Optional:-->\r
+         <ecl:PayerLogin>?</ecl:PayerLogin>\r
+         <!--Optional:-->\r
+         <ecl:PayerPwd>?</ecl:PayerPwd>\r
+      </ecl:GetNewReferrals>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/GetNewReferrals"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="a18ae2ca-7608-4080-bdd9-43c1bafa9ede" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetReferralDetails TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="07345995-3ec3-4bff-ac36-9d99170ad03b" name="GetReferralDetails"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>GetReferralDetails</con:operation><con:request name="GetReferralDetails" id="66b70ad7-bf4d-4699-9fd5-2d2cd8d434b2"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:GetReferralDetails>
+         <!--Optional:-->
+         <ecl:facilityLogin>?</ecl:facilityLogin>
+         <!--Optional:-->
+         <ecl:facilityPwd>?</ecl:facilityPwd>
+         <!--Optional:-->
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>
+         <!--Optional:-->
+         <ecl:memberID>?</ecl:memberID>
+      </ecl:GetReferralDetails>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/GetReferralDetails"/></con:request></con:config></con:testStep><con:testStep type="request" id="1d41a3f9-5852-4378-89ce-4801682e74ac" name="Backup of [GetReferralDetails]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>GetReferralDetails</con:operation><con:request name="Backup of [GetReferralDetails]" id="66b70ad7-bf4d-4699-9fd5-2d2cd8d434b2"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:GetReferralDetails>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+      </ecl:GetReferralDetails>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/GetReferralDetails"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="f4fd95e2-a4b2-462c-a105-8dc6997c3e20" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetReferralReferenceNo TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="83894a87-4013-4241-9b78-afdb256e40ec" name="GetReferralReferenceNo"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>GetReferralReferenceNo</con:operation><con:request name="GetReferralReferenceNo" id="494e65cb-0d08-4632-8a58-164d2b028e89"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:GetReferralReferenceNo>
+         <!--Optional:-->
+         <ecl:facilityLogin>?</ecl:facilityLogin>
+         <!--Optional:-->
+         <ecl:facilityPwd>?</ecl:facilityPwd>
+         <!--Optional:-->
+         <ecl:memberID>?</ecl:memberID>
+      </ecl:GetReferralReferenceNo>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/GetReferralReferenceNo"/></con:request></con:config></con:testStep><con:testStep type="request" id="98ebe077-1a7a-42e8-bf77-e30428952754" name="Backup of [GetReferralReferenceNo]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>GetReferralReferenceNo</con:operation><con:request name="Backup of [GetReferralReferenceNo]" id="494e65cb-0d08-4632-8a58-164d2b028e89"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:GetReferralReferenceNo>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+      </ecl:GetReferralReferenceNo>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/GetReferralReferenceNo"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="9051e4bb-113c-481e-950f-427665951660" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="LockReferral TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="4b000e5a-d6f5-4b14-9d74-89a9d67ab81a" name="LockReferral"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>LockReferral</con:operation><con:request name="LockReferral" id="bbddc8f9-9826-41c9-bc39-364ecbaecfd1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:LockReferral>
+         <!--Optional:-->
+         <ecl:facilityLogin>?</ecl:facilityLogin>
+         <!--Optional:-->
+         <ecl:facilityPwd>?</ecl:facilityPwd>
+         <!--Optional:-->
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>
+         <!--Optional:-->
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>
+         <!--Optional:-->
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>
+         <!--Optional:-->
+         <ecl:memberID>?</ecl:memberID>
+      </ecl:LockReferral>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/LockReferral"/></con:request></con:config></con:testStep><con:testStep type="request" id="7b8ae07c-8c43-4ba5-a4ca-16d3fd90a102" name="Backup of [LockReferral]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>LockReferral</con:operation><con:request name="Backup of [LockReferral]" id="bbddc8f9-9826-41c9-bc39-364ecbaecfd1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:LockReferral>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+      </ecl:LockReferral>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/LockReferral"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="f2b52d40-2306-419a-b1ed-a4676efc6332" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ReleaseReferral TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="3aa5580d-ae21-408e-ad5f-fa1b763f03dc" name="ReleaseReferral"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>ReleaseReferral</con:operation><con:request name="ReleaseReferral" id="48ccd9cb-68e2-475b-8b55-e854ffa01905"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:ReleaseReferral>
+         <!--Optional:-->
+         <ecl:facilityLogin>?</ecl:facilityLogin>
+         <!--Optional:-->
+         <ecl:facilityPwd>?</ecl:facilityPwd>
+         <!--Optional:-->
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>
+         <!--Optional:-->
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>
+         <!--Optional:-->
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>
+         <!--Optional:-->
+         <ecl:memberID>?</ecl:memberID>
+      </ecl:ReleaseReferral>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/ReleaseReferral"/></con:request></con:config></con:testStep><con:testStep type="request" id="5337551c-b8b6-44f2-8d2b-be12b2d2da03" name="Backup of [ReleaseReferral]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>ReleaseReferral</con:operation><con:request name="Backup of [ReleaseReferral]" id="48ccd9cb-68e2-475b-8b55-e854ffa01905"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:ReleaseReferral>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+      </ecl:ReleaseReferral>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/ReleaseReferral"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="9c3c8893-20d2-45a5-a672-a559aad1e4fa" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SearchReferralHistory TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="31c8a398-dcb5-4631-9466-b69d31ddfe9a" name="SearchReferralHistory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>SearchReferralHistory</con:operation><con:request name="SearchReferralHistory" id="457d5713-32f4-4c15-a400-aa89d361b277"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:SearchReferralHistory>
+         <!--Optional:-->
+         <ecl:facilityLogin>?</ecl:facilityLogin>
+         <!--Optional:-->
+         <ecl:facilityPwd>?</ecl:facilityPwd>
+         <ecl:direction>?</ecl:direction>
+         <!--Optional:-->
+         <ecl:clinicianLicense>?</ecl:clinicianLicense>
+         <!--Optional:-->
+         <ecl:memberID>?</ecl:memberID>
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>
+         <ecl:transactionStatus>?</ecl:transactionStatus>
+         <!--Optional:-->
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>
+         <!--Optional:-->
+         <ecl:transactionToDate>?</ecl:transactionToDate>
+         <ecl:minRecordCount>?</ecl:minRecordCount>
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>
+      </ecl:SearchReferralHistory>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/SearchReferralHistory"/></con:request></con:config></con:testStep><con:testStep type="request" id="7d7e4c81-0049-41f2-89f0-41b80aa451e0" name="Backup of [SearchReferralHistory]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>SearchReferralHistory</con:operation><con:request name="Backup of [SearchReferralHistory]" id="457d5713-32f4-4c15-a400-aa89d361b277"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:SearchReferralHistory>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <ecl:direction>?</ecl:direction>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLicense>?</ecl:clinicianLicense>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+         <ecl:eReferalReferenceNo>?</ecl:eReferalReferenceNo>\r
+         <ecl:transactionStatus>?</ecl:transactionStatus>\r
+         <!--Optional:-->\r
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>\r
+         <!--Optional:-->\r
+         <ecl:transactionToDate>?</ecl:transactionToDate>\r
+         <ecl:minRecordCount>?</ecl:minRecordCount>\r
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>\r
+      </ecl:SearchReferralHistory>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/SearchReferralHistory"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="e0edebd2-0d92-49da-a175-efb13e288e2a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SetReferralDownloaded TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="749dcbf2-ddce-4a5c-9a67-3725e3d94203" name="SetReferralDownloaded"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>SetReferralDownloaded</con:operation><con:request name="SetReferralDownloaded" id="64918106-472f-44ee-adc4-b0cb4ae14da8"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:SetReferralDownloaded>
+         <!--Optional:-->
+         <ecl:PayerLogin>?</ecl:PayerLogin>
+         <!--Optional:-->
+         <ecl:PayerPwd>?</ecl:PayerPwd>
+         <!--Optional:-->
+         <ecl:fileId>?</ecl:fileId>
+      </ecl:SetReferralDownloaded>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/SetReferralDownloaded"/></con:request></con:config></con:testStep><con:testStep type="request" id="8ec56d09-775a-4979-9154-b6e7905da638" name="Backup of [SetReferralDownloaded]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>SetReferralDownloaded</con:operation><con:request name="Backup of [SetReferralDownloaded]" id="64918106-472f-44ee-adc4-b0cb4ae14da8"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:SetReferralDownloaded>\r
+         <!--Optional:-->\r
+         <ecl:PayerLogin>?</ecl:PayerLogin>\r
+         <!--Optional:-->\r
+         <ecl:PayerPwd>?</ecl:PayerPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:SetReferralDownloaded>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/SetReferralDownloaded"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="fbd32c52-47c5-449c-9d69-5e54c922f6d9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadReferral TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="0b748ed6-175d-4698-be9c-ee317a28cf9f" name="UploadReferral"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>UploadReferral</con:operation><con:request name="UploadReferral" id="7b40d3f5-bfcd-4387-918f-03b119ef45ad"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:UploadReferral>
+         <!--Optional:-->
+         <ecl:facilityLogin>?</ecl:facilityLogin>
+         <!--Optional:-->
+         <ecl:facilityPwd>?</ecl:facilityPwd>
+         <!--Optional:-->
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>
+         <!--Optional:-->
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>
+         <!--Optional:-->
+         <ecl:fileContent>cid:454006365470</ecl:fileContent>
+         <!--Optional:-->
+         <ecl:fileName>?</ecl:fileName>
+      </ecl:UploadReferral>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/UploadReferral"/></con:request></con:config></con:testStep><con:testStep type="request" id="69067a92-9a99-4980-9822-c9305f974a6f" name="Backup of [UploadReferral]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eReferralTransactionsSoap</con:interface><con:operation>UploadReferral</con:operation><con:request name="Backup of [UploadReferral]" id="7b40d3f5-bfcd-4387-918f-03b119ef45ad"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eReferralTransactions.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:UploadReferral>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileContent>cid:454006365470</ecl:fileContent>\r
+         <!--Optional:-->\r
+         <ecl:fileName>?</ecl:fileName>\r
+      </ecl:UploadReferral>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/UploadReferral"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>

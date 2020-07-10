@@ -1,0 +1,112 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.icm.dhc.com/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ws:submission>
+            <Header>   
+             	<SubmissionDestination>3</SubmissionDestination>            
+                <SenderID>DHA-F-9999998</SenderID>
+                <ReceiverID>INS999</ReceiverID>
+                <DispositionFlag>PRODUCTION</DispositionFlag>
+                <!--<ReferenceID>{=System.currentTimeMillis() + ((int)(Math.random()*1000))}</ReferenceID>-->
+                <ReferenceID>SS_1209</ReferenceID>
+                <transactionType>Claim</transactionType>
+                <processType>Review</processType>
+            </Header>
+            <!--1 or more repetitions:-->
+            <Transaction>
+                <ID>SS_1209</ID>
+               <PayerID>INS999</PayerID>
+                <ProviderID>DHA-F-9999998</ProviderID>
+                <HealthPlanID>1</HealthPlanID>                                                             
+                <TransactionPatientShare>0</TransactionPatientShare>
+                <TransactionNet>0</TransactionNet>
+                <TransactionPriorAuthorizationID>1</TransactionPriorAuthorizationID>
+                <Person>                    
+                  <ID>John</ID>
+                    <InsuranceMemberNumber>John</InsuranceMemberNumber>
+                    <NationalIDNumber>1</NationalIDNumber>
+                    <BirthDate>25/08/1988</BirthDate>
+                    <Name>John</Name>                    
+                    <Policy>JPol1</Policy>
+                    <Group>JGRP1</Group>
+                    <Gender>M</Gender>  
+                </Person>
+                <Encounter>
+                    <FacilityID>DHA-F-9999998</FacilityID>
+                    <Type>2</Type>
+                    <Start>21/05/2017 00:00</Start>                  
+                    <End>22/05/2017 00:00</End>                   
+                    <StartType>1</StartType><EndType>1</EndType>
+                     <TransferSource>1</TransferSource>
+                    <TransferDestination>1</TransferDestination>
+                </Encounter>
+                 <Diagnosis>
+                   <CodeTerm>ICD10</CodeTerm>
+                   <Type>Principal</Type>
+                   <Code>A01.00</Code>
+               </Diagnosis>      
+               <Diagnosis>
+                   <CodeTerm>ICD10</CodeTerm>
+                   <Type>Secondary</Type>
+                   <Code>S52.90XD</Code>
+               </Diagnosis>     
+                <Diagnosis>
+                   <CodeTerm>ICD10</CodeTerm>
+                   <Type>Secondary</Type>
+                   <Code>K00.1</Code>
+               </Diagnosis>                                                                                                                                                    
+                 <Activity>
+                   <ID>472291</ID>
+                   <CodeTerm>CPT_04_2012</CodeTerm>
+                   <Start>21/05/2017 00:00</Start>                  
+                   <End>22/05/2017 00:00</End>
+                   <Code>20220</Code>
+                   <Quantity>1</Quantity>
+                 <Clinician>DHA-P-0007341</Clinician>                                                     
+                  <PriorAuthorizationID>1</PriorAuthorizationID>                                 
+                  <ActivityNet>0</ActivityNet>                                                                                                                                                                                                                                                        
+                </Activity>                              
+                 <Activity>
+                   <ID>472293</ID>
+                   <CodeTerm>CPT_04_2012</CodeTerm>
+                   <Start>21/05/2017 00:00</Start>                  
+                   <End>22/05/2017 00:00</End>
+                   <Code>29700</Code>
+                   <Quantity>1</Quantity>
+                  <Clinician>DHA-P-0007341</Clinician>                                                     
+                  <PriorAuthorizationID>1</PriorAuthorizationID>                                 
+                  <ActivityNet>0</ActivityNet>                                                                                                                                                                                                                                                        
+                </Activity> 
+                 <Activity>
+                   <ID>472294</ID>
+                   <CodeTerm>CPT_04_2012</CodeTerm>
+                   <Start>21/05/2017 00:00</Start>                  
+                   <End>22/05/2017 00:00</End>
+                   <Code>70300</Code>
+                   <Quantity>1</Quantity>
+                 <Clinician>DHA-P-0007341</Clinician>                                                     
+                  <PriorAuthorizationID>1</PriorAuthorizationID>                                 
+                  <ActivityNet>0</ActivityNet>                                                                                                                                                                                                                                                        
+                </Activity>                              
+                <ScrubbingHint>
+       		<Code>DEFINE_VALUE</Code>
+        		<Value>T1_Network</Value>
+        		<ValueType>ExtraInfo.network</ValueType>
+ 			</ScrubbingHint>  
+ 			<ScrubbingHint>
+	 <Code>Ignore</Code>
+	 <Value>MEMBER_SUBLIMIT</Value>
+</ScrubbingHint>			
+			<ScrubbingHint>
+			<Code>Ignore</Code>
+			<Value>MEMBER_HISTORY</Value>
+			</ScrubbingHint>
+			<ScrubbingHint>
+       <Code>Extension</Code>
+       <Value>REGISTER_IFNOT_VALID</Value>
+       <ValueType>MEMBER</ValueType>
+    </ScrubbingHint>
+            </Transaction>            
+        </ws:submission>
+    </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,90 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cds="http://cds.soap.webservice.service.dimensions.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cds:getClaimsEdits>
+         <username>?</username>
+         <password>?</password>
+         <services>?</services>
+         <isStrictCheck>?</isStrictCheck>
+         <!--1 or more repetitions:-->
+         <claims>
+            <claimID>?</claimID>
+            <!--1 or more repetitions:-->
+            <claimSubmissionActivityList>
+               <activityCode>?</activityCode>
+               <activityId>?</activityId>
+               <activityStart>?</activityStart>
+               <activityType>?</activityType>
+               <!--Zero or more repetitions:-->
+               <claimSubmissionObservationList>
+                  <observationCode>?</observationCode>
+                  <observationType>?</observationType>
+                  <!--Optional:-->
+                  <observationValue>?</observationValue>
+                  <!--Optional:-->
+                  <observationValueType>?</observationValueType>
+               </claimSubmissionObservationList>
+               <!--Optional:-->
+               <clinician>?</clinician>
+               <!--Optional:-->
+               <orderingClinician>?</orderingClinician>
+               <!--Optional:-->
+               <priorAuthorizationId>?</priorAuthorizationId>
+               <quantity>?</quantity>
+            </claimSubmissionActivityList>
+            <!--1 or more repetitions:-->
+            <claimSubmissionDiagnosisList>
+               <diagnosisCode>?</diagnosisCode>
+               <diagnosisType>?</diagnosisType>
+            </claimSubmissionDiagnosisList>
+            <!--Zero or more repetitions:-->
+            <claimSubmissionEncounter>
+               <!--Optional:-->
+               <encounterEnd>?</encounterEnd>
+               <!--Optional:-->
+               <encounterEndType>?</encounterEndType>
+               <!--Optional:-->
+               <encounterStart>?</encounterStart>
+               <!--Optional:-->
+               <encounterStartType>?</encounterStartType>
+               <encounterType>?</encounterType>
+               <!--Optional:-->
+               <facilityId>?</facilityId>
+               <!--Optional:-->
+               <patientId>?</patientId>
+               <!--Optional:-->
+               <transferDestination>?</transferDestination>
+               <!--Optional:-->
+               <transferSource>?</transferSource>
+            </claimSubmissionEncounter>
+            <!--Zero or more repetitions:-->
+            <claimSubmissionPerson>
+               <!--Optional:-->
+               <breastFeedingDays>?</breastFeedingDays>
+               <!--Optional:-->
+               <creatinineClearance>?</creatinineClearance>
+               <dateOfBirth>?</dateOfBirth>
+               <gender>?</gender>
+               <!--Optional:-->
+               <hight>?</hight>
+               <!--Optional:-->
+               <memberId>?</memberId>
+               <!--Optional:-->
+               <nationalId>?</nationalId>
+               <!--Optional:-->
+               <notes>?</notes>
+               <!--Optional:-->
+               <patientId>?</patientId>
+               <!--Optional:-->
+               <pregnancyDays>?</pregnancyDays>
+               <!--Optional:-->
+               <weight>?</weight>
+            </claimSubmissionPerson>
+            <!--Optional:-->
+            <payerId>?</payerId>
+            <!--Optional:-->
+            <providerId>?</providerId>
+         </claims>
+      </cds:getClaimsEdits>
+   </soapenv:Body>
+</soapenv:Envelope>

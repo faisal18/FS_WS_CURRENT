@@ -1,0 +1,1 @@
+"D:\Fazeel Data\Installations\SOAPUI-Build\SoapUI-Pro-5.1.1-windows-bin\SoapUI-Pro-5.1.1\bin\testrunner.bat" "D:\Fazeel Data\DHC\SOAPUI-Rep\Monitoring Services\Monitoring-Service-soapui-project.xml" -a -f "D:\Fazeel Data\DHC\SOAPUI-Rep\Monitoring Services\Batch\LOG"

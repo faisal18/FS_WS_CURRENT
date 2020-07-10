@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.bus.dimensions.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:PostPriorRequest>
+         <!--Optional:-->
+         <priorRequest>
+            <Header>
+               <SenderID>?</SenderID>
+               <ReceiverID>?</ReceiverID>
+               <TransactionDate>?</TransactionDate>
+               <RecordCount>?</RecordCount>
+               <DispositionFlag>?</DispositionFlag>
+            </Header>
+            <Authorization>
+               <Type>?</Type>
+               <ID>?</ID>
+               <!--Optional:-->
+               <IDPayer>?</IDPayer>
+               <MemberID>?</MemberID>
+               <PayerID>?</PayerID>
+               <EmiratesIDNumber>?</EmiratesIDNumber>
+               <DateOrdered>?</DateOrdered>
+               <!--Optional:-->
+               <Encounter>
+                  <FacilityID>?</FacilityID>
+                  <!--Optional:-->
+                  <Type>?</Type>
+               </Encounter>
+               <!--Zero or more repetitions:-->
+               <Diagnosis>
+                  <Type>?</Type>
+                  <Code>?</Code>
+               </Diagnosis>
+               <!--Zero or more repetitions:-->
+               <Activity>
+                  <ID>?</ID>
+                  <!--Optional:-->
+                  <Start>?</Start>
+                  <Type>?</Type>
+                  <Code>?</Code>
+                  <Quantity>?</Quantity>
+                  <Net>?</Net>
+                  <!--Optional:-->
+                  <Clinician>?</Clinician>
+                  <!--Zero or more repetitions:-->
+                  <Observation>
+                     <Type>?</Type>
+                     <Code>?</Code>
+                     <Value>?</Value>
+                     <ValueType>?</ValueType>
+                  </Observation>
+               </Activity>
+               <!--Optional:-->
+               <Resubmission>
+                  <Type>?</Type>
+                  <Comment>?</Comment>
+                  <!--Optional:-->
+                  <Attachment>cid:1072681763016</Attachment>
+               </Resubmission>
+            </Authorization>
+         </priorRequest>
+         <!--Optional:-->
+         <ProviderId>?</ProviderId>
+         <!--Optional:-->
+         <userName>?</userName>
+         <!--Optional:-->
+         <Password>?</Password>
+         <!--Optional:-->
+         <dateOfBirth>?</dateOfBirth>
+      </ws:PostPriorRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

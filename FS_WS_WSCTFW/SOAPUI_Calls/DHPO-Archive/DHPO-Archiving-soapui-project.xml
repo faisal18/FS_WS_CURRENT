@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="89926be4-5528-4ec3-9210-b1ac4d9b749f" activeEnvironment="Default" name="DHPO-Archiving" resourceRoot="${projectDir}" soapui-version="5.1.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="715d2b32-1dfb-4b65-a59c-ff18aecb679c" wsaVersion="NONE" name="ClaimsAndAuthorizationsArchiveSoap12" type="wsdl" bindingName="{http://www.eClaimLink.ae/}ClaimsAndAuthorizationsArchiveSoap12" soapVersion="1_2" anonymous="optional" definition="https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx?wsdl"><con:part><con:url>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.eClaimLink.ae/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.eClaimLink.ae/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.eClaimLink.ae/">
+      <s:element name="DownloadTransactionFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadTransactionFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadTransactionFileResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="file" type="s:base64Binary"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="direction" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="callerLicense" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ePartner" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="transactionID" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="TransactionStatus" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionFileName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionFromDate" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionToDate" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="minRecordCount" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="maxRecordCount" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchTransactionsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="foundTransactions" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DownloadTransactionFileSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadTransactionFile"/>
+  </wsdl:message>
+  <wsdl:message name="DownloadTransactionFileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadTransactionFileResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SearchTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchTransactions"/>
+  </wsdl:message>
+  <wsdl:message name="SearchTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchTransactionsResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ClaimsAndAuthorizationsArchiveSoap">
+    <wsdl:operation name="DownloadTransactionFile">
+      <wsdl:input message="tns:DownloadTransactionFileSoapIn"/>
+      <wsdl:output message="tns:DownloadTransactionFileSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <wsdl:input message="tns:SearchTransactionsSoapIn"/>
+      <wsdl:output message="tns:SearchTransactionsSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClaimsAndAuthorizationsArchiveSoap" type="tns:ClaimsAndAuthorizationsArchiveSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="DownloadTransactionFile">
+      <soap:operation soapAction="http://www.eClaimLink.ae/DownloadTransactionFile" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <soap:operation soapAction="http://www.eClaimLink.ae/SearchTransactions" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClaimsAndAuthorizationsArchiveSoap12" type="tns:ClaimsAndAuthorizationsArchiveSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="DownloadTransactionFile">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/DownloadTransactionFile" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/SearchTransactions" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClaimsAndAuthorizationsArchive">
+    <wsdl:port name="ClaimsAndAuthorizationsArchiveSoap" binding="tns:ClaimsAndAuthorizationsArchiveSoap">
+      <soap:address location="https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ClaimsAndAuthorizationsArchiveSoap12" binding="tns:ClaimsAndAuthorizationsArchiveSoap12">
+      <soap12:address location="https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint></con:endpoints><con:operation id="ed861f9d-b91e-4de2-86fa-067538e79844" isOneWay="false" action="http://www.eClaimLink.ae/DownloadTransactionFile" name="DownloadTransactionFile" bindingOperationName="DownloadTransactionFile" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7469a8e8-9262-4723-96e5-866f93507791" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:DownloadTransactionFile>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:DownloadTransactionFile>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/ClaimsAndAuthorizationsArchiveSoap/DownloadTransactionFileRequest"/></con:call></con:operation><con:operation id="8d3de238-d96b-42b6-a12f-03f940b71c15" isOneWay="false" action="http://www.eClaimLink.ae/SearchTransactions" name="SearchTransactions" bindingOperationName="SearchTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d5e93365-b6da-4d2c-a83b-88c2d03bb945" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:SearchTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <ecl:direction>?</ecl:direction>\r
+         <!--Optional:-->\r
+         <ecl:callerLicense>?</ecl:callerLicense>\r
+         <!--Optional:-->\r
+         <ecl:ePartner>?</ecl:ePartner>\r
+         <ecl:transactionID>?</ecl:transactionID>\r
+         <ecl:TransactionStatus>?</ecl:TransactionStatus>\r
+         <!--Optional:-->\r
+         <ecl:transactionFileName>?</ecl:transactionFileName>\r
+         <!--Optional:-->\r
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>\r
+         <!--Optional:-->\r
+         <ecl:transactionToDate>?</ecl:transactionToDate>\r
+         <ecl:minRecordCount>?</ecl:minRecordCount>\r
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>\r
+      </ecl:SearchTransactions>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/ClaimsAndAuthorizationsArchiveSoap/SearchTransactionsRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="152bfc89-5553-457e-8e9c-a5963a768de6" wsaVersion="NONE" name="ClaimsAndAuthorizationsArchiveSoap" type="wsdl" bindingName="{http://www.eClaimLink.ae/}ClaimsAndAuthorizationsArchiveSoap" soapVersion="1_1" anonymous="optional" definition="https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx?wsdl"><con:part><con:url>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.eClaimLink.ae/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.eClaimLink.ae/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.eClaimLink.ae/">
+      <s:element name="DownloadTransactionFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadTransactionFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadTransactionFileResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="file" type="s:base64Binary"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="direction" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="callerLicense" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ePartner" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="transactionID" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="TransactionStatus" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionFileName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionFromDate" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionToDate" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="minRecordCount" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="maxRecordCount" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchTransactionsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="foundTransactions" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DownloadTransactionFileSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadTransactionFile"/>
+  </wsdl:message>
+  <wsdl:message name="DownloadTransactionFileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadTransactionFileResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SearchTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchTransactions"/>
+  </wsdl:message>
+  <wsdl:message name="SearchTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchTransactionsResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ClaimsAndAuthorizationsArchiveSoap">
+    <wsdl:operation name="DownloadTransactionFile">
+      <wsdl:input message="tns:DownloadTransactionFileSoapIn"/>
+      <wsdl:output message="tns:DownloadTransactionFileSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <wsdl:input message="tns:SearchTransactionsSoapIn"/>
+      <wsdl:output message="tns:SearchTransactionsSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClaimsAndAuthorizationsArchiveSoap" type="tns:ClaimsAndAuthorizationsArchiveSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="DownloadTransactionFile">
+      <soap:operation soapAction="http://www.eClaimLink.ae/DownloadTransactionFile" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <soap:operation soapAction="http://www.eClaimLink.ae/SearchTransactions" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClaimsAndAuthorizationsArchiveSoap12" type="tns:ClaimsAndAuthorizationsArchiveSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="DownloadTransactionFile">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/DownloadTransactionFile" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/SearchTransactions" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClaimsAndAuthorizationsArchive">
+    <wsdl:port name="ClaimsAndAuthorizationsArchiveSoap" binding="tns:ClaimsAndAuthorizationsArchiveSoap">
+      <soap:address location="https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ClaimsAndAuthorizationsArchiveSoap12" binding="tns:ClaimsAndAuthorizationsArchiveSoap12">
+      <soap12:address location="https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint></con:endpoints><con:operation id="73327471-b523-4132-a9d3-3e219fa0c681" isOneWay="false" action="http://www.eClaimLink.ae/DownloadTransactionFile" name="DownloadTransactionFile" bindingOperationName="DownloadTransactionFile" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b1c4e5a2-7508-4c0d-8a30-c7246769d280" name="Oman Request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:DownloadTransactionFile>
+         <!--Optional:-->
+         <ecl:login>oman</ecl:login>
+         <!--Optional:-->
+         <ecl:pwd>omanmed123</ecl:pwd><ecl:fileId>9b90ce1e-d575-44b9-93aa-f72b0fa11722</ecl:fileId>
+         <!--Optional:-->
+         
+      </ecl:DownloadTransactionFile>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/DownloadTransactionFile"/><con:wsrmConfig version="1.2"/></con:call><con:call id="268eb5bc-ebcd-41c3-a11f-be597478608f" name="Tpayer Reqeust"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:DownloadTransactionFile>
+         <!--Optional:-->
+         <ecl:login>tpayer</ecl:login>
+         <!--Optional:-->
+         <ecl:pwd>tpayer@2345</ecl:pwd>
+         <!--Optional:-->
+         <ecl:fileId>98bec6da-2750-45c2-b339-eb004be4b021</ecl:fileId>
+      </ecl:DownloadTransactionFile>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/DownloadTransactionFile"/><con:wsrmConfig version="1.2"/></con:call><con:call id="b3ca72b6-62cd-4f11-be62-6a536ea9904d" name="Backup of [Oman Request]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:DownloadTransactionFile>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <ecl:login>oman</ecl:login>
+         <!--Optional:-->
+         <ecl:pwd>omanmed123</ecl:pwd><ecl:fileId>ab03a044-aa2e-4f39-9042-2f33d8e063fd</ecl:fileId>
+      </ecl:DownloadTransactionFile>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/DownloadTransactionFile"/></con:call><con:call id="7e35911d-8e1a-4090-975f-4709d51f4434" name="Backup of [Tpayer Reqeust]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:DownloadTransactionFile>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <ecl:login>tpayer</ecl:login>
+         <!--Optional:-->
+         <ecl:pwd>tpayer@2345</ecl:pwd><ecl:fileId>98bec6da-2750-45c2-b339-eb004be4b021</ecl:fileId>
+      </ecl:DownloadTransactionFile>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/DownloadTransactionFile"/></con:call><con:call id="7f64592e-d879-4917-9ed9-ca51a2cea98b" name="Test"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:DownloadTransactionFile>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <ecl:login>medilifephy</ecl:login><ecl:pwd>life@phy1</ecl:pwd><ecl:fileId>53e12073-5939-4d73-895f-68209af84bd8</ecl:fileId>
+         <!--Optional:-->
+         
+      </ecl:DownloadTransactionFile>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/DownloadTransactionFile"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="ad1acd7d-717e-4d20-820c-f406b0c34174" isOneWay="false" action="http://www.eClaimLink.ae/SearchTransactions" name="SearchTransactions" bindingOperationName="SearchTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6786ee1f-b7ba-4372-b93f-80d4fd6665d6" name="Tpayer REquest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:SearchTransactions>
+         <!--Optional:-->
+         <ecl:login>tpayer</ecl:login>
+         <!--Optional:-->
+         <ecl:pwd>tpayer@2345</ecl:pwd>
+         <ecl:direction>1</ecl:direction>
+         <!--Optional:-->
+         <ecl:callerLicense>?</ecl:callerLicense>
+         <!--Optional:-->
+         <ecl:ePartner>?</ecl:ePartner>
+         <ecl:transactionID>32</ecl:transactionID>
+         <ecl:TransactionStatus>2</ecl:TransactionStatus>
+         <!--Optional:-->
+         <ecl:transactionFileName>?</ecl:transactionFileName>
+         <!--Optional:-->
+         <ecl:transactionFromDate>2016-01-01</ecl:transactionFromDate>
+         <!--Optional:-->
+         <ecl:transactionToDate>2016-03-01</ecl:transactionToDate>
+         <ecl:minRecordCount>-1</ecl:minRecordCount>
+         <ecl:maxRecordCount>-1</ecl:maxRecordCount>
+      </ecl:SearchTransactions>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/SearchTransactions"/><con:wsrmConfig version="1.2"/></con:call><con:call id="baaf3faf-c3e7-4774-84dd-fa17786ad059" name="Oman Reqeust"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:SearchTransactions>
+         <!--Optional:-->
+         <ecl:login>oman</ecl:login>
+         <!--Optional:-->
+         <ecl:pwd>omanmed123</ecl:pwd>
+         <ecl:direction>1</ecl:direction>
+         <!--Optional:-->
+         <ecl:callerLicense>?</ecl:callerLicense>
+         <!--Optional:-->
+         <ecl:ePartner>?</ecl:ePartner>
+         <ecl:transactionID>32</ecl:transactionID>
+         <ecl:TransactionStatus>2</ecl:TransactionStatus>
+         <!--Optional:-->
+         <ecl:transactionFileName>?</ecl:transactionFileName>
+         <!--Optional:-->
+         <ecl:transactionFromDate>2016-01-01</ecl:transactionFromDate>
+         <!--Optional:-->
+         <ecl:transactionToDate>2016-01-02</ecl:transactionToDate>
+         <ecl:minRecordCount>-1</ecl:minRecordCount>
+         <ecl:maxRecordCount>-1</ecl:maxRecordCount>
+      </ecl:SearchTransactions>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/SearchTransactions"/><con:wsrmConfig version="1.2"/></con:call><con:call id="b77a2a12-df56-45b7-9f8a-aa6500e03837" name="Backup of [Tpayer REquest]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:SearchTransactions>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <ecl:login>tpayer</ecl:login>
+         <ecl:pwd>tpayer@2345</ecl:pwd><ecl:direction>1</ecl:direction>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+         <ecl:transactionID>32</ecl:transactionID>
+         <ecl:TransactionStatus>2</ecl:TransactionStatus>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+         <ecl:transactionFromDate>2016-01-01</ecl:transactionFromDate><ecl:transactionToDate>2016-03-01</ecl:transactionToDate><ecl:minRecordCount>-1</ecl:minRecordCount>
+         <ecl:maxRecordCount>-1</ecl:maxRecordCount>
+      </ecl:SearchTransactions>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/SearchTransactions"/></con:call><con:call id="59c3a409-91df-44b5-b016-d97ef4b593eb" name="Backup of [Oman Reqeust]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:SearchTransactions>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+         <ecl:login>oman</ecl:login><ecl:pwd>omanmed123</ecl:pwd><ecl:direction>1</ecl:direction>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+         <ecl:transactionID>32</ecl:transactionID>
+         <ecl:TransactionStatus>2</ecl:TransactionStatus>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+         <ecl:transactionFromDate>2016-01-01</ecl:transactionFromDate><ecl:transactionToDate>2016-01-02</ecl:transactionToDate><ecl:minRecordCount>-1</ecl:minRecordCount>
+         <ecl:maxRecordCount>-1</ecl:maxRecordCount>
+      </ecl:SearchTransactions>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/SearchTransactions"/></con:call></con:operation></con:interface><con:testSuite id="1f43e60e-b367-44fd-8a87-72e13c5f1303" name="ClaimsAndAuthorizationsArchiveSoap12 TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="aec008c4-57db-4537-a281-2712d075a3a1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DownloadTransactionFile TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="38b1cc1b-4d88-458f-97b8-0291c3f0e3b0" name="DownloadTransactionFile"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ClaimsAndAuthorizationsArchiveSoap12</con:interface><con:operation>DownloadTransactionFile</con:operation><con:request name="DownloadTransactionFile" id="325b1665-c37a-4c1b-aecc-04ece674ae83"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:DownloadTransactionFile>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:DownloadTransactionFile>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/ClaimsAndAuthorizationsArchiveSoap/DownloadTransactionFileRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="bf8f83c0-a87e-4354-9bf0-9f270814fa02" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SearchTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="4a5a988c-0b54-4e5c-848c-3be384677ddc" name="SearchTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ClaimsAndAuthorizationsArchiveSoap12</con:interface><con:operation>SearchTransactions</con:operation><con:request name="SearchTransactions" id="984e0251-0192-4da4-add6-1b8312437060"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:SearchTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <ecl:direction>?</ecl:direction>\r
+         <!--Optional:-->\r
+         <ecl:callerLicense>?</ecl:callerLicense>\r
+         <!--Optional:-->\r
+         <ecl:ePartner>?</ecl:ePartner>\r
+         <ecl:transactionID>?</ecl:transactionID>\r
+         <ecl:TransactionStatus>?</ecl:TransactionStatus>\r
+         <!--Optional:-->\r
+         <ecl:transactionFileName>?</ecl:transactionFileName>\r
+         <!--Optional:-->\r
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>\r
+         <!--Optional:-->\r
+         <ecl:transactionToDate>?</ecl:transactionToDate>\r
+         <ecl:minRecordCount>?</ecl:minRecordCount>\r
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>\r
+      </ecl:SearchTransactions>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/ClaimsAndAuthorizationsArchiveSoap/SearchTransactionsRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite id="e6d10981-a34a-4435-b5ae-f563a6166267" name="ClaimsAndAuthorizationsArchiveSoap TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="7e66781d-abaa-402d-a928-c4e2a0907d9a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DownloadTransactionFile TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="d07ec6cf-0e44-4d3a-b32a-c74cb74ca9a1" name="DownloadTransactionFile"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ClaimsAndAuthorizationsArchiveSoap</con:interface><con:operation>DownloadTransactionFile</con:operation><con:request name="DownloadTransactionFile" id="11f43cc6-5142-4455-9d5a-7f05f127a4ae"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:DownloadTransactionFile>
+         <!--Optional:-->
+         <ecl:login>?</ecl:login>
+         <!--Optional:-->
+         <ecl:pwd>?</ecl:pwd>
+         <!--Optional:-->
+         <ecl:fileId>?</ecl:fileId>
+      </ecl:DownloadTransactionFile>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/DownloadTransactionFile"/></con:request></con:config></con:testStep><con:testStep type="request" id="f3032eee-3a8b-40a6-a82d-48f3e6113f53" name="Backup of [DownloadTransactionFile]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ClaimsAndAuthorizationsArchiveSoap</con:interface><con:operation>DownloadTransactionFile</con:operation><con:request name="Backup of [DownloadTransactionFile]" id="11f43cc6-5142-4455-9d5a-7f05f127a4ae"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:DownloadTransactionFile>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:DownloadTransactionFile>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/DownloadTransactionFile"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="23418091-9664-4a93-ab83-55dc26e17971" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SearchTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="a87cd165-a002-471f-92c3-9df0b47d2234" name="SearchTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ClaimsAndAuthorizationsArchiveSoap</con:interface><con:operation>SearchTransactions</con:operation><con:request name="SearchTransactions" id="fd9caad9-ed78-4408-9579-0f25ffb70944"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:SearchTransactions>
+         <!--Optional:-->
+         <ecl:login>?</ecl:login>
+         <!--Optional:-->
+         <ecl:pwd>?</ecl:pwd>
+         <ecl:direction>?</ecl:direction>
+         <!--Optional:-->
+         <ecl:callerLicense>?</ecl:callerLicense>
+         <!--Optional:-->
+         <ecl:ePartner>?</ecl:ePartner>
+         <ecl:transactionID>?</ecl:transactionID>
+         <ecl:TransactionStatus>?</ecl:TransactionStatus>
+         <!--Optional:-->
+         <ecl:transactionFileName>?</ecl:transactionFileName>
+         <!--Optional:-->
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>
+         <!--Optional:-->
+         <ecl:transactionToDate>?</ecl:transactionToDate>
+         <ecl:minRecordCount>?</ecl:minRecordCount>
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>
+      </ecl:SearchTransactions>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/SearchTransactions"/></con:request></con:config></con:testStep><con:testStep type="request" id="bcb6d18f-7a33-43cb-857e-b33bd1d6b3f7" name="Backup of [SearchTransactions]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ClaimsAndAuthorizationsArchiveSoap</con:interface><con:operation>SearchTransactions</con:operation><con:request name="Backup of [SearchTransactions]" id="fd9caad9-ed78-4408-9579-0f25ffb70944"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/ClaimsAndAuthorizationsArchive.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:SearchTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <ecl:direction>?</ecl:direction>\r
+         <!--Optional:-->\r
+         <ecl:callerLicense>?</ecl:callerLicense>\r
+         <!--Optional:-->\r
+         <ecl:ePartner>?</ecl:ePartner>\r
+         <ecl:transactionID>?</ecl:transactionID>\r
+         <ecl:TransactionStatus>?</ecl:TransactionStatus>\r
+         <!--Optional:-->\r
+         <ecl:transactionFileName>?</ecl:transactionFileName>\r
+         <!--Optional:-->\r
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>\r
+         <!--Optional:-->\r
+         <ecl:transactionToDate>?</ecl:transactionToDate>\r
+         <ecl:minRecordCount>?</ecl:minRecordCount>\r
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>\r
+      </ecl:SearchTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/SearchTransactions"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>

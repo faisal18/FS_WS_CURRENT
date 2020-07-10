@@ -1,0 +1,2 @@
+Transaction,Type,ObjectName,DhpoField,FieldValue,AdditionalReference,ErrorText
+Schema Validation,ERROR,Schema Validation,,,Line: 2 - Position: 2,The 'Member.Register' element is not declared.

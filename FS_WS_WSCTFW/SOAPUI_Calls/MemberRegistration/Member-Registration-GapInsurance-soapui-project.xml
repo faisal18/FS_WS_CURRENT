@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="b2094d02-c55f-4186-838e-704dd620d308" activeEnvironment="Default" name="Member-Registration-GapInsurance" resourceRoot="${projectDir}" soapui-version="5.1.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="480d235f-9f7d-4527-af74-20c4a41f67a6" wsaVersion="NONE" name="basicEndpoint" type="wsdl" bindingName="{http://tempuri.org/}basicEndpoint" soapVersion="1_1" anonymous="optional" definition="https://mr.eclaimlink.ae/GapInsurance.svc?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://mr.eclaimlink.ae/GapInsurance.svc?WSDL"><con:part><con:url>https://mr.eclaimlink.ae/GapInsurance.svc?WSDL</con:url><con:content><![CDATA[<wsdl:definitions name="GapInsurance" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsp:Policy wsu:Id="basicEndpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false"/>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://mr.eclaimlink.ae/GapInsurance.svc?xsd=xsd0" namespace="http://tempuri.org/"/>
+      <xsd:import schemaLocation="https://mr.eclaimlink.ae/GapInsurance.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+      <xsd:import schemaLocation="https://mr.eclaimlink.ae/GapInsurance.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGapInsurance_GetMemberInsuranceGapInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberInsuranceGapInformation"/>
+  </wsdl:message>
+  <wsdl:message name="IGapInsurance_GetMemberInsuranceGapInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberInsuranceGapInformationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IGapInsurance_UpdateMemberGapPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMemberGapPayment"/>
+  </wsdl:message>
+  <wsdl:message name="IGapInsurance_UpdateMemberGapPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMemberGapPaymentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IGapInsurance_GetMemberInsuranceGapInformationByEmiratesId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberInsuranceGapInformationByEmiratesId"/>
+  </wsdl:message>
+  <wsdl:message name="IGapInsurance_GetMemberInsuranceGapInformationByEmiratesId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberInsuranceGapInformationByEmiratesIdResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="IGapInsurance">
+    <wsdl:operation name="GetMemberInsuranceGapInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformation" message="tns:IGapInsurance_GetMemberInsuranceGapInformation_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformationResponse" message="tns:IGapInsurance_GetMemberInsuranceGapInformation_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMemberGapPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGapInsurance/UpdateMemberGapPayment" message="tns:IGapInsurance_UpdateMemberGapPayment_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IGapInsurance/UpdateMemberGapPaymentResponse" message="tns:IGapInsurance_UpdateMemberGapPayment_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberInsuranceGapInformationByEmiratesId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformationByEmiratesId" message="tns:IGapInsurance_GetMemberInsuranceGapInformationByEmiratesId_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformationByEmiratesIdResponse" message="tns:IGapInsurance_GetMemberInsuranceGapInformationByEmiratesId_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="basicEndpoint" type="tns:IGapInsurance">
+    <wsp:PolicyReference URI="#basicEndpoint_policy"/>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetMemberInsuranceGapInformation">
+      <soap:operation soapAction="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformation" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMemberGapPayment">
+      <soap:operation soapAction="http://tempuri.org/IGapInsurance/UpdateMemberGapPayment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberInsuranceGapInformationByEmiratesId">
+      <soap:operation soapAction="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformationByEmiratesId" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GapInsurance">
+    <wsdl:port name="basicEndpoint" binding="tns:basicEndpoint">
+      <soap:address location="https://mr.eclaimlink.ae/GapInsurance.svc/basic"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://mr.eclaimlink.ae/GapInsurance.svc?xsd=xsd0</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+  <xs:import schemaLocation="https://mr.eclaimlink.ae/GapInsurance.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+  <xs:element name="GetMemberInsuranceGapInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="UID" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="dateOfBirth" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="gender" type="xs:int"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberInsuranceGapInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMemberInsuranceGapInformationResult" nillable="true" type="q1:MemberInsuranceResponse" xmlns:q1="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMemberGapPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="UID" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="dateOfBirth" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="gender" type="xs:int"/>
+        <xs:element minOccurs="0" name="referenceNumber" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMemberGapPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateMemberGapPaymentResult" nillable="true" type="q2:MemberInsuranceResponse" xmlns:q2="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberInsuranceGapInformationByEmiratesId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="emiratesId" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="dateOfBirth" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="gender" type="xs:int"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberInsuranceGapInformationByEmiratesIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMemberInsuranceGapInformationByEmiratesIdResult" nillable="true" type="q3:MemberInsuranceResponse" xmlns:q3="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://mr.eclaimlink.ae/GapInsurance.svc?xsd=xsd2</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberRegistration" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/MemberRegistration">
+  <xs:complexType name="MemberInsuranceResponse">
+    <xs:sequence>
+      <xs:element name="Result" type="xs:int"/>
+      <xs:element name="memberInformation" nillable="true" type="xs:string"/>
+      <xs:element name="ErrorMessage" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MemberInsuranceResponse" nillable="true" type="tns:MemberInsuranceResponse"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://mr.eclaimlink.ae/GapInsurance.svc?xsd=xsd1</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+  <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+  <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+  <xs:element name="byte" nillable="true" type="xs:byte"/>
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+  <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+  <xs:element name="double" nillable="true" type="xs:double"/>
+  <xs:element name="float" nillable="true" type="xs:float"/>
+  <xs:element name="int" nillable="true" type="xs:int"/>
+  <xs:element name="long" nillable="true" type="xs:long"/>
+  <xs:element name="QName" nillable="true" type="xs:QName"/>
+  <xs:element name="short" nillable="true" type="xs:short"/>
+  <xs:element name="string" nillable="true" type="xs:string"/>
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+  <xs:element name="char" nillable="true" type="tns:char"/>
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int"/>
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration"/>
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="guid" nillable="true" type="tns:guid"/>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="FactoryType" type="xs:QName"/>
+  <xs:attribute name="Id" type="xs:ID"/>
+  <xs:attribute name="Ref" type="xs:IDREF"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint></con:endpoints><con:operation id="9ee01e69-2626-441d-ba0a-7946467a7b73" isOneWay="false" action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformation" name="GetMemberInsuranceGapInformation" bindingOperationName="GetMemberInsuranceGapInformation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5cead71f-b3af-4d6d-ae4e-7a19f32059f1" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>100017261</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>04/08/1990</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>1</tem:gender>
+      </tem:GetMemberInsuranceGapInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformation"/><con:wsrmConfig version="1.2"/></con:call><con:call id="20496865-2478-45ac-9f35-45e449858539" name="Backup of [Request 1]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>100000807</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>01/01/1990</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>1</tem:gender>
+      </tem:GetMemberInsuranceGapInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformation"/></con:call><con:call id="7391fe7e-b948-4d60-8040-02fdd7769b93" name="Backup of [Backup of [Request 1]]"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>10261061</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>10/01/1954</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>1</tem:gender>
+      </tem:GetMemberInsuranceGapInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformation"/><con:wsrmConfig version="1.2"/></con:call><con:call id="030c4778-4e98-4ba3-b36a-bf8bca333cc4" name="Backup of [Backup of [Backup of [Request 1]]]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>10261061</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>10/01/1954</tem:dateOfBirth><tem:gender>1</tem:gender>
+         <!--Optional:-->
+         
+      </tem:GetMemberInsuranceGapInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformation"/></con:call></con:operation><con:operation id="8015eaf3-ed64-4ecc-900b-aa31a48481b4" isOneWay="false" action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformationByEmiratesId" name="GetMemberInsuranceGapInformationByEmiratesId" bindingOperationName="GetMemberInsuranceGapInformationByEmiratesId" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c11ff601-2568-4b21-8a0f-491bc8cae9f3" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformationByEmiratesId>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:emiratesId>784-1991-6286286-9</tem:emiratesId>
+         <!--Optional:-->
+         <tem:dateOfBirth>04/08/1990</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>1</tem:gender>
+      </tem:GetMemberInsuranceGapInformationByEmiratesId>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformationByEmiratesId"/><con:wsrmConfig version="1.2"/></con:call><con:call id="c04eb1e6-0025-4f49-a024-bbc827a332f1" name="Backup of [Request 1]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformationByEmiratesId>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:emiratesId>784-1991-6286286-9</tem:emiratesId>
+         <!--Optional:-->
+         <tem:dateOfBirth>04/08/1990</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>1</tem:gender>
+      </tem:GetMemberInsuranceGapInformationByEmiratesId>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformationByEmiratesId"/></con:call><con:call id="4a4643b9-1a64-4e9c-96ac-1428ea60c21f" name="Backup of [Backup of [Request 1]]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformationByEmiratesId>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:emiratesId>784-1991-6286286-9</tem:emiratesId>
+         <!--Optional:-->
+         <tem:dateOfBirth>04/08/1990</tem:dateOfBirth><tem:gender>1</tem:gender>
+         <!--Optional:-->
+         
+      </tem:GetMemberInsuranceGapInformationByEmiratesId>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformationByEmiratesId"/></con:call></con:operation><con:operation id="4e50aebb-b5d7-4f49-941a-08728c4b19e7" isOneWay="false" action="http://tempuri.org/IGapInsurance/UpdateMemberGapPayment" name="UpdateMemberGapPayment" bindingOperationName="UpdateMemberGapPayment" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="572deabe-c5b6-41d4-bf97-d2bcad61fcc2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:UpdateMemberGapPayment>\r
+         <!--Optional:-->\r
+         <tem:login>?</tem:login>\r
+         <!--Optional:-->\r
+         <tem:pwd>?</tem:pwd>\r
+         <!--Optional:-->\r
+         <tem:UID>?</tem:UID>\r
+         <!--Optional:-->\r
+         <tem:dateOfBirth>?</tem:dateOfBirth>\r
+         <!--Optional:-->\r
+         <tem:gender>?</tem:gender>\r
+         <!--Optional:-->\r
+         <tem:referenceNumber>?</tem:referenceNumber>\r
+      </tem:UpdateMemberGapPayment>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IGapInsurance/UpdateMemberGapPayment"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="1313ced3-04e1-4e40-b783-77681dead4f4" name="basicEndpoint TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="4af877a3-2a20-46b2-8f62-2467e95ae95e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetMemberInsuranceGapInformation TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="1125d4af-ea55-432d-b306-dc42a18aaead" name="GetMemberInsuranceGapInformation" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceGapInformation</con:operation><con:request name="GetMemberInsuranceGapInformation" id="2e7ac2a7-649b-4257-887f-92b428da752b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>100000807</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>01/01/1990</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>1</tem:gender>
+      </tem:GetMemberInsuranceGapInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformation" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="datasource" name="DataSource" id="aae460eb-0f16-4e0d-83e4-fffa003ce0e0"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="Excel"><con:configuration><file>MembersData.xlsx</file><worksheet>1</worksheet><cell>A2</cell><ignoreEmpty>false</ignoreEmpty></con:configuration></con:dataSource><con:property>UID</con:property><con:property>Gender</con:property><con:property>DOB</con:property><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="request" id="d0e3f343-c04b-4165-b9a5-08f188a3d6f0" name="GetMemberInsuranceGapInformation-Automated"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceGapInformation</con:operation><con:request name="GetMemberInsuranceGapInformation-Automated" id="2e7ac2a7-649b-4257-887f-92b428da752b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>${DataSource#UID}</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>${DataSource#DOB}</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>${DataSource#Gender}</tem:gender>
+      </tem:GetMemberInsuranceGapInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformation" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="PropertyTransfer 1" id="093187aa-ac65-477a-b613-79a27a7fec48"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" entitize="false" ignoreEmpty="false" transferToAll="false" transferChildNodes="false"><con:name>a:Result</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GetMemberInsuranceGapInformation-Automated</con:sourceStep><con:sourcePath>declare namespace ns1='http://tempuri.org/';
+declare namespace a='http://schemas.datacontract.org/2004/07/MemberRegistration';
+//ns1:GetMemberInsuranceGapInformationResponse[1]/ns1:GetMemberInsuranceGapInformationResult[1]/a:memberInformation[1]</con:sourcePath><con:targetType>res</con:targetType><con:targetStep>DataSink</con:targetStep><con:targetPath/><con:type>XPATH</con:type><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>res</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GetMemberInsuranceGapInformation-Automated</con:sourceStep><con:sourcePath>declare namespace ns1='http://tempuri.org/';
+declare namespace a='http://schemas.datacontract.org/2004/07/MemberRegistration';
+//ns1:GetMemberInsuranceGapInformationResponse[1]/ns1:GetMemberInsuranceGapInformationResult[1]/a:Result[1]</con:sourcePath><con:targetType>message</con:targetType><con:targetStep>DataSink</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" transferToAll="false" ignoreEmpty="false" transferChildNodes="false" entitize="false"><con:name>a:ErrorMessage</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>GetMemberInsuranceGapInformation-Automated</con:sourceStep><con:sourcePath>declare namespace ns1='http://tempuri.org/';
+declare namespace a='http://schemas.datacontract.org/2004/07/MemberRegistration';
+//ns1:GetMemberInsuranceGapInformationResponse[1]/ns1:GetMemberInsuranceGapInformationResult[1]/a:ErrorMessage[1]</con:sourcePath><con:targetType>err</con:targetType><con:targetStep>DataSink</con:targetStep><con:type>XPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="datasink" name="DataSink" id="1cd227aa-b32f-439e-a327-8637988e0d55"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="Excel"><con:configuration><file>MembersData.xlsx</file><outfile>MembersData.xlsx</outfile><worksheet>1</worksheet><cell>E2</cell></con:configuration></con:dataSink><con:properties><con:property><con:name>message</con:name><con:value>0</con:value></con:property><con:property><con:name>res</con:name><con:value><![CDATA[<MemberGap><Header><TransactionDate>08/12/2017 00:01:51</TransactionDate><ReferenceNumber>56a60915-4419-4414-be4f-86d3390fefff</ReferenceNumber><CurrentlyInsured>True</CurrentlyInsured><Gap>0</Gap><Fine>0</Fine><Message>no gaps found</Message></Header><Details><Detail><PolicyId>3572510008</PolicyId><EnrollmentDate>01/01/2011 00:00:00</EnrollmentDate><DeletionDate>31/12/2017 00:00:00</DeletionDate><UidNumber>100003319</UidNumber><DateOfBirth>01/07/1997 00:00:00</DateOfBirth><Gender>0</Gender><PayerId>INS013</PayerId><PayerName>AMERICAN LIFE INSURANCE COMPANY</PayerName><FirstName>CLAUDY</FirstName><SecondName></SecondName><FamilyName>HABIB</FamilyName></Detail></Details></MemberGap>]]></con:value></con:property><con:property><con:name>err</con:name><con:value>&lt;a:ErrorMessage xmlns:a="http://schemas.datacontract.org/2004/07/MemberRegistration" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://tempuri.org/" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"/></con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="datasourceloop" name="DataSource Loop" id="37a0a11b-f696-4e2f-ae64-4cb8e35a5a1c"><con:settings/><con:config><dataSourceStep>DataSource</dataSourceStep><targetStep>GetMemberInsuranceGapInformation-Automated</targetStep></con:config></con:testStep><con:testStep type="properties" name="Properties 1" id="642255a3-20bb-4000-a985-a74fb8f761c7"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>UID</con:name><con:value>0</con:value></con:property><con:property><con:name>a:memberInformation</con:name><con:value><![CDATA[<MemberGap><Header><TransactionDate>07/12/2017 23:50:01</TransactionDate><ReferenceNumber>3734a2e3-b833-4d95-a143-10501549fa3c</ReferenceNumber><CurrentlyInsured>True</CurrentlyInsured><Gap>0</Gap><Fine>0</Fine><Message>no gaps found</Message></Header><Details><Detail><PolicyId>3572510008</PolicyId><EnrollmentDate>01/01/2011 00:00:00</EnrollmentDate><DeletionDate>31/12/2017 00:00:00</DeletionDate><UidNumber>100003319</UidNumber><DateOfBirth>01/07/1997 00:00:00</DateOfBirth><Gender>0</Gender><PayerId>INS013</PayerId><PayerName>AMERICAN LIFE INSURANCE COMPANY</PayerName><FirstName>CLAUDY</FirstName><SecondName></SecondName><FamilyName>HABIB</FamilyName></Detail></Details></MemberGap>]]></con:value></con:property><con:property><con:name>Err</con:name><con:value>&lt;a:ErrorMessage xmlns:a="http://schemas.datacontract.org/2004/07/MemberRegistration" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://tempuri.org/" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"/></con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="request" id="a9d30c29-6bc4-4109-b6ed-f91e73fab2cd" name="Backup of [GetMemberInsuranceGapInformation]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceGapInformation</con:operation><con:request name="Backup of [GetMemberInsuranceGapInformation]" id="2e7ac2a7-649b-4257-887f-92b428da752b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>100000807</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>01/01/1990</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>1</tem:gender>
+      </tem:GetMemberInsuranceGapInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformation" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="4ac9e82f-f75e-4c10-8fed-ee25fab0c5c1" name="Backup of [GetMemberInsuranceGapInformation-Automated]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceGapInformation</con:operation><con:request name="Backup of [GetMemberInsuranceGapInformation-Automated]" id="2e7ac2a7-649b-4257-887f-92b428da752b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>${DataSource#UID}</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>${DataSource#DOB}</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>${DataSource#Gender}</tem:gender>
+      </tem:GetMemberInsuranceGapInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformation" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="21845b88-ab0f-42dd-a7f9-450de5022112" name="Backup of [Backup of [GetMemberInsuranceGapInformation]]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceGapInformation</con:operation><con:request name="Backup of [Backup of [GetMemberInsuranceGapInformation]]" id="2e7ac2a7-649b-4257-887f-92b428da752b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>100000807</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>01/01/1990</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>1</tem:gender>
+      </tem:GetMemberInsuranceGapInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformation" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="817d8941-92e4-4683-98e8-498aef023b54" name="Backup of [Backup of [GetMemberInsuranceGapInformation-Automated]]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceGapInformation</con:operation><con:request name="Backup of [Backup of [GetMemberInsuranceGapInformation-Automated]]" id="2e7ac2a7-649b-4257-887f-92b428da752b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>${DataSource#UID}</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>${DataSource#DOB}</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>${DataSource#Gender}</tem:gender>
+      </tem:GetMemberInsuranceGapInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformation" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="e471d94c-391e-405a-8dca-ab2aa5fb24a6" name="Backup of [Backup of [Backup of [GetMemberInsuranceGapInformation]]]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceGapInformation</con:operation><con:request name="Backup of [Backup of [Backup of [GetMemberInsuranceGapInformation]]]" id="2e7ac2a7-649b-4257-887f-92b428da752b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>100000807</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>01/01/1990</tem:dateOfBirth><tem:gender>1</tem:gender>
+         <!--Optional:-->
+         
+      </tem:GetMemberInsuranceGapInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformation" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="c8c9896d-d660-42c6-bf4b-90607c0e71cc" name="Backup of [Backup of [Backup of [GetMemberInsuranceGapInformation-Automated]]]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceGapInformation</con:operation><con:request name="Backup of [Backup of [Backup of [GetMemberInsuranceGapInformation-Automated]]]" id="2e7ac2a7-649b-4257-887f-92b428da752b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformation>
+         <!--Optional:-->
+         <tem:login>gdrfauser</tem:login>
+         <!--Optional:-->
+         <tem:pwd>gdrfapwd</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>${DataSource#UID}</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>${DataSource#DOB}</tem:dateOfBirth><tem:gender>${DataSource#Gender}</tem:gender>
+         <!--Optional:-->
+         
+      </tem:GetMemberInsuranceGapInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformation" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>37a0a11b-f696-4e2f-ae64-4cb8e35a5a1c</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>aae460eb-0f16-4e0d-83e4-fffa003ce0e0</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>1cd227aa-b32f-439e-a327-8637988e0d55</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="053cecb7-f12f-429d-8efc-d9adc4065983" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetMemberInsuranceGapInformationByEmiratesId TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="e2438b75-3c72-4e32-8de2-1c2e4dbc2509" name="GetMemberInsuranceGapInformationByEmiratesId"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceGapInformationByEmiratesId</con:operation><con:request name="GetMemberInsuranceGapInformationByEmiratesId" id="12cf2f70-c7cf-4ec3-a4dd-3758a46245c1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformationByEmiratesId>
+         <!--Optional:-->
+         <tem:login>?</tem:login>
+         <!--Optional:-->
+         <tem:pwd>?</tem:pwd>
+         <!--Optional:-->
+         <tem:emiratesId>?</tem:emiratesId>
+         <!--Optional:-->
+         <tem:dateOfBirth>?</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>?</tem:gender>
+      </tem:GetMemberInsuranceGapInformationByEmiratesId>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformationByEmiratesId"/></con:request></con:config></con:testStep><con:testStep type="request" id="f181757b-3e63-4038-818a-46a7b2a7aa65" name="Backup of [GetMemberInsuranceGapInformationByEmiratesId]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceGapInformationByEmiratesId</con:operation><con:request name="Backup of [GetMemberInsuranceGapInformationByEmiratesId]" id="12cf2f70-c7cf-4ec3-a4dd-3758a46245c1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformationByEmiratesId>
+         <!--Optional:-->
+         <tem:login>?</tem:login>
+         <!--Optional:-->
+         <tem:pwd>?</tem:pwd>
+         <!--Optional:-->
+         <tem:emiratesId>?</tem:emiratesId>
+         <!--Optional:-->
+         <tem:dateOfBirth>?</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>?</tem:gender>
+      </tem:GetMemberInsuranceGapInformationByEmiratesId>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformationByEmiratesId"/></con:request></con:config></con:testStep><con:testStep type="request" id="50bc22bd-7e0d-4c0c-8711-6596019f87d9" name="Backup of [Backup of [GetMemberInsuranceGapInformationByEmiratesId]]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceGapInformationByEmiratesId</con:operation><con:request name="Backup of [Backup of [GetMemberInsuranceGapInformationByEmiratesId]]" id="12cf2f70-c7cf-4ec3-a4dd-3758a46245c1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceGapInformationByEmiratesId>
+         <!--Optional:-->
+         <tem:login>?</tem:login>
+         <!--Optional:-->
+         <tem:pwd>?</tem:pwd>
+         <!--Optional:-->
+         <tem:emiratesId>?</tem:emiratesId>
+         <!--Optional:-->
+         <tem:dateOfBirth>?</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>?</tem:gender>
+      </tem:GetMemberInsuranceGapInformationByEmiratesId>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformationByEmiratesId"/></con:request></con:config></con:testStep><con:testStep type="request" id="02e01aa0-cefe-4de5-831e-028c51db492e" name="Backup of [Backup of [Backup of [GetMemberInsuranceGapInformationByEmiratesId]]]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceGapInformationByEmiratesId</con:operation><con:request name="Backup of [Backup of [Backup of [GetMemberInsuranceGapInformationByEmiratesId]]]" id="12cf2f70-c7cf-4ec3-a4dd-3758a46245c1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetMemberInsuranceGapInformationByEmiratesId>\r
+         <!--Optional:-->\r
+         <tem:login>?</tem:login>\r
+         <!--Optional:-->\r
+         <tem:pwd>?</tem:pwd>\r
+         <!--Optional:-->\r
+         <tem:emiratesId>?</tem:emiratesId>\r
+         <!--Optional:-->\r
+         <tem:dateOfBirth>?</tem:dateOfBirth>\r
+         <!--Optional:-->\r
+         <tem:gender>?</tem:gender>\r
+      </tem:GetMemberInsuranceGapInformationByEmiratesId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://tempuri.org/IGapInsurance/GetMemberInsuranceGapInformationByEmiratesId"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="d0888ce5-50a4-418c-a79c-d28836d8f719" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UpdateMemberGapPayment TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="83bf017f-57f0-484b-99b7-5b27f16f56e2" name="UpdateMemberGapPayment"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>UpdateMemberGapPayment</con:operation><con:request name="UpdateMemberGapPayment" id="8898c238-5ed2-42cf-b7a0-454cf30178a0"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:UpdateMemberGapPayment>
+         <!--Optional:-->
+         <tem:login>?</tem:login>
+         <!--Optional:-->
+         <tem:pwd>?</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>?</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>?</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>?</tem:gender>
+         <!--Optional:-->
+         <tem:referenceNumber>?</tem:referenceNumber>
+      </tem:UpdateMemberGapPayment>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://tempuri.org/IGapInsurance/UpdateMemberGapPayment"/></con:request></con:config></con:testStep><con:testStep type="request" id="df97b479-4ce9-4536-ba62-812f824ea8a9" name="Backup of [UpdateMemberGapPayment]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>UpdateMemberGapPayment</con:operation><con:request name="Backup of [UpdateMemberGapPayment]" id="8898c238-5ed2-42cf-b7a0-454cf30178a0"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:UpdateMemberGapPayment>
+         <!--Optional:-->
+         <tem:login>?</tem:login>
+         <!--Optional:-->
+         <tem:pwd>?</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>?</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>?</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>?</tem:gender>
+         <!--Optional:-->
+         <tem:referenceNumber>?</tem:referenceNumber>
+      </tem:UpdateMemberGapPayment>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://tempuri.org/IGapInsurance/UpdateMemberGapPayment"/></con:request></con:config></con:testStep><con:testStep type="request" id="4be62d48-fb22-48b0-8310-20a5490ec35c" name="Backup of [Backup of [UpdateMemberGapPayment]]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>UpdateMemberGapPayment</con:operation><con:request name="Backup of [Backup of [UpdateMemberGapPayment]]" id="8898c238-5ed2-42cf-b7a0-454cf30178a0"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:UpdateMemberGapPayment>
+         <!--Optional:-->
+         <tem:login>?</tem:login>
+         <!--Optional:-->
+         <tem:pwd>?</tem:pwd>
+         <!--Optional:-->
+         <tem:UID>?</tem:UID>
+         <!--Optional:-->
+         <tem:dateOfBirth>?</tem:dateOfBirth>
+         <!--Optional:-->
+         <tem:gender>?</tem:gender>
+         <!--Optional:-->
+         <tem:referenceNumber>?</tem:referenceNumber>
+      </tem:UpdateMemberGapPayment>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://tempuri.org/IGapInsurance/UpdateMemberGapPayment"/></con:request></con:config></con:testStep><con:testStep type="request" id="a303c65c-6005-47db-b19f-d9dc7e384ed6" name="Backup of [Backup of [Backup of [UpdateMemberGapPayment]]]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>UpdateMemberGapPayment</con:operation><con:request name="Backup of [Backup of [Backup of [UpdateMemberGapPayment]]]" id="8898c238-5ed2-42cf-b7a0-454cf30178a0"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://mr.eclaimlink.ae/GapInsurance.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:UpdateMemberGapPayment>\r
+         <!--Optional:-->\r
+         <tem:login>?</tem:login>\r
+         <!--Optional:-->\r
+         <tem:pwd>?</tem:pwd>\r
+         <!--Optional:-->\r
+         <tem:UID>?</tem:UID>\r
+         <!--Optional:-->\r
+         <tem:dateOfBirth>?</tem:dateOfBirth>\r
+         <!--Optional:-->\r
+         <tem:gender>?</tem:gender>\r
+         <!--Optional:-->\r
+         <tem:referenceNumber>?</tem:referenceNumber>\r
+      </tem:UpdateMemberGapPayment>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://tempuri.org/IGapInsurance/UpdateMemberGapPayment"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:reportTemplates/><con:xmlTemplates/><con:parameters/></con:reporting></con:soapui-project>

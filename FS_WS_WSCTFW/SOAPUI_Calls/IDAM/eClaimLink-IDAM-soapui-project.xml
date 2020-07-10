@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e21c5c3a-0001-43f8-bdba-623942e0fecf" activeEnvironment="Default" name="eClaimLink-IDAM" resourceRoot="" soapui-version="5.1.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <soap:Body>
+      <DHCEGResponse xmlns="http://www.Dimensions-healthcare.net/DHCEG/CommonTypes">
+         <DHCEGResult>1</DHCEGResult>
+         <response xmlns="">
+            <ClaimEdit>
+               <ID>100001</ID>
+               <RefNum>194bbee2-a968-41bd-bd0d-005a656257d5</RefNum>
+               <DateTime>29/01/2017 16:48:15</DateTime>
+               <EngineVersion>2.0</EngineVersion>
+               <Edit>
+                  <ID>1</ID>
+                  <Type>NoAlert</Type>
+                  <SubType>NA</SubType>
+                  <Code>NA</Code>
+                  <Rank>NA</Rank>
+                  <Comment>No Alert</Comment>
+               </Edit>
+               <ActivityEdit>
+                  <ID>1</ID>
+                  <Code>80025</Code>
+                  <EditId>1</EditId>
+               </ActivityEdit>
+            </ClaimEdit>
+         </response>
+      </DHCEGResponse>
+   </soap:Body>
+</soap:Envelope>

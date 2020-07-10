@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="71f4ec09-a257-4175-9f3a-ea50a07fafc4" activeEnvironment="Default" name="DHCC-GetProfessional-HCPService" resourceRoot="${projectDir}" soapui-version="5.1.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="537c2c5b-4719-46a4-842c-8033cb821436" wsaVersion="NONE" name="HCPServiceSoap12" type="wsdl" bindingName="{http://tempuri.org/}HCPServiceSoap12" soapVersion="1_2" anonymous="optional" definition="https://epayqa.dhcr.gov.ae/dha/HCPService.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>https://epayqa.dhcr.gov.ae/dha/HCPService.asmx</con:endpoint></con:endpoints><con:operation id="90c16e91-67c2-4878-8c77-cb5bbb244aa8" isOneWay="false" action="http://tempuri.org/GetProfessionals" name="GetProfessionals" bindingOperationName="GetProfessionals" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="10d8af2f-33e8-4287-9a69-4c15f7067d3a" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://epayqa.dhcr.gov.ae/dha/HCPService.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">
+   <soap:Header>
+      <tem:Authentication>
+         <!--Optional:-->
+         
+      </tem:Authentication>
+   </soap:Header>
+   <soap:Body>
+      <tem:GetProfessionals>
+         <!--Optional:-->
+         <tem:parameter>
+            <!--Optional:-->
+            
+            <!--Optional:-->
+            
+         </tem:parameter>
+      </tem:GetProfessionals>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/HCPServiceSoap/GetProfessionalsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="5d3371b4-9b05-4892-895b-1d040d31c6c7" wsaVersion="NONE" name="HCPServiceSoap" type="wsdl" bindingName="{http://tempuri.org/}HCPServiceSoap" soapVersion="1_1" anonymous="optional" definition="https://epayqa.dhcr.gov.ae/dha/HCPService.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://epayqa.dhcr.gov.ae/dha/HCPService.asmx?WSDL"><con:part><con:url>https://epayqa.dhcr.gov.ae/dha/HCPService.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetProfessionals">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="parameter" type="tns:InputParam"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InputParam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="dateFrom" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="dateTo" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProfessionalsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProfessionalsResult" type="tns:ArrayOfHCP"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHCP">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HCP" nillable="true" type="tns:HCP"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HCP">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="License" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="FacilityLicense" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="FacilityName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="facilities" type="tns:ArrayOfFacility"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ActiveFrom" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ActiveTo" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="IsActive" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialtyID1" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialtyDescription" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Nationality" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialtyID2" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialtyID3" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="HCType" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="DHCCSpecialty1" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="DHCCSpecialty2" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="DHCCSpecialty3" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFacility">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Facility" nillable="true" type="tns:Facility"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Facility">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FacilityLicense" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="FacilityName" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Authentication" type="tns:Authentication"/>
+      <s:complexType name="Authentication">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="secid" type="s:string"/>
+        </s:sequence>
+        <s:anyAttribute/>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetProfessionalsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProfessionals"/>
+  </wsdl:message>
+  <wsdl:message name="GetProfessionalsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProfessionalsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetProfessionalsAuthentication">
+    <wsdl:part name="Authentication" element="tns:Authentication"/>
+  </wsdl:message>
+  <wsdl:portType name="HCPServiceSoap">
+    <wsdl:operation name="GetProfessionals">
+      <wsdl:input message="tns:GetProfessionalsSoapIn"/>
+      <wsdl:output message="tns:GetProfessionalsSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HCPServiceSoap" type="tns:HCPServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetProfessionals">
+      <soap:operation soapAction="http://tempuri.org/GetProfessionals" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:GetProfessionalsAuthentication" part="Authentication" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="HCPServiceSoap12" type="tns:HCPServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetProfessionals">
+      <soap12:operation soapAction="http://tempuri.org/GetProfessionals" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+        <soap12:header message="tns:GetProfessionalsAuthentication" part="Authentication" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HCPService">
+    <wsdl:port name="HCPServiceSoap" binding="tns:HCPServiceSoap">
+      <soap:address location="https://epayqa.dhcr.gov.ae/dha/HCPService.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="HCPServiceSoap12" binding="tns:HCPServiceSoap12">
+      <soap12:address location="https://epayqa.dhcr.gov.ae/dha/HCPService.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://epayqa.dhcr.gov.ae/dha/HCPService.asmx</con:endpoint></con:endpoints><con:operation id="1b40a4f4-b770-4392-b149-67eece9eed94" isOneWay="false" action="http://tempuri.org/GetProfessionals" name="GetProfessionals" bindingOperationName="GetProfessionals" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b95774f8-955c-4341-aced-16e928203fe5" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://epayqa.dhcr.gov.ae/dha/HCPService.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header>
+      <tem:Authentication>
+         <!--Optional:-->
+         
+      </tem:Authentication>
+   </soapenv:Header>
+   <soapenv:Body>
+      <tem:GetProfessionals>
+         <!--Optional:-->
+         <tem:parameter>
+            <!--Optional:-->
+            
+            <!--Optional:-->
+            <tem:dateFrom>2017-01-01</tem:dateFrom><tem:dateTo>2017-02-01</tem:dateTo>
+         </tem:parameter>
+      </tem:GetProfessionals>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/GetProfessionals"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="d9b9a4c7-93f7-45c2-b943-aa9aa6226887" name="HCPServiceSoap12 TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="45cb8570-fa81-40dc-84c6-82fe1405499e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetProfessionals TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="e0233896-b581-4a38-8c99-b16c4c402b04" name="GetProfessionals"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>HCPServiceSoap12</con:interface><con:operation>GetProfessionals</con:operation><con:request name="GetProfessionals" id="e698f7da-9ec7-4139-b692-24b045501d7a"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://epayqa.dhcr.gov.ae/dha/HCPService.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header>\r
+      <tem:Authentication>\r
+         <!--Optional:-->\r
+         <tem:secid>?</tem:secid>\r
+      </tem:Authentication>\r
+   </soap:Header>\r
+   <soap:Body>\r
+      <tem:GetProfessionals>\r
+         <!--Optional:-->\r
+         <tem:parameter>\r
+            <!--Optional:-->\r
+            <tem:dateFrom>?</tem:dateFrom>\r
+            <!--Optional:-->\r
+            <tem:dateTo>?</tem:dateTo>\r
+         </tem:parameter>\r
+      </tem:GetProfessionals>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://tempuri.org/HCPServiceSoap/GetProfessionalsRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite id="d413f6cf-96b7-4fa1-82fa-1cdf395cd28f" name="HCPServiceSoap TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="ae761741-97f6-4996-a000-d4a76e5d8de1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetProfessionals TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="f8f70bba-f18f-45dd-954d-a4c941069837" name="GetProfessionals"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>HCPServiceSoap</con:interface><con:operation>GetProfessionals</con:operation><con:request name="GetProfessionals" id="5ed53447-af81-411b-9bed-3e9021a77c2b"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://epayqa.dhcr.gov.ae/dha/HCPService.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header>\r
+      <tem:Authentication>\r
+         <!--Optional:-->\r
+         <tem:secid>?</tem:secid>\r
+      </tem:Authentication>\r
+   </soapenv:Header>\r
+   <soapenv:Body>\r
+      <tem:GetProfessionals>\r
+         <!--Optional:-->\r
+         <tem:parameter>\r
+            <!--Optional:-->\r
+            <tem:dateFrom>?</tem:dateFrom>\r
+            <!--Optional:-->\r
+            <tem:dateTo>?</tem:dateTo>\r
+         </tem:parameter>\r
+      </tem:GetProfessionals>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://tempuri.org/GetProfessionals"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting></con:soapui-project>

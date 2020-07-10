@@ -1,0 +1,10 @@
+<Member.Register xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:tns=""http://www.eclaimlink.ae/DHD/ValidationSchema"" xsi:noNamespaceSchemaLocation=""http://www.eclaimlink.ae/DHD/ValidationSchema/MemberRegister.xsd"">
+<Header>
+<SenderID>INS999</SenderID>
+<ReceiverID>DHA</ReceiverID>
+<TransactionDate02/11/2015 10:00</TransactionDate>
+<RecordCount>1</RecordCount>
+<DispositionFlag>TEST</DispositionFlag>
+</Header>
+
+</Member.Register>

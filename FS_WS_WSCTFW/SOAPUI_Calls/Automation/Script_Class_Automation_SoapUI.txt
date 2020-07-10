@@ -1,0 +1,319 @@
+
+import com.eviware.soapui.impl.wsdl.WsdlInterface
+//import com.eviware.soapui.impl.wsdl.Interface
+import com.eviware.soapui.model.iface.Operation
+import com.eviware.soapui.model.iface.MessagePart
+
+
+////////////////////// Project /////////////////////////////////
+def fProjectName()
+{
+	return testRunner.testCase.testSuite.project.name
+}
+
+def fProjectObj()
+{
+	return testRunner.testCase.testSuite.project
+}
+
+def fProjectDetailspath ()
+{
+	return testRunner.testCase.testSuite.project.getPath()
+}
+////////////////////// Interface /////////////////////////////////
+def fInterfaceCount ()
+{
+	return testRunner.testCase.testSuite.project.getInterfaceCount()
+}
+
+def fInterfacename (int InterfaceIndexValue)
+{
+
+def Interfacename = (WsdlInterface) testRunner.testCase.testSuite.project.getInterfaceAt(InterfaceIndexValue)
+return Interfacename.getName()
+
+}
+
+
+def fInterfaceOperationCount (int InterfaceIndexValue)
+{
+
+def Interfacename = (WsdlInterface) testRunner.testCase.testSuite.project.getInterfaceAt(InterfaceIndexValue)
+return Interfacename.getOperationCount() 
+
+}
+
+////////////////////// Operations /////////////////////////////////
+def fOperationName (intInterfaceIndexValue, int operationIndexValue)
+{
+//log.info intInterfaceIndexValue
+//log.info operationIndexValue
+def Interfacename = (WsdlInterface) testRunner.testCase.testSuite.project.getInterfaceAt(intInterfaceIndexValue)
+//log.info Interfacename.getAllOperations()
+def OperationName = Interfacename.getOperationAt(operationIndexValue) 
+
+//log.info OperationName.getName()
+return OperationName.getName() 
+
+}
+
+def fgetAllOperationName (intInterfaceIndexValue)
+{
+	//log.info intInterfaceIndexValue
+
+	def Interfacename = (WsdlInterface) testRunner.testCase.testSuite.project.getInterfaceAt(intInterfaceIndexValue)
+	def operationCount = Interfacename.getOperationCount()
+	for (i in 0..operationCount-1)
+	{
+		log.info fOperationName(intInterfaceIndexValue,i)
+	}
+}
+
+////////////////////// Request /////////////////////////////////
+def fRequestCount (intInterfaceIndexValue, int operationIndexValue)
+{
+//log.info intInterfaceIndexValue
+//log.info operationIndexValue
+def Interfacename = (WsdlInterface) testRunner.testCase.testSuite.project.getInterfaceAt(intInterfaceIndexValue)
+//log.info Interfacename.getAllOperations()
+def OperationName = Interfacename.getOperationAt(operationIndexValue) 
+
+//log.info OperationName.getName()
+return OperationName.getRequestCount() 
+
+}
+def fRequest (intInterfaceIndexValue, int operationIndexValue, int RequestIndex)
+{
+//log.info intInterfaceIndexValue
+//log.info operationIndexValue
+def Interfacename = (WsdlInterface) testRunner.testCase.testSuite.project.getInterfaceAt(intInterfaceIndexValue)
+//log.info Interfacename.getAllOperations()
+def OperationName = Interfacename.getOperationAt(operationIndexValue) 
+def RequesteName = OperationName.getRequestAt(RequestIndex) 
+
+//log.info OperationName.getName()
+return RequesteName
+}
+
+def fRequestname (intInterfaceIndexValue, int operationIndexValue, int RequestIndex)
+{
+//log.info intInterfaceIndexValue
+//log.info operationIndexValue
+def Interfacename = (WsdlInterface) testRunner.testCase.testSuite.project.getInterfaceAt(intInterfaceIndexValue)
+//log.info Interfacename.getAllOperations()
+def OperationName = Interfacename.getOperationAt(operationIndexValue) 
+def RequesteName = OperationName.getRequestAt(RequestIndex) 
+
+//log.info OperationName.getName()
+return RequesteName.getName()
+}
+
+def fgetRequest (intInterfaceIndexValue, int operationIndexValue, int RequestIndex)
+{
+//log.info intInterfaceIndexValue
+//log.info operationIndexValue
+def Interfacename = (WsdlInterface) testRunner.testCase.testSuite.project.getInterfaceAt(intInterfaceIndexValue)
+//log.info Interfacename.getAllOperations()
+def OperationName = Interfacename.getOperationAt(operationIndexValue) 
+def RequesteName = OperationName.getRequestAt(RequestIndex) 
+
+//log.info OperationName.getName()
+return RequesteName
+}
+
+
+def fRequestContent (intInterfaceIndexValue, int operationIndexValue, int RequestIndex)
+{
+//log.info intInterfaceIndexValue
+//log.info operationIndexValue
+def Interfacename = (WsdlInterface) testRunner.testCase.testSuite.project.getInterfaceAt(intInterfaceIndexValue)
+//log.info Interfacename.getAllOperations()
+def OperationName = Interfacename.getOperationAt(operationIndexValue) 
+def RequesteName = OperationName.getRequestAt(RequestIndex) 
+
+//log.info OperationName.getName()
+return RequesteName.getRequestContent()
+}
+
+
+
+def fRequestParts (intInterfaceIndexValue, int operationIndexValue, int RequestIndex)
+{
+//log.info intInterfaceIndexValue
+//log.info operationIndexValue
+def Interfacename = (WsdlInterface) testRunner.testCase.testSuite.project.getInterfaceAt(intInterfaceIndexValue)
+//log.info Interfacename.getAllOperations()
+def OperationName = Interfacename.getOperationAt(operationIndexValue) 
+def RequesteName = OperationName.getRequestAt(RequestIndex) 
+def requestPart = RequesteName.getRequestParts() 
+def ReqParametPart = (MessagePart.ContentPart) requestPart[0]
+
+log.info requestPart[0].getName()
+log.info requestPart[0].getPartType()
+log.info ReqParametPart.getSchemaType()   
+log.info ReqParametPart.getPartElementName() 
+
+//log.info OperationName.getName()
+return requestPart
+}
+
+
+def fRequestParams(String RequestName)
+{
+	def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+//	log.info context
+//	log.info groovyUtils
+def stepName = context.getCurrentStep().getLabel()
+//stepName = "Authenticate - Authenticate_Request 1"
+//log.info "RqName:---" + RequestName
+stepName = RequestName
+log.info stepName
+def holder = groovyUtils.getXmlHolder( stepName + "#Request" )
+log.info "  Holder :"
+log.info holder.getPrettyXml()
+// set default value here
+def defaultVal = ""
+for( item in holder.getDomNodes( "//*" )){
+    log.info item.nodeName
+  //  log.info item.getNodeValue()
+   // item.setNodeValue("Fazeel")
+   //log.info item.getNodeValue()
+    
+    // holder.removeDomNodes("//"+item.nodeName)
+}
+// update request 
+//holder.updateProperty()
+// write updated request back to teststep
+//context.requestContent = holder.xml
+}
+
+
+////////////////////// TestSuite /////////////////////////////////
+
+
+def fCreateTestSuite (String TestSuiteName)
+{
+	def project = fProjectObj()
+testSuite = project.addNewTestSuite( "" + TestSuiteName )
+log.info "TestSuite Created with name: " + TestSuiteName
+return testSuite
+}
+////////////////////// TestCase /////////////////////////////////
+
+def fCreateTestSuitenTestCase (String TestSuiteName, String TCName)
+{
+	def project = fProjectObj()
+	testSuite = fCreateTestSuite(TestSuiteName)
+//testSuite = project.getTestSuiteByName( TestSuiteName )
+log.info "testsuite: " + testSuite
+ testCase = testSuite.addNewTestCase(TCName)
+log.info "TestCase Created with name: " + TCName
+//fCreateTestRequest (TestSuiteName,TCName)
+}
+
+def fCreateTestCase (String TestSuiteName)
+{
+	def project = fProjectObj()
+	
+testSuite = project.getTestSuiteByName( TestSuiteName )
+ testCase = testSuite.addNewTestCase(TestSuiteName+"_Request")
+	
+log.info "TestCase Created with name: " + TestSuiteName+"_Request"
+}
+
+def fgetTestCase (String TestSuiteName,String TestCaseName)
+{
+	def project = fProjectObj()
+	
+testSuite = project.getTestSuiteByName( TestSuiteName )
+ testCase = testSuite.getTestCaseByName(TestCaseName)
+	return testCase
+}
+
+////////////////////// TestRequest /////////////////////////////////
+
+def fCreateTestRequest (String TestSuiteName, String TestCaseName, com.eviware.soapui.model.iface.Request fRequest)
+{
+	def wsdlReq =  fRequest
+ testCase = fgetTestCase(TestSuiteName,TestCaseName)
+	//log.info message.Exchange.getRequest()
+log.info "TestCase :" + testCase
+log.info "wsdlRequest_Endpoint :" + wsdlReq.getEndpoint() 
+log.info "wsdlRequest_getOperation() :" + wsdlReq.getOperation().getName()  
+log.info "wsdlRequest_getModelItem_getSettings :" + wsdlReq.getModelItem().getSettings()
+log.info "wsdlRequest_getWsaConfig() () :" + wsdlReq.getWsaConfig() 
+log.info "wsdlRequest_getWsrmConfig()  :" + wsdlReq.getWsrmConfig()
+//WsdlGroovyScriptTestStep testStep = (WsdlGroovyScriptTestStep) testCase.addTestStep(GroovyScriptStepFactory.GROOVY_TYPE,   "StepName");
+
+//testCase.addTestStep("httprequest","Fazeel")
+
+}
+////////////////////// Parameters /////////////////////////////////
+
+
+////////////////////// Properties /////////////////////////////////
+def fCreateGlobalProperties (String TestCaseName, String PropertyName, String PropertyValue)
+{
+	 com.eviware.soapui.SoapUI.globalProperties.setPropertyValue(PropertyName , PropertyValue )
+//log.info setGlblProperty
+
+}
+
+
+////////////////////// Files  /////////////////////////////////
+
+
+
+////////////////////// DataSource /////////////////////////////////
+
+//------------------------------------------------------------------------------------------------------------------
+def fScriptCaller ()
+{
+
+log.info ("-----------------Fazeel Testing Starts---------------------")
+
+
+log.info "Project Name: " + fProjectName()
+log.info "Project Path: " + fProjectDetailspath()
+def InterfaceCount = fInterfaceCount()
+log.info "No.of Interfance in the Project: " + fInterfaceCount()
+
+//log.info "Name of Interface: " + fInterfacename(0)
+
+	for (i in 0..InterfaceCount-1)
+	{
+		def interfaceName = fInterfacename(i)
+		def operationCountforINterface = fInterfaceOperationCount(i)
+		
+		log.info "Name of Interfaces: " + interfaceName
+		log.info "Operation Count for Interface: " + interfaceName + "is: " +  operationCountforINterface
+		
+		for (j in 0..operationCountforINterface-1)
+		{
+			def operationName =  fOperationName(i,j)
+			log.info "OperationName: " + operationName
+			def requestCount = fRequestCount(i,j)
+			log.info "RequestCount for Operation: " + requestCount
+
+			for (k in 0..requestCount-1)
+			{
+				
+				def reqName = fgetRequest(i,j,k)
+				log.info "RequestName: " + reqName
+				//log.info "Request Contect: " + fRequestContent(i,j,k)
+				//log.info "Request Parts: " + fRequestParts(i,j,k)
+				fCreateTestSuitenTestCase(interfaceName+ "_"+operationName,  operationName + "_" + reqName.getName() )
+				fCreateTestRequest(interfaceName+ "_"+operationName,operationName + "_" + reqName.getName(),reqName)
+fCreateGlobalProperties (operationName,reqName)
+			}
+		}
+
+		
+	}
+
+log.info ("-----------------Fazeel Testing Ends----------------------")
+
+}
+
+
+fScriptCaller()

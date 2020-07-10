@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="45179768-5566-4f23-a298-3102727bc161" activeEnvironment="Default" name="cds.dimensions-healthcare" resourceRoot="${projectDir}" soapui-version="5.1.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="5a4d91eb-4fee-4d3e-99da-fe047de83ca3" wsaVersion="NONE" name="CdsBinding" type="wsdl" bindingName="{http://cds.soap.webservice.service.dimensions.com/}CdsBinding" soapVersion="1_1" anonymous="optional" definition="https://cds.dimensions-healthcare.com:8888/ws/cds.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://cds.dimensions-healthcare.com:8888/ws/cds.wsdl"><con:part><con:url>https://cds.dimensions-healthcare.com:8888/ws/cds.wsdl</con:url><con:content><![CDATA[<definitions name="cds" targetNamespace="http://cds.soap.webservice.service.dimensions.com/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://cds.soap.webservice.service.dimensions.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://cds.soap.webservice.service.dimensions.com/" schemaLocation="https://cds.dimensions-healthcare.com:8888/ws/cdsSchema.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="getClaimsEdits">
+    <part element="tns:getClaimsEdits" name="parameters"/>
+  </message>
+  <message name="getClaimsEditsLarge">
+    <part element="tns:getClaimsEditsLarge" name="parameters"/>
+  </message>
+  <message name="getClaimsEditsResult">
+    <part element="tns:getClaimsEditsResult" name="parameters"/>
+  </message>
+  <message name="getClaimsEditsResponse">
+    <part element="tns:getClaimsEditsResponse" name="parameters"/>
+  </message>
+  <message name="Exception">
+    <part element="tns:Exception" name="fault"/>
+  </message>
+  <portType name="Cds">
+    <operation name="getClaimsEdits">
+      <input message="tns:getClaimsEdits" name="getClaimsEdits"/>
+      <output message="tns:getClaimsEditsResult" name="getClaimsEditsResponse"/>
+      <fault message="tns:Exception" name="Exception"/>
+    </operation>
+    <operation name="getClaimsEditsLarge">
+      <input message="tns:getClaimsEditsLarge" name="getClaimsEditsLarge"/>
+      <output message="tns:getClaimsEditsResult" name="getClaimsEditsResponse"/>
+      <fault message="tns:Exception" name="Exception"/>
+    </operation>
+    <operation name="getClaimsEditsResult">
+      <input message="tns:getClaimsEditsResult" name="getClaimsEditsResult"/>
+      <output message="tns:getClaimsEditsResponse" name="getClaimsEditsResponse"/>
+      <fault message="tns:Exception" name="Exception"/>
+    </operation>
+  </portType>
+  <binding name="CdsBinding" type="tns:Cds">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getClaimsEdits">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="getClaimsEditsLarge">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="getClaimsEditsResult">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="CdsService">
+    <port binding="tns:CdsBinding" name="CdsBinding">
+      <soap:address location="https://cds.dimensions-healthcare.com:8888/ws"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://cds.dimensions-healthcare.com:8888/ws/cdsSchema.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://cds.soap.webservice.service.dimensions.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://cds.soap.webservice.service.dimensions.com/">
+  <xs:element name="getClaimsEdits">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="username" type="xs:string"/>
+        <xs:element name="password" type="xs:string"/>
+        <xs:element name="services" type="xs:string"/>
+        <xs:element name="isStrictCheck" type="xs:int"/>
+        <xs:element maxOccurs="unbounded" name="claims" type="tns:claimSubmission"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getClaimsEditsLarge">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="username" type="xs:string"/>
+        <xs:element name="password" type="xs:string"/>
+        <xs:element name="isStrictCheck" type="xs:int"/>
+        <xs:element maxOccurs="unbounded" name="claims" type="tns:claimSubmission"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getClaimsEditsResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="username" type="xs:string"/>
+        <xs:element name="password" type="xs:string"/>
+        <xs:element name="responseId" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getClaimsEditsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="return" type="tns:claimEditResult"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Exception" type="tns:Exception"/>
+  <xs:complexType name="claimSubmission">
+    <xs:sequence>
+      <xs:element name="claimID" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="claimSubmissionActivityList" type="tns:claimSubmissionActivity"/>
+      <xs:element maxOccurs="unbounded" name="claimSubmissionDiagnosisList" type="tns:claimSubmissionDiagnosis"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="claimSubmissionEncounter" nillable="true" type="tns:claimSubmissionEncounter"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="claimSubmissionPerson" nillable="true" type="tns:claimSubmissionPerson"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="claimSubmissionAllergyList" nillable="true" type="tns:claimSubmissionAllergy"/>
+      <xs:element minOccurs="0" name="payerId" type="xs:string"/>
+      <xs:element minOccurs="0" name="providerId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="claimSubmissionActivity">
+    <xs:sequence>
+      <xs:element name="activityCode" type="xs:string"/>
+      <xs:element name="activityId" type="xs:string"/>
+      <xs:element default="CURRENT" name="activitySource" type="xs:string"/>
+      <xs:element name="activityStart" type="xs:string"/>
+      <xs:element name="activityType" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="claimSubmissionObservationList" nillable="true" type="tns:claimSubmissionObservation"/>
+      <xs:element minOccurs="0" name="clinician" type="xs:string"/>
+      <xs:element name="duration" type="xs:double"/>
+      <xs:element minOccurs="0" name="orderingClinician" type="xs:string"/>
+      <xs:element minOccurs="0" name="priorAuthorizationId" type="xs:string"/>
+      <xs:element name="quantity" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="claimSubmissionObservation">
+    <xs:sequence>
+      <xs:element name="observationCode" type="xs:string"/>
+      <xs:element name="observationType" type="xs:string"/>
+      <xs:element minOccurs="0" name="observationValue" type="xs:string"/>
+      <xs:element minOccurs="0" name="observationValueType" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="claimSubmissionDiagnosis">
+    <xs:sequence>
+      <xs:element name="diagnosisCode" type="xs:string"/>
+      <xs:element default="CURRENT" name="diagnosisSource" type="xs:string"/>
+      <xs:element name="diagnosisType" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="claimSubmissionEncounter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="encounterEnd" type="xs:string"/>
+      <xs:element minOccurs="0" name="encounterEndType" type="xs:int"/>
+      <xs:element minOccurs="0" name="encounterStart" type="xs:string"/>
+      <xs:element minOccurs="0" name="encounterStartType" type="xs:int"/>
+      <xs:element name="encounterType" type="xs:int"/>
+      <xs:element minOccurs="0" name="facilityId" type="xs:string"/>
+      <xs:element minOccurs="0" name="patientId" type="xs:string"/>
+      <xs:element minOccurs="0" name="transferDestination" type="xs:string"/>
+      <xs:element minOccurs="0" name="transferSource" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="claimSubmissionPerson">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="breastFeedingDays" type="xs:int"/>
+      <xs:element minOccurs="0" name="creatinineClearance" type="xs:double"/>
+      <xs:element name="dateOfBirth" type="xs:string"/>
+      <xs:element name="gender" type="xs:string"/>
+      <xs:element minOccurs="0" name="hight" type="xs:int"/>
+      <xs:element minOccurs="0" name="memberId" type="xs:string"/>
+      <xs:element minOccurs="0" name="nationalId" type="xs:string"/>
+      <xs:element minOccurs="0" name="notes" type="xs:string"/>
+      <xs:element minOccurs="0" name="patientId" type="xs:string"/>
+      <xs:element minOccurs="0" name="pregnancyDays" type="xs:int"/>
+      <xs:element minOccurs="0" name="weight" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="claimSubmissionAllergy">
+    <xs:sequence>
+      <xs:element name="allergyId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="claimEditResult">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="claimEdits" nillable="true" type="tns:claimEdit"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+      <xs:element minOccurs="0" name="responseId" type="xs:string"/>
+      <xs:element minOccurs="0" name="success" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="claimEdit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="editId" type="xs:long"/>
+      <xs:element minOccurs="0" name="claimId" type="xs:string"/>
+      <xs:element minOccurs="0" name="value1" type="xs:string"/>
+      <xs:element minOccurs="0" name="value1Type" type="xs:string"/>
+      <xs:element minOccurs="0" name="value2" type="xs:string"/>
+      <xs:element minOccurs="0" name="value2Type" type="xs:string"/>
+      <xs:element minOccurs="0" name="value2SubType" type="xs:string"/>
+      <xs:element minOccurs="0" name="createdDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="editCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="editComment" type="xs:string"/>
+      <xs:element minOccurs="0" name="editRank" type="xs:int"/>
+      <xs:element minOccurs="0" name="editSource" type="xs:string"/>
+      <xs:element minOccurs="0" name="editType" type="tns:cdsService"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdsService">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element minOccurs="0" name="serviceCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="serviceId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Exception">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://cds.dimensions-healthcare.com:8888/ws</con:endpoint></con:endpoints><con:operation id="8bd8de88-17cd-4c73-ad5a-9926fbde688a" isOneWay="false" action="" name="getClaimsEdits" bindingOperationName="getClaimsEdits" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b3c675e6-2552-4098-a40e-eede93705b22" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://cds.dimensions-healthcare.com:8888/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cds="http://cds.soap.webservice.service.dimensions.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cds:getClaimsEdits>\r
+         <username>?</username>\r
+         <password>?</password>\r
+         <services>?</services>\r
+         <isStrictCheck>?</isStrictCheck>\r
+         <!--1 or more repetitions:-->\r
+         <claims>\r
+            <claimID>?</claimID>\r
+            <!--1 or more repetitions:-->\r
+            <claimSubmissionActivityList>\r
+               <activityCode>?</activityCode>\r
+               <activityId>?</activityId>\r
+               <activitySource>CURRENT</activitySource>\r
+               <activityStart>?</activityStart>\r
+               <activityType>?</activityType>\r
+               <!--Zero or more repetitions:-->\r
+               <claimSubmissionObservationList>\r
+                  <observationCode>?</observationCode>\r
+                  <observationType>?</observationType>\r
+                  <!--Optional:-->\r
+                  <observationValue>?</observationValue>\r
+                  <!--Optional:-->\r
+                  <observationValueType>?</observationValueType>\r
+               </claimSubmissionObservationList>\r
+               <!--Optional:-->\r
+               <clinician>?</clinician>\r
+               <duration>?</duration>\r
+               <!--Optional:-->\r
+               <orderingClinician>?</orderingClinician>\r
+               <!--Optional:-->\r
+               <priorAuthorizationId>?</priorAuthorizationId>\r
+               <quantity>?</quantity>\r
+            </claimSubmissionActivityList>\r
+            <!--1 or more repetitions:-->\r
+            <claimSubmissionDiagnosisList>\r
+               <diagnosisCode>?</diagnosisCode>\r
+               <diagnosisSource>CURRENT</diagnosisSource>\r
+               <diagnosisType>?</diagnosisType>\r
+            </claimSubmissionDiagnosisList>\r
+            <!--Zero or more repetitions:-->\r
+            <claimSubmissionEncounter>\r
+               <!--Optional:-->\r
+               <encounterEnd>?</encounterEnd>\r
+               <!--Optional:-->\r
+               <encounterEndType>?</encounterEndType>\r
+               <!--Optional:-->\r
+               <encounterStart>?</encounterStart>\r
+               <!--Optional:-->\r
+               <encounterStartType>?</encounterStartType>\r
+               <encounterType>?</encounterType>\r
+               <!--Optional:-->\r
+               <facilityId>?</facilityId>\r
+               <!--Optional:-->\r
+               <patientId>?</patientId>\r
+               <!--Optional:-->\r
+               <transferDestination>?</transferDestination>\r
+               <!--Optional:-->\r
+               <transferSource>?</transferSource>\r
+            </claimSubmissionEncounter>\r
+            <!--Zero or more repetitions:-->\r
+            <claimSubmissionPerson>\r
+               <!--Optional:-->\r
+               <breastFeedingDays>?</breastFeedingDays>\r
+               <!--Optional:-->\r
+               <creatinineClearance>?</creatinineClearance>\r
+               <dateOfBirth>?</dateOfBirth>\r
+               <gender>?</gender>\r
+               <!--Optional:-->\r
+               <hight>?</hight>\r
+               <!--Optional:-->\r
+               <memberId>?</memberId>\r
+               <!--Optional:-->\r
+               <nationalId>?</nationalId>\r
+               <!--Optional:-->\r
+               <notes>?</notes>\r
+               <!--Optional:-->\r
+               <patientId>?</patientId>\r
+               <!--Optional:-->\r
+               <pregnancyDays>?</pregnancyDays>\r
+               <!--Optional:-->\r
+               <weight>?</weight>\r
+            </claimSubmissionPerson>\r
+            <!--Zero or more repetitions:-->\r
+            <claimSubmissionAllergyList>\r
+               <allergyId>?</allergyId>\r
+            </claimSubmissionAllergyList>\r
+            <!--Optional:-->\r
+            <payerId>?</payerId>\r
+            <!--Optional:-->\r
+            <providerId>?</providerId>\r
+         </claims>\r
+      </cds:getClaimsEdits>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cds.soap.webservice.service.dimensions.com/Cds/getClaimsEditsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="ff9dcae7-7537-4500-b552-594be047395b" isOneWay="false" action="" name="getClaimsEditsLarge" bindingOperationName="getClaimsEditsLarge" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cf5889e2-fe62-40c0-8057-f67e3ff0bac7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://cds.dimensions-healthcare.com:8888/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cds="http://cds.soap.webservice.service.dimensions.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cds:getClaimsEditsLarge>\r
+         <username>?</username>\r
+         <password>?</password>\r
+         <isStrictCheck>?</isStrictCheck>\r
+         <!--1 or more repetitions:-->\r
+         <claims>\r
+            <claimID>?</claimID>\r
+            <!--1 or more repetitions:-->\r
+            <claimSubmissionActivityList>\r
+               <activityCode>?</activityCode>\r
+               <activityId>?</activityId>\r
+               <activitySource>CURRENT</activitySource>\r
+               <activityStart>?</activityStart>\r
+               <activityType>?</activityType>\r
+               <!--Zero or more repetitions:-->\r
+               <claimSubmissionObservationList>\r
+                  <observationCode>?</observationCode>\r
+                  <observationType>?</observationType>\r
+                  <!--Optional:-->\r
+                  <observationValue>?</observationValue>\r
+                  <!--Optional:-->\r
+                  <observationValueType>?</observationValueType>\r
+               </claimSubmissionObservationList>\r
+               <!--Optional:-->\r
+               <clinician>?</clinician>\r
+               <duration>?</duration>\r
+               <!--Optional:-->\r
+               <orderingClinician>?</orderingClinician>\r
+               <!--Optional:-->\r
+               <priorAuthorizationId>?</priorAuthorizationId>\r
+               <quantity>?</quantity>\r
+            </claimSubmissionActivityList>\r
+            <!--1 or more repetitions:-->\r
+            <claimSubmissionDiagnosisList>\r
+               <diagnosisCode>?</diagnosisCode>\r
+               <diagnosisSource>CURRENT</diagnosisSource>\r
+               <diagnosisType>?</diagnosisType>\r
+            </claimSubmissionDiagnosisList>\r
+            <!--Zero or more repetitions:-->\r
+            <claimSubmissionEncounter>\r
+               <!--Optional:-->\r
+               <encounterEnd>?</encounterEnd>\r
+               <!--Optional:-->\r
+               <encounterEndType>?</encounterEndType>\r
+               <!--Optional:-->\r
+               <encounterStart>?</encounterStart>\r
+               <!--Optional:-->\r
+               <encounterStartType>?</encounterStartType>\r
+               <encounterType>?</encounterType>\r
+               <!--Optional:-->\r
+               <facilityId>?</facilityId>\r
+               <!--Optional:-->\r
+               <patientId>?</patientId>\r
+               <!--Optional:-->\r
+               <transferDestination>?</transferDestination>\r
+               <!--Optional:-->\r
+               <transferSource>?</transferSource>\r
+            </claimSubmissionEncounter>\r
+            <!--Zero or more repetitions:-->\r
+            <claimSubmissionPerson>\r
+               <!--Optional:-->\r
+               <breastFeedingDays>?</breastFeedingDays>\r
+               <!--Optional:-->\r
+               <creatinineClearance>?</creatinineClearance>\r
+               <dateOfBirth>?</dateOfBirth>\r
+               <gender>?</gender>\r
+               <!--Optional:-->\r
+               <hight>?</hight>\r
+               <!--Optional:-->\r
+               <memberId>?</memberId>\r
+               <!--Optional:-->\r
+               <nationalId>?</nationalId>\r
+               <!--Optional:-->\r
+               <notes>?</notes>\r
+               <!--Optional:-->\r
+               <patientId>?</patientId>\r
+               <!--Optional:-->\r
+               <pregnancyDays>?</pregnancyDays>\r
+               <!--Optional:-->\r
+               <weight>?</weight>\r
+            </claimSubmissionPerson>\r
+            <!--Zero or more repetitions:-->\r
+            <claimSubmissionAllergyList>\r
+               <allergyId>?</allergyId>\r
+            </claimSubmissionAllergyList>\r
+            <!--Optional:-->\r
+            <payerId>?</payerId>\r
+            <!--Optional:-->\r
+            <providerId>?</providerId>\r
+         </claims>\r
+      </cds:getClaimsEditsLarge>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cds.soap.webservice.service.dimensions.com/Cds/getClaimsEditsLargeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="8385fefd-6f75-49dd-8612-d61d1397119f" isOneWay="false" action="" name="getClaimsEditsResult" bindingOperationName="getClaimsEditsResult" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="eb4bf68e-1705-43f7-bb97-124731f4ccf7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://cds.dimensions-healthcare.com:8888/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cds="http://cds.soap.webservice.service.dimensions.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cds:getClaimsEditsResult>\r
+         <username>?</username>\r
+         <password>?</password>\r
+         <responseId>?</responseId>\r
+      </cds:getClaimsEditsResult>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cds.soap.webservice.service.dimensions.com/Cds/getClaimsEditsResultRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="e1589d0f-977d-478c-b827-33acc3446668" name="CdsBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="54782775-73e4-46e8-a239-86361608c158" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getClaimsEdits TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="a6cdfbed-156a-4bfd-9ccc-18d81d4f54c9" name="getClaimsEdits"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CdsBinding</con:interface><con:operation>getClaimsEdits</con:operation><con:request name="getClaimsEdits" id="5ef64069-e68f-4309-b074-a2c4901e2822"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://cds.dimensions-healthcare.com:8888/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cds="http://cds.soap.webservice.service.dimensions.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cds:getClaimsEdits>\r
+         <username>?</username>\r
+         <password>?</password>\r
+         <services>?</services>\r
+         <isStrictCheck>?</isStrictCheck>\r
+         <!--1 or more repetitions:-->\r
+         <claims>\r
+            <claimID>?</claimID>\r
+            <!--1 or more repetitions:-->\r
+            <claimSubmissionActivityList>\r
+               <activityCode>?</activityCode>\r
+               <activityId>?</activityId>\r
+               <activitySource>CURRENT</activitySource>\r
+               <activityStart>?</activityStart>\r
+               <activityType>?</activityType>\r
+               <!--Zero or more repetitions:-->\r
+               <claimSubmissionObservationList>\r
+                  <observationCode>?</observationCode>\r
+                  <observationType>?</observationType>\r
+                  <!--Optional:-->\r
+                  <observationValue>?</observationValue>\r
+                  <!--Optional:-->\r
+                  <observationValueType>?</observationValueType>\r
+               </claimSubmissionObservationList>\r
+               <!--Optional:-->\r
+               <clinician>?</clinician>\r
+               <duration>?</duration>\r
+               <!--Optional:-->\r
+               <orderingClinician>?</orderingClinician>\r
+               <!--Optional:-->\r
+               <priorAuthorizationId>?</priorAuthorizationId>\r
+               <quantity>?</quantity>\r
+            </claimSubmissionActivityList>\r
+            <!--1 or more repetitions:-->\r
+            <claimSubmissionDiagnosisList>\r
+               <diagnosisCode>?</diagnosisCode>\r
+               <diagnosisSource>CURRENT</diagnosisSource>\r
+               <diagnosisType>?</diagnosisType>\r
+            </claimSubmissionDiagnosisList>\r
+            <!--Zero or more repetitions:-->\r
+            <claimSubmissionEncounter>\r
+               <!--Optional:-->\r
+               <encounterEnd>?</encounterEnd>\r
+               <!--Optional:-->\r
+               <encounterEndType>?</encounterEndType>\r
+               <!--Optional:-->\r
+               <encounterStart>?</encounterStart>\r
+               <!--Optional:-->\r
+               <encounterStartType>?</encounterStartType>\r
+               <encounterType>?</encounterType>\r
+               <!--Optional:-->\r
+               <facilityId>?</facilityId>\r
+               <!--Optional:-->\r
+               <patientId>?</patientId>\r
+               <!--Optional:-->\r
+               <transferDestination>?</transferDestination>\r
+               <!--Optional:-->\r
+               <transferSource>?</transferSource>\r
+            </claimSubmissionEncounter>\r
+            <!--Zero or more repetitions:-->\r
+            <claimSubmissionPerson>\r
+               <!--Optional:-->\r
+               <breastFeedingDays>?</breastFeedingDays>\r
+               <!--Optional:-->\r
+               <creatinineClearance>?</creatinineClearance>\r
+               <dateOfBirth>?</dateOfBirth>\r
+               <gender>?</gender>\r
+               <!--Optional:-->\r
+               <hight>?</hight>\r
+               <!--Optional:-->\r
+               <memberId>?</memberId>\r
+               <!--Optional:-->\r
+               <nationalId>?</nationalId>\r
+               <!--Optional:-->\r
+               <notes>?</notes>\r
+               <!--Optional:-->\r
+               <patientId>?</patientId>\r
+               <!--Optional:-->\r
+               <pregnancyDays>?</pregnancyDays>\r
+               <!--Optional:-->\r
+               <weight>?</weight>\r
+            </claimSubmissionPerson>\r
+            <!--Zero or more repetitions:-->\r
+            <claimSubmissionAllergyList>\r
+               <allergyId>?</allergyId>\r
+            </claimSubmissionAllergyList>\r
+            <!--Optional:-->\r
+            <payerId>?</payerId>\r
+            <!--Optional:-->\r
+            <providerId>?</providerId>\r
+         </claims>\r
+      </cds:getClaimsEdits>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://cds.soap.webservice.service.dimensions.com/Cds/getClaimsEditsRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="1a522b94-fd3e-4d19-94d5-78823ba13533" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getClaimsEditsLarge TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="8548aac3-382b-4f0a-8546-bce13af9672f" name="getClaimsEditsLarge"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CdsBinding</con:interface><con:operation>getClaimsEditsLarge</con:operation><con:request name="getClaimsEditsLarge" id="0ae0ec37-2b07-4281-ad5e-d19d1f94495c"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://cds.dimensions-healthcare.com:8888/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cds="http://cds.soap.webservice.service.dimensions.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cds:getClaimsEditsLarge>\r
+         <username>?</username>\r
+         <password>?</password>\r
+         <isStrictCheck>?</isStrictCheck>\r
+         <!--1 or more repetitions:-->\r
+         <claims>\r
+            <claimID>?</claimID>\r
+            <!--1 or more repetitions:-->\r
+            <claimSubmissionActivityList>\r
+               <activityCode>?</activityCode>\r
+               <activityId>?</activityId>\r
+               <activitySource>CURRENT</activitySource>\r
+               <activityStart>?</activityStart>\r
+               <activityType>?</activityType>\r
+               <!--Zero or more repetitions:-->\r
+               <claimSubmissionObservationList>\r
+                  <observationCode>?</observationCode>\r
+                  <observationType>?</observationType>\r
+                  <!--Optional:-->\r
+                  <observationValue>?</observationValue>\r
+                  <!--Optional:-->\r
+                  <observationValueType>?</observationValueType>\r
+               </claimSubmissionObservationList>\r
+               <!--Optional:-->\r
+               <clinician>?</clinician>\r
+               <duration>?</duration>\r
+               <!--Optional:-->\r
+               <orderingClinician>?</orderingClinician>\r
+               <!--Optional:-->\r
+               <priorAuthorizationId>?</priorAuthorizationId>\r
+               <quantity>?</quantity>\r
+            </claimSubmissionActivityList>\r
+            <!--1 or more repetitions:-->\r
+            <claimSubmissionDiagnosisList>\r
+               <diagnosisCode>?</diagnosisCode>\r
+               <diagnosisSource>CURRENT</diagnosisSource>\r
+               <diagnosisType>?</diagnosisType>\r
+            </claimSubmissionDiagnosisList>\r
+            <!--Zero or more repetitions:-->\r
+            <claimSubmissionEncounter>\r
+               <!--Optional:-->\r
+               <encounterEnd>?</encounterEnd>\r
+               <!--Optional:-->\r
+               <encounterEndType>?</encounterEndType>\r
+               <!--Optional:-->\r
+               <encounterStart>?</encounterStart>\r
+               <!--Optional:-->\r
+               <encounterStartType>?</encounterStartType>\r
+               <encounterType>?</encounterType>\r
+               <!--Optional:-->\r
+               <facilityId>?</facilityId>\r
+               <!--Optional:-->\r
+               <patientId>?</patientId>\r
+               <!--Optional:-->\r
+               <transferDestination>?</transferDestination>\r
+               <!--Optional:-->\r
+               <transferSource>?</transferSource>\r
+            </claimSubmissionEncounter>\r
+            <!--Zero or more repetitions:-->\r
+            <claimSubmissionPerson>\r
+               <!--Optional:-->\r
+               <breastFeedingDays>?</breastFeedingDays>\r
+               <!--Optional:-->\r
+               <creatinineClearance>?</creatinineClearance>\r
+               <dateOfBirth>?</dateOfBirth>\r
+               <gender>?</gender>\r
+               <!--Optional:-->\r
+               <hight>?</hight>\r
+               <!--Optional:-->\r
+               <memberId>?</memberId>\r
+               <!--Optional:-->\r
+               <nationalId>?</nationalId>\r
+               <!--Optional:-->\r
+               <notes>?</notes>\r
+               <!--Optional:-->\r
+               <patientId>?</patientId>\r
+               <!--Optional:-->\r
+               <pregnancyDays>?</pregnancyDays>\r
+               <!--Optional:-->\r
+               <weight>?</weight>\r
+            </claimSubmissionPerson>\r
+            <!--Zero or more repetitions:-->\r
+            <claimSubmissionAllergyList>\r
+               <allergyId>?</allergyId>\r
+            </claimSubmissionAllergyList>\r
+            <!--Optional:-->\r
+            <payerId>?</payerId>\r
+            <!--Optional:-->\r
+            <providerId>?</providerId>\r
+         </claims>\r
+      </cds:getClaimsEditsLarge>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://cds.soap.webservice.service.dimensions.com/Cds/getClaimsEditsLargeRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="ea12549c-41a3-4578-9bf8-606659ccf0a8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getClaimsEditsResult TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="2b44bccf-c9fe-472b-a601-63a5cb5788f5" name="getClaimsEditsResult"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CdsBinding</con:interface><con:operation>getClaimsEditsResult</con:operation><con:request name="getClaimsEditsResult" id="51f55554-9425-49bb-ab43-70992db053e1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://cds.dimensions-healthcare.com:8888/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cds="http://cds.soap.webservice.service.dimensions.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cds:getClaimsEditsResult>\r
+         <username>?</username>\r
+         <password>?</password>\r
+         <responseId>?</responseId>\r
+      </cds:getClaimsEditsResult>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://cds.soap.webservice.service.dimensions.com/Cds/getClaimsEditsResultRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting></con:soapui-project>

@@ -1,0 +1,1152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" id="62750107-268b-4f3e-ada1-fb76a47bf4f5" name="DSSRServicewsdl" resourceRoot="" soapui-version="5.1.1" xmlns:con="http://eviware.com/soapui/config">
+	<con:settings/>
+	<con:interface anonymous="optional" bindingName="{http://ws.icm.dhc.com/}DssrServiceServiceSoapBinding" definition="http://aims-uat01:8181/ICM/ws/DSSRService?wsdl" id="16909434-b266-4d68-b7b1-70374a194696" name="DssrServiceServiceSoapBinding" soapVersion="1_1" type="wsdl" wsaVersion="NONE" xsi:type="con:WsdlInterface" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<con:settings/>
+		<con:definitionCache rootPart="http://aims-uat01:8181/ICM/ws/DSSRService?wsdl" type="TEXT">
+			<con:part>
+				<con:url>http://aims-uat01:8181/ICM/ws/DSSRService?wsdl</con:url>
+				<con:content><![CDATA[
+					<wsdl:definitions name="DssrServiceService" targetNamespace="http://ws.icm.dhc.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.icm.dhc.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+						<wsdl:types>
+							<xs:schema targetNamespace="http://www.dimensions-healthcare.net/ICM/ICMSchema" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+								<xs:simpleType name="HeaderDispositionFlag">
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="TEST"/>
+										<xs:enumeration value="PRODUCTION"/></xs:restriction>
+								</xs:simpleType>
+								<xs:simpleType name="HeaderTransactionType">
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="Review"/>
+										<xs:enumeration value="Submit"/>
+										<xs:enumeration value="Transmit"/>
+									</xs:restriction>
+								</xs:simpleType>
+								<xs:simpleType name="Gender">
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="M"/>
+										<xs:enumeration value="F"/>
+										<xs:enumeration value="U"/>
+									</xs:restriction>
+								</xs:simpleType>
+								<xs:simpleType name="DiagnosisType">
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="Principal"/>
+										<xs:enumeration value="Secondary"/>
+										<xs:enumeration value="Admitting"/>
+									</xs:restriction>
+								</xs:simpleType>
+								<xs:simpleType name="PatientShareType">
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="Deductible"/>
+										<xs:enumeration value="Copay"/>
+									</xs:restriction>
+								</xs:simpleType>
+								<xs:simpleType name="ObservationType">
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="LOINC"/>
+										<xs:enumeration value="Text"/>
+										<xs:enumeration value="File"/>
+										<xs:enumeration value="UniversalDental"/>
+										<xs:enumeration value="Financial"/>
+										<xs:enumeration value="Grouping"/>
+										<xs:enumeration value="Modifier"/>
+										<xs:enumeration value="ERX"/>
+									</xs:restriction>
+								</xs:simpleType>
+								<xs:simpleType name="ResubmissionType">
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="correction"/>
+										<xs:enumeration value="internal complaint"/>
+										<xs:enumeration value="legacy"/>
+									</xs:restriction>
+								</xs:simpleType>
+								<xs:simpleType name="ScrubbingHintCode">
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="Ignore"/>
+										<xs:enumeration value="Include"/>
+										<xs:enumeration value="Other"/>
+									</xs:restriction>
+								</xs:simpleType>
+								<xs:simpleType name="ActivityEditRank">
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="A"/>
+										<xs:enumeration value="R"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:schema>
+							<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://ws.icm.dhc.com/" xmlns:ns1="http://www.dimensions-healthcare.net/ICM/ICMSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+								<xs:import namespace="http://www.dimensions-healthcare.net/ICM/ICMSchema"/>
+								<xs:element name="DssrRequest">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="Username" type="xs:string"/>
+											<xs:element name="Key" type="xs:string"/>
+											<xs:element name="Submission">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="Header">
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="SubmissionDestination" type="xs:integer"/>
+																	<xs:element name="SenderID" type="xs:string"/>
+																	<xs:element name="ReceiverID" type="xs:string"/>
+																	<xs:element name="DispositionFlag" type="ns1:HeaderDispositionFlag"/>
+																	<xs:element name="ReferenceID" type="xs:string"/>
+																	<xs:element name="transactionType" type="ns1:HeaderTransactionType"/>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+														<xs:element maxOccurs="unbounded" name="Transaction">
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="ID" type="xs:string"/>
+																	<xs:element name="PayerID" type="xs:string"/>
+																	<xs:element name="ProviderID" type="xs:string"/>
+																	<xs:element minOccurs="0" name="HealthPlanID" type="xs:string"/>
+																	<xs:element minOccurs="0" name="PayerTransactionReference" type="xs:string"/>
+																	<xs:element minOccurs="0" name="TransactionGross" type="xs:double"/>
+																	<xs:element minOccurs="0" name="TransactionPatientShare" type="xs:string"/>
+																	<xs:element minOccurs="0" name="TransactionNet" type="xs:double"/>
+																	<xs:element minOccurs="0" name="TransactionPriorAuthorizationID" type="xs:string"/>
+																	<xs:element name="Person">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element minOccurs="0" name="ID" type="xs:string"/>
+																				<xs:element name="InsuranceMemberNumber" type="xs:string"/>
+																				<xs:element name="NationalIDNumber" type="xs:string"/>
+																				<xs:element minOccurs="0" name="BirthDate" type="xs:string"/>
+																				<xs:element minOccurs="0" name="Gender" type="ns1:Gender"/>
+																				<xs:element minOccurs="0" name="Weight" type="xs:integer"/>
+																				<xs:element minOccurs="0" name="BreastFeeding" type="xs:integer"/>
+																				<xs:element minOccurs="0" name="WeeksOfAmenorrhoea" type="xs:integer"/>
+																				<xs:element minOccurs="0" name="CreatinClearance" type="xs:integer"/>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element name="Encounter">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="FacilityID" type="xs:string"/>
+																				<xs:element name="Type" type="xs:integer"/>
+																				<xs:element minOccurs="0" name="Start" type="xs:string"/>
+																				<xs:element minOccurs="0" name="End" type="xs:string"/>
+																				<xs:element minOccurs="0" name="StartType" type="xs:integer"/>
+																				<xs:element minOccurs="0" name="EndType" type="xs:integer"/>
+																				<xs:element minOccurs="0" name="EligibilityIDPayer" type="xs:string"/>
+																				<xs:element minOccurs="0" name="TransferSource" type="xs:string"/>
+																				<xs:element minOccurs="0" name="TransferDestination" type="xs:string"/>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element maxOccurs="unbounded" minOccurs="0" name="Diagnosis">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="CodeTerm" type="xs:string"/>
+																				<xs:element name="Type" type="ns1:DiagnosisType"/>
+																				<xs:element name="Code" type="xs:string"/>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element maxOccurs="unbounded" minOccurs="0" name="Activity">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="ID" type="xs:string"/>
+																				<xs:element name="CodeTerm" type="xs:string"/>
+																				<xs:element name="Start" type="xs:string"/>
+																				<xs:element name="End" type="xs:string"/>
+																				<xs:element name="Code" type="xs:string"/>
+																				<xs:element name="Quantity" type="xs:float"/>
+																				<xs:element name="OrderingClinician" type="xs:string"/>
+																				<xs:element name="Clinician" type="xs:string"/>
+																				<xs:element minOccurs="0" name="PriorAuthorizationID" type="xs:string"/>
+																				<xs:element minOccurs="0" name="ActivityNet" type="xs:float"/>
+																				<xs:element minOccurs="0" name="ActivityGross" type="xs:float"/>
+																				<xs:element minOccurs="0" name="ActivityPatientShare">
+																					<xs:complexType>
+																						<xs:sequence>
+																							<xs:element name="Type" type="ns1:PatientShareType"/>
+																							<xs:element name="Value" type="xs:float"/>
+																						</xs:sequence>
+																					</xs:complexType>
+																				</xs:element>
+																				<xs:element maxOccurs="unbounded" minOccurs="0" name="Observation">
+																					<xs:complexType>
+																						<xs:sequence>
+																							<xs:element name="ID" type="xs:string"/>
+																							<xs:element name="Type" type="ns1:ObservationType"/>
+																							<xs:element name="Code" type="xs:string"/>
+																							<xs:element minOccurs="0" name="Value" type="xs:string"/>
+																							<xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+																						</xs:sequence>
+																					</xs:complexType>
+																				</xs:element>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element minOccurs="0" name="Resubmission">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="Sequence" type="xs:integer"/>
+																				<xs:element name="Type" type="ns1:ResubmissionType"/>
+																				<xs:element name="Comment" type="xs:string"/>
+																				<xs:element minOccurs="0" name="Attachment" type="xs:base64Binary"/>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element maxOccurs="unbounded" minOccurs="0" name="ScrubbingHint">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="Code" type="ns1:ScrubbingHintCode"/>
+																				<xs:element name="Value" type="xs:string"/>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="Submission">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="Header">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="SubmissionDestination" type="xs:integer"/>
+														<xs:element name="SenderID" type="xs:string"/>
+														<xs:element name="ReceiverID" type="xs:string"/>
+														<xs:element name="DispositionFlag" type="ns1:HeaderDispositionFlag"/>
+														<xs:element name="ReferenceID" type="xs:string"/>
+														<xs:element name="transactionType" type="ns1:HeaderTransactionType"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element maxOccurs="unbounded" name="Transaction">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="ID" type="xs:string"/>
+														<xs:element name="PayerID" type="xs:string"/>
+														<xs:element name="ProviderID" type="xs:string"/>
+														<xs:element minOccurs="0" name="HealthPlanID" type="xs:string"/>
+														<xs:element minOccurs="0" name="PayerTransactionReference" type="xs:string"/>
+														<xs:element minOccurs="0" name="TransactionGross" type="xs:double"/>
+														<xs:element minOccurs="0" name="TransactionPatientShare" type="xs:string"/>
+														<xs:element minOccurs="0" name="TransactionNet" type="xs:double"/>
+														<xs:element minOccurs="0" name="TransactionPriorAuthorizationID" type="xs:string"/>
+														<xs:element name="Person">
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element minOccurs="0" name="ID" type="xs:string"/>
+																	<xs:element name="InsuranceMemberNumber" type="xs:string"/>
+																	<xs:element name="NationalIDNumber" type="xs:string"/>
+																	<xs:element minOccurs="0" name="BirthDate" type="xs:string"/>
+																	<xs:element minOccurs="0" name="Gender" type="ns1:Gender"/>
+																	<xs:element minOccurs="0" name="Weight" type="xs:integer"/>
+																	<xs:element minOccurs="0" name="BreastFeeding" type="xs:integer"/>
+																	<xs:element minOccurs="0" name="WeeksOfAmenorrhoea" type="xs:integer"/>
+																	<xs:element minOccurs="0" name="CreatinClearance" type="xs:integer"/>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+														<xs:element name="Encounter">
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="FacilityID" type="xs:string"/>
+																	<xs:element name="Type" type="xs:integer"/>
+																	<xs:element minOccurs="0" name="Start" type="xs:string"/>
+																	<xs:element minOccurs="0" name="End" type="xs:string"/>
+																	<xs:element minOccurs="0" name="StartType" type="xs:integer"/>
+																	<xs:element minOccurs="0" name="EndType" type="xs:integer"/>
+																	<xs:element minOccurs="0" name="EligibilityIDPayer" type="xs:string"/>
+																	<xs:element minOccurs="0" name="TransferSource" type="xs:string"/>
+																	<xs:element minOccurs="0" name="TransferDestination" type="xs:string"/>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+														<xs:element maxOccurs="unbounded" minOccurs="0" name="Diagnosis">
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="CodeTerm" type="xs:string"/>
+																	<xs:element name="Type" type="ns1:DiagnosisType"/>
+																	<xs:element name="Code" type="xs:string"/>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+														<xs:element maxOccurs="unbounded" minOccurs="0" name="Activity">
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="ID" type="xs:string"/>
+																	<xs:element name="CodeTerm" type="xs:string"/>
+																	<xs:element name="Start" type="xs:string"/>
+																	<xs:element name="End" type="xs:string"/>
+																	<xs:element name="Code" type="xs:string"/>
+																	<xs:element name="Quantity" type="xs:float"/>
+																	<xs:element name="OrderingClinician" type="xs:string"/>
+																	<xs:element name="Clinician" type="xs:string"/>
+																	<xs:element minOccurs="0" name="PriorAuthorizationID" type="xs:string"/>
+																	<xs:element minOccurs="0" name="ActivityNet" type="xs:float"/>
+																	<xs:element minOccurs="0" name="ActivityGross" type="xs:float"/>
+																	<xs:element minOccurs="0" name="ActivityPatientShare">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="Type" type="ns1:PatientShareType"/>
+																				<xs:element name="Value" type="xs:float"/>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element maxOccurs="unbounded" minOccurs="0" name="Observation">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="ID" type="xs:string"/>
+																				<xs:element name="Type" type="ns1:ObservationType"/>
+																				<xs:element name="Code" type="xs:string"/>
+																				<xs:element minOccurs="0" name="Value" type="xs:string"/>
+																				<xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+														<xs:element minOccurs="0" name="Resubmission">
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="Sequence" type="xs:integer"/>
+																	<xs:element name="Type" type="ns1:ResubmissionType"/>
+																	<xs:element name="Comment" type="xs:string"/>
+																	<xs:element minOccurs="0" name="Attachment" type="xs:base64Binary"/>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+														<xs:element maxOccurs="unbounded" minOccurs="0" name="ScrubbingHint">
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="Code" type="ns1:ScrubbingHintCode"/>
+																	<xs:element name="Value" type="xs:string"/>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="SubmissionResponse">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="Header">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="SenderID" type="xs:string"/>
+														<xs:element name="ReceiverID" type="xs:string"/>
+														<xs:element name="DispositionFlag" type="ns1:HeaderDispositionFlag"/>
+														<xs:element name="ReferenceID" type="xs:string"/>
+														<xs:element name="TransactionDate" type="xs:string"/>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element maxOccurs="unbounded" name="Transaction">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="ID" type="xs:string"/>
+														<xs:element name="PayerID" type="xs:string"/>
+														<xs:element name="ProviderID" type="xs:string"/>
+														<xs:element minOccurs="0" name="DenialCode" type="xs:string"/>
+														<xs:element minOccurs="0" name="Comments" type="xs:string"/>
+														<xs:element maxOccurs="unbounded" name="Activity">
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:choice maxOccurs="unbounded" minOccurs="0">
+																		<xs:element name="ID" type="xs:string"/>
+																		<xs:element name="ActivityNet" type="xs:float"/>
+																		<xs:element name="ActivityPatientShare">
+																			<xs:complexType>
+																				<xs:sequence>
+																					<xs:element name="Type" type="xs:string"/>
+																					<xs:element name="Value" type="xs:double"/>
+																				</xs:sequence>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="ActivityPaymentAmount" type="xs:float"/>
+																		<xs:element name="Quantity" type="xs:float"/>
+																		<xs:element name="PriorAuthorizationID" type="xs:string"/>
+																		<xs:element name="Observation">
+																			<xs:complexType>
+																				<xs:sequence>
+																					<xs:element name="Type" type="ns1:ObservationType"/>
+																					<xs:element name="Code" type="xs:string"/>
+																					<xs:element minOccurs="0" name="Value" type="xs:string"/>
+																					<xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+																				</xs:sequence>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="CodeTerm" type="xs:string"/>
+																		<xs:element name="Edit">
+																			<xs:complexType>
+																				<xs:sequence>
+																					<xs:element name="ID" type="xs:string"/>
+																					<xs:element name="Type" type="xs:string"/>
+																					<xs:element minOccurs="0" name="SubType" type="xs:string"/>
+																					<xs:element name="Code" type="xs:string"/>
+																					<xs:element minOccurs="0" name="Rank" type="ns1:ActivityEditRank"/>
+																					<xs:element minOccurs="0" name="ResultCode" type="xs:string"/>
+																					<xs:element minOccurs="0" name="Result" type="xs:string"/>
+																					<xs:element minOccurs="0" name="Comment" type="xs:string"/>
+																					<xs:element minOccurs="0" name="RuleName" type="xs:string"/>
+																				</xs:sequence>
+																			</xs:complexType>
+																		</xs:element>
+																		<xs:element name="ActivityGross" type="xs:float"/>
+																	</xs:choice>
+																	<xs:element minOccurs="0" name="ID" type="xs:string"/>
+																	<xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+																	<xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+																	<xs:element minOccurs="0" name="code" type="xs:string"/>
+																	<xs:element name="CodeTerm" type="xs:string"/>
+																	<xs:element minOccurs="0" name="quantity" type="xs:double"/>
+																	<xs:element minOccurs="0" name="orderingClinician" type="xs:string"/>
+																	<xs:element minOccurs="0" name="clinician" type="xs:string"/>
+																	<xs:element minOccurs="0" name="priorAuthorizationID" type="xs:string"/>
+																	<xs:element minOccurs="0" name="net" type="xs:double"/>
+																	<xs:element minOccurs="0" name="gross" type="xs:double"/>
+																	<xs:element minOccurs="0" name="patientShare">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="Type" type="xs:string"/>
+																				<xs:element name="Value" type="xs:double"/>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element minOccurs="0" name="paymentAmount" type="xs:double"/>
+																	<xs:element maxOccurs="unbounded" minOccurs="0" name="edit">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="ID" type="xs:string"/>
+																				<xs:element name="Type" type="xs:string"/>
+																				<xs:element minOccurs="0" name="SubType" type="xs:string"/>
+																				<xs:element name="Code" type="xs:string"/>
+																				<xs:element minOccurs="0" name="Rank" type="ns1:ActivityEditRank"/>
+																				<xs:element minOccurs="0" name="ResultCode" type="xs:string"/>
+																				<xs:element minOccurs="0" name="Result" type="xs:string"/>
+																				<xs:element minOccurs="0" name="Comment" type="xs:string"/>
+																				<xs:element minOccurs="0" name="RuleName" type="xs:string"/>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																	<xs:element maxOccurs="unbounded" minOccurs="0" name="observation">
+																		<xs:complexType>
+																			<xs:sequence>
+																				<xs:element name="Type" type="ns1:ObservationType"/>
+																				<xs:element name="Code" type="xs:string"/>
+																				<xs:element minOccurs="0" name="Value" type="xs:string"/>
+																				<xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+																			</xs:sequence>
+																		</xs:complexType>
+																	</xs:element>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+														<xs:element maxOccurs="unbounded" name="Diagnosis">
+															<xs:complexType>
+																<xs:sequence>
+																	<xs:element name="CodeTerm" type="xs:string"/>
+																	<xs:element name="Type" type="xs:string"/>
+																	<xs:element name="Code" type="xs:string"/>
+																</xs:sequence>
+															</xs:complexType>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="proccessTransaction" type="tns:proccessTransaction"/>
+								<xs:element name="proccessTransactionResponse" type="tns:proccessTransactionResponse"/>
+								<xs:complexType name="proccessTransaction">
+									<xs:sequence>
+										<xs:element minOccurs="0" name="DssrRequest">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Username" type="xs:string"/>
+													<xs:element name="Key" type="xs:string"/>
+													<xs:element name="Submission">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Header">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="SubmissionDestination" type="xs:integer"/>
+																			<xs:element name="SenderID" type="xs:string"/>
+																			<xs:element name="ReceiverID" type="xs:string"/>
+																			<xs:element name="DispositionFlag" type="ns1:HeaderDispositionFlag"/>
+																			<xs:element name="ReferenceID" type="xs:string"/>
+																			<xs:element name="transactionType" type="ns1:HeaderTransactionType"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element maxOccurs="unbounded" name="Transaction">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="ID" type="xs:string"/>
+																			<xs:element name="PayerID" type="xs:string"/>
+																			<xs:element name="ProviderID" type="xs:string"/>
+																			<xs:element minOccurs="0" name="HealthPlanID" type="xs:string"/>
+																			<xs:element minOccurs="0" name="PayerTransactionReference" type="xs:string"/>
+																			<xs:element minOccurs="0" name="TransactionGross" type="xs:double"/>
+																			<xs:element minOccurs="0" name="TransactionPatientShare" type="xs:string"/>
+																			<xs:element minOccurs="0" name="TransactionNet" type="xs:double"/>
+																			<xs:element minOccurs="0" name="TransactionPriorAuthorizationID" type="xs:string"/>
+																			<xs:element name="Person">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element minOccurs="0" name="ID" type="xs:string"/>
+																						<xs:element name="InsuranceMemberNumber" type="xs:string"/>
+																						<xs:element name="NationalIDNumber" type="xs:string"/>
+																						<xs:element minOccurs="0" name="BirthDate" type="xs:string"/>
+																						<xs:element minOccurs="0" name="Gender" type="ns1:Gender"/>
+																						<xs:element minOccurs="0" name="Weight" type="xs:integer"/>
+																						<xs:element minOccurs="0" name="BreastFeeding" type="xs:integer"/>
+																						<xs:element minOccurs="0" name="WeeksOfAmenorrhoea" type="xs:integer"/>
+																						<xs:element minOccurs="0" name="CreatinClearance" type="xs:integer"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="Encounter">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="FacilityID" type="xs:string"/>
+																						<xs:element name="Type" type="xs:integer"/>
+																						<xs:element minOccurs="0" name="Start" type="xs:string"/>
+																						<xs:element minOccurs="0" name="End" type="xs:string"/>
+																						<xs:element minOccurs="0" name="StartType" type="xs:integer"/>
+																						<xs:element minOccurs="0" name="EndType" type="xs:integer"/>
+																						<xs:element minOccurs="0" name="EligibilityIDPayer" type="xs:string"/>
+																						<xs:element minOccurs="0" name="TransferSource" type="xs:string"/>
+																						<xs:element minOccurs="0" name="TransferDestination" type="xs:string"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element maxOccurs="unbounded" minOccurs="0" name="Diagnosis">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="CodeTerm" type="xs:string"/>
+																						<xs:element name="Type" type="ns1:DiagnosisType"/>
+																						<xs:element name="Code" type="xs:string"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element maxOccurs="unbounded" minOccurs="0" name="Activity">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="ID" type="xs:string"/>
+																						<xs:element name="CodeTerm" type="xs:string"/>
+																						<xs:element name="Start" type="xs:string"/>
+																						<xs:element name="End" type="xs:string"/>
+																						<xs:element name="Code" type="xs:string"/>
+																						<xs:element name="Quantity" type="xs:float"/>
+																						<xs:element name="OrderingClinician" type="xs:string"/>
+																						<xs:element name="Clinician" type="xs:string"/>
+																						<xs:element minOccurs="0" name="PriorAuthorizationID" type="xs:string"/>
+																						<xs:element minOccurs="0" name="ActivityNet" type="xs:float"/>
+																						<xs:element minOccurs="0" name="ActivityGross" type="xs:float"/>
+																						<xs:element minOccurs="0" name="ActivityPatientShare">
+																							<xs:complexType>
+																								<xs:sequence>
+																									<xs:element name="Type" type="ns1:PatientShareType"/>
+																									<xs:element name="Value" type="xs:float"/>
+																								</xs:sequence>
+																							</xs:complexType>
+																						</xs:element>
+																						<xs:element maxOccurs="unbounded" minOccurs="0" name="Observation">
+																							<xs:complexType>
+																								<xs:sequence>
+																									<xs:element name="ID" type="xs:string"/>
+																									<xs:element name="Type" type="ns1:ObservationType"/>
+																									<xs:element name="Code" type="xs:string"/>
+																									<xs:element minOccurs="0" name="Value" type="xs:string"/>
+																									<xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+																								</xs:sequence>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element minOccurs="0" name="Resubmission">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="Sequence" type="xs:integer"/>
+																						<xs:element name="Type" type="ns1:ResubmissionType"/>
+																						<xs:element name="Comment" type="xs:string"/>
+																						<xs:element minOccurs="0" name="Attachment" type="xs:base64Binary"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element maxOccurs="unbounded" minOccurs="0" name="ScrubbingHint">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="Code" type="ns1:ScrubbingHintCode"/>
+																						<xs:element name="Value" type="xs:string"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+								<xs:complexType name="proccessTransactionResponse">
+									<xs:sequence>
+										<xs:element minOccurs="0" name="return" type="tns:icmResponse"/>
+									</xs:sequence>
+								</xs:complexType>
+								<xs:complexType name="icmResponse">
+									<xs:sequence>
+										<xs:element minOccurs="0" name="msg" type="xs:string"/>
+										<xs:element name="status" type="xs:int"/>
+										<xs:element minOccurs="0" name="submissionResponse">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Header">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="SenderID" type="xs:string"/>
+																<xs:element name="ReceiverID" type="xs:string"/>
+																<xs:element name="DispositionFlag" type="ns1:HeaderDispositionFlag"/>
+																<xs:element name="ReferenceID" type="xs:string"/>
+																<xs:element name="TransactionDate" type="xs:string"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element maxOccurs="unbounded" name="Transaction">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ID" type="xs:string"/>
+																<xs:element name="PayerID" type="xs:string"/>
+																<xs:element name="ProviderID" type="xs:string"/>
+																<xs:element minOccurs="0" name="DenialCode" type="xs:string"/>
+																<xs:element minOccurs="0" name="Comments" type="xs:string"/>
+																<xs:element maxOccurs="unbounded" name="Activity">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:choice maxOccurs="unbounded" minOccurs="0">
+																				<xs:element name="ID" type="xs:string"/>
+																				<xs:element name="ActivityNet" type="xs:float"/>
+																				<xs:element name="ActivityPatientShare">
+																					<xs:complexType>
+																						<xs:sequence>
+																							<xs:element name="Type" type="xs:string"/>
+																							<xs:element name="Value" type="xs:double"/>
+																						</xs:sequence>
+																					</xs:complexType>
+																				</xs:element>
+																				<xs:element name="ActivityPaymentAmount" type="xs:float"/>
+																				<xs:element name="Quantity" type="xs:float"/>
+																				<xs:element name="PriorAuthorizationID" type="xs:string"/>
+																				<xs:element name="Observation">
+																					<xs:complexType>
+																						<xs:sequence>
+																							<xs:element name="Type" type="ns1:ObservationType"/>
+																							<xs:element name="Code" type="xs:string"/>
+																							<xs:element minOccurs="0" name="Value" type="xs:string"/>
+																							<xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+																						</xs:sequence>
+																					</xs:complexType>
+																				</xs:element>
+																				<xs:element name="CodeTerm" type="xs:string"/>
+																				<xs:element name="Edit">
+																					<xs:complexType>
+																						<xs:sequence>
+																							<xs:element name="ID" type="xs:string"/>
+																							<xs:element name="Type" type="xs:string"/>
+																							<xs:element minOccurs="0" name="SubType" type="xs:string"/>
+																							<xs:element name="Code" type="xs:string"/>
+																							<xs:element minOccurs="0" name="Rank" type="ns1:ActivityEditRank"/>
+																							<xs:element minOccurs="0" name="ResultCode" type="xs:string"/>
+																							<xs:element minOccurs="0" name="Result" type="xs:string"/>
+																							<xs:element minOccurs="0" name="Comment" type="xs:string"/>
+																							<xs:element minOccurs="0" name="RuleName" type="xs:string"/>
+																						</xs:sequence>
+																					</xs:complexType>
+																				</xs:element>
+																				<xs:element name="ActivityGross" type="xs:float"/>
+																			</xs:choice>
+																			<xs:element minOccurs="0" name="ID" type="xs:string"/>
+																			<xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+																			<xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+																			<xs:element minOccurs="0" name="code" type="xs:string"/>
+																			<xs:element name="CodeTerm" type="xs:string"/>
+																			<xs:element minOccurs="0" name="quantity" type="xs:double"/>
+																			<xs:element minOccurs="0" name="orderingClinician" type="xs:string"/>
+																			<xs:element minOccurs="0" name="clinician" type="xs:string"/>
+																			<xs:element minOccurs="0" name="priorAuthorizationID" type="xs:string"/>
+																			<xs:element minOccurs="0" name="net" type="xs:double"/>
+																			<xs:element minOccurs="0" name="gross" type="xs:double"/>
+																			<xs:element minOccurs="0" name="patientShare">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="Type" type="xs:string"/>
+																						<xs:element name="Value" type="xs:double"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element minOccurs="0" name="paymentAmount" type="xs:double"/>
+																			<xs:element maxOccurs="unbounded" minOccurs="0" name="edit">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="ID" type="xs:string"/>
+																						<xs:element name="Type" type="xs:string"/>
+																						<xs:element minOccurs="0" name="SubType" type="xs:string"/>
+																						<xs:element name="Code" type="xs:string"/>
+																						<xs:element minOccurs="0" name="Rank" type="ns1:ActivityEditRank"/>
+																						<xs:element minOccurs="0" name="ResultCode" type="xs:string"/>
+																						<xs:element minOccurs="0" name="Result" type="xs:string"/>
+																						<xs:element minOccurs="0" name="Comment" type="xs:string"/>
+																						<xs:element minOccurs="0" name="RuleName" type="xs:string"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element maxOccurs="unbounded" minOccurs="0" name="observation">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="Type" type="ns1:ObservationType"/>
+																						<xs:element name="Code" type="xs:string"/>
+																						<xs:element minOccurs="0" name="Value" type="xs:string"/>
+																						<xs:element minOccurs="0" name="ValueType" type="xs:string"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element maxOccurs="unbounded" name="Diagnosis">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="CodeTerm" type="xs:string"/>
+																			<xs:element name="Type" type="xs:string"/>
+																			<xs:element name="Code" type="xs:string"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:schema>
+						</wsdl:types>
+						<wsdl:message name="proccessTransaction">
+							<wsdl:part element="tns:proccessTransaction" name="parameters"/>
+						</wsdl:message>
+						<wsdl:message name="proccessTransactionResponse">
+							<wsdl:part element="tns:proccessTransactionResponse" name="parameters"/>
+						</wsdl:message>
+						<wsdl:portType name="DssrService">
+							<wsdl:operation name="proccessTransaction">
+								<wsdl:input message="tns:proccessTransaction" name="proccessTransaction"/>
+								<wsdl:output message="tns:proccessTransactionResponse" name="proccessTransactionResponse"/>
+							</wsdl:operation>
+						</wsdl:portType>
+						<wsdl:binding name="DssrServiceServiceSoapBinding" type="tns:DssrService">
+							<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+							<wsdl:operation name="proccessTransaction">
+								<soap:operation soapAction="" style="document"/>
+								<wsdl:input name="proccessTransaction">
+									<soap:body use="literal"/>
+								</wsdl:input>
+								<wsdl:output name="proccessTransactionResponse">
+									<soap:body use="literal"/>
+								</wsdl:output>
+							</wsdl:operation>
+						</wsdl:binding>
+						<wsdl:service name="DssrServiceService">
+							<wsdl:port binding="tns:DssrServiceServiceSoapBinding" name="DssrServicePort">
+								<soap:address location="http://aims-uat01:8181/ICM/ws/DSSRService"/>
+							</wsdl:port>
+						</wsdl:service>
+					</wsdl:definitions>]]></con:content>
+				<con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+			</con:part>
+		</con:definitionCache>
+		<con:endpoints>
+			<con:endpoint>http://aims-uat01:8181/ICM/ws/DSSRService</con:endpoint>
+		</con:endpoints>
+		<con:operation action="" anonymous="optional" bindingOperationName="proccessTransaction" id="38cc6777-a795-4217-a007-883b44b589a0" inputName="proccessTransaction" isOneWay="false" name="proccessTransaction" outputName="proccessTransactionResponse" receivesAttachments="false" sendsAttachments="false" type="Request-Response">
+			<con:settings/>
+			<con:call id="25912f43-a41a-4283-916e-7c761abc44ce" name="DSSR Request">
+				<con:settings>
+					<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+				</con:settings>
+				<con:encoding>UTF-8</con:encoding>
+				<con:endpoint>http://aims-uat01:8181/ICM/ws/DSSRService</con:endpoint>
+				<con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.icm.dhc.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:proccessTransaction>
+         <!--Optional:-->
+         <DssrRequest>
+            <Username>AXA</Username>
+            <Key>dTMnoRv1Cj2XLPyH1dVBQlpWh1FL2jFA</Key>
+            <Submission>
+            <Header>
+               <SubmissionDestination>33</SubmissionDestination>
+               <SenderID>1</SenderID>
+               <ReceiverID>jojo</ReceiverID>
+               <DispositionFlag>PRODUCTION</DispositionFlag>
+               <ReferenceID>114361121111</ReferenceID>
+               <transactionType>Review</transactionType>
+            </Header>
+            <!--1 or more repetitions:-->
+            <Transaction>
+               <ID>surjical procedure 2</ID>
+               <PayerID>INS997</PayerID>
+               <ProviderID>DHA-F-9999998</ProviderID>
+               <HealthPlanID>1</HealthPlanID>
+               
+               <TransactionGross>1</TransactionGross>
+               <TransactionPatientShare>1</TransactionPatientShare>
+               <TransactionNet>1</TransactionNet>
+               <TransactionPriorAuthorizationID>33</TransactionPriorAuthorizationID>
+              <Person>
+                  
+                  <ID>1</ID><InsuranceMemberNumber>11731714</InsuranceMemberNumber>
+                  <NationalIDNumber>1</NationalIDNumber>
+                  <BirthDate>01/01/1970</BirthDate>
+                  <Gender>M</Gender>
+                  
+                  
+                  
+                  
+               </Person>
+             <Encounter>
+                  <FacilityID>1</FacilityID>
+                  <Type>1</Type>
+                  <Start>01/04/2015 00:00</Start>
+                  <End>01/09/2015 00:00</End>
+                  <StartType>1</StartType>
+                  <EndType>1</EndType>
+                  <EligibilityIDPayer>1</EligibilityIDPayer>
+                  <TransferSource>1</TransferSource>
+                  <TransferDestination>1</TransferDestination>
+               </Encounter>
+               <!--Zero or more repetitions:-->
+               <Diagnosis>
+                 <CodeTerm>ICD10</CodeTerm>
+                  <Type>Principal</Type>
+                  <Code>N23</Code>
+               </Diagnosis>
+               <!--Zero or more repetitions:-->
+               <Diagnosis><CodeTerm>ICD10</CodeTerm><Type>Secondary</Type><Code>R10.30</Code></Diagnosis><Activity>
+                  <ID>676211</ID>
+                  <CodeTerm>CPT4v2012</CodeTerm>
+                  <Start>14/12/2016 00:00</Start>
+                  <End>14/12/2016 00:00</End>
+                  <Code>82565</Code>
+                  <Quantity>1.0</Quantity>
+                  <OrderingClinician>1</OrderingClinician>
+                  <Clinician>MOHD38104</Clinician>
+                  <PriorAuthorizationID>1</PriorAuthorizationID>
+                  <ActivityNet>1</ActivityNet>
+                  <ActivityGross>33</ActivityGross>
+                  <ActivityPatientShare>
+                     <Type>Copay</Type>
+                     <Value>33</Value>
+                  </ActivityPatientShare>
+                  <!--Zero or more repetitions:-->
+                  
+               </Activity>
+               <!--Optional:-->
+               
+               <!--Zero or more repetitions:-->
+               <ScrubbingHint>
+                 <Code>IGNORE</Code>
+                  <Value>HISTORY</Value>
+               </ScrubbingHint>
+            </Transaction>
+         </Submission>
+         </DssrRequest>
+      </ws:proccessTransaction>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+				<con:credentials>
+					<con:authType>No Authorization</con:authType>
+				</con:credentials>
+				<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+				<con:jmsPropertyConfig/>
+				<con:wsaConfig action="http://ws.icm.dhc.com/DssrService/proccessTransaction" mustUnderstand="NONE" version="200508"/>
+				<con:wsrmConfig version="1.2"/>
+			</con:call>
+		</con:operation>
+	</con:interface>
+	<con:testSuite id="68de04f4-7c3e-4ea2-a715-e3a675df6c4a" name="DSSR TestSuite">
+		<con:settings/>
+		<con:runType>SEQUENTIAL</con:runType>
+		<con:testCase failOnError="true" failTestCaseOnErrors="true" id="5fcc5a6f-b941-458f-b3a5-0f5e4203bb09" keepSession="false" maxResults="0" name="request_automation" searchProperties="true">
+			<con:settings/>
+			<con:testStep id="961e5b85-b90a-4cd0-a344-08b0ae4ee676" name="DataSource" type="datasource">
+				<con:settings/>
+				<con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+					<con:dataSource type="Excel">
+						<con:configuration><file>C:/Users/faisal/Downloads/SOAP Projects/DSSR/DSSR.xlsx</file><worksheet>Data</worksheet><cell>A1</cell><ignoreEmpty>true</ignoreEmpty></con:configuration>
+					</con:dataSource>
+					<con:property>Rule</con:property>
+					<con:property>Username</con:property>
+					<con:property>Key</con:property>
+					<con:property>header_SubmissionDestination</con:property>
+					<con:property>header_SenderID</con:property>
+					<con:property>header_ReceiverID</con:property>
+					<con:property>header_DispositionFlag</con:property>
+					<con:property>header_ReferenceID</con:property>
+					<con:property>header_transactionType</con:property>
+					<con:property>transaction_ID</con:property>
+					<con:property>transaction_PayerID</con:property>
+					<con:property>transaction_ProviderID</con:property>
+					<con:property>transaction_HealthPlanID</con:property>
+					<con:property>transaction_Gross</con:property>
+					<con:property>transaction_PayerTransactionReference</con:property>
+					<con:property>transaction_TransactionPatientShare</con:property>
+					<con:property>transaction_TransactionNet</con:property>
+					<con:property>transaction_TransactionPriorAuthorizationID</con:property>
+					<con:property>transaction_Person_ID</con:property>
+					<con:property>transaction_Person_InsuranceMemberNumber</con:property>
+					<con:property>transaction_Person_NationalIDNumber</con:property>
+					<con:property>transaction_Person_BirhtDate</con:property>
+					<con:property>transaction_Person_Gender</con:property>
+					<con:property>transaction_Person_Weight</con:property>
+					<con:property>transaction_Person_BreasatFeeding</con:property>
+					<con:property>transaction_Person_WeeksOfAmenorrhoea</con:property>
+					<con:property>transaction_Person_CreatinClearance</con:property>
+					<con:property>transaction_Encounter_FacilityID</con:property>
+					<con:property>transaction_Encounter_Type</con:property>
+					<con:property>transaction_Encounter_Start</con:property>
+					<con:property>transaction_Encounter_End</con:property>
+					<con:property>transaction_Encounter_StartType</con:property>
+					<con:property>transaction_Encounter_EndType</con:property>
+					<con:property>transaction_Encounter_EligibilityIDPayer</con:property>
+					<con:property>transaction_Encounter_TransferSource</con:property>
+					<con:property>transaction_Encounter_TransferDestination</con:property>
+					<con:property>transaction_Diagnosis_CodeTerm</con:property>
+					<con:property>transaction_Diagnosis_Type</con:property>
+					<con:property>transaction_Diagnosis_Code</con:property>
+					<con:property>transaction_Activity_ID</con:property>
+					<con:property>transaction_Activity_CodeTerm</con:property>
+					<con:property>transaction_Activity_Start</con:property>
+					<con:property>transaction_Activity_End</con:property>
+					<con:property>transaction_Activity_Code</con:property>
+					<con:property>transaction_Activity_Quantity</con:property>
+					<con:property>transaction_Activity_OrderingClinician</con:property>
+					<con:property>transaction_Activity_Clinician</con:property>
+					<con:property>transaction_Activity_PriorAuthorizationID</con:property>
+					<con:property>transaction_Activity_ActivityNet</con:property>
+					<con:property>transaction_Activity_ActivityGross</con:property>
+					<con:property>transaction_Activity_ActivityPatientShare_Type</con:property>
+					<con:property>transaction_Activity_ActivityPatientShare_Value</con:property>
+					<con:property>transaction_Activity_Observation_ID</con:property>
+					<con:property>transaction_Activity_Observation_Type</con:property>
+					<con:property>transaction_Activity_Observation_Code</con:property>
+					<con:property>transaction_Activity_Observation_Value</con:property>
+					<con:property>transaction_Activity_Observation_Valuetype </con:property>
+					<con:property>transaction_Resubmission_Sequence</con:property>
+					<con:property>transaction_Resubmission_Type</con:property>
+					<con:property>transaction_Resubmission_Comment</con:property>
+					<con:property>transaction_ScrubbingHint_Code</con:property>
+					<con:property>transaction_ScrubbingHint_Value</con:property>
+					<con:property>transaction_Diagnosis_CodeTerm2</con:property>
+					<con:property>transaction_Diagnosis_Type2</con:property>
+					<con:property>transaction_Diagnosis_Code2</con:property>
+					<con:property>transaction_Diagnosis_CodeTerm3</con:property>
+					<con:property>transaction_Diagnosis_Type3</con:property>
+					<con:property>transaction_Diagnosis_Code3</con:property>
+					<con:property>transaction_Diagnosis_CodeTerm4</con:property>
+					<con:property>transaction_Diagnosis_Type4</con:property>
+					<con:property>transaction_Diagnosis_Code4</con:property>
+					<con:property>transaction_Diagnosis_CodeTerm5</con:property>
+					<con:property>transaction_Diagnosis_Type5</con:property>
+					<con:property>transaction_Diagnosis_Code5</con:property>
+					<con:restartOnRun>true</con:restartOnRun>
+				</con:config>
+			</con:testStep>
+			<con:testStep id="bf9095cf-458a-49aa-b01b-12cefde70313" name="proccessTransaction" type="request">
+				<con:settings/>
+				<con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+					<con:interface>DssrServiceServiceSoapBinding</con:interface>
+					<con:operation>proccessTransaction</con:operation>
+					<con:request id="8e045f89-c5d2-43fd-955c-01ef2042efe3" incomingWss="" name="proccessTransaction" outgoingWss="" sslKeystore="" timeout="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="">
+						<con:settings>
+							<con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+						</con:settings>
+						<con:encoding>UTF-8</con:encoding>
+						<con:endpoint>http://aims-uat01:8181/ICM/ws/DSSRService</con:endpoint>
+						<con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.icm.dhc.com/">
+								<soapenv:Header/>
+								<soapenv:Body>
+									<ws:proccessTransaction>
+										<!--Optional:-->
+										<DssrRequest>
+											<Username>${DataSource#Rule}</Username>
+											<Key>${DataSource#Username}</Key>
+											<Submission>
+												<Header>
+													<SubmissionDestination>${DataSource#header_SubmissionDestination}</SubmissionDestination>
+													<SenderID>${DataSource#header_SenderID}</SenderID>
+													<ReceiverID>${DataSource#header_ReceiverID}</ReceiverID>
+													<DispositionFlag>${DataSource#header_DispositionFlag}</DispositionFlag>
+													<ReferenceID>${DataSource#header_ReferenceID}</ReferenceID>
+													<transactionType>${DataSource#header_transactionType}</transactionType></Header>
+												<!--1 or more repetitions:-->
+												<Transaction>
+													<ID>${DataSource#transaction_ID}</ID>
+													<PayerID>${DataSource#transaction_PayerID}</PayerID>
+													<ProviderID>${DataSource#transaction_ProviderID}</ProviderID>
+													<!--Optional:-->
+													
+													<!--Optional:-->
+													<HealthPlanID>${DataSource#transaction_HealthPlanID}</HealthPlanID>
+													<!--Optional:-->
+													<PayerTransactionReference>${DataSource#transaction_PayerTransactionReference}</PayerTransactionReference>
+													<!--Optional:-->
+													<TransactionGross>${DataSource#transaction_Gross}</TransactionGross>
+													<!--Optional:-->
+													<TransactionPatientShare>${DataSource#transaction_TransactionPatientShare}</TransactionPatientShare>
+													<!--Optional:-->
+													<TransactionNet>${DataSource#transaction_TransactionNet}</TransactionNet>
+													<TransactionPriorAuthorizationID>${DataSource#transaction_TransactionPriorAuthorizationID}</TransactionPriorAuthorizationID><Person>
+														<!--Optional:-->
+														
+														<ID>${DataSource#transaction_Person_ID}</ID><InsuranceMemberNumber>${DataSource#transaction_Person_InsuranceMemberNumber}</InsuranceMemberNumber>
+														<NationalIDNumber>${DataSource#transaction_Person_NationalIDNumber}</NationalIDNumber><BirthDate>${DataSource#transaction_Person_BirhtDate}</BirthDate><Gender>${DataSource#transaction_Person_Gender}</Gender><Weight>${DataSource#transaction_Person_Weight}</Weight><BreastFeeding>${DataSource#transaction_Person_BreastFeeding}</BreastFeeding><WeeksOfAmenorrhoea>${DataSource#transaction_Person_WeeksOfAmenorrhoea}</WeeksOfAmenorrhoea><CreatinClearance>${DataSource#transaction_Person_CreatinClearance}</CreatinClearance>
+														<!--Optional:-->
+														
+														<!--Optional:-->
+														
+														<!--Optional:-->
+														
+														<!--Optional:-->
+														
+														<!--Optional:-->
+														
+														<!--Optional:-->
+														
+													</Person>
+													<Encounter>
+														<FacilityID>${DataSource#transaction_Encounter_FacilityID}</FacilityID>
+														<Type>${DataSource#transaction_Encounter_Type}</Type>
+														<!--Optional:-->
+														
+														<!--Optional:-->
+														<Start>${DataSource#transaction_Encounter_Start}</Start>
+														<!--Optional:-->
+														<End>${DataSource#transaction_Encounter_End}</End>
+														<!--Optional:-->
+														<StartType>${DataSource#transaction_Encounter_StartType}</StartType>
+														<!--Optional:-->
+														<EndType>${DataSource#transaction_Encounter_EndType}</EndType>
+														<!--Optional:-->
+														<EligibilityIDPayer>${DataSource#transaction_Encounter_EligibilityIDPayer}</EligibilityIDPayer>
+														<!--Optional:-->
+														<TransferSource>${DataSource#transaction_Encounter_TransferSource}</TransferSource><TransferDestination>${DataSource#transaction_Encounter_TransferDestination}</TransferDestination>
+													</Encounter>
+													<!--Zero or more repetitions:-->
+													<Diagnosis>
+														<CodeTerm>${DataSource#transaction_Diagnosis_CodeTerm}</CodeTerm>
+														<Type>${DataSource#transaction_Diagnosis_Type}</Type>
+														<Code>${DataSource#transaction_Diagnosis_Code}</Code>
+													</Diagnosis>
+													<!--Zero or more repetitions:-->
+													<Activity>
+														<ID>${DataSource#transaction_Activity_ID}</ID>
+														<CodeTerm>${DataSource#transaction_Activity_CodeTerm}</CodeTerm>
+														<Start>${DataSource#transaction_Activity_Start}</Start>
+														<End>${DataSource#transaction_Activity_End}</End>
+														<Code>${DataSource#transaction_Activity_Code}</Code>
+														<Quantity>${DataSource#transaction_Activity_Quantity}</Quantity>
+														<OrderingClinician>${DataSource#transaction_Activity_OrderingClinician}</OrderingClinician>
+														<Clinician>${DataSource#transaction_Activity_Clinician}</Clinician>
+														<!--Optional:-->
+														
+														<!--Optional:-->
+														<PriorAuthorizationID>${DataSource#transaction_Activity_PriorAuthourizationID}</PriorAuthorizationID>
+														<!--Optional:-->
+														<ActivityNet>${DataSource#transaction_Activity_ActivityNet}</ActivityNet>
+														<!--Optional:-->
+														<ActivityGross>${DataSource#transaction_Activity_ActivityGross}</ActivityGross><ActivityPatientShare>
+															<Type>${DataSource#transaction_Activity_ActivityPatientShare_Type}</Type>
+															<Value>${DataSource#transaction_Activity_ActivityPatientShare_Value}</Value>
+														</ActivityPatientShare>
+														<!--Zero or more repetitions:-->
+														<Observation>
+															<ID>${DataSource#transaction_Activity_Observation_ID}</ID>
+															<Type>${DataSource#transaction_Activity_Observation_Type}</Type>
+															<Code>${DataSource#transaction_Activity_Observation_Code}}</Code>
+															<!--Optional:-->
+															<!--Optional:-->
+															
+															<Value>${DataSource#transaction_Activity_Observation_Value}</Value><ValueType>${DataSource#transaction_Activity_Observation_ValueType}</ValueType>
+														</Observation>
+													</Activity>
+													<!--Optional:-->
+													<Resubmission>
+														<Sequence>${DataSource#transaction_Resubmission_Sequence}</Sequence>
+														<Type>${DataSource#transaction_Resubmission_Type}</Type>
+														<Comment>${DataSource#transaction_Resubmission_Comment}</Comment>
+														<!--Optional:-->
+														<Attachment>cid:983637215089</Attachment>
+													</Resubmission>
+													<!--Zero or more repetitions:-->
+													<ScrubbingHint>
+														<Code>${DataSource#transaction_ScrubbingHint_Code}</Code>
+														<Value>${DataSource#transaction_ScrubbingHint_Value}</Value>
+													</ScrubbingHint>
+												</Transaction>
+											</Submission>
+										</DssrRequest>
+									</ws:proccessTransaction>
+								</soapenv:Body>
+							</soapenv:Envelope>]]></con:request>
+						<con:assertion id="76468d7f-ee92-4ee9-97c7-a41f55faa89e" name="SOAP Response" type="SOAP Response"/>
+						<con:credentials>
+							<con:authType>No Authorization</con:authType>
+						</con:credentials>
+						<con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+						<con:jmsPropertyConfig/>
+						<con:wsaConfig action="http://ws.icm.dhc.com/DssrService/proccessTransaction" mustUnderstand="NONE" version="200508"/>
+						<con:wsrmConfig version="1.2"/>
+					</con:request>
+				</con:config>
+			</con:testStep>
+			<con:testStep type="datasourceloop" name="DataSource Loop" id="6bf99e3e-94b3-41ea-ae46-33423a02c01c"><con:settings/><con:config><dataSourceStep>DataSource</dataSourceStep><targetStep>proccessTransaction</targetStep></con:config></con:testStep><con:properties/>
+			<con:reportParameters/>
+			<con:breakPoints>
+				<con:testStepId>961e5b85-b90a-4cd0-a344-08b0ae4ee676</con:testStepId>
+				<con:status>NONE</con:status>
+				<con:properties/>
+			</con:breakPoints>
+		</con:testCase>
+		<con:properties/>
+		<con:reportParameters/>
+	</con:testSuite>
+	<con:requirements/>
+	<con:properties/>
+	<con:wssContainer/>
+	<con:databaseConnectionContainer/>
+	<con:oAuth2ProfileContainer/>
+	<con:reporting>
+		<con:xmlTemplates/>
+		<con:parameters/>
+	</con:reporting>
+<con:sensitiveInformation/></con:soapui-project>

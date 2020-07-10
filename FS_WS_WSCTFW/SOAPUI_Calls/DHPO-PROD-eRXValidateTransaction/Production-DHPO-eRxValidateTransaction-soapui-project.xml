@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="a1bd5f0b-778b-41f4-9db2-c2ecdf2209b3" activeEnvironment="Default" name="Production-DHPO-eRxValidateTransaction" resourceRoot="${projectDir}" soapui-version="5.1.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="469c387f-ff5a-44cd-b3c5-8f847bb7616d" wsaVersion="NONE" name="eRxValidateTransactionSoap12" type="wsdl" bindingName="{http://www.eClaimLink.ae/}eRxValidateTransactionSoap12" soapVersion="1_2" anonymous="optional" definition="https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint></con:endpoints><con:operation id="b26bd477-4226-4c8f-9923-010181f491d1" isOneWay="false" action="http://www.eClaimLink.ae/DownloadTransactionFile" name="DownloadTransactionFile" bindingOperationName="DownloadTransactionFile" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c361c33f-c992-4989-bb35-ce82eba24b51" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:DownloadTransactionFile>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:DownloadTransactionFile>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eRxValidateTransactionSoap/DownloadTransactionFileRequest"/></con:call></con:operation><con:operation id="43e2f6db-2964-4b9a-bd37-e28e680ee3ae" isOneWay="false" action="http://www.eClaimLink.ae/GeteRxTransaction" name="GeteRxTransaction" bindingOperationName="GeteRxTransaction" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e74e36f6-d12b-4afe-a7f9-0ec291a5de38" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:GeteRxTransaction>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+         <ecl:eRxReferenceNo>?</ecl:eRxReferenceNo>\r
+      </ecl:GeteRxTransaction>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eRxValidateTransactionSoap/GeteRxTransactionRequest"/></con:call></con:operation><con:operation id="40a2551d-b685-465f-a1d0-2212a7df8173" isOneWay="false" action="http://www.eClaimLink.ae/GetNewTransactions" name="GetNewTransactions" bindingOperationName="GetNewTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="50e69932-7030-416c-aa1d-7a550edc558c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:GetNewTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+      </ecl:GetNewTransactions>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eRxValidateTransactionSoap/GetNewTransactionsRequest"/></con:call></con:operation><con:operation id="a197e829-7c7d-4f80-a536-65578f47b296" isOneWay="false" action="http://www.eClaimLink.ae/SearchTransactions" name="SearchTransactions" bindingOperationName="SearchTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d39a03f7-d4d0-4791-850f-ce52b69e5b3f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:SearchTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <ecl:direction>?</ecl:direction>\r
+         <!--Optional:-->\r
+         <ecl:callerLicense>?</ecl:callerLicense>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLicense>?</ecl:clinicianLicense>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+         <ecl:eRxReferenceNo>?</ecl:eRxReferenceNo>\r
+         <ecl:transactionStatus>?</ecl:transactionStatus>\r
+         <!--Optional:-->\r
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>\r
+         <!--Optional:-->\r
+         <ecl:transactionToDate>?</ecl:transactionToDate>\r
+         <ecl:minRecordCount>?</ecl:minRecordCount>\r
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>\r
+      </ecl:SearchTransactions>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eRxValidateTransactionSoap/SearchTransactionsRequest"/></con:call></con:operation><con:operation id="bd8de9af-ed73-4ce9-abb3-4b8619b5cead" isOneWay="false" action="http://www.eClaimLink.ae/SetTransactionDownloaded" name="SetTransactionDownloaded" bindingOperationName="SetTransactionDownloaded" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4d20eeaf-4e7d-49f8-94c5-2f7026cccfe7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:SetTransactionDownloaded>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileID>?</ecl:fileID>\r
+      </ecl:SetTransactionDownloaded>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eRxValidateTransactionSoap/SetTransactionDownloadedRequest"/></con:call></con:operation><con:operation id="038c1038-10c3-4e40-af7a-ba70213c97e5" isOneWay="false" action="http://www.eClaimLink.ae/UploadERxAuthorization" name="UploadERxAuthorization" bindingOperationName="UploadERxAuthorization" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a1f924bc-9296-4f06-a49a-ece698d115fe" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:UploadERxAuthorization>\r
+         <!--Optional:-->\r
+         <ecl:PayerLogin>?</ecl:PayerLogin>\r
+         <!--Optional:-->\r
+         <ecl:PayerPwd>?</ecl:PayerPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileContent>cid:658086597546</ecl:fileContent>\r
+         <!--Optional:-->\r
+         <ecl:fileName>?</ecl:fileName>\r
+      </ecl:UploadERxAuthorization>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eRxValidateTransactionSoap/UploadERxAuthorizationRequest"/></con:call></con:operation><con:operation id="8894fadc-0605-4dda-958a-d08ce99c6808" isOneWay="false" action="http://www.eClaimLink.ae/UploadERxRequest" name="UploadERxRequest" bindingOperationName="UploadERxRequest" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="77d67579-1966-4384-89ec-0a43c8b6e5ba" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<eRx.Request xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><SenderID>DHA-F-9999998</SenderID><ReceiverID>INS999</ReceiverID><TransactionDate>11/05/2018 22:17</TransactionDate><RecordCount>1</RecordCount><DispositionFlag>PRODUCTION</DispositionFlag></Header><Prescription><ID>DHA-F-9999998-INS999-20180511221730</ID><Type>eRxRequest</Type><PayerID>INS999</PayerID><Clinician>erxclintest01</Clinician><Patient><MemberID>888821</MemberID><EmiratesIDNumber>000-0000-0000000-0</EmiratesIDNumber><DateOfBirth>25/08/1988</DateOfBirth><Weight>20</Weight></Patient><Encounter><FacilityID>DHA-F-9999998</FacilityID><Type>1</Type></Encounter><Diagnosis><Type>Principal</Type><Code>R51</Code></Diagnosis><Activity><ID>5454952</ID><Start>11/05/2018 22:17</Start><Type>5</Type><Code>1162-414101-0051</Code><Quantity>2</Quantity><Duration>1</Duration><Refills>0</Refills><RoutOfAdmin>ROA074</RoutOfAdmin><Instructions>Take 2 CAPLET(s), 1 Time(s) per Day For 1 Day(s).</Instructions><Frequency><UnitPerFrequency>2</UnitPerFrequency><FrequencyValue>1</FrequencyValue><FrequencyType>Day</FrequencyType></Frequency></Activity></Prescription></eRx.Request>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/eRxValidateTransactionSoap/UploadERxRequestRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="0475ec0d-e4a2-46e0-b6b8-9e6d74a88451" wsaVersion="NONE" name="eRxValidateTransactionSoap" type="wsdl" bindingName="{http://www.eClaimLink.ae/}eRxValidateTransactionSoap" soapVersion="1_1" anonymous="optional" definition="https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx?WSDL"><con:part><con:url>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.eClaimLink.ae/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.eClaimLink.ae/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.eClaimLink.ae/">
+      <s:element name="UploadERxRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="facilityPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileContent" type="s:base64Binary"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadERxRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UploadERxRequestResult" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="eRxReferenceNo" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorReport" type="s:base64Binary"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadERxAuthorization">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PayerLogin" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="PayerPwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileContent" type="s:base64Binary"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadERxAuthorizationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UploadERxAuthorizationResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorReport" type="s:base64Binary"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadTransactionFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadTransactionFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadTransactionFileResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="file" type="s:base64Binary"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNewTransactionsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlTransactions" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="direction" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="callerLicense" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clinicianLicense" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="memberID" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="eRxReferenceNo" nillable="true" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="transactionStatus" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionFromDate" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionToDate" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="minRecordCount" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="maxRecordCount" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchTransactionsResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="foundTransactions" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTransactionDownloaded">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTransactionDownloadedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetTransactionDownloadedResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GeteRxTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="memberID" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="eRxReferenceNo" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GeteRxTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GeteRxTransactionResult" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlTransactions" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UploadERxRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadERxRequest"/>
+  </wsdl:message>
+  <wsdl:message name="UploadERxRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadERxRequestResponse"/>
+  </wsdl:message>
+  <wsdl:message name="UploadERxAuthorizationSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadERxAuthorization"/>
+  </wsdl:message>
+  <wsdl:message name="UploadERxAuthorizationSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadERxAuthorizationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DownloadTransactionFileSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadTransactionFile"/>
+  </wsdl:message>
+  <wsdl:message name="DownloadTransactionFileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadTransactionFileResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetNewTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewTransactions"/>
+  </wsdl:message>
+  <wsdl:message name="GetNewTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewTransactionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SearchTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchTransactions"/>
+  </wsdl:message>
+  <wsdl:message name="SearchTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchTransactionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetTransactionDownloadedSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTransactionDownloaded"/>
+  </wsdl:message>
+  <wsdl:message name="SetTransactionDownloadedSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTransactionDownloadedResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GeteRxTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:GeteRxTransaction"/>
+  </wsdl:message>
+  <wsdl:message name="GeteRxTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:GeteRxTransactionResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="eRxValidateTransactionSoap">
+    <wsdl:operation name="UploadERxRequest">
+      <wsdl:input message="tns:UploadERxRequestSoapIn"/>
+      <wsdl:output message="tns:UploadERxRequestSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UploadERxAuthorization">
+      <wsdl:input message="tns:UploadERxAuthorizationSoapIn"/>
+      <wsdl:output message="tns:UploadERxAuthorizationSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTransactionFile">
+      <wsdl:input message="tns:DownloadTransactionFileSoapIn"/>
+      <wsdl:output message="tns:DownloadTransactionFileSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewTransactions">
+      <wsdl:input message="tns:GetNewTransactionsSoapIn"/>
+      <wsdl:output message="tns:GetNewTransactionsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <wsdl:input message="tns:SearchTransactionsSoapIn"/>
+      <wsdl:output message="tns:SearchTransactionsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetTransactionDownloaded">
+      <wsdl:input message="tns:SetTransactionDownloadedSoapIn"/>
+      <wsdl:output message="tns:SetTransactionDownloadedSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GeteRxTransaction">
+      <wsdl:input message="tns:GeteRxTransactionSoapIn"/>
+      <wsdl:output message="tns:GeteRxTransactionSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="eRxValidateTransactionSoap" type="tns:eRxValidateTransactionSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="UploadERxRequest">
+      <soap:operation soapAction="http://www.eClaimLink.ae/UploadERxRequest" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadERxAuthorization">
+      <soap:operation soapAction="http://www.eClaimLink.ae/UploadERxAuthorization" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTransactionFile">
+      <soap:operation soapAction="http://www.eClaimLink.ae/DownloadTransactionFile" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewTransactions">
+      <soap:operation soapAction="http://www.eClaimLink.ae/GetNewTransactions" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <soap:operation soapAction="http://www.eClaimLink.ae/SearchTransactions" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTransactionDownloaded">
+      <soap:operation soapAction="http://www.eClaimLink.ae/SetTransactionDownloaded" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeteRxTransaction">
+      <soap:operation soapAction="http://www.eClaimLink.ae/GeteRxTransaction" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="eRxValidateTransactionSoap12" type="tns:eRxValidateTransactionSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="UploadERxRequest">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/UploadERxRequest" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadERxAuthorization">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/UploadERxAuthorization" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTransactionFile">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/DownloadTransactionFile" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewTransactions">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/GetNewTransactions" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/SearchTransactions" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTransactionDownloaded">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/SetTransactionDownloaded" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeteRxTransaction">
+      <soap12:operation soapAction="http://www.eClaimLink.ae/GeteRxTransaction" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="eRxValidateTransaction">
+    <wsdl:port name="eRxValidateTransactionSoap" binding="tns:eRxValidateTransactionSoap">
+      <soap:address location="https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="eRxValidateTransactionSoap12" binding="tns:eRxValidateTransactionSoap12">
+      <soap12:address location="https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint></con:endpoints><con:operation id="b59b9c99-7f49-485e-a7ba-eef8e7518a79" isOneWay="false" action="http://www.eClaimLink.ae/DownloadTransactionFile" name="DownloadTransactionFile" bindingOperationName="DownloadTransactionFile" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2737702d-9a7f-4fea-96a4-079117cc3051" name="Thospital"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:DownloadTransactionFile>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <ecl:login>thospital</ecl:login>
+         <!--Optional:-->
+         <ecl:pwd>Thospital@123</ecl:pwd><ecl:fileId>77ca2f79-d5e6-4ed0-9541-62c46b3e998c</ecl:fileId>
+      </ecl:DownloadTransactionFile>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/DownloadTransactionFile"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e84e3e53-57ff-462d-ba9e-11116f73839c" isOneWay="false" action="http://www.eClaimLink.ae/GeteRxTransaction" name="GeteRxTransaction" bindingOperationName="GeteRxTransaction" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a41b092f-5291-442c-95ac-cfc647cecf8a" name="Thospital"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:GeteRxTransaction>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <ecl:login>thospital</ecl:login>
+         <!--Optional:-->
+         <ecl:pwd>Thospital@123</ecl:pwd>
+         <ecl:memberID>testmbr11</ecl:memberID><ecl:eRxReferenceNo>21228493</ecl:eRxReferenceNo>
+      </ecl:GeteRxTransaction>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/GeteRxTransaction"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="10f94ee2-b1d8-4bb8-9eab-561365607797" isOneWay="false" action="http://www.eClaimLink.ae/GetNewTransactions" name="GetNewTransactions" bindingOperationName="GetNewTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f9ded254-fe07-445d-a0f9-0416769a77f7" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:GetNewTransactions>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <ecl:login>axainsurance</ecl:login><ecl:pwd>axa@2015</ecl:pwd>
+      </ecl:GetNewTransactions>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/GetNewTransactions"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="293e40ff-75d4-40b6-ae32-9a372a6bad29" isOneWay="false" action="http://www.eClaimLink.ae/SearchTransactions" name="SearchTransactions" bindingOperationName="SearchTransactions" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="962511c7-fcdd-4b41-9d0b-388f887f64ea" name="Thospital"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:SearchTransactions>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <ecl:login>thospital</ecl:login>
+         <ecl:pwd>Thospital@123</ecl:pwd><ecl:direction>1</ecl:direction>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+         <ecl:memberID>testmbr11</ecl:memberID><ecl:eRxReferenceNo>21228493</ecl:eRxReferenceNo>
+         <ecl:transactionStatus>1</ecl:transactionStatus>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         
+         <ecl:transactionFromDate>2018-01-01</ecl:transactionFromDate><ecl:transactionToDate>2018-07-01</ecl:transactionToDate><ecl:minRecordCount>-1</ecl:minRecordCount>
+         <ecl:maxRecordCount>-1</ecl:maxRecordCount>
+      </ecl:SearchTransactions>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/SearchTransactions"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="4a7d9d19-a26b-4fd0-aa70-83d4ccd2dc2a" isOneWay="false" action="http://www.eClaimLink.ae/SetTransactionDownloaded" name="SetTransactionDownloaded" bindingOperationName="SetTransactionDownloaded" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6a96b601-38cc-45fe-902f-75b7b27eaf0a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:SetTransactionDownloaded>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileID>?</ecl:fileID>\r
+      </ecl:SetTransactionDownloaded>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/SetTransactionDownloaded"/></con:call></con:operation><con:operation id="08cbc4bd-55d9-4c88-afc1-6a9462315cd0" isOneWay="false" action="http://www.eClaimLink.ae/UploadERxAuthorization" name="UploadERxAuthorization" bindingOperationName="UploadERxAuthorization" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c56a4320-18a3-4159-acb3-7704b9550b09" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:UploadERxAuthorization>\r
+         <!--Optional:-->\r
+         <ecl:PayerLogin>?</ecl:PayerLogin>\r
+         <!--Optional:-->\r
+         <ecl:PayerPwd>?</ecl:PayerPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileContent>cid:507475188274</ecl:fileContent>\r
+         <!--Optional:-->\r
+         <ecl:fileName>?</ecl:fileName>\r
+      </ecl:UploadERxAuthorization>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/UploadERxAuthorization"/></con:call></con:operation><con:operation id="c1fd0459-a020-4ca4-879d-011a522c62f8" isOneWay="false" action="http://www.eClaimLink.ae/UploadERxRequest" name="UploadERxRequest" bindingOperationName="UploadERxRequest" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9d3dbe0f-14b6-4eae-9f75-a75e872cbb46" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<eRx.Request xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Header><SenderID>DHA-F-9999998</SenderID><ReceiverID>INS999</ReceiverID><TransactionDate>11/05/2018 22:17</TransactionDate><RecordCount>1</RecordCount><DispositionFlag>PRODUCTION</DispositionFlag></Header><Prescription><ID>DHA-F-9999998-INS999-20180511221730</ID><Type>eRxRequest</Type><PayerID>INS999</PayerID><Clinician>erxclintest01</Clinician><Patient><MemberID>888821</MemberID><EmiratesIDNumber>000-0000-0000000-0</EmiratesIDNumber><DateOfBirth>25/08/1988</DateOfBirth><Weight>20</Weight></Patient><Encounter><FacilityID>DHA-F-9999998</FacilityID><Type>1</Type></Encounter><Diagnosis><Type>Principal</Type><Code>R51</Code></Diagnosis><Activity><ID>5454952</ID><Start>11/05/2018 22:17</Start><Type>5</Type><Code>1162-414101-0051</Code><Quantity>2</Quantity><Duration>1</Duration><Refills>0</Refills><RoutOfAdmin>ROA074</RoutOfAdmin><Instructions>Take 2 CAPLET(s), 1 Time(s) per Day For 1 Day(s).</Instructions><Frequency><UnitPerFrequency>2</UnitPerFrequency><FrequencyValue>1</FrequencyValue><FrequencyType>Day</FrequencyType></Frequency></Activity></Prescription></eRx.Request>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/UploadERxRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="882a0efe-6867-407f-8392-ca3513142687" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:UploadERxRequest>
+         <!--Optional:-->
+         <ecl:facilityLogin>thospital</ecl:facilityLogin>
+         <!--Optional:-->
+         
+         <!--Optional:-->
+         <ecl:facilityPwd>Thospital@123</ecl:facilityPwd>
+         <!--Optional:-->
+         <ecl:clinicianLogin>eRxClintest01</ecl:clinicianLogin>
+         <!--Optional:-->
+         <ecl:clinicianPwd>pwdeRxClintest01</ecl:clinicianPwd><ecl:fileContent>cid:ListManagement_Execution_log.xml</ecl:fileContent><ecl:fileName>Master_FS_1901904.XML</ecl:fileName>
+         <!--Optional:-->
+         
+      </ecl:UploadERxRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:attachment><con:name>ListManagement_Execution_log.xml</con:name><con:contentType>text/xml</con:contentType><con:contentId>ListManagement_Execution_log.xml</con:contentId><con:part>ListManagement_Execution_log.xml</con:part><con:url>C:/Users/fazeel.shaikh/Desktop/ListManagement_Execution_log.xml</con:url><con:id>f16ca29f-4fc8-4c9f-80e5-a3d61012d7a0</con:id></con:attachment><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eClaimLink.ae/UploadERxRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="7a666b90-454e-4bc5-8158-12d5a1b21b8f" name="eRxValidateTransactionSoap12 TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="ea1bea6a-5b9d-4b25-aabf-c90fa7bab741" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DownloadTransactionFile TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="9140ed20-7318-4313-866a-ced64778fb54" name="DownloadTransactionFile"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eRxValidateTransactionSoap12</con:interface><con:operation>DownloadTransactionFile</con:operation><con:request name="DownloadTransactionFile" id="d47798de-6277-4c70-b9eb-4a99c5d47588"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:DownloadTransactionFile>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:DownloadTransactionFile>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eRxValidateTransactionSoap/DownloadTransactionFileRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="73c748fa-d0f7-4709-b20c-898ba357b6f9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GeteRxTransaction TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="99dd8162-f3ff-44a4-90d8-562dc8760743" name="GeteRxTransaction"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eRxValidateTransactionSoap12</con:interface><con:operation>GeteRxTransaction</con:operation><con:request name="GeteRxTransaction" id="39460e20-cf9b-4f96-93a2-365e5ececaf7"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:GeteRxTransaction>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+         <ecl:eRxReferenceNo>?</ecl:eRxReferenceNo>\r
+      </ecl:GeteRxTransaction>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eRxValidateTransactionSoap/GeteRxTransactionRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="7c907bb5-5056-41f5-83bc-4d0a41c87006" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetNewTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="8228b25c-d08d-44c4-9937-d43115524b2f" name="GetNewTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eRxValidateTransactionSoap12</con:interface><con:operation>GetNewTransactions</con:operation><con:request name="GetNewTransactions" id="28331c45-c875-48aa-9bf4-4c38cd94aa6f"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:GetNewTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+      </ecl:GetNewTransactions>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eRxValidateTransactionSoap/GetNewTransactionsRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="abe9843d-36cf-49e0-abf2-0da124e15f3a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SearchTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="c18fc2a7-927a-4391-bb08-51710e263d7d" name="SearchTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eRxValidateTransactionSoap12</con:interface><con:operation>SearchTransactions</con:operation><con:request name="SearchTransactions" id="c3ed52c7-268f-4379-8e4c-db3d485c1b00"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:SearchTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <ecl:direction>?</ecl:direction>\r
+         <!--Optional:-->\r
+         <ecl:callerLicense>?</ecl:callerLicense>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLicense>?</ecl:clinicianLicense>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+         <ecl:eRxReferenceNo>?</ecl:eRxReferenceNo>\r
+         <ecl:transactionStatus>?</ecl:transactionStatus>\r
+         <!--Optional:-->\r
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>\r
+         <!--Optional:-->\r
+         <ecl:transactionToDate>?</ecl:transactionToDate>\r
+         <ecl:minRecordCount>?</ecl:minRecordCount>\r
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>\r
+      </ecl:SearchTransactions>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eRxValidateTransactionSoap/SearchTransactionsRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="de9c8a9e-022e-412d-8c51-3b129a1b7c7e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SetTransactionDownloaded TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="b8b552b5-e9ea-42ef-8d78-e261873dc875" name="SetTransactionDownloaded"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eRxValidateTransactionSoap12</con:interface><con:operation>SetTransactionDownloaded</con:operation><con:request name="SetTransactionDownloaded" id="0f5a7f45-8959-44a1-b9c2-23a4facc933c"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:SetTransactionDownloaded>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileID>?</ecl:fileID>\r
+      </ecl:SetTransactionDownloaded>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eRxValidateTransactionSoap/SetTransactionDownloadedRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="03553d6e-ff60-4f4f-aefc-60654f2fc97f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadERxAuthorization TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="2cf1c55d-539e-42dc-8315-106b3b874e2a" name="UploadERxAuthorization"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eRxValidateTransactionSoap12</con:interface><con:operation>UploadERxAuthorization</con:operation><con:request name="UploadERxAuthorization" id="6ae565f6-a46c-4dda-b4cc-022b3f0cc6cc"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:UploadERxAuthorization>\r
+         <!--Optional:-->\r
+         <ecl:PayerLogin>?</ecl:PayerLogin>\r
+         <!--Optional:-->\r
+         <ecl:PayerPwd>?</ecl:PayerPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileContent>cid:889873213456</ecl:fileContent>\r
+         <!--Optional:-->\r
+         <ecl:fileName>?</ecl:fileName>\r
+      </ecl:UploadERxAuthorization>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eRxValidateTransactionSoap/UploadERxAuthorizationRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="ef5f823d-d1e4-4dc9-9c75-244fc3aa15b6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadERxRequest TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="eb6eace0-76e2-41e5-9645-5b65fd338869" name="UploadERxRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eRxValidateTransactionSoap12</con:interface><con:operation>UploadERxRequest</con:operation><con:request name="UploadERxRequest" id="a4add2fe-dd62-4862-a035-10c1e4291412"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ecl:UploadERxRequest>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileContent>cid:759626490628</ecl:fileContent>\r
+         <!--Optional:-->\r
+         <ecl:fileName>?</ecl:fileName>\r
+      </ecl:UploadERxRequest>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/eRxValidateTransactionSoap/UploadERxRequestRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite id="70515f57-3c36-4f8d-bafd-597cca2e6053" name="eRxValidateTransactionSoap TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="e1f86ec9-b615-424f-b798-ae47b245496b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DownloadTransactionFile TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="37ef3d9b-2285-4089-8d98-8bc87a04c2ca" name="DownloadTransactionFile"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eRxValidateTransactionSoap</con:interface><con:operation>DownloadTransactionFile</con:operation><con:request name="DownloadTransactionFile" id="733dbcbf-e3f5-4e07-ba0d-d5269c897de1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:DownloadTransactionFile>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileId>?</ecl:fileId>\r
+      </ecl:DownloadTransactionFile>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/DownloadTransactionFile"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="d89f548d-7abf-447b-875b-8ef35ee84bbf" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GeteRxTransaction TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="d9acad28-2a4e-4b54-8fd3-995a45506796" name="GeteRxTransaction"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eRxValidateTransactionSoap</con:interface><con:operation>GeteRxTransaction</con:operation><con:request name="GeteRxTransaction" id="472f332a-dc45-4a35-911e-e7ff7bbac88c"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:GeteRxTransaction>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+         <ecl:eRxReferenceNo>?</ecl:eRxReferenceNo>\r
+      </ecl:GeteRxTransaction>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/GeteRxTransaction"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="20ae5c7c-00ea-4670-8c58-0cb6f6fad24c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetNewTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="272fa5ac-8b97-45a2-92f6-caa284f34cd6" name="GetNewTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eRxValidateTransactionSoap</con:interface><con:operation>GetNewTransactions</con:operation><con:request name="GetNewTransactions" id="f5c0ec77-e9d3-40fa-8722-21da5f0e7c01"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ecl:GetNewTransactions>
+         <!--Optional:-->
+         <ecl:login>?</ecl:login>
+         <!--Optional:-->
+         <ecl:pwd>?</ecl:pwd>
+      </ecl:GetNewTransactions>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.eClaimLink.ae/GetNewTransactions" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="fd438e36-8b60-4f04-a152-b266f2502834" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SearchTransactions TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="480a30bf-ab9d-4ada-8601-82273fad5e7a" name="SearchTransactions"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eRxValidateTransactionSoap</con:interface><con:operation>SearchTransactions</con:operation><con:request name="SearchTransactions" id="38c7a438-7084-4a11-b15b-07e649f606a5"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:SearchTransactions>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <ecl:direction>?</ecl:direction>\r
+         <!--Optional:-->\r
+         <ecl:callerLicense>?</ecl:callerLicense>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLicense>?</ecl:clinicianLicense>\r
+         <!--Optional:-->\r
+         <ecl:memberID>?</ecl:memberID>\r
+         <ecl:eRxReferenceNo>?</ecl:eRxReferenceNo>\r
+         <ecl:transactionStatus>?</ecl:transactionStatus>\r
+         <!--Optional:-->\r
+         <ecl:transactionFromDate>?</ecl:transactionFromDate>\r
+         <!--Optional:-->\r
+         <ecl:transactionToDate>?</ecl:transactionToDate>\r
+         <ecl:minRecordCount>?</ecl:minRecordCount>\r
+         <ecl:maxRecordCount>?</ecl:maxRecordCount>\r
+      </ecl:SearchTransactions>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/SearchTransactions"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="9da3c137-4796-476f-8a83-cd40f0df45ac" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SetTransactionDownloaded TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="88b779cf-2c6d-4691-ab55-331f8f8cc0e2" name="SetTransactionDownloaded"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eRxValidateTransactionSoap</con:interface><con:operation>SetTransactionDownloaded</con:operation><con:request name="SetTransactionDownloaded" id="73a91721-3115-44ac-9539-c71829e8bba9"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:SetTransactionDownloaded>\r
+         <!--Optional:-->\r
+         <ecl:login>?</ecl:login>\r
+         <!--Optional:-->\r
+         <ecl:pwd>?</ecl:pwd>\r
+         <!--Optional:-->\r
+         <ecl:fileID>?</ecl:fileID>\r
+      </ecl:SetTransactionDownloaded>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/SetTransactionDownloaded"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="7b4eb2b4-ec2b-4f30-a0ec-8f9b40fc4788" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadERxAuthorization TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="7684ec2b-3f37-4eda-ac27-0b543e95bb9b" name="UploadERxAuthorization"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eRxValidateTransactionSoap</con:interface><con:operation>UploadERxAuthorization</con:operation><con:request name="UploadERxAuthorization" id="ccc1fcdb-f51c-4713-aaf3-73e81c9534a6"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:UploadERxAuthorization>\r
+         <!--Optional:-->\r
+         <ecl:PayerLogin>?</ecl:PayerLogin>\r
+         <!--Optional:-->\r
+         <ecl:PayerPwd>?</ecl:PayerPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileContent>cid:1037013683851</ecl:fileContent>\r
+         <!--Optional:-->\r
+         <ecl:fileName>?</ecl:fileName>\r
+      </ecl:UploadERxAuthorization>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/UploadERxAuthorization"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="f46c7433-826b-4881-94bd-566a0d617c6b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UploadERxRequest TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="16bbc7d9-687d-42ff-9220-de63653b7c7a" name="UploadERxRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>eRxValidateTransactionSoap</con:interface><con:operation>UploadERxRequest</con:operation><con:request name="UploadERxRequest" id="2cb8f052-cda3-4c37-af54-1f62050a45fb"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://dhpo.eclaimlink.ae/eRxValidateTransaction.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ecl="http://www.eClaimLink.ae/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ecl:UploadERxRequest>\r
+         <!--Optional:-->\r
+         <ecl:facilityLogin>?</ecl:facilityLogin>\r
+         <!--Optional:-->\r
+         <ecl:facilityPwd>?</ecl:facilityPwd>\r
+         <!--Optional:-->\r
+         <ecl:clinicianLogin>?</ecl:clinicianLogin>\r
+         <!--Optional:-->\r
+         <ecl:clinicianPwd>?</ecl:clinicianPwd>\r
+         <!--Optional:-->\r
+         <ecl:fileContent>cid:1425697303077</ecl:fileContent>\r
+         <!--Optional:-->\r
+         <ecl:fileName>?</ecl:fileName>\r
+      </ecl:UploadERxRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://www.eClaimLink.ae/UploadERxRequest"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting></con:soapui-project>

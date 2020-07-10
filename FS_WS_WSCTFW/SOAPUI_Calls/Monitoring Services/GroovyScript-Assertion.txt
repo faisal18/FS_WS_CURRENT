@@ -1,0 +1,21 @@
+
+
+//log.info("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+//log.info("Request size :" + messageExchange.requestContent.size())
+//log.info("Response size :" + messageExchange.responseContent.size())
+//log.info("Time :" + messageExchange.getTimeTaken())
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )
+
+
+groovyUtils.setPropertyValue("DataSink", "RequestName", "=== Processing  " + context.getCurrentStep().getLabel().toString() + " --- \r\n" )
+//groovyUtils.setPropertyValue("DataSink", "ResponseTime", messageExchange.getTimeTaken().toString() )
+//groovyUtils.setPropertyValue("DataSink", "HTTPRequestSize", messageExchange.requestContent.size().toString())
+//groovyUtils.setPropertyValue("DataSink", "HTTPResponseSize", messageExchange.responseContent.size().toString() )
+//groovyUtils.setPropertyValue("DataSink", "HTTPHeaderCode", messageExchange.getResponseStatusCode().toString())
+
+groovyUtils.setPropertyValue("DataSink", "ResponseTimeHeader" ,"ResponseTime - " + messageExchange.getTimeTaken().toString() + " \r\n")
+groovyUtils.setPropertyValue("DataSink", "HTTPRequestSizeHeader", "HTTPRequestSize - " +  messageExchange.requestContent.size().toString()+ " \r\n")
+groovyUtils.setPropertyValue("DataSink", "HTTPResponseSizeHeader", "HTTPResponseSize - " + messageExchange.responseContent.size().toString()+ " \r\n")
+groovyUtils.setPropertyValue("DataSink", "HTTPHeaderCodeHeader", "HTTPHeaderCode - " + messageExchange.getResponseStatusCode().toString()+ " \r\n")
+//groovyUtils.setPropertyValue("DataSink", "End", " === ")
+groovyUtils.setPropertyValue("DataSink", "TimeStamp", " TimeStamp:  "  + new Date() + "  \r\n" )

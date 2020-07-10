@@ -1,0 +1,11 @@
+Test started at 2016-11-22 15:53:35.996
+Step 1 [UploadTransaction - 100KB] OK: took 6227 ms
+Step 2 [UploadTransaction - 200KB] OK: took 90264 ms
+Step 3 [UploadTransaction - 300KB] OK: took 15937 ms
+Step 4 [UploadTransaction - 400KB] OK: took 24942 ms
+Step 5 [UploadTransaction - 500KB] OK: took 36130 ms
+Step 6 [UploadTransaction - 1MB] OK: took 143834 ms
+TestCase failed [Cancelling due to failed test step], time taken = 570334
+Step 7 [UploadTransaction - 1.5MB] FAILED: took 253000 ms
+ -> [SOAP Response] error: Unexpected character encountered: '1'
+ -> [SOAP Response] Unexpected character encountered: '1'

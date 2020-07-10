@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="d963f181-6470-4633-a66f-95ed9b5652cb" activeEnvironment="Default" name="FHIR(http://fhirtest.uhn.ca/baseDstu2)" resourceRoot="" soapui-version="5.1.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="7beef6af-5fe3-4e63-a3c4-8c168a7365c7" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://fhirtest.uhn.ca" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://fhirtest.uhn.ca</con:endpoint></con:endpoints><con:resource name="BaseDstu2" path="/baseDstu2/Patient/128631/_history" id="977a055a-df78-4fbb-bb5c-c4b682da04ba"><con:settings/><con:parameters/><con:method name="BaseDstu2" id="84ea9ce1-0ae3-456d-8a24-32f728bc5952" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json+fhir;charset=UTF-8</con:mediaType><con:status>400 404</con:status><con:params/><con:element xmlns:pat="http://fhirtest.uhn.ca/baseDstu2/patient">pat:Fault</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json+fhir;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:pat="http://fhirtest.uhn.ca/baseDstu2/patient">pat:Response</con:element></con:representation><con:request name="Request 1" id="d0780038-132e-4180-831a-e0e584449346" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://fhirtest.uhn.ca</con:endpoint><con:request/><con:originalUri>http://fhirtest.uhn.ca/baseDstu2/patient</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="Patient" path="/baseDstu2/Patient" id="f6e14199-d9da-41d5-9f88-457842af7654"><con:settings/><con:parameters/><con:method name="Method 1" id="baa9bf6a-0eb6-4e91-8bdc-f28b66302ecd" method="POST"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/><con:element xmlns:fhir="http://hl7.org/fhir">fhir:Patient</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/x-www-form-urlencoded</con:mediaType><con:params/><con:element xmlns:fhir="http://hl7.org/fhir">fhir:Patient</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml+fhir</con:mediaType><con:params/><con:element xmlns:fhir="http://hl7.org/fhir">fhir:Patient</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/xml+fhir;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:fhir="http://hl7.org/fhir">fhir:OperationOutcome</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json+fhir;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:pat="http://fhirtest.uhn.ca/Patient">pat:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml+fhir;charset=UTF-8</con:mediaType><con:status>201 200</con:status><con:params/><con:element xmlns:fhir="http://hl7.org/fhir">fhir:OperationOutcome</con:element></con:representation><con:request name="Request 1" id="883a89b4-cf56-43cf-b31d-6644980282ad" mediaType="application/xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://fhirtest.uhn.ca</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+ 
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Fazeel Shaikh</p>
+      <p>Date of birth: 1988-06-07</p>
+    </div>
+  </text>
+  <identifier>
+    <use value="official" />
+    <type>
+      <coding>
+        <code value="SSN" />
+      </coding>
+    </type>
+    <system value="http://hl7.org/fhir/sid/us-ssn" />
+    <value value="9121 12 12 991" />
+  </identifier>
+  <active value="true" />
+  <name>
+    <use value="official" />
+    <family value="Shaikh" />
+    <given value="Fazeel" />
+  </name>
+  <telecom>
+    <system value="phone" />
+    <value value="12345667" />
+    <use value="home" />
+  </telecom>
+  <gender value="male" />
+  <birthDate value="1996-06-07" />
+  <deceasedBoolean value="false" />
+  <photo>
+    <extension uri ="http://disney.wikia.com/wiki/Donald_Duck?file=Donald_Duck.png" >
+
+    </extension>
+  </photo>
+</Patient>]]></con:request><con:originalUri>http://fhirtest.uhn.ca/Patient</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:request></con:method></con:resource><con:resource name="PatientUPdate" path="/baseDstu2/Patient/128631" id="f6e14199-d9da-41d5-9f88-457842af7654"><con:settings/><con:parameters/><con:method name="Method 1" id="baa9bf6a-0eb6-4e91-8bdc-f28b66302ecd" method="PUT"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/><con:element xmlns:fhir="http://hl7.org/fhir">fhir:Patient</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/x-www-form-urlencoded</con:mediaType><con:params/><con:element xmlns:fhir="http://hl7.org/fhir">fhir:Patient</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml+fhir</con:mediaType><con:params/><con:element xmlns:fhir="http://hl7.org/fhir">fhir:Patient</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/xml+fhir;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:fhir="http://hl7.org/fhir">fhir:OperationOutcome</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json+fhir;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:pat="http://fhirtest.uhn.ca/Patient">pat:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml+fhir;charset=UTF-8</con:mediaType><con:status>201 200</con:status><con:params/><con:element xmlns:fhir="http://hl7.org/fhir">fhir:OperationOutcome</con:element></con:representation><con:request name="Request 1" id="883a89b4-cf56-43cf-b31d-6644980282ad" mediaType="application/xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://fhirtest.uhn.ca</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+ 
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Fazeel Shaikh</p>
+      <p>Date of birth: 1919-06-07</p>
+    </div>
+  </text>
+  <identifier>
+    <use value="official" />
+    <type>
+      <coding>
+        <code value="SSN" />
+      </coding>
+    </type>
+    <system value="http://hl7.org/fhir/sid/us-ssn" />
+    <value value="9121 12 12 991" />
+  </identifier>
+  <active value="true" />
+  <name>
+    <use value="official" />
+    <family value="Shaikh" />
+    <given value="Fazeel" />
+  </name>
+  <telecom>
+    <system value="phone" />
+    <value value="12345667" />
+    <use value="home" />
+  </telecom>
+  <gender value="male" />
+  <birthDate value="1966-06-07" />
+  <deceasedBoolean value="false" />
+  
+</Patient>]]></con:request><con:originalUri>http://fhirtest.uhn.ca/Patient</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:request></con:method></con:resource><con:resource name="Patient_Delete" path="c" id="f6e14199-d9da-41d5-9f88-457842af7654"><con:settings/><con:parameters/><con:method name="Method 1" id="baa9bf6a-0eb6-4e91-8bdc-f28b66302ecd" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/><con:element xmlns:fhir="http://hl7.org/fhir">fhir:Patient</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/x-www-form-urlencoded</con:mediaType><con:params/><con:element xmlns:fhir="http://hl7.org/fhir">fhir:Patient</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml+fhir</con:mediaType><con:params/><con:element xmlns:fhir="http://hl7.org/fhir">fhir:Patient</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/xml+fhir;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:fhir="http://hl7.org/fhir">fhir:OperationOutcome</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json+fhir;charset=UTF-8</con:mediaType><con:status>400 410</con:status><con:params/><con:element xmlns:pat="http://fhirtest.uhn.ca/Patient">pat:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/xml+fhir;charset=UTF-8</con:mediaType><con:status>201 200</con:status><con:params/><con:element xmlns:fhir="http://hl7.org/fhir">fhir:OperationOutcome</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json+fhir;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:pat="http://fhirtest.uhn.ca/Patient">pat:Response</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>204</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="883a89b4-cf56-43cf-b31d-6644980282ad" mediaType="application/x-www-form-urlencoded" postQueryString="true"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://fhirtest.uhn.ca</con:endpoint><con:request/><con:originalUri>http://fhirtest.uhn.ca/Patient</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:request></con:method></con:resource><con:resource name="AllPatientHistory" path="/baseDstu2/Patient/_history" id="9ab50536-911c-434f-8a9e-887a31cbc6ac"><con:settings/><con:parameters/><con:method name="Method 1" id="eb1ef11a-30dc-4631-b848-beb5e14d6182" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json+fhir;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:_his="http://fhirtest.uhn.ca/Patient/_history">_his:Response</con:element></con:representation><con:request name="Request 1" id="f71ced87-f830-4ade-bf6d-9227e1107256" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://fhirtest.uhn.ca</con:endpoint><con:request/><con:originalUri>http://fhirtest.uhn.ca/Patient/_history</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting></con:soapui-project>

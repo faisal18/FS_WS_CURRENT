@@ -1,0 +1,2 @@
+Transaction,Type,ObjectName,DhpoField,FieldValue,AdditionalReference,ErrorText
+Schema Validation,ERROR,Schema Validation,,,Line: 26 - Position: 22,The 'UIDNumber' element is invalid - The value '00000000' is invalid according to its datatype 'http://www.eclaimlink.ae/DHD/ValidationSchema:PersonUIDNumber' - The Pattern constraint failed.

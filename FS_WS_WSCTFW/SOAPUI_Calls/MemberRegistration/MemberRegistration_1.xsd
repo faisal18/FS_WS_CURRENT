@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberRegistration" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/MemberRegistration">
+  <xs:complexType name="UploadResponse">
+    <xs:sequence>
+      <xs:element name="Result" type="xs:int"/>
+      <xs:element name="FileId" nillable="true" type="xs:string"/>
+      <xs:element name="ErrorMessage" nillable="true" type="xs:string"/>
+      <xs:element name="ErrorReport" nillable="true" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadResponse" nillable="true" type="tns:UploadResponse"/>
+  <xs:complexType name="ValidateMemberResponse">
+    <xs:sequence>
+      <xs:element name="Result" type="xs:int"/>
+      <xs:element name="UID" nillable="true" type="xs:string"/>
+      <xs:element name="ErrorMessage" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidateMemberResponse" nillable="true" type="tns:ValidateMemberResponse"/>
+  <xs:complexType name="MemberInsuranceResponse">
+    <xs:sequence>
+      <xs:element name="Result" type="xs:int"/>
+      <xs:element name="memberInformation" nillable="true" type="xs:string"/>
+      <xs:element name="ErrorMessage" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MemberInsuranceResponse" nillable="true" type="tns:MemberInsuranceResponse"/>
+</xs:schema>

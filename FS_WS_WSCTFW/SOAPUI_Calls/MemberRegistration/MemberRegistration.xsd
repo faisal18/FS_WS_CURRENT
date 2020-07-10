@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+  <xs:import schemaLocation="MemberRegistration_1.xsd" namespace="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+  <xs:element name="UploadMemberRegistration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="fileContent" nillable="true" type="xs:base64Binary"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadMemberRegistrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadMemberRegistrationResult" nillable="true" type="q1:UploadResponse" xmlns:q1="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateMemberUID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="payerLogin" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="payerPwd" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="gender" type="xs:int"/>
+        <xs:element minOccurs="0" name="dateOfBirth" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="nationality" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="passportNumber" nillable="true" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateMemberUIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidateMemberUIDResult" nillable="true" type="q2:ValidateMemberResponse" xmlns:q2="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberInsuranceInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="UID" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="dateOfBirth" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="gender" type="xs:int"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberInsuranceInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMemberInsuranceInformationResult" nillable="true" type="q3:MemberInsuranceResponse" xmlns:q3="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

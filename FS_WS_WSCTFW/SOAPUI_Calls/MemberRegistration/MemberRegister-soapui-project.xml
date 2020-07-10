@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="cbee213b-869d-45a0-be59-8fc8b24c617c" activeEnvironment="Default" name="QA-MemberRegister_old" resourceRoot="${projectDir}" soapui-version="5.1.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="5a51ab0f-6caf-44a2-85ab-ef63de4abe5a" wsaVersion="NONE" name="basicEndpoint" type="wsdl" bindingName="{http://tempuri.org/}basicEndpoint" soapVersion="1_1" anonymous="optional" definition="http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="CreateWsdlDocumentationAction@report-directory">D:\Fazeel Data\Documents\DHC\MemberRegistration</con:setting></con:settings><con:definitionCache type="TEXT" rootPart="http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc?wsdl"><con:part><con:url>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="MemberRegistration" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc?xsd=xsd0" namespace="http://tempuri.org/"/>
+      <xsd:import schemaLocation="http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+      <xsd:import schemaLocation="http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMemberRegistration_UploadMemberRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadMemberRegistration"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_UploadMemberRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadMemberRegistrationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_ValidateMemberUID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateMemberUID"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_ValidateMemberUID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateMemberUIDResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_GetMemberInsuranceInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberInsuranceInformation"/>
+  </wsdl:message>
+  <wsdl:message name="IMemberRegistration_GetMemberInsuranceInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberInsuranceInformationResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="IMemberRegistration">
+    <wsdl:operation name="UploadMemberRegistration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberRegistration/UploadMemberRegistration" message="tns:IMemberRegistration_UploadMemberRegistration_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberRegistration/UploadMemberRegistrationResponse" message="tns:IMemberRegistration_UploadMemberRegistration_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMemberUID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberRegistration/ValidateMemberUID" message="tns:IMemberRegistration_ValidateMemberUID_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberRegistration/ValidateMemberUIDResponse" message="tns:IMemberRegistration_ValidateMemberUID_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberInsuranceInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation" message="tns:IMemberRegistration_GetMemberInsuranceInformation_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformationResponse" message="tns:IMemberRegistration_GetMemberInsuranceInformation_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="basicEndpoint" type="tns:IMemberRegistration">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="UploadMemberRegistration">
+      <soap:operation soapAction="http://tempuri.org/IMemberRegistration/UploadMemberRegistration" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMemberUID">
+      <soap:operation soapAction="http://tempuri.org/IMemberRegistration/ValidateMemberUID" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberInsuranceInformation">
+      <soap:operation soapAction="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MemberRegistration">
+    <wsdl:port name="basicEndpoint" binding="tns:basicEndpoint">
+      <soap:address location="http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc/basic"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc?xsd=xsd0</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+  <xs:import schemaLocation="http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+  <xs:element name="UploadMemberRegistration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="fileContent" nillable="true" type="xs:base64Binary"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadMemberRegistrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadMemberRegistrationResult" nillable="true" type="q1:UploadResponse" xmlns:q1="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateMemberUID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="payerLogin" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="payerPwd" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="gender" type="xs:int"/>
+        <xs:element minOccurs="0" name="dateOfBirth" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="nationality" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="passportNumber" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="visaSource" type="xs:int"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateMemberUIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidateMemberUIDResult" nillable="true" type="q2:ValidateMemberResponse" xmlns:q2="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberInsuranceInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="UID" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="dateOfBirth" nillable="true" type="xs:string"/>
+        <xs:element minOccurs="0" name="gender" type="xs:int"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberInsuranceInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMemberInsuranceInformationResult" nillable="true" type="q3:MemberInsuranceResponse" xmlns:q3="http://schemas.datacontract.org/2004/07/MemberRegistration"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc?xsd=xsd2</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberRegistration" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/MemberRegistration">
+  <xs:complexType name="UploadResponse">
+    <xs:sequence>
+      <xs:element name="Result" type="xs:int"/>
+      <xs:element name="FileId" nillable="true" type="xs:string"/>
+      <xs:element name="ErrorMessage" nillable="true" type="xs:string"/>
+      <xs:element name="ErrorReport" nillable="true" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadResponse" nillable="true" type="tns:UploadResponse"/>
+  <xs:complexType name="ValidateMemberResponse">
+    <xs:sequence>
+      <xs:element name="Result" type="xs:int"/>
+      <xs:element name="UID" nillable="true" type="xs:string"/>
+      <xs:element name="ErrorMessage" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidateMemberResponse" nillable="true" type="tns:ValidateMemberResponse"/>
+  <xs:complexType name="MemberInsuranceResponse">
+    <xs:sequence>
+      <xs:element name="Result" type="xs:int"/>
+      <xs:element name="memberInformation" nillable="true" type="xs:string"/>
+      <xs:element name="ErrorMessage" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MemberInsuranceResponse" nillable="true" type="tns:MemberInsuranceResponse"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc?xsd=xsd1</con:url><con:content><![CDATA[<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+  <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+  <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+  <xs:element name="byte" nillable="true" type="xs:byte"/>
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+  <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+  <xs:element name="double" nillable="true" type="xs:double"/>
+  <xs:element name="float" nillable="true" type="xs:float"/>
+  <xs:element name="int" nillable="true" type="xs:int"/>
+  <xs:element name="long" nillable="true" type="xs:long"/>
+  <xs:element name="QName" nillable="true" type="xs:QName"/>
+  <xs:element name="short" nillable="true" type="xs:short"/>
+  <xs:element name="string" nillable="true" type="xs:string"/>
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+  <xs:element name="char" nillable="true" type="tns:char"/>
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int"/>
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration"/>
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="guid" nillable="true" type="tns:guid"/>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="FactoryType" type="xs:QName"/>
+  <xs:attribute name="Id" type="xs:ID"/>
+  <xs:attribute name="Ref" type="xs:IDREF"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc</con:endpoint><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc/basic</con:endpoint></con:endpoints><con:operation id="08d33bc7-8733-4709-baab-e5910236d3cf" isOneWay="false" action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation" name="GetMemberInsuranceInformation" bindingOperationName="GetMemberInsuranceInformation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="12a5a969-30f2-486c-9181-553afa8d3bac" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceInformation>
+         </tem:GetMemberInsuranceInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation"/><con:wsrmConfig version="1.2"/></con:call><con:call id="078dfbf8-0055-4444-b678-2700135a22fd" name="Backup of [Request 1]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetMemberInsuranceInformation>
+         </tem:GetMemberInsuranceInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="64b5f129-382a-4056-934f-b2d113cc4c75" isOneWay="false" action="http://tempuri.org/IMemberRegistration/UploadMemberRegistration" name="UploadMemberRegistration" bindingOperationName="UploadMemberRegistration" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f28cb80e-fac0-4e6b-823a-90b2f0715343" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:UploadMemberRegistration>
+         </tem:UploadMemberRegistration>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:attachment><con:name>19191919</con:name><con:contentType>text/xml</con:contentType><con:size>1723</con:size><con:contentId>memberregister</con:contentId><con:part>19191919</con:part><con:data>UEsDBBQACAgIALkLMUcAAAAAAAAAAAAAAAASAAAAbWVtYmVycmVnaXN0ZXIueG1slVXbbhoxEH2v1H+I8r54lztoa4WEJEQKJA2kTfvm7FpgxWsj24Tw953x3lh4KorAc+aMPWfG48Rznr1z03rha2EdNxdfmVR2/GXFj8uNc9sxIfv9vrXvtLRZk3YYRuRt/rhMNjxjgVDWMZXwyyLKKduI4olkIpNCfbQYJ9PZlPxiUqTMCa3yLSDSirHSC5Zxu2UJz+FHnXjSf+5GcjGlltaXTS/p92/xjLOUG1wtuYLVw5Q+LJaj0SgmFQDOF55w8emt6WwSkyMbvCvDlGUJnjZljtOoT8IRVCTqXUS9cRjG5JSRb6lNeqN3ytHI71iZ4J0Ku9VWYMCdZGu6ul2uYnKKApHUCp65sVrh6k4Y67BwdMYUUzGpAa800Sr1Vl4V1FpBGM4yIQ/emuz3LIX4GgH/jVYOxCx2GExHw0HQ73WD4WjQBiFNJ7CvhXEbrzockrBHotFwGJMaBcq9LzWWoVgBtvDdgza6Aw2xhscAqmUWimHKg362O91efxCTExyYc2aEY3LpmNtZPKQJAOM2Y0LSDUOxV6nIuLJwlA02nEm3SZjhrURnMcl5PkAYzL2LWL70LbUi5coJJstrSqN2B5t77gD+b20+Khuyj0kDwVYxycyBtqFD+cpXP8uExQQRP7LqvOzDtJAfRVEQlV/+t8q4JkHga2WExScmr8eE/KbgCu785NrLKmdDFlJRqKxyL9crTd/+/C3qUEHFNTJwVfJuHhrDV9roMjrdJe7JiLVQWPEmUDNudMrpvZZQ6QKpuN5VM6uDAlQaoNjagzQtRXI4YwVeROXEeiujpYT74vLBH5Cw7wcfqtx04UxzyasXAF5L+AMqdL3hwHEw2tpnwzOxy2jP96IBAWWSuB2TJdD2nCaGb8NxhW/hQX6Xwm4wpTx3B6O0Omw57WC6lVX5QCMoDp7mC6xAVJJy6SePwCAKwm5QXp2zRyCfnEYOK27d1cmz3JwycpYzqa8hqZ87cvKfiv4DUEsHCDpYQyDlAgAAuwYAAFBLAQIUABQACAgIALkLMUc6WEMg5QIAALsGAAASAAAAAAAAAAAAAAAAAAAAAABtZW1iZXJyZWdpc3Rlci54bWxQSwUGAAAAAAEAAQBAAAAAJQMAAAAA</con:data><con:id>43f94d8f-c8db-4483-8600-a364f9b0f934</con:id></con:attachment><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/UploadMemberRegistration"/><con:wsrmConfig version="1.2"/></con:call><con:call id="0063146b-8bc0-4bae-b3c3-45d8eb4b67e5" name="Backup of [Request 1]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:UploadMemberRegistration>
+         </tem:UploadMemberRegistration>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/UploadMemberRegistration"/><con:wsrmConfig version="1.2"/></con:call><con:call id="2dd3e8c4-ef8b-49dc-9e9d-9575bc992d68" name="TestUPloadXML"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:UploadMemberRegistration>
+         </tem:UploadMemberRegistration>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:attachment><con:name>19191919</con:name><con:contentType>text/xml</con:contentType><con:size>1723</con:size><con:contentId>memberregister</con:contentId><con:part>19191919</con:part><con:data>UEsDBBQACAgIALkLMUcAAAAAAAAAAAAAAAASAAAAbWVtYmVycmVnaXN0ZXIueG1slVXbbhoxEH2v1H+I8r54lztoa4WEJEQKJA2kTfvm7FpgxWsj24Tw953x3lh4KorAc+aMPWfG48Rznr1z03rha2EdNxdfmVR2/GXFj8uNc9sxIfv9vrXvtLRZk3YYRuRt/rhMNjxjgVDWMZXwyyLKKduI4olkIpNCfbQYJ9PZlPxiUqTMCa3yLSDSirHSC5Zxu2UJz+FHnXjSf+5GcjGlltaXTS/p92/xjLOUG1wtuYLVw5Q+LJaj0SgmFQDOF55w8emt6WwSkyMbvCvDlGUJnjZljtOoT8IRVCTqXUS9cRjG5JSRb6lNeqN3ytHI71iZ4J0Ku9VWYMCdZGu6ul2uYnKKApHUCp65sVrh6k4Y67BwdMYUUzGpAa800Sr1Vl4V1FpBGM4yIQ/emuz3LIX4GgH/jVYOxCx2GExHw0HQ73WD4WjQBiFNJ7CvhXEbrzockrBHotFwGJMaBcq9LzWWoVgBtvDdgza6Aw2xhscAqmUWimHKg362O91efxCTExyYc2aEY3LpmNtZPKQJAOM2Y0LSDUOxV6nIuLJwlA02nEm3SZjhrURnMcl5PkAYzL2LWL70LbUi5coJJstrSqN2B5t77gD+b20+Khuyj0kDwVYxycyBtqFD+cpXP8uExQQRP7LqvOzDtJAfRVEQlV/+t8q4JkHga2WExScmr8eE/KbgCu785NrLKmdDFlJRqKxyL9crTd/+/C3qUEHFNTJwVfJuHhrDV9roMjrdJe7JiLVQWPEmUDNudMrpvZZQ6QKpuN5VM6uDAlQaoNjagzQtRXI4YwVeROXEeiujpYT74vLBH5Cw7wcfqtx04UxzyasXAF5L+AMqdL3hwHEw2tpnwzOxy2jP96IBAWWSuB2TJdD2nCaGb8NxhW/hQX6Xwm4wpTx3B6O0Omw57WC6lVX5QCMoDp7mC6xAVJJy6SePwCAKwm5QXp2zRyCfnEYOK27d1cmz3JwycpYzqa8hqZ87cvKfiv4DUEsHCDpYQyDlAgAAuwYAAFBLAQIUABQACAgIALkLMUc6WEMg5QIAALsGAAASAAAAAAAAAAAAAAAAAAAAAABtZW1iZXJyZWdpc3Rlci54bWxQSwUGAAAAAAEAAQBAAAAAJQMAAAAA</con:data><con:id>43f94d8f-c8db-4483-8600-a364f9b0f934</con:id></con:attachment><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/UploadMemberRegistration"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c3163393-d828-4a68-9825-3017bdf468d2" isOneWay="false" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID" name="ValidateMemberUID" bindingOperationName="ValidateMemberUID" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b4bfa892-7367-41c3-830d-d82439288006" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ValidateMemberUID>
+         </tem:ValidateMemberUID>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/><con:wsrmConfig version="1.2"/></con:call><con:call id="8edaec20-b4fa-44a3-bd49-0d49fc4e8a6f" name="Backup of [Request 1]"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc/basic</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ValidateMemberUID>
+         </tem:ValidateMemberUID>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="d9063ba7-9d64-43e2-9b3a-c2c2216edd7c" name="BasicHttpBinding_IMemberRegistration TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="42a1cc85-2d7b-41a9-8496-2779f8e481f5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="BasicHttpBinding_IMemberRegistration TestSuite" searchProperties="true"><con:settings/><con:testStep type="request" id="07525302-6041-4fee-894a-0567881129df" name="GetMemberInsuranceInformation" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceInformation</con:operation><con:request name="GetMemberInsuranceInformation" id="7f806eed-c946-4176-b42b-de9bbd42f375"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetMemberInsuranceInformation/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="1664edc6-5c46-4fd6-a0a9-62c53824393f" name="UploadMemberRegistration"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>UploadMemberRegistration</con:operation><con:request name="UploadMemberRegistration" id="bdb36dae-2239-4b46-a779-a3d1afd14813"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:UploadMemberRegistration/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="GroovyScriptAssertion" id="a6aac51f-3792-4700-9408-0579f04c51f4" name="Script Assertion"><con:configuration/></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/IMemberRegistration/UploadMemberRegistration" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="ae55e303-340e-4bc7-8bfe-3383d83cfaef" name="ValidateMemberUID" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>ValidateMemberUID</con:operation><con:request name="ValidateMemberUID" id="87eb7545-e534-46fe-a0e1-f8e2a16239f7"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ValidateMemberUID/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/IMemberRegistration/ValidateMemberUID" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="d4e14902-eb66-4f07-9946-b1220c2f5aef" name="ValidateMemberUID - Request 1" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>ValidateMemberUID</con:operation><con:request name="ValidateMemberUID - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="2d10be80-8b35-404d-b47e-5d7841ebf9de"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ValidateMemberUID/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="48648345-1e13-40eb-a9a7-ff6ea94056af" name="SOAP Response"/><con:assertion type="Simple Contains" id="e2e364a5-5b46-43c7-9c24-80d2eee61277" name="Contains"><con:configuration><token>nationality code is not valid as per the list published on the main site</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="a8c81406-b178-4073-bdfc-18a8eaf3de41" name="Copy of ValidateMemberUID - Request 1" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>ValidateMemberUID</con:operation><con:request name="Copy of ValidateMemberUID - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="2d10be80-8b35-404d-b47e-5d7841ebf9de"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ValidateMemberUID/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="48648345-1e13-40eb-a9a7-ff6ea94056af" name="SOAP Response"/><con:assertion type="Simple Contains" id="e2e364a5-5b46-43c7-9c24-80d2eee61277" name="Contains"><con:configuration><token>nationality code is not valid as per the list published on the main site</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="goto" name="Conditional Goto" id="3bc24b27-3652-4251-b7cb-5ba42edab258"><con:settings/><con:config xsi:type="con:GotoStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:condition><con:name>Condition 1</con:name><con:type>XPATH</con:type><con:expression/><con:targetStep>ValidateMemberUID - Request 1</con:targetStep></con:condition></con:config></con:testStep><con:testStep type="request" id="34d97425-b4b7-4568-8660-4e3a474741a6" name="Backup of [GetMemberInsuranceInformation]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>GetMemberInsuranceInformation</con:operation><con:request name="Backup of [GetMemberInsuranceInformation]" id="7f806eed-c946-4176-b42b-de9bbd42f375"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetMemberInsuranceInformation/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/IMemberRegistration/GetMemberInsuranceInformation" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="126c4b90-4800-4dc2-8428-de43bf6e8cf4" name="Backup of [UploadMemberRegistration]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>UploadMemberRegistration</con:operation><con:request name="Backup of [UploadMemberRegistration]" id="bdb36dae-2239-4b46-a779-a3d1afd14813"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:UploadMemberRegistration/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/IMemberRegistration/UploadMemberRegistration" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="8e828e32-de84-4949-8da4-5da1d35fd0f9" name="Backup of [ValidateMemberUID]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>ValidateMemberUID</con:operation><con:request name="Backup of [ValidateMemberUID]" id="87eb7545-e534-46fe-a0e1-f8e2a16239f7"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ValidateMemberUID/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/IMemberRegistration/ValidateMemberUID" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="e5bdb49a-7c0f-443d-9921-b217750e8688" name="Backup of [ValidateMemberUID - Request 1]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>ValidateMemberUID</con:operation><con:request name="Backup of [ValidateMemberUID - Request 1]" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="2d10be80-8b35-404d-b47e-5d7841ebf9de"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ValidateMemberUID/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="48648345-1e13-40eb-a9a7-ff6ea94056af" name="SOAP Response"/><con:assertion type="Simple Contains" id="e2e364a5-5b46-43c7-9c24-80d2eee61277" name="Contains"><con:configuration><token>nationality code is not valid as per the list published on the main site</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="71a754e7-3ca0-402e-a2ae-4702640719f1" name="Backup of [Copy of ValidateMemberUID - Request 1]" disabled="true"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>basicEndpoint</con:interface><con:operation>ValidateMemberUID</con:operation><con:request name="Backup of [Copy of ValidateMemberUID - Request 1]" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="2d10be80-8b35-404d-b47e-5d7841ebf9de"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://qa.dimensions-healthcare.net/MemberRegistration/MemberRegistration.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ValidateMemberUID/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="48648345-1e13-40eb-a9a7-ff6ea94056af" name="SOAP Response"/><con:assertion type="Simple Contains" id="e2e364a5-5b46-43c7-9c24-80d2eee61277" name="Contains"><con:configuration><token>nationality code is not valid as per the list published on the main site</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IMemberRegistration/ValidateMemberUID"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest id="deb4318e-3723-4624-a6ff-04d9eb8ac4e5" name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval><con:reportParameters/></con:loadTest><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties><con:property><con:name>GetNationalityCode</con:name><con:value> ${=((int)(Math.random()*999))} </con:value></con:property></con:properties><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>
