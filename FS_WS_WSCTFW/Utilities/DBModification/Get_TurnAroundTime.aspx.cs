@@ -10,7 +10,7 @@ namespace ClinicianAutomation
             {
                 Response.Redirect("~/Account/Login.aspx");
             }
-         //   txtFullLog.ReadOnly = true;
+            //   txtFullLog.ReadOnly = true;
 
         }
 

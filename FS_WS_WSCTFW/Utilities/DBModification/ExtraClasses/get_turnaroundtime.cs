@@ -86,7 +86,7 @@ namespace ClinicianAutomation.ExtraClasses
                     "where \n" +
                     "t.id = a.id \n" +
                     "and state_id != 5 \n" +
-                    "and t.created_dt between @StartDate and @ENdDate" +
+                    "and t.created_dt between @StartDate and @ENdDate \n" +
                     //"and t.created_dt >= @StartDate \n" +
                     //"and t.created_dt <= @ENdDate \n" +
                     "and t.payer_id in (select ID from payer  with (nolock) where tpa_dubai_code =  @Payercode) \n" +
